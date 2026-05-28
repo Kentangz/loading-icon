@@ -51,3 +51,9 @@
 .spinner--danger  { --spinner-color: #E24B4A; }
 .spinner--dark    { --spinner-color: #2C2C2A; --spinner-track-color: rgba(0,0,0,0.1); }
 .spinner--white   { --spinner-color: #ffffff; --spinner-track-color: rgba(255,255,255,0.25); }
+
+/* ─── Modifier presets ─── */
+.spinner--fast    { --spinner-speed: 0.5s; }
+.spinner--slow    { --spinner-speed: 1.6s; }
+.spinner--soft    { --spinner-color: #a8a29e; --spinner-track-color: #ece9e6; }
+.spinner--reverse { animation-direction: reverse; }

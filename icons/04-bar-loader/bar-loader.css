@@ -76,3 +76,9 @@
 .bar-loader--fade > span:nth-child(2) { opacity: 0.60; }
 .bar-loader--fade > span:nth-child(3) { opacity: 0.80; }
 .bar-loader--fade > span:nth-child(4) { opacity: 1.00; }
+
+/* ─── Modifier presets ─── */
+.bar-loader--fast    { --bar-speed: 0.65s; --bar-delay: 0.06s; }
+.bar-loader--slow    { --bar-speed: 1.8s; --bar-delay: 0.16s; }
+.bar-loader--soft    { --bar-color: #a8a29e; --bar-min-scale: 0.5; }
+.bar-loader--reverse > span { animation-direction: reverse; }

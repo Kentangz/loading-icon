@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snake Chase — LoadIcons</title>
-  <link rel="stylesheet" href="snake-chase.css" />
+  <title>Shard Flip — LoadIcons</title>
+  <link rel="stylesheet" href="shard-flip.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -13,7 +13,7 @@
       padding: 2rem; min-height: 100vh;
     }
     h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
-    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; max-width: 70ch; line-height: 1.5; }
     .section-title {
       font-size: .7rem; text-transform: uppercase;
       letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
@@ -37,140 +37,146 @@
 </head>
 <body>
 
-  <h1>39 · Snake Chase</h1>
+  <h1>54 · Shard Flip</h1>
   <p class="sub">
-    Four dots following a square perimeter track with staggered delay parameters, creating a sleek, trailing "snake" motion loop over a dashed background track.
+    Eight thin panels flip in 3D around a circular track. The staggered phase makes the flip wave travel
+    smoothly around the ring, producing a modern “prismatic” loader with zero SVG and zero JS.
   </p>
 
-  <!-- ─── SIZE VARIANTS ─── -->
   <h2 class="section-title">Size variants</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="snake-chase snake-chase--sm snake-chase--success" role="status" aria-label="Loading">
+      <div class="shard-flip shard-flip--sm shard-flip--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
       </div>
-      <span>sm · 24px</span>
+      <span>sm · 40px</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--md snake-chase--success" role="status" aria-label="Loading">
+      <div class="shard-flip shard-flip--md shard-flip--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
       </div>
-      <span>md · 40px (default)</span>
+      <span>md · 56px (default)</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--lg snake-chase--success" role="status" aria-label="Loading">
+      <div class="shard-flip shard-flip--lg shard-flip--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
       </div>
-      <span>lg · 60px</span>
-    </div>
-    <div class="demo-block">
-      <div class="snake-chase snake-chase--xl snake-chase--success" role="status" aria-label="Loading">
-        <span></span><span></span><span></span><span></span>
-      </div>
-      <span>xl · 88px</span>
+      <span>lg · 80px</span>
     </div>
   </div>
 
-  <!-- ─── COLOR PRESETS ─── -->
   <h2 class="section-title">Color presets</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="snake-chase snake-chase--primary">
+      <div class="shard-flip shard-flip--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
       </div>
       <span>primary</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--success">
+      <div class="shard-flip shard-flip--success" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
       </div>
       <span>success</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--warning">
+      <div class="shard-flip shard-flip--warning" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
       </div>
       <span>warning</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--danger">
+      <div class="shard-flip shard-flip--danger" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
       </div>
       <span>danger</span>
     </div>
-    <div class="demo-block">
-      <div class="snake-chase snake-chase--dark">
-        <span></span><span></span><span></span><span></span>
-      </div>
-      <span>dark</span>
-    </div>
     <div class="demo-block dark-bg">
-      <div class="snake-chase snake-chase--white">
+      <div class="shard-flip shard-flip--white" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
       </div>
       <span style="color:#555">white</span>
     </div>
   </div>
 
-  
-  <!-- ─── MODIFIER CLASSES ─── -->
   <h2 class="section-title">Modifier classes</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="snake-chase snake-chase--sm snake-chase--success snake-chase--fast" role="status" aria-label="Loading" style="opacity: 1; transform: scale(1.05); animation-duration: 0.7s;">
+      <div class="shard-flip shard-flip--primary shard-flip--fast" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
-
+        <span></span><span></span><span></span><span></span>
       </div>
       <span>fast</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--sm snake-chase--success snake-chase--slow" role="status" aria-label="Loading" style="opacity: 0.85; transform: scale(0.92); animation-duration: 2.4s;">
+      <div class="shard-flip shard-flip--primary shard-flip--slow" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
-
+        <span></span><span></span><span></span><span></span>
       </div>
       <span>slow</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--sm snake-chase--success snake-chase--soft" role="status" aria-label="Loading" style="opacity: 0.5; filter: saturate(0.6);">
+      <div class="shard-flip shard-flip--primary shard-flip--reverse" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
-
-      </div>
-      <span>soft</span>
-    </div>
-    <div class="demo-block">
-      <div class="snake-chase snake-chase--sm snake-chase--success snake-chase--reverse" role="status" aria-label="Loading" style="animation-direction: reverse;">
         <span></span><span></span><span></span><span></span>
-
       </div>
       <span>reverse</span>
     </div>
+    <div class="demo-block">
+      <div class="shard-flip shard-flip--primary shard-flip--soft" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>soft</span>
+    </div>
   </div>
-<!-- ─── CUSTOM OVERRIDES ─── -->
+
   <h2 class="section-title">Custom overrides</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="snake-chase" style="--track-color: #ec4899; --track-speed: 1s; --track-size: 50px;">
+      <div
+        class="shard-flip"
+        role="status"
+        aria-label="Loading"
+        style="--sf-color:#ec4899; --sf-size:70px; --sf-speed:0.9s; --sf-shard-w:8px;"
+      >
+        <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
       </div>
-      <span>pink · fast (1s)</span>
+      <span>pink · wider shards</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase" style="--track-color: #0ea5e9; --track-speed: 3s; --track-size: 50px;">
+      <div
+        class="shard-flip shard-flip--reverse"
+        role="status"
+        aria-label="Loading"
+        style="--sf-color:#0ea5e9; --sf-size:70px; --sf-speed:2.0s; --sf-radius:24px;"
+      >
+        <span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span>
       </div>
-      <span>cyan · slow (3s)</span>
+      <span>cyan · slow reverse</span>
     </div>
   </div>
 
-  <!-- ─── USAGE NOTE ─── -->
   <h2 class="section-title">Quick usage</h2>
-  <pre>&lt;!-- 1. Import the stylesheet --&gt;
-&lt;link rel="stylesheet" href="snake-chase.css" /&gt;
+  <pre>&lt;!-- 1. Import stylesheet --&gt;
+&lt;link rel="stylesheet" href="shard-flip.css" /&gt;
 
-&lt;!-- 2. Structure — requires 4 spans --&gt;
-&lt;div class="snake-chase" role="status" aria-label="Loading"&gt;
+&lt;!-- 2. Structure — requires exactly 8 spans --&gt;
+&lt;div class="shard-flip" role="status" aria-label="Loading"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
   &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
 &lt;/div&gt;</pre>
 
 </body>
 </html>
+

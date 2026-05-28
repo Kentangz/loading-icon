@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Honeycomb Pulse — LoadIcons</title>
-  <link rel="stylesheet" href="honeycomb-pulse.css" />
+  <title>Barcode Sweep — LoadIcons</title>
+  <link rel="stylesheet" href="barcode-sweep.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -13,19 +13,19 @@
       padding: 2rem; min-height: 100vh;
     }
     h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
-    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; max-width: 70ch; line-height: 1.5; }
     .section-title {
       font-size: .7rem; text-transform: uppercase;
       letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
     }
     .demo-row {
-      display: flex; align-items: center; gap: 2.5rem;
+      display: flex; align-items: center; gap: 3rem;
       flex-wrap: wrap; margin-bottom: 2.5rem;
     }
     .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
     .demo-block span { font-size: .75rem; color: #888; }
     .dark-bg {
-      background: #1a1a1a; padding: 1.25rem 1.75rem;
+      background: #1a1a1a; padding: 1.5rem 2rem;
       border-radius: 8px;
     }
     pre {
@@ -37,144 +37,130 @@
 </head>
 <body>
 
-  <h1>17 · Honeycomb Pulse</h1>
+  <h1>52 · Barcode Sweep</h1>
   <p class="sub">
-    A premium hexagonal close-packed grid loader. Seven hexagons pulse in scale and opacity in a beautiful radial expansion originating from the center out.
+    A scanner-inspired loader built from seven pulsing bars and one traveling scanline.
+    Bars animate with staggered phase offsets while the beam sweeps across to create a live indexing feel.
   </p>
 
-  <!-- ─── SIZE VARIANTS ─── -->
   <h2 class="section-title">Size variants</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--sm honeycomb-pulse--primary" role="status" aria-label="Loading">
+      <div class="barcode-sweep barcode-sweep--sm barcode-sweep--success" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
-      <span>sm · 36px</span>
+      <span>sm · 40px</span>
     </div>
     <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--md honeycomb-pulse--primary" role="status" aria-label="Loading">
+      <div class="barcode-sweep barcode-sweep--md barcode-sweep--success" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
       <span>md · 56px (default)</span>
     </div>
     <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--lg honeycomb-pulse--primary" role="status" aria-label="Loading">
+      <div class="barcode-sweep barcode-sweep--lg barcode-sweep--success" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
-      <span>lg · 80px</span>
-    </div>
-    <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--xl honeycomb-pulse--primary" role="status" aria-label="Loading">
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-      </div>
-      <span>xl · 112px</span>
+      <span>lg · 76px</span>
     </div>
   </div>
 
-  <!-- ─── COLOR PRESETS ─── -->
   <h2 class="section-title">Color presets</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--primary">
+      <div class="barcode-sweep barcode-sweep--primary" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
       <span>primary</span>
     </div>
     <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--success">
+      <div class="barcode-sweep barcode-sweep--success" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
       <span>success</span>
     </div>
     <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--warning">
+      <div class="barcode-sweep barcode-sweep--warning" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
       <span>warning</span>
     </div>
     <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--danger">
+      <div class="barcode-sweep barcode-sweep--danger" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
       <span>danger</span>
     </div>
-    <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--dark">
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-      </div>
-      <span>dark</span>
-    </div>
     <div class="demo-block dark-bg">
-      <div class="honeycomb-pulse honeycomb-pulse--white">
+      <div class="barcode-sweep barcode-sweep--white" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
       <span style="color:#555">white</span>
     </div>
   </div>
 
-  
-  <!-- ─── MODIFIER CLASSES ─── -->
   <h2 class="section-title">Modifier classes</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--sm honeycomb-pulse--primary honeycomb-pulse--fast" role="status" aria-label="Loading" style="opacity: 1; transform: scale(1.05); animation-duration: 0.7s;">
+      <div class="barcode-sweep barcode-sweep--success barcode-sweep--fast" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-
       </div>
       <span>fast</span>
     </div>
     <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--sm honeycomb-pulse--primary honeycomb-pulse--slow" role="status" aria-label="Loading" style="opacity: 0.85; transform: scale(0.92); animation-duration: 2.4s;">
+      <div class="barcode-sweep barcode-sweep--success barcode-sweep--slow" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-
       </div>
       <span>slow</span>
     </div>
     <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--sm honeycomb-pulse--primary honeycomb-pulse--soft" role="status" aria-label="Loading" style="opacity: 0.5; filter: saturate(0.6);">
+      <div class="barcode-sweep barcode-sweep--success barcode-sweep--reverse" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-
-      </div>
-      <span>soft</span>
-    </div>
-    <div class="demo-block">
-      <div class="honeycomb-pulse honeycomb-pulse--sm honeycomb-pulse--primary honeycomb-pulse--reverse" role="status" aria-label="Loading" style="animation-direction: reverse;">
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-
       </div>
       <span>reverse</span>
     </div>
+    <div class="demo-block">
+      <div class="barcode-sweep barcode-sweep--success barcode-sweep--subtle" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>subtle</span>
+    </div>
   </div>
-<!-- ─── CUSTOM OVERRIDES ─── -->
+
   <h2 class="section-title">Custom overrides</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="honeycomb-pulse" style="--honeycomb-color: #ec4899; --honeycomb-speed: 0.8s;">
+      <div
+        class="barcode-sweep"
+        role="status"
+        aria-label="Loading"
+        style="--bs-color:#ec4899; --bs-width:68px; --bs-height:40px; --bs-speed:0.8s;"
+      >
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
-      <span>pink · fast (0.8s)</span>
+      <span>pink · fast custom</span>
     </div>
     <div class="demo-block">
-      <div class="honeycomb-pulse" style="--honeycomb-color: #0ea5e9; --honeycomb-speed: 3s; --honeycomb-size: 70px;">
+      <div
+        class="barcode-sweep barcode-sweep--reverse"
+        role="status"
+        aria-label="Loading"
+        style="--bs-color:#0ea5e9; --bs-width:68px; --bs-height:40px; --bs-speed:1.8s; --bs-scan-speed:2.5s;"
+      >
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
-      <span>sky-blue · slow · 70px</span>
+      <span>cyan · slow reverse</span>
     </div>
   </div>
 
-  <!-- ─── USAGE NOTE ─── -->
   <h2 class="section-title">Quick usage</h2>
-  <pre>&lt;!-- 1. Import the stylesheet --&gt;
-&lt;link rel="stylesheet" href="honeycomb-pulse.css" /&gt;
+  <pre>&lt;!-- 1. Import stylesheet --&gt;
+&lt;link rel="stylesheet" href="barcode-sweep.css" /&gt;
 
-&lt;!-- 2. Structure — requires exactly 7 span children --&gt;
-&lt;div class="honeycomb-pulse" role="status" aria-label="Loading"&gt;
-  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;!-- 3. Size + color modifiers --&gt;
-&lt;div class="honeycomb-pulse honeycomb-pulse--lg honeycomb-pulse--success"&gt;
-  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;!-- 2. Structure — requires exactly 7 spans --&gt;
+&lt;div class="barcode-sweep" role="status" aria-label="Loading"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
 &lt;/div&gt;</pre>
 
 </body>

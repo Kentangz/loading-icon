@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LoadIcons — 50 Reusable CSS Loading Icons</title>
-  <meta name="description" content="50 lightweight, dependency-free CSS loading icons, each fully customizable via CSS Custom Properties." />
+  <title>LoadIcons — 55 Reusable CSS Loading Icons</title>
+  <meta name="description" content="55 lightweight, dependency-free CSS loading icons, each fully customizable via CSS Custom Properties." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -591,6 +591,82 @@
       font-size: 1.35rem;
       font-weight: 700;
     }
+    .drawer-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .drawer-open-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .drawer-open-demo:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+    }
+    .drawer-open-demo svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+    .drawer-open-demo {
+      position: relative;
+    }
+    .drawer-open-demo::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      max-width: 260px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1.3;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(-4px);
+      pointer-events: none;
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+      z-index: 5;
+    }
+    .drawer-open-demo::before {
+      content: "";
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 18px;
+      width: 10px;
+      height: 10px;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      transform: rotate(45deg);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      z-index: 6;
+    }
+    .drawer-open-demo:hover::after,
+    .drawer-open-demo:hover::before {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .drawer-close {
       background: transparent;
       border: 1px solid var(--border);
@@ -810,7 +886,7 @@
   <aside>
     <div class="brand">
       <h1 class="logo">Load<span>Icons</span></h1>
-      <p class="tagline">Interactive design playground for 50 lightweight, pure-CSS, customizable loaders.</p>
+      <p class="tagline">Interactive design playground for 55 lightweight, pure-CSS, customizable loaders.</p>
     </div>
 
     <!-- Group: Global Adjustments -->
@@ -842,23 +918,23 @@
       <div class="nav-pills">
         <div class="nav-pill active" data-category="all">
           <span>All Loaders</span>
-          <span class="nav-pill-count" id="count-all">50</span>
+          <span class="nav-pill-count" id="count-all">55</span>
         </div>
         <div class="nav-pill" data-category="spinners">
           <span>Classic Spinners</span>
-          <span class="nav-pill-count" id="count-spinners">13</span>
+          <span class="nav-pill-count" id="count-spinners">14</span>
         </div>
         <div class="nav-pill" data-category="waves">
           <span>Dots, Waves & Bars</span>
-          <span class="nav-pill-count" id="count-waves">11</span>
+          <span class="nav-pill-count" id="count-waves">12</span>
         </div>
         <div class="nav-pill" data-category="3d">
           <span>3D & Isometric</span>
-          <span class="nav-pill-count" id="count-3d">7</span>
+          <span class="nav-pill-count" id="count-3d">8</span>
         </div>
         <div class="nav-pill" data-category="special">
           <span>Special Physics</span>
-          <span class="nav-pill-count" id="count-special">19</span>
+          <span class="nav-pill-count" id="count-special">21</span>
         </div>
       </div>
     </div>
@@ -885,7 +961,7 @@
         <span class="search-keyboard-hint">/</span>
       </div>
       <div class="filter-summary">
-        <span id="results-count">Showing 50 indicators</span>
+        <span id="results-count">Showing 55 indicators</span>
         <div class="active-pills" id="active-pills-container">
           <!-- Dynamically populated tags -->
         </div>
@@ -913,7 +989,13 @@
         <span class="drawer-subtitle" id="drawer-subtitle">LOADING ICON #01</span>
         <h2 class="drawer-title" id="drawer-title">Classic Spinner</h2>
       </div>
-      <button class="drawer-close" id="drawer-close">&times;</button>
+      <div class="drawer-actions">
+        <a class="drawer-open-demo" id="open-demo" href="#" target="_blank" rel="noopener noreferrer" data-tooltip="Warning: flashbang (white demo background).">
+          <svg viewBox="0 0 24 24"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/></svg>
+          <span>Open demo</span>
+        </a>
+        <button class="drawer-close" id="drawer-close">&times;</button>
+      </div>
     </div>
     
     <div class="drawer-body">
@@ -981,6 +1063,7 @@
     const drawerTitle = document.getElementById("drawer-title");
     const drawerSubtitle = document.getElementById("drawer-subtitle");
     const drawerSandboxPreview = document.getElementById("drawer-sandbox-preview");
+    const openDemoBtn = document.getElementById("open-demo");
     const codeHtml = document.getElementById("code-html");
     const codeCss = document.getElementById("code-css");
     const copyBtn = document.getElementById("copy-btn");
@@ -1176,6 +1259,12 @@
       // Determine file paths and fetch source CSS gracefully
       const meta = getLoaderFileMeta(loader);
       codeCss.textContent = `/* Fetching clean standalone source CSS... */`;
+
+      // Direct link to per-icon demo index
+      if (openDemoBtn) {
+        openDemoBtn.href = `icons/${meta.folder}/index.html`;
+        openDemoBtn.setAttribute("aria-label", `Open demo page for ${loader.name}`);
+      }
       
       fetch(meta.path)
         .then(response => {

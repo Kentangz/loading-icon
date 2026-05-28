@@ -110,3 +110,9 @@
 .comet--short {
   --comet-arc: 35%;
 }
+
+/* ─── Modifier presets ─── */
+.comet--fast    { --comet-speed: 0.65s; }
+.comet--slow    { --comet-speed: 2.2s; }
+.comet--soft    { --comet-color: #a8a29e; }
+.comet--reverse { animation-direction: reverse; }

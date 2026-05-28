@@ -1,6 +1,6 @@
 # LoadIcons ⟳
 
-**50 lightweight, reusable CSS loading icons — fully customizable via CSS Custom Properties, zero dependencies.**
+**55 lightweight, reusable CSS loading icons — fully customizable via CSS Custom Properties, zero dependencies.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Pure CSS](https://img.shields.io/badge/Pure-CSS-1D9E75.svg)
@@ -76,6 +76,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 48 | [Bouncing Cube 3D](icons/48-bouncing-cube/) | 3D projections + squishing | 3D visual apps, modular projections, structural |
 | 49 | [Digital Segment](icons/49-digital-segment/) | 7-segment stepped LEDs | Cyberpunk telemetry, digital segmented counts |
 | 50 | [Perspective Tunnel](icons/50-perspective-tunnel/) | concentric ring zoom flythrough | Sci-fi warp, tunnel loading, hyperdrive screens |
+| 51 | [Prism Orbit](icons/51-prism-orbit/) | orbital flip + triple tile | Premium orbital indicators with geometric motion |
+| 52 | [Barcode Sweep](icons/52-barcode-sweep/) | scanline sweep + stagger bars | Data syncing, indexing, and scanner-like loaders |
+| 53 | [Corner Chase](icons/53-corner-chase/) | border brackets + quadrant steps | Tracking, scanning, and “locking onto target” waits |
+| 54 | [Shard Flip](icons/54-shard-flip/) | radial shards + 3D flip | Premium 3D flipping panels, futuristic wait states |
+| 55 | [Shutter Bloom](icons/55-shutter-bloom/) | iris blades + stagger bloom | Camera shutter, focus, capture, and aperture-themed loads |
 
 ---
 
@@ -639,8 +644,14 @@ loadicons/
     ├── 49-digital-segment/
     │   ├── digital-segment.css
     │   └── index.html
-    └── 50-perspective-tunnel/
-        ├── perspective-tunnel.css
+    ├── 50-perspective-tunnel/
+    │   ├── perspective-tunnel.css
+    │   └── index.html
+    ├── 51-prism-orbit/
+    │   ├── prism-orbit.css
+    │   └── index.html
+    └── 52-barcode-sweep/
+        ├── barcode-sweep.css
         └── index.html
 ```
 

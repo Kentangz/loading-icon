@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sparkling Stars — LoadIcons</title>
-  <link rel="stylesheet" href="sparkling-stars.css" />
+  <title>Prism Orbit — LoadIcons</title>
+  <link rel="stylesheet" href="prism-orbit.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -13,7 +13,7 @@
       padding: 2rem; min-height: 100vh;
     }
     h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
-    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; max-width: 70ch; line-height: 1.5; }
     .section-title {
       font-size: .7rem; text-transform: uppercase;
       letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
@@ -37,138 +37,128 @@
 </head>
 <body>
 
-  <h1>38 · Sparkling Stars</h1>
+  <h1>51 · Prism Orbit</h1>
   <p class="sub">
-    Three 4-point diamond star shapes, constructed via clip-path, flash, scale, and rotate at distinct offset coordinates to create a magical sparkling wait state.
+    Triple-tile orbital loader with synchronized local flips. Each tile revolves around a center axis while pulsing in place,
+    producing a prism-like rotational shimmer. Pure CSS, no SVG and no JavaScript required.
   </p>
 
-  <!-- ─── SIZE VARIANTS ─── -->
   <h2 class="section-title">Size variants</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--sm sparkling-stars--warning" role="status" aria-label="Loading">
+      <div class="prism-orbit prism-orbit--sm prism-orbit--primary" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
       </div>
-      <span>sm · 24px</span>
+      <span>sm · 38px</span>
     </div>
     <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--md sparkling-stars--warning" role="status" aria-label="Loading">
+      <div class="prism-orbit prism-orbit--md prism-orbit--primary" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
       </div>
-      <span>md · 40px (default)</span>
+      <span>md · 52px (default)</span>
     </div>
     <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--lg sparkling-stars--warning" role="status" aria-label="Loading">
+      <div class="prism-orbit prism-orbit--lg prism-orbit--primary" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
       </div>
-      <span>lg · 60px</span>
-    </div>
-    <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--xl sparkling-stars--warning" role="status" aria-label="Loading">
-        <span></span><span></span><span></span>
-      </div>
-      <span>xl · 88px</span>
+      <span>lg · 74px</span>
     </div>
   </div>
 
-  <!-- ─── COLOR PRESETS ─── -->
   <h2 class="section-title">Color presets</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--primary">
+      <div class="prism-orbit prism-orbit--primary" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
       </div>
       <span>primary</span>
     </div>
     <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--success">
+      <div class="prism-orbit prism-orbit--success" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
       </div>
       <span>success</span>
     </div>
     <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--warning">
+      <div class="prism-orbit prism-orbit--warning" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
       </div>
       <span>warning</span>
     </div>
     <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--danger">
+      <div class="prism-orbit prism-orbit--danger" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
       </div>
       <span>danger</span>
     </div>
-    <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--dark">
-        <span></span><span></span><span></span>
-      </div>
-      <span>dark</span>
-    </div>
     <div class="demo-block dark-bg">
-      <div class="sparkling-stars sparkling-stars--white">
+      <div class="prism-orbit prism-orbit--white" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
       </div>
       <span style="color:#555">white</span>
     </div>
   </div>
 
-  
-  <!-- ─── MODIFIER CLASSES ─── -->
   <h2 class="section-title">Modifier classes</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--sm sparkling-stars--warning sparkling-stars--fast" role="status" aria-label="Loading" style="opacity: 1; transform: scale(1.05); animation-duration: 0.7s;">
+      <div class="prism-orbit prism-orbit--primary prism-orbit--fast" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
-
       </div>
       <span>fast</span>
     </div>
     <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--sm sparkling-stars--warning sparkling-stars--slow" role="status" aria-label="Loading" style="opacity: 0.85; transform: scale(0.92); animation-duration: 2.4s;">
+      <div class="prism-orbit prism-orbit--primary prism-orbit--slow" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
-
       </div>
       <span>slow</span>
     </div>
     <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--sm sparkling-stars--warning sparkling-stars--soft" role="status" aria-label="Loading" style="opacity: 0.5; filter: saturate(0.6);">
+      <div class="prism-orbit prism-orbit--primary prism-orbit--reverse" role="status" aria-label="Loading">
         <span></span><span></span><span></span>
-
-      </div>
-      <span>soft</span>
-    </div>
-    <div class="demo-block">
-      <div class="sparkling-stars sparkling-stars--sm sparkling-stars--warning sparkling-stars--reverse" role="status" aria-label="Loading" style="animation-direction: reverse;">
-        <span></span><span></span><span></span>
-
       </div>
       <span>reverse</span>
     </div>
+    <div class="demo-block">
+      <div class="prism-orbit prism-orbit--primary prism-orbit--soft" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>soft</span>
+    </div>
   </div>
-<!-- ─── CUSTOM OVERRIDES ─── -->
+
   <h2 class="section-title">Custom overrides</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="sparkling-stars" style="--star-color: #ec4899; --star-speed: 1s; --star-size: 50px;">
+      <div
+        class="prism-orbit"
+        role="status"
+        aria-label="Loading"
+        style="--po-color:#ec4899; --po-size:62px; --po-speed:1.1s;"
+      >
         <span></span><span></span><span></span>
       </div>
-      <span>pink · fast (1s)</span>
+      <span>pink · custom speed</span>
     </div>
     <div class="demo-block">
-      <div class="sparkling-stars" style="--star-color: #0ea5e9; --star-speed: 3s; --star-size: 50px;">
+      <div
+        class="prism-orbit prism-orbit--reverse"
+        role="status"
+        aria-label="Loading"
+        style="--po-color:#0ea5e9; --po-size:62px; --po-speed:2.2s;"
+      >
         <span></span><span></span><span></span>
       </div>
-      <span>cyan · slow (3s)</span>
+      <span>cyan · slow reverse</span>
     </div>
   </div>
 
-  <!-- ─── USAGE NOTE ─── -->
   <h2 class="section-title">Quick usage</h2>
-  <pre>&lt;!-- 1. Import the stylesheet --&gt;
-&lt;link rel="stylesheet" href="sparkling-stars.css" /&gt;
+  <pre>&lt;!-- 1. Import stylesheet --&gt;
+&lt;link rel="stylesheet" href="prism-orbit.css" /&gt;
 
-&lt;!-- 2. Structure — requires 3 spans --&gt;
-&lt;div class="sparkling-stars" role="status" aria-label="Loading"&gt;
+&lt;!-- 2. Structure — requires exactly 3 spans --&gt;
+&lt;div class="prism-orbit" role="status" aria-label="Loading"&gt;
   &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
 &lt;/div&gt;</pre>
 

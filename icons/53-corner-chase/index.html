@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snake Chase — LoadIcons</title>
-  <link rel="stylesheet" href="snake-chase.css" />
+  <title>Corner Chase — LoadIcons</title>
+  <link rel="stylesheet" href="corner-chase.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -13,7 +13,7 @@
       padding: 2rem; min-height: 100vh;
     }
     h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
-    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; max-width: 70ch; line-height: 1.5; }
     .section-title {
       font-size: .7rem; text-transform: uppercase;
       letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
@@ -37,140 +37,131 @@
 </head>
 <body>
 
-  <h1>39 · Snake Chase</h1>
+  <h1>53 · Corner Chase</h1>
   <p class="sub">
-    Four dots following a square perimeter track with staggered delay parameters, creating a sleek, trailing "snake" motion loop over a dashed background track.
+    Four corner brackets chase each other around a square track using stepped quadrant motion.
+    The bracket shape is made purely from borders, with configurable thickness, radius, and speed.
   </p>
 
-  <!-- ─── SIZE VARIANTS ─── -->
   <h2 class="section-title">Size variants</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="snake-chase snake-chase--sm snake-chase--success" role="status" aria-label="Loading">
+      <div class="corner-chase corner-chase--sm corner-chase--primary" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
       </div>
-      <span>sm · 24px</span>
+      <span>sm · 40px</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--md snake-chase--success" role="status" aria-label="Loading">
+      <div class="corner-chase corner-chase--md corner-chase--primary" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
       </div>
-      <span>md · 40px (default)</span>
+      <span>md · 56px (default)</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--lg snake-chase--success" role="status" aria-label="Loading">
+      <div class="corner-chase corner-chase--lg corner-chase--primary" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
       </div>
-      <span>lg · 60px</span>
-    </div>
-    <div class="demo-block">
-      <div class="snake-chase snake-chase--xl snake-chase--success" role="status" aria-label="Loading">
-        <span></span><span></span><span></span><span></span>
-      </div>
-      <span>xl · 88px</span>
+      <span>lg · 80px</span>
     </div>
   </div>
 
-  <!-- ─── COLOR PRESETS ─── -->
   <h2 class="section-title">Color presets</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="snake-chase snake-chase--primary">
+      <div class="corner-chase corner-chase--primary" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
       </div>
       <span>primary</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--success">
+      <div class="corner-chase corner-chase--success" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
       </div>
       <span>success</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--warning">
+      <div class="corner-chase corner-chase--warning" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
       </div>
       <span>warning</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--danger">
+      <div class="corner-chase corner-chase--danger" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
       </div>
       <span>danger</span>
     </div>
-    <div class="demo-block">
-      <div class="snake-chase snake-chase--dark">
-        <span></span><span></span><span></span><span></span>
-      </div>
-      <span>dark</span>
-    </div>
     <div class="demo-block dark-bg">
-      <div class="snake-chase snake-chase--white">
+      <div class="corner-chase corner-chase--white" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
       </div>
       <span style="color:#555">white</span>
     </div>
   </div>
 
-  
-  <!-- ─── MODIFIER CLASSES ─── -->
   <h2 class="section-title">Modifier classes</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="snake-chase snake-chase--sm snake-chase--success snake-chase--fast" role="status" aria-label="Loading" style="opacity: 1; transform: scale(1.05); animation-duration: 0.7s;">
+      <div class="corner-chase corner-chase--primary corner-chase--fast" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
-
       </div>
       <span>fast</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--sm snake-chase--success snake-chase--slow" role="status" aria-label="Loading" style="opacity: 0.85; transform: scale(0.92); animation-duration: 2.4s;">
+      <div class="corner-chase corner-chase--primary corner-chase--slow" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
-
       </div>
       <span>slow</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase snake-chase--sm snake-chase--success snake-chase--soft" role="status" aria-label="Loading" style="opacity: 0.5; filter: saturate(0.6);">
+      <div class="corner-chase corner-chase--primary corner-chase--reverse" role="status" aria-label="Loading">
         <span></span><span></span><span></span><span></span>
-
-      </div>
-      <span>soft</span>
-    </div>
-    <div class="demo-block">
-      <div class="snake-chase snake-chase--sm snake-chase--success snake-chase--reverse" role="status" aria-label="Loading" style="animation-direction: reverse;">
-        <span></span><span></span><span></span><span></span>
-
       </div>
       <span>reverse</span>
     </div>
+    <div class="demo-block">
+      <div class="corner-chase corner-chase--primary corner-chase--soft" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>soft</span>
+    </div>
   </div>
-<!-- ─── CUSTOM OVERRIDES ─── -->
+
   <h2 class="section-title">Custom overrides</h2>
   <div class="demo-row">
     <div class="demo-block">
-      <div class="snake-chase" style="--track-color: #ec4899; --track-speed: 1s; --track-size: 50px;">
+      <div
+        class="corner-chase"
+        role="status"
+        aria-label="Loading"
+        style="--cc-color:#ec4899; --cc-size:68px; --cc-speed:0.95s; --cc-thickness:5px;"
+      >
         <span></span><span></span><span></span><span></span>
       </div>
-      <span>pink · fast (1s)</span>
+      <span>pink · thick · fast</span>
     </div>
     <div class="demo-block">
-      <div class="snake-chase" style="--track-color: #0ea5e9; --track-speed: 3s; --track-size: 50px;">
+      <div
+        class="corner-chase corner-chase--reverse"
+        role="status"
+        aria-label="Loading"
+        style="--cc-color:#0ea5e9; --cc-size:68px; --cc-speed:2.1s; --cc-radius:10px;"
+      >
         <span></span><span></span><span></span><span></span>
       </div>
-      <span>cyan · slow (3s)</span>
+      <span>cyan · rounded · slow reverse</span>
     </div>
   </div>
 
-  <!-- ─── USAGE NOTE ─── -->
   <h2 class="section-title">Quick usage</h2>
-  <pre>&lt;!-- 1. Import the stylesheet --&gt;
-&lt;link rel="stylesheet" href="snake-chase.css" /&gt;
+  <pre>&lt;!-- 1. Import stylesheet --&gt;
+&lt;link rel="stylesheet" href="corner-chase.css" /&gt;
 
-&lt;!-- 2. Structure — requires 4 spans --&gt;
-&lt;div class="snake-chase" role="status" aria-label="Loading"&gt;
+&lt;!-- 2. Structure — requires exactly 4 spans --&gt;
+&lt;div class="corner-chase" role="status" aria-label="Loading"&gt;
   &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
 &lt;/div&gt;</pre>
 
 </body>
 </html>
+

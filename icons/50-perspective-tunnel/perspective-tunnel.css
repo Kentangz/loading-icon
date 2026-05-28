@@ -20,6 +20,7 @@
 .perspective-tunnel--warning { --pt-color: #EF9F27; --pt-glow: #f7c56d; }
 .perspective-tunnel--danger  { --pt-color: #E24B4A; --pt-glow: #ef8787; }
 .perspective-tunnel--white   { --pt-color: #ffffff; --pt-glow: rgba(255,255,255,.4); }
+.perspective-tunnel--dark    { --pt-color: #2C2C2A; --pt-glow: rgba(44,44,42,.35); }
 
 /* ── Container ── */
 .perspective-tunnel {
@@ -58,6 +59,12 @@
 .perspective-tunnel--sm  { --pt-size: 40px;  --pt-thickness: 1.5px; }
 .perspective-tunnel--lg  { --pt-size: 96px;  --pt-thickness: 3px; }
 .perspective-tunnel--xl  { --pt-size: 128px; --pt-thickness: 3.5px; }
+
+/* ── Modifier presets ── */
+.perspective-tunnel--fast { --pt-speed: 0.9s; }
+.perspective-tunnel--slow { --pt-speed: 2.4s; }
+.perspective-tunnel--soft span { opacity: 0.55; box-shadow: 0 0 3px var(--pt-glow), inset 0 0 2px rgba(255,255,255,.04); }
+.perspective-tunnel--reverse { transform: rotate(180deg); }
 
 /* ── Keyframes ── */
 @keyframes pt-zoom {

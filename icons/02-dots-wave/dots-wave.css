@@ -63,3 +63,9 @@
 .dots-wave--warning { --dot-color: #EF9F27; }
 .dots-wave--danger  { --dot-color: #E24B4A; }
 .dots-wave--white   { --dot-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.dots-wave--fast    { --wave-speed: 0.7s; --wave-delay: 0.08s; }
+.dots-wave--slow    { --wave-speed: 2s; --wave-delay: 0.22s; }
+.dots-wave--soft    { --dot-color: #a8a29e; }
+.dots-wave--reverse { animation-direction: reverse; }
