@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shimmer Skeleton — LoadIcons</title>
+  <link rel="stylesheet" href="shimmer-skeleton.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8f8f6; color: #1a1a1a; padding: 2rem; }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title { font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:#aaa; margin-bottom:1rem; }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 1.25rem; margin-bottom: 2.5rem;
+    }
+    .demo-card {
+      background: #fff; border: 1px solid #ebebeb;
+      border-radius: 10px; padding: 1rem;
+    }
+    .card-label { font-size:.72rem; color:#bbb; margin-bottom:.75rem; }
+    pre { background:#f0f0ee; border-radius:8px; padding:1rem; font-size:.78rem; overflow-x:auto; color:#333; }
+  </style>
+</head>
+<body>
+  <h1>06 · Shimmer Skeleton</h1>
+  <p class="sub">
+    A gradient sweep across content placeholders — significantly reduces perceived load time
+    by showing users the expected page structure before data arrives.
+  </p>
+
+  <h2 class="section-title">Layout patterns</h2>
+  <div class="demo-grid">
+
+    <!-- Article card -->
+    <div class="demo-card">
+      <p class="card-label">Article card</p>
+      <div class="skeleton">
+        <div class="skeleton__block skeleton__block--md"></div>
+        <div style="height:4px"></div>
+        <div class="skeleton__row">
+          <div class="skeleton__circle skeleton__circle--sm"></div>
+          <div class="skeleton__col">
+            <div class="skeleton__line skeleton__line--md"></div>
+            <div class="skeleton__line skeleton__line--sm skeleton__line--caption"></div>
+          </div>
+        </div>
+        <div class="skeleton__line skeleton__line--heading"></div>
+        <div class="skeleton__line skeleton__line--full"></div>
+        <div class="skeleton__line skeleton__line--xl"></div>
+        <div class="skeleton__line skeleton__line--lg"></div>
+      </div>
+    </div>
+
+    <!-- User profile -->
+    <div class="demo-card">
+      <p class="card-label">User profile</p>
+      <div class="skeleton">
+        <div style="display:flex;justify-content:center;margin-bottom:8px">
+          <div class="skeleton__circle skeleton__circle--lg"></div>
+        </div>
+        <div class="skeleton__line skeleton__line--md" style="margin:0 auto;"></div>
+        <div class="skeleton__line skeleton__line--sm skeleton__line--caption" style="margin:0 auto;"></div>
+        <div style="height:4px"></div>
+        <div class="skeleton__line skeleton__line--full skeleton__line--body"></div>
+        <div class="skeleton__line skeleton__line--full skeleton__line--body"></div>
+        <div class="skeleton__line skeleton__line--xl  skeleton__line--body"></div>
+      </div>
+    </div>
+
+    <!-- List items -->
+    <div class="demo-card">
+      <p class="card-label">List items</p>
+      <div class="skeleton" style="gap:16px">
+        <div class="skeleton__row">
+          <div class="skeleton__circle"></div>
+          <div class="skeleton__col">
+            <div class="skeleton__line skeleton__line--lg"></div>
+            <div class="skeleton__line skeleton__line--sm skeleton__line--caption"></div>
+          </div>
+        </div>
+        <div class="skeleton__row">
+          <div class="skeleton__circle"></div>
+          <div class="skeleton__col">
+            <div class="skeleton__line skeleton__line--xl"></div>
+            <div class="skeleton__line skeleton__line--md skeleton__line--caption"></div>
+          </div>
+        </div>
+        <div class="skeleton__row">
+          <div class="skeleton__circle"></div>
+          <div class="skeleton__col">
+            <div class="skeleton__line skeleton__line--md"></div>
+            <div class="skeleton__line skeleton__line--sm skeleton__line--caption"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video thumbnail -->
+    <div class="demo-card">
+      <p class="card-label">Video thumbnail</p>
+      <div class="skeleton">
+        <div class="skeleton__block skeleton__block--video"></div>
+        <div style="height:4px"></div>
+        <div class="skeleton__line skeleton__line--heading"></div>
+        <div class="skeleton__line skeleton__line--lg"></div>
+        <div class="skeleton__row">
+          <div class="skeleton__circle skeleton__circle--sm"></div>
+          <div class="skeleton__line skeleton__line--sm skeleton__line--caption"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="section-title">Custom speed & colors</h2>
+  <div class="demo-card" style="max-width:300px;margin-bottom:2rem">
+    <p class="card-label">Fast blue shimmer</p>
+    <div class="skeleton" style="--skeleton-base:#dbeafe;--skeleton-shine:#eff6ff;--skeleton-speed:0.8s;">
+      <div class="skeleton__line skeleton__line--heading"></div>
+      <div class="skeleton__line skeleton__line--full"></div>
+      <div class="skeleton__line skeleton__line--xl"></div>
+      <div class="skeleton__line skeleton__line--lg"></div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;link rel="stylesheet" href="shimmer-skeleton.css" /&gt;
+
+&lt;!-- Mirror your real content layout --&gt;
+&lt;div class="skeleton"&gt;
+  &lt;div class="skeleton__block skeleton__block--md"&gt;&lt;/div&gt;
+  &lt;div class="skeleton__line skeleton__line--heading"&gt;&lt;/div&gt;
+  &lt;div class="skeleton__line skeleton__line--full"&gt;&lt;/div&gt;
+  &lt;div class="skeleton__line skeleton__line--lg"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Row layout with avatar --&gt;
+&lt;div class="skeleton"&gt;
+  &lt;div class="skeleton__row"&gt;
+    &lt;div class="skeleton__circle"&gt;&lt;/div&gt;
+    &lt;div class="skeleton__col"&gt;
+      &lt;div class="skeleton__line skeleton__line--lg"&gt;&lt;/div&gt;
+      &lt;div class="skeleton__line skeleton__line--sm skeleton__line--caption"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+</body>
+</html>

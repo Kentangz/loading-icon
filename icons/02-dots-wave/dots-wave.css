@@ -1,0 +1,65 @@
+/**
+ * Dots Wave — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : translateY animation with staggered delay per dot
+ * Usage     : Apply `.dots-wave` to a <div> and place three
+ *             <span> elements inside it.
+ *             Additional spans (up to 5) are supported.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.dots-wave {
+  /* === DOT SIZE === */
+  --dot-size:   8px;          /* diameter of each dot                       */
+  --dot-gap:    6px;          /* gap between dots                           */
+
+  /* === COLOR === */
+  --dot-color:  #1D9E75;      /* fill color applied to all dots             */
+
+  /* === ANIMATION === */
+  --wave-speed:  1.2s;        /* duration of one full wave cycle            */
+  --wave-height: 12px;        /* vertical travel distance of each dot       */
+  --wave-delay:  0.15s;       /* stagger delay between consecutive dots     */
+  --wave-easing: ease-in-out;
+
+  /* ─── Do not edit below this line ─── */
+  display:     inline-flex;
+  align-items: center;
+  gap:         var(--dot-gap);
+}
+
+.dots-wave > span {
+  display:          inline-block;
+  width:            var(--dot-size);
+  height:           var(--dot-size);
+  border-radius:    50%;
+  background-color: var(--dot-color);
+  flex-shrink:      0;
+  animation:        dots-wave-bounce var(--wave-speed) var(--wave-easing) infinite;
+}
+
+/* Stagger delay — supports up to 5 child spans */
+.dots-wave > span:nth-child(1) { animation-delay: calc(var(--wave-delay) * 0); }
+.dots-wave > span:nth-child(2) { animation-delay: calc(var(--wave-delay) * 1); }
+.dots-wave > span:nth-child(3) { animation-delay: calc(var(--wave-delay) * 2); }
+.dots-wave > span:nth-child(4) { animation-delay: calc(var(--wave-delay) * 3); }
+.dots-wave > span:nth-child(5) { animation-delay: calc(var(--wave-delay) * 4); }
+
+@keyframes dots-wave-bounce {
+  0%, 80%, 100% { transform: translateY(0);                              opacity: 0.7; }
+  40%            { transform: translateY(calc(var(--wave-height) * -1)); opacity: 1;   }
+}
+
+/* ─── Size presets ─── */
+.dots-wave--sm { --dot-size: 5px;  --dot-gap: 4px; --wave-height: 7px;  }
+.dots-wave--md { --dot-size: 8px;  --dot-gap: 6px; --wave-height: 12px; }
+.dots-wave--lg { --dot-size: 13px; --dot-gap: 9px; --wave-height: 18px; }
+
+/* ─── Color presets ─── */
+.dots-wave--primary { --dot-color: #7F77DD; }
+.dots-wave--success { --dot-color: #1D9E75; }
+.dots-wave--warning { --dot-color: #EF9F27; }
+.dots-wave--danger  { --dot-color: #E24B4A; }
+.dots-wave--white   { --dot-color: #ffffff; }

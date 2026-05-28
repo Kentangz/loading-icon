@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbit — LoadIcons</title>
+  <link rel="stylesheet" href="orbit.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8f8f6; color: #1a1a1a; padding: 2rem; }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title { font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:#aaa; margin-bottom:1rem; }
+    .demo-row  { display:flex; align-items:center; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .demo-block { display:flex; flex-direction:column; align-items:center; gap:.65rem; }
+    .demo-block span { font-size:.75rem; color:#888; }
+    pre { background:#f0f0ee; border-radius:8px; padding:1rem; font-size:.78rem; overflow-x:auto; color:#333; }
+  </style>
+</head>
+<body>
+  <h1>05 · Orbit</h1>
+  <p class="sub">A dot orbiting a stationary core — conveys continuous, system-level processing.</p>
+
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="orbit orbit--sm orbit--warning">
+        <div class="orbit__ring"><div class="orbit__dot"></div></div>
+        <div class="orbit__core"></div>
+      </div>
+      <span>sm · 26px</span>
+    </div>
+    <div class="demo-block">
+      <div class="orbit orbit--md orbit--warning">
+        <div class="orbit__ring"><div class="orbit__dot"></div></div>
+        <div class="orbit__core"></div>
+      </div>
+      <span>md · 40px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="orbit orbit--lg orbit--warning">
+        <div class="orbit__ring"><div class="orbit__dot"></div></div>
+        <div class="orbit__core"></div>
+      </div>
+      <span>lg · 60px</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="orbit orbit--primary"><div class="orbit__ring"><div class="orbit__dot"></div></div><div class="orbit__core"></div></div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="orbit orbit--success"><div class="orbit__ring"><div class="orbit__dot"></div></div><div class="orbit__core"></div></div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="orbit orbit--warning"><div class="orbit__ring"><div class="orbit__dot"></div></div><div class="orbit__core"></div></div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="orbit orbit--danger"><div class="orbit__ring"><div class="orbit__dot"></div></div><div class="orbit__core"></div></div>
+      <span>danger</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Variants & custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="orbit orbit--primary" style="--orbit-ring-style:solid;--orbit-speed:0.9s;--orbit-ring-width:2px;">
+        <div class="orbit__ring"><div class="orbit__dot"></div></div>
+        <div class="orbit__core"></div>
+      </div>
+      <span>solid ring · fast</span>
+    </div>
+    <div class="demo-block">
+      <div class="orbit orbit--lg orbit--success" style="--orbit-speed:3.5s;">
+        <div class="orbit__ring"><div class="orbit__dot"></div></div>
+        <div class="orbit__core"></div>
+      </div>
+      <span>lg · slow</span>
+    </div>
+    <div class="demo-block">
+      <div class="orbit" style="--orbit-size:48px;--orbit-core-color:#9333ea;--orbit-dot-color:#d8b4fe;--orbit-ring-color:rgba(147,51,234,0.2);--orbit-ring-style:dotted;">
+        <div class="orbit__ring"><div class="orbit__dot"></div></div>
+        <div class="orbit__core"></div>
+      </div>
+      <span>dotted · purple</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;link rel="stylesheet" href="orbit.css" /&gt;
+
+&lt;!-- Required HTML structure --&gt;
+&lt;div class="orbit"&gt;
+  &lt;div class="orbit__ring"&gt;
+    &lt;div class="orbit__dot"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="orbit__core"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- With modifiers --&gt;
+&lt;div class="orbit orbit--lg orbit--success"&gt;
+  &lt;div class="orbit__ring"&gt;&lt;div class="orbit__dot"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="orbit__core"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+</body>
+</html>

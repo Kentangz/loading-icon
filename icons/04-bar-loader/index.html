@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bar Loader — LoadIcons</title>
+  <link rel="stylesheet" href="bar-loader.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8f8f6; color: #1a1a1a; padding: 2rem; }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title { font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:#aaa; margin-bottom:1rem; }
+    .demo-row  { display:flex; align-items:flex-end; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .demo-block { display:flex; flex-direction:column; align-items:center; gap:.65rem; }
+    .demo-block span { font-size:.75rem; color:#888; }
+    .dark-bg { background:#1a1a1a; padding:1.25rem 1.75rem; border-radius:8px; }
+    pre { background:#f0f0ee; border-radius:8px; padding:1rem; font-size:.78rem; overflow-x:auto; color:#333; }
+  </style>
+</head>
+<body>
+  <h1>04 · Bar Loader</h1>
+  <p class="sub">Vertically scaling bars with staggered delay — resembles an audio equalizer; great for upload and processing states.</p>
+
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="bar-loader bar-loader--sm"><span></span><span></span><span></span><span></span></div>
+      <span>sm</span>
+    </div>
+    <div class="demo-block">
+      <div class="bar-loader bar-loader--md"><span></span><span></span><span></span><span></span></div>
+      <span>md (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="bar-loader bar-loader--lg"><span></span><span></span><span></span><span></span></div>
+      <span>lg</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="bar-loader bar-loader--primary"><span></span><span></span><span></span><span></span></div><span>primary</span></div>
+    <div class="demo-block"><div class="bar-loader bar-loader--success"><span></span><span></span><span></span><span></span></div><span>success</span></div>
+    <div class="demo-block"><div class="bar-loader bar-loader--warning"><span></span><span></span><span></span><span></span></div><span>warning</span></div>
+    <div class="demo-block"><div class="bar-loader bar-loader--danger"><span></span><span></span><span></span><span></span></div><span>danger</span></div>
+    <div class="demo-block dark-bg">
+      <div class="bar-loader bar-loader--white"><span></span><span></span><span></span><span></span></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Variants & custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="bar-loader bar-loader--fade bar-loader--primary"><span></span><span></span><span></span><span></span></div>
+      <span>fade opacity</span>
+    </div>
+    <div class="demo-block">
+      <div class="bar-loader" style="--bar-color:#D4537E;--bar-gap:3px;--bar-width:4px;">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>5 bars · pink</span>
+    </div>
+    <div class="demo-block">
+      <div class="bar-loader" style="--bar-speed:2s;--bar-color:#1D9E75;--bar-height:40px;--bar-width:7px;">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>slow · thick</span>
+    </div>
+    <div class="demo-block">
+      <div class="bar-loader" style="--bar-speed:0.6s;--bar-delay:0.05s;--bar-color:#534AB7;--bar-radius:1px;">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>fast · sharp edges</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;link rel="stylesheet" href="bar-loader.css" /&gt;
+
+&lt;!-- Default (4 bars) --&gt;
+&lt;div class="bar-loader"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- With modifiers --&gt;
+&lt;div class="bar-loader bar-loader--lg bar-loader--success"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 5 bars with custom color --&gt;
+&lt;div class="bar-loader" style="--bar-color:#D4537E;"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+</body>
+</html>

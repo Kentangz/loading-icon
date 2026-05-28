@@ -1,0 +1,109 @@
+/**
+ * Circular Progress — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : SVG stroke-dasharray + stroke-dashoffset.
+ *             Using pathLength="100" on the SVG circle makes
+ *             percentage values map directly to dash lengths,
+ *             avoiding manual circumference calculations.
+ *
+ * Two modes:
+ *   • Indeterminate — the SVG rotates continuously (default).
+ *   • Determinate   — add .circ-progress--determinate and set
+ *                     --progress-value (0–100) to show progress.
+ *
+ * Usage: Apply `.circ-progress` to a <div> and place an SVG
+ *        with the required circle elements inside it.
+ *
+ *   <div class="circ-progress">
+ *     <svg class="circ-progress__svg" viewBox="0 0 44 44">
+ *       <circle class="circ-progress__track" cx="22" cy="22" r="18"/>
+ *       <circle class="circ-progress__fill"  cx="22" cy="22" r="18" pathLength="100"/>
+ *     </svg>
+ *   </div>
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.circ-progress {
+  /* === SIZE === */
+  --circ-size:   44px;          /* width & height of the SVG element        */
+  --circ-stroke:  3px;          /* stroke width of both circles             */
+
+  /* === COLOR === */
+  --circ-color:       #534AB7;  /* color of the active progress arc         */
+  --circ-track-color: #e2e2e2;  /* color of the background track circle     */
+
+  /* === ANIMATION (indeterminate mode) === */
+  --circ-speed: 1.6s;           /* duration of one full SVG rotation        */
+  --circ-arc:   60;             /* arc length out of pathLength 100         */
+
+  /* === PROGRESS (determinate mode) === */
+  --progress-value: 0;          /* fill length — set a value between 0–100  */
+
+  /* ─── Do not edit below this line ─── */
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  width:           var(--circ-size);
+  height:          var(--circ-size);
+  flex-shrink:     0;
+}
+
+/* The SVG rotates in indeterminate mode */
+.circ-progress__svg {
+  width:            var(--circ-size);
+  height:           var(--circ-size);
+  transform-origin: center;
+  animation:        circ-rotate var(--circ-speed) linear infinite;
+}
+
+/* Background track */
+.circ-progress__track {
+  fill:         none;
+  stroke:       var(--circ-track-color);
+  stroke-width: var(--circ-stroke);
+}
+
+/* Active arc */
+.circ-progress__fill {
+  fill:              none;
+  stroke:            var(--circ-color);
+  stroke-width:      var(--circ-stroke);
+  stroke-linecap:    round;
+  /* Indeterminate: fixed arc length, SVG rotates */
+  stroke-dasharray:  var(--circ-arc) 100;
+  stroke-dashoffset: 25;
+  transition:        stroke-dasharray 0.4s ease;
+}
+
+@keyframes circ-rotate {
+  from { transform: rotate(-90deg); }
+  to   { transform: rotate(270deg); }
+}
+
+/* ─── Determinate mode ─── */
+.circ-progress--determinate .circ-progress__svg {
+  animation: none;
+  transform: rotate(-90deg);
+}
+.circ-progress--determinate .circ-progress__fill {
+  stroke-dasharray:  var(--progress-value) 100;
+  stroke-dashoffset: 0;
+}
+
+/* ─── Size presets ─── */
+.circ-progress--sm { --circ-size: 28px; --circ-stroke: 2.5px; }
+.circ-progress--md { --circ-size: 44px; --circ-stroke: 3px;   }
+.circ-progress--lg { --circ-size: 64px; --circ-stroke: 4px;   }
+.circ-progress--xl { --circ-size: 96px; --circ-stroke: 5px;   }
+
+/* ─── Color presets ─── */
+.circ-progress--primary { --circ-color: #7F77DD; }
+.circ-progress--success { --circ-color: #1D9E75; }
+.circ-progress--warning { --circ-color: #EF9F27; }
+.circ-progress--danger  { --circ-color: #E24B4A; }
+.circ-progress--white   {
+  --circ-color:       #ffffff;
+  --circ-track-color: rgba(255,255,255,0.25);
+}

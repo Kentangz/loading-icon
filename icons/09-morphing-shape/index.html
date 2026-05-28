@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morphing Shape — LoadIcons</title>
+  <link rel="stylesheet" href="morphing-shape.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8f8f6; color: #1a1a1a; padding: 2rem; }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title { font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:#aaa; margin-bottom:1rem; }
+    .demo-row  { display:flex; align-items:center; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .demo-block { display:flex; flex-direction:column; align-items:center; gap:.65rem; }
+    .demo-block span { font-size:.75rem; color:#888; }
+    /* Splash screen simulation */
+    .splash-demo {
+      width:100%; max-width:300px; height:160px;
+      background:#1a1a2e; border-radius:12px;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:1rem;
+      margin-bottom:2rem;
+    }
+    .splash-demo p { color:rgba(255,255,255,.45); font-size:.8rem; letter-spacing:.05em; }
+    pre { background:#f0f0ee; border-radius:8px; padding:1rem; font-size:.78rem; overflow-x:auto; color:#333; }
+  </style>
+</head>
+<body>
+  <h1>09 · Morphing Shape</h1>
+  <p class="sub">A square morphing into a circle while rotating — the most visually striking loader; best suited for splash screens and onboarding flows.</p>
+
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="morph morph--sm morph--coral"></div><span>sm · 20px</span></div>
+    <div class="demo-block"><div class="morph morph--md morph--coral"></div><span>md · 32px (default)</span></div>
+    <div class="demo-block"><div class="morph morph--lg morph--coral"></div><span>lg · 48px</span></div>
+    <div class="demo-block"><div class="morph morph--xl morph--coral"></div><span>xl · 72px</span></div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="morph morph--primary"></div><span>primary</span></div>
+    <div class="demo-block"><div class="morph morph--success"></div><span>success</span></div>
+    <div class="demo-block"><div class="morph morph--warning"></div><span>warning</span></div>
+    <div class="demo-block"><div class="morph morph--danger"></div><span>danger</span></div>
+    <div class="demo-block"><div class="morph morph--pink"></div><span>pink</span></div>
+  </div>
+
+  <h2 class="section-title">Variants & custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="morph morph--outline morph--primary"></div><span>outline</span></div>
+    <div class="demo-block"><div class="morph morph--diamond morph--warning"></div><span>diamond</span></div>
+    <div class="demo-block">
+      <div class="morph" style="--morph-color:#9333ea;--morph-speed:0.8s;--morph-size:28px;"></div>
+      <span>fast · purple</span>
+    </div>
+    <div class="demo-block">
+      <div class="morph" style="--morph-color:#0ea5e9;--morph-radius-square:12px;--morph-size:36px;"></div>
+      <span>round square</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Use case: splash screen</h2>
+  <div class="splash-demo">
+    <div class="morph morph--splash" style="--morph-color:#7F77DD;"></div>
+    <p>Loading application…</p>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;link rel="stylesheet" href="morphing-shape.css" /&gt;
+
+&lt;!-- Basic --&gt;
+&lt;div class="morph"&gt;&lt;/div&gt;
+
+&lt;!-- With modifiers --&gt;
+&lt;div class="morph morph--lg morph--primary"&gt;&lt;/div&gt;
+
+&lt;!-- Outline variant --&gt;
+&lt;div class="morph morph--outline morph--success"&gt;&lt;/div&gt;
+
+&lt;!-- Splash screen variant --&gt;
+&lt;div class="morph morph--splash" style="--morph-color:#7F77DD;"&gt;&lt;/div&gt;</pre>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/**
+ * Orbit — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : A dot positioned at the top of a rotating ring
+ *             container, so it orbits the stationary core.
+ * Usage     : Apply `.orbit` to a <div> and use the required
+ *             child structure shown below.
+ *
+ *   <div class="orbit">
+ *     <div class="orbit__ring">
+ *       <div class="orbit__dot"></div>
+ *     </div>
+ *     <div class="orbit__core"></div>
+ *   </div>
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.orbit {
+  /* === SIZE === */
+  --orbit-size:      40px;        /* overall diameter of the orbit path     */
+  --orbit-core-size: 10px;        /* diameter of the stationary core dot    */
+  --orbit-dot-size:   8px;        /* diameter of the orbiting dot           */
+
+  /* === COLOR === */
+  --orbit-core-color: #BA7517;    /* color of the core dot                  */
+  --orbit-dot-color:  #EF9F27;    /* color of the orbiting dot              */
+  --orbit-ring-color: rgba(186,117,23,0.25); /* color of the dashed ring   */
+
+  /* === ANIMATION === */
+  --orbit-speed:  1.8s;           /* duration of one full orbit rotation    */
+  --orbit-easing: linear;
+
+  /* === RING STYLE === */
+  --orbit-ring-style: dashed;     /* solid | dashed | dotted                */
+  --orbit-ring-width: 1.5px;      /* stroke width of the ring               */
+
+  /* ─── Do not edit below this line ─── */
+  position:        relative;
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  width:           var(--orbit-size);
+  height:          var(--orbit-size);
+  flex-shrink:     0;
+}
+
+/* Rotating ring that carries the orbiting dot */
+.orbit__ring {
+  position:      absolute;
+  inset:         0;
+  border-radius: 50%;
+  border:        var(--orbit-ring-width) var(--orbit-ring-style) var(--orbit-ring-color);
+  animation:     orbit-spin var(--orbit-speed) var(--orbit-easing) infinite;
+}
+
+/* Orbiting dot — anchored to the top of the ring */
+.orbit__dot {
+  position:         absolute;
+  width:            var(--orbit-dot-size);
+  height:           var(--orbit-dot-size);
+  border-radius:    50%;
+  background-color: var(--orbit-dot-color);
+  top:              calc(var(--orbit-dot-size) / -2);
+  left:             50%;
+  transform:        translateX(-50%);
+}
+
+/* Stationary core dot */
+.orbit__core {
+  position:         relative;
+  z-index:          1;
+  width:            var(--orbit-core-size);
+  height:           var(--orbit-core-size);
+  border-radius:    50%;
+  background-color: var(--orbit-core-color);
+  flex-shrink:      0;
+}
+
+@keyframes orbit-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Size presets ─── */
+.orbit--sm { --orbit-size: 26px; --orbit-core-size:  6px; --orbit-dot-size:  5px; }
+.orbit--md { --orbit-size: 40px; --orbit-core-size: 10px; --orbit-dot-size:  8px; }
+.orbit--lg { --orbit-size: 60px; --orbit-core-size: 16px; --orbit-dot-size: 12px; }
+
+/* ─── Color presets ─── */
+.orbit--primary {
+  --orbit-core-color: #534AB7;
+  --orbit-dot-color:  #7F77DD;
+  --orbit-ring-color: rgba(83,74,183,0.25);
+}
+.orbit--success {
+  --orbit-core-color: #0F6E56;
+  --orbit-dot-color:  #1D9E75;
+  --orbit-ring-color: rgba(15,110,86,0.25);
+}
+.orbit--warning {
+  --orbit-core-color: #BA7517;
+  --orbit-dot-color:  #EF9F27;
+  --orbit-ring-color: rgba(186,117,23,0.25);
+}
+.orbit--danger {
+  --orbit-core-color: #A32D2D;
+  --orbit-dot-color:  #E24B4A;
+  --orbit-ring-color: rgba(163,45,45,0.25);
+}

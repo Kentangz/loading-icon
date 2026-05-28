@@ -1,0 +1,73 @@
+/**
+ * Split Ring — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Top and bottom borders are colored while left and
+ *             right borders remain transparent, producing two
+ *             symmetrical arcs that appear to spin as a pair.
+ * Usage     : Apply `.split-ring` to an empty <div> element.
+ *             No child elements required.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.split-ring {
+  /* === SIZE === */
+  --ring-size:      36px;     /* diameter of the ring                       */
+  --ring-thickness:  3px;     /* border width of the visible arcs           */
+
+  /* === COLOR === */
+  --ring-color: #0F6E56;      /* color of the two visible arc segments      */
+
+  /* === ANIMATION === */
+  --ring-speed:  1.0s;        /* duration of one full rotation              */
+  --ring-easing: linear;
+
+  /* ─── Do not edit below this line ─── */
+  display:          inline-block;
+  box-sizing:       border-box;
+  flex-shrink:      0;
+  width:            var(--ring-size);
+  height:           var(--ring-size);
+  border-radius:    50%;
+  border:           var(--ring-thickness) solid transparent;
+  border-top-color: var(--ring-color);
+  border-bottom-color: var(--ring-color);
+  animation:        split-ring-spin var(--ring-speed) var(--ring-easing) infinite;
+}
+
+@keyframes split-ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Size presets ─── */
+.split-ring--sm { --ring-size: 22px; --ring-thickness: 2px; }
+.split-ring--md { --ring-size: 36px; --ring-thickness: 3px; }
+.split-ring--lg { --ring-size: 52px; --ring-thickness: 4px; }
+.split-ring--xl { --ring-size: 72px; --ring-thickness: 5px; }
+
+/* ─── Color presets ─── */
+.split-ring--primary { --ring-color: #7F77DD; }
+.split-ring--success { --ring-color: #0F6E56; }
+.split-ring--warning { --ring-color: #EF9F27; }
+.split-ring--danger  { --ring-color: #E24B4A; }
+.split-ring--pink    { --ring-color: #D4537E; }
+.split-ring--white   { --ring-color: #ffffff; }
+.split-ring--dark    { --ring-color: #2C2C2A; }
+
+/* ─── Variant: counter-clockwise rotation ─── */
+.split-ring--ccw {
+  animation-direction: reverse;
+}
+
+/* ─── Variant: two-tone arcs (top vs bottom colors differ) ─── */
+.split-ring--duo {
+  border-top-color:    var(--ring-color);
+  border-bottom-color: var(--ring-color-2, #E24B4A);
+}
+
+/* ─── Variant: three arcs (left border also colored) ─── */
+.split-ring--tri {
+  border-left-color: var(--ring-color);
+  opacity: 0.85;
+}

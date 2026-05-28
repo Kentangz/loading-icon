@@ -1,0 +1,78 @@
+/**
+ * Bar Loader — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : scaleY animation with staggered delay per bar.
+ *             transform-origin is set to bottom so bars grow
+ *             upward from the baseline.
+ * Usage     : Apply `.bar-loader` to a <div> and place four
+ *             <span> elements inside it.
+ *             Up to five spans are supported via nth-child rules.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.bar-loader {
+  /* === SIZE === */
+  --bar-width:   5px;         /* width of each individual bar               */
+  --bar-height:  28px;        /* maximum height of each bar                 */
+  --bar-gap:     4px;         /* gap between bars                           */
+  --bar-radius:  3px;         /* border-radius applied to each bar          */
+
+  /* === COLOR === */
+  --bar-color:   #378ADD;     /* fill color of all bars                     */
+
+  /* === ANIMATION === */
+  --bar-speed:     1.0s;      /* duration of one full scale cycle           */
+  --bar-delay:     0.1s;      /* stagger delay between consecutive bars     */
+  --bar-min-scale: 0.35;      /* minimum scaleY value (compressed state)    */
+  --bar-easing:    ease-in-out;
+
+  /* ─── Do not edit below this line ─── */
+  display:     inline-flex;
+  align-items: flex-end;
+  gap:         var(--bar-gap);
+  height:      var(--bar-height);
+  flex-shrink: 0;
+}
+
+.bar-loader > span {
+  display:          inline-block;
+  width:            var(--bar-width);
+  height:           var(--bar-height);
+  border-radius:    var(--bar-radius);
+  background-color: var(--bar-color);
+  transform-origin: bottom center;
+  flex-shrink:      0;
+  animation:        bar-loader-scale var(--bar-speed) var(--bar-easing) infinite;
+}
+
+/* Stagger delay — supports up to 5 child spans */
+.bar-loader > span:nth-child(1) { animation-delay: calc(var(--bar-delay) * 0); }
+.bar-loader > span:nth-child(2) { animation-delay: calc(var(--bar-delay) * 1); }
+.bar-loader > span:nth-child(3) { animation-delay: calc(var(--bar-delay) * 2); }
+.bar-loader > span:nth-child(4) { animation-delay: calc(var(--bar-delay) * 3); }
+.bar-loader > span:nth-child(5) { animation-delay: calc(var(--bar-delay) * 4); }
+
+@keyframes bar-loader-scale {
+  0%, 100% { transform: scaleY(var(--bar-min-scale)); }
+  50%       { transform: scaleY(1); }
+}
+
+/* ─── Size presets ─── */
+.bar-loader--sm { --bar-width: 3px; --bar-height: 18px; --bar-gap: 3px; }
+.bar-loader--md { --bar-width: 5px; --bar-height: 28px; --bar-gap: 4px; }
+.bar-loader--lg { --bar-width: 8px; --bar-height: 44px; --bar-gap: 6px; }
+
+/* ─── Color presets ─── */
+.bar-loader--primary { --bar-color: #7F77DD; }
+.bar-loader--success { --bar-color: #1D9E75; }
+.bar-loader--warning { --bar-color: #EF9F27; }
+.bar-loader--danger  { --bar-color: #E24B4A; }
+.bar-loader--white   { --bar-color: #ffffff; }
+
+/* ─── Variant: cascading opacity across bars ─── */
+.bar-loader--fade > span:nth-child(1) { opacity: 0.40; }
+.bar-loader--fade > span:nth-child(2) { opacity: 0.60; }
+.bar-loader--fade > span:nth-child(3) { opacity: 0.80; }
+.bar-loader--fade > span:nth-child(4) { opacity: 1.00; }

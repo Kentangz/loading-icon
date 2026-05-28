@@ -1,0 +1,87 @@
+/**
+ * Pulse Ring — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : ::before pseudo-element that scales outward and
+ *             fades out, combined with a breathing center dot.
+ * Usage     : Apply `.pulse-ring` to an empty <div> element.
+ *             No child elements required.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.pulse-ring {
+  /* === SIZE === */
+  --pulse-size:      36px;      /* overall diameter of the ring             */
+  --pulse-dot-size:  14px;      /* diameter of the inner center dot         */
+
+  /* === COLOR === */
+  --pulse-color:          #D4537E;  /* shared color for dot and ring        */
+  --pulse-ring-opacity:   0.35;     /* peak opacity of the expanding ring   */
+
+  /* === ANIMATION === */
+  --pulse-speed:   1.5s;        /* duration of one complete pulse cycle     */
+  --pulse-scale:   1.8;         /* maximum scale the ring expands to        */
+  --pulse-easing:  ease-out;
+
+  /* ─── Do not edit below this line ─── */
+  position:       relative;
+  display:        inline-flex;
+  align-items:    center;
+  justify-content:center;
+  width:          var(--pulse-size);
+  height:         var(--pulse-size);
+  flex-shrink:    0;
+}
+
+/* Expanding ring — scale + fade */
+.pulse-ring::before {
+  content:          '';
+  position:         absolute;
+  inset:            0;
+  border-radius:    50%;
+  background-color: var(--pulse-color);
+  opacity:          var(--pulse-ring-opacity);
+  animation:        pulse-ring-expand var(--pulse-speed) var(--pulse-easing) infinite;
+}
+
+/* Center dot — subtle breathing scale */
+.pulse-ring::after {
+  content:          '';
+  position:         relative;
+  z-index:          1;
+  width:            var(--pulse-dot-size);
+  height:           var(--pulse-dot-size);
+  border-radius:    50%;
+  background-color: var(--pulse-color);
+  animation:        pulse-dot-breathe var(--pulse-speed) ease-in-out infinite;
+}
+
+@keyframes pulse-ring-expand {
+  0%   { transform: scale(0.7);                   opacity: var(--pulse-ring-opacity); }
+  100% { transform: scale(var(--pulse-scale));    opacity: 0; }
+}
+
+@keyframes pulse-dot-breathe {
+  0%, 100% { transform: scale(1);    }
+  50%       { transform: scale(0.88); }
+}
+
+/* ─── Size presets ─── */
+.pulse-ring--sm { --pulse-size: 22px; --pulse-dot-size: 8px;  }
+.pulse-ring--md { --pulse-size: 36px; --pulse-dot-size: 14px; }
+.pulse-ring--lg { --pulse-size: 56px; --pulse-dot-size: 22px; }
+
+/* ─── Color presets ─── */
+.pulse-ring--primary { --pulse-color: #7F77DD; }
+.pulse-ring--success { --pulse-color: #1D9E75; }
+.pulse-ring--warning { --pulse-color: #EF9F27; }
+.pulse-ring--danger  { --pulse-color: #E24B4A; }
+.pulse-ring--pink    { --pulse-color: #D4537E; }
+.pulse-ring--white   { --pulse-color: #ffffff; }
+
+/* ─── Variant: outline center dot ─── */
+.pulse-ring--outline::after {
+  background-color: transparent;
+  border: 2px solid var(--pulse-color);
+}

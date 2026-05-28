@@ -1,0 +1,91 @@
+/**
+ * Morphing Shape — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Animating border-radius (square → circle) in
+ *             combination with rotate and scale within a single
+ *             @keyframes declaration.
+ * Usage     : Apply `.morph` to an empty <div> element.
+ *             No child elements required.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.morph {
+  /* === SIZE === */
+  --morph-size: 32px;           /* width & height of the element            */
+
+  /* === COLOR === */
+  --morph-color: #993C1D;       /* fill color of the shape                  */
+
+  /* === ANIMATION === */
+  --morph-speed:  2s;           /* duration of one full morph cycle         */
+  --morph-easing: ease-in-out;
+
+  /* === SHAPE CONTROL === */
+  --morph-radius-square: 5px;   /* corner radius when in square form        */
+  --morph-scale-min:     0.82;  /* minimum scale at transition midpoints    */
+
+  /* ─── Do not edit below this line ─── */
+  display:          inline-block;
+  width:            var(--morph-size);
+  height:           var(--morph-size);
+  background-color: var(--morph-color);
+  flex-shrink:      0;
+  animation:        morph-shape var(--morph-speed) var(--morph-easing) infinite;
+}
+
+@keyframes morph-shape {
+  0%   {
+    border-radius: var(--morph-radius-square);
+    transform:     rotate(  0deg) scale(1);
+  }
+  25%  {
+    border-radius: 50%;
+    transform:     rotate( 90deg) scale(var(--morph-scale-min));
+  }
+  50%  {
+    border-radius: var(--morph-radius-square);
+    transform:     rotate(180deg) scale(1);
+  }
+  75%  {
+    border-radius: 50%;
+    transform:     rotate(270deg) scale(var(--morph-scale-min));
+  }
+  100% {
+    border-radius: var(--morph-radius-square);
+    transform:     rotate(360deg) scale(1);
+  }
+}
+
+/* ─── Size presets ─── */
+.morph--sm { --morph-size: 20px; }
+.morph--md { --morph-size: 32px; }
+.morph--lg { --morph-size: 48px; }
+.morph--xl { --morph-size: 72px; }
+
+/* ─── Color presets ─── */
+.morph--primary { --morph-color: #7F77DD; }
+.morph--success { --morph-color: #1D9E75; }
+.morph--warning { --morph-color: #EF9F27; }
+.morph--danger  { --morph-color: #E24B4A; }
+.morph--coral   { --morph-color: #993C1D; }
+.morph--pink    { --morph-color: #D4537E; }
+
+/* ─── Variant: outline only ─── */
+.morph--outline {
+  background-color: transparent !important;
+  border: 3px solid var(--morph-color);
+}
+
+/* ─── Variant: diamond rotation (no scale, sharp corners) ─── */
+.morph--diamond {
+  --morph-scale-min:     1;
+  --morph-radius-square: 0px;
+}
+
+/* ─── Variant: splash screen (large, slow) ─── */
+.morph--splash {
+  --morph-size:  64px;
+  --morph-speed: 3s;
+}

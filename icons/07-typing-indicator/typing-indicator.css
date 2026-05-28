@@ -1,0 +1,115 @@
+/**
+ * Typing Indicator — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : translateY + opacity stagger animation on three
+ *             dots inside a chat-bubble container.
+ * Usage     : Apply `.typing` to a <div> and place three
+ *             <span> elements inside it.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.typing {
+  /* === DOT SIZE === */
+  --typing-dot-size:  7px;      /* diameter of each bouncing dot            */
+  --typing-dot-gap:   5px;      /* gap between dots                         */
+
+  /* === COLOR === */
+  --typing-dot-color: #888780;  /* fill color of the dots                   */
+  --typing-bg:        #f0f0ee;  /* bubble background color                  */
+  --typing-border:    #e2e2df;  /* bubble border color                      */
+
+  /* === BUBBLE SHAPE === */
+  --typing-padding-x:    14px;  /* horizontal padding inside the bubble     */
+  --typing-padding-y:    10px;  /* vertical padding inside the bubble       */
+  --typing-radius:       18px;  /* corner radius of the speech bubble       */
+  --typing-radius-corner: 4px;  /* flattened corner indicating sender side  */
+
+  /* === ANIMATION === */
+  --typing-speed: 1.3s;         /* duration of one full bounce cycle        */
+  --typing-delay: 0.2s;         /* stagger delay between consecutive dots   */
+  --typing-rise:  6px;          /* vertical travel distance per dot         */
+
+  /* ─── Do not edit below this line ─── */
+  display:          inline-flex;
+  align-items:      center;
+  gap:              var(--typing-dot-gap);
+  background-color: var(--typing-bg);
+  border:           0.5px solid var(--typing-border);
+  padding:          var(--typing-padding-y) var(--typing-padding-x);
+  /* Default: left-side bubble (incoming message) */
+  border-radius:              var(--typing-radius);
+  border-bottom-left-radius:  var(--typing-radius-corner);
+}
+
+.typing > span {
+  display:          inline-block;
+  width:            var(--typing-dot-size);
+  height:           var(--typing-dot-size);
+  border-radius:    50%;
+  background-color: var(--typing-dot-color);
+  flex-shrink:      0;
+  animation:        typing-bounce var(--typing-speed) ease-in-out infinite;
+}
+
+.typing > span:nth-child(1) { animation-delay: calc(var(--typing-delay) * 0); }
+.typing > span:nth-child(2) { animation-delay: calc(var(--typing-delay) * 1); }
+.typing > span:nth-child(3) { animation-delay: calc(var(--typing-delay) * 2); }
+
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0);                             opacity: 0.4; }
+  30%            { transform: translateY(calc(var(--typing-rise) * -1)); opacity: 1;   }
+}
+
+/* ─── Size presets ─── */
+.typing--sm {
+  --typing-dot-size:  5px;
+  --typing-dot-gap:   4px;
+  --typing-padding-x: 10px;
+  --typing-padding-y:  7px;
+  --typing-rise:       4px;
+}
+.typing--md {
+  --typing-dot-size:  7px;
+  --typing-dot-gap:   5px;
+  --typing-padding-x: 14px;
+  --typing-padding-y: 10px;
+}
+.typing--lg {
+  --typing-dot-size:  10px;
+  --typing-dot-gap:    7px;
+  --typing-padding-x: 18px;
+  --typing-padding-y: 13px;
+  --typing-rise:       9px;
+}
+
+/* ─── Bubble direction ─── */
+/* Left  = incoming message (default) */
+.typing--left  {
+  border-bottom-left-radius:  var(--typing-radius-corner);
+  border-bottom-right-radius: var(--typing-radius);
+}
+/* Right = outgoing message */
+.typing--right {
+  border-bottom-right-radius: var(--typing-radius-corner);
+  border-bottom-left-radius:  var(--typing-radius);
+}
+
+/* ─── Themes ─── */
+.typing--dark {
+  --typing-bg:        #2c2c2a;
+  --typing-border:    #444;
+  --typing-dot-color: #aaa;
+}
+.typing--primary {
+  --typing-bg:        #EEEDFE;
+  --typing-border:    #AFA9EC;
+  --typing-dot-color: #534AB7;
+}
+/* Bare — no bubble container, dots only */
+.typing--bare {
+  background: none;
+  border:     none;
+  padding:    0;
+}

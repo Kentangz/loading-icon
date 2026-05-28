@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circular Progress — LoadIcons</title>
+  <link rel="stylesheet" href="circular-progress.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8f8f6; color: #1a1a1a; padding: 2rem; }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title { font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:#aaa; margin-bottom:1rem; }
+    .demo-row  { display:flex; align-items:center; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .demo-block { display:flex; flex-direction:column; align-items:center; gap:.65rem; }
+    .demo-block span { font-size:.75rem; color:#888; }
+    .dark-bg { background:#1a1a1a; padding:1.25rem 1.75rem; border-radius:8px; }
+    /* Progress ring with centered label */
+    .progress-wrap {
+      position:relative; display:inline-flex;
+      align-items:center; justify-content:center;
+    }
+    .progress-wrap .progress-label {
+      position:absolute; font-size:13px;
+      font-weight:500; color:#1a1a1a;
+    }
+    pre { background:#f0f0ee; border-radius:8px; padding:1rem; font-size:.78rem; overflow-x:auto; color:#333; }
+  </style>
+</head>
+<body>
+  <h1>08 · Circular Progress</h1>
+  <p class="sub">SVG stroke-dasharray spinner — supports both indeterminate (spinning) and determinate (percentage) modes.</p>
+
+  <h2 class="section-title">Indeterminate — size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="circ-progress circ-progress--sm circ-progress--primary">
+        <svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg>
+      </div><span>sm</span>
+    </div>
+    <div class="demo-block">
+      <div class="circ-progress circ-progress--md circ-progress--primary">
+        <svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg>
+      </div><span>md (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="circ-progress circ-progress--lg circ-progress--primary">
+        <svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg>
+      </div><span>lg</span>
+    </div>
+    <div class="demo-block">
+      <div class="circ-progress circ-progress--xl circ-progress--primary">
+        <svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg>
+      </div><span>xl</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="circ-progress circ-progress--md circ-progress--white">
+        <svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg>
+      </div><span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="circ-progress circ-progress--primary"><svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg></div><span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="circ-progress circ-progress--success"><svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg></div><span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="circ-progress circ-progress--warning"><svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg></div><span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="circ-progress circ-progress--danger"><svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg></div><span>danger</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Determinate — progress ring</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="progress-wrap">
+        <div class="circ-progress circ-progress--xl circ-progress--success circ-progress--determinate" style="--progress-value:30">
+          <svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg>
+        </div>
+        <span class="progress-label">30%</span>
+      </div><span>30%</span>
+    </div>
+    <div class="demo-block">
+      <div class="progress-wrap">
+        <div class="circ-progress circ-progress--xl circ-progress--warning circ-progress--determinate" style="--progress-value:65">
+          <svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg>
+        </div>
+        <span class="progress-label">65%</span>
+      </div><span>65%</span>
+    </div>
+    <div class="demo-block">
+      <div class="progress-wrap">
+        <div class="circ-progress circ-progress--xl circ-progress--primary circ-progress--determinate" style="--progress-value:90">
+          <svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg>
+        </div>
+        <span class="progress-label">90%</span>
+      </div><span>90%</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Interactive demo</h2>
+  <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;">
+    <div class="progress-wrap">
+      <div class="circ-progress circ-progress--xl circ-progress--primary circ-progress--determinate" id="interactive-circ" style="--progress-value:0">
+        <svg class="circ-progress__svg" viewBox="0 0 44 44"><circle class="circ-progress__track" cx="22" cy="22" r="18"/><circle class="circ-progress__fill" cx="22" cy="22" r="18" pathLength="100"/></svg>
+      </div>
+      <span class="progress-label" id="interactive-label">0%</span>
+    </div>
+    <div>
+      <label for="progress-slider" style="font-size:.8rem;color:#666;display:block;margin-bottom:.4rem;">Drag to adjust progress</label>
+      <input type="range" min="0" max="100" value="0" id="progress-slider" style="width:180px;" />
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;link rel="stylesheet" href="circular-progress.css" /&gt;
+
+&lt;!-- Indeterminate (spinner) --&gt;
+&lt;div class="circ-progress circ-progress--md circ-progress--primary"&gt;
+  &lt;svg class="circ-progress__svg" viewBox="0 0 44 44"&gt;
+    &lt;circle class="circ-progress__track" cx="22" cy="22" r="18"/&gt;
+    &lt;circle class="circ-progress__fill"  cx="22" cy="22" r="18" pathLength="100"/&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;
+
+&lt;!-- Determinate — set --progress-value (0–100) --&gt;
+&lt;div class="circ-progress circ-progress--determinate" style="--progress-value:75;"&gt;
+  &lt;svg class="circ-progress__svg" viewBox="0 0 44 44"&gt;
+    &lt;circle class="circ-progress__track" cx="22" cy="22" r="18"/&gt;
+    &lt;circle class="circ-progress__fill"  cx="22" cy="22" r="18" pathLength="100"/&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;</pre>
+
+  <script>
+    const slider = document.getElementById('progress-slider');
+    const circ   = document.getElementById('interactive-circ');
+    const label  = document.getElementById('interactive-label');
+    slider.addEventListener('input', () => {
+      const v = slider.value;
+      circ.style.setProperty('--progress-value', v);
+      label.textContent = v + '%';
+    });
+  </script>
+</body>
+</html>

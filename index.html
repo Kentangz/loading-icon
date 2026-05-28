@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoadIcons — 10 Reusable CSS Loading Icons</title>
+  <meta name="description" content="10 lightweight, dependency-free CSS loading icons, each fully customizable via CSS Custom Properties." />
+  <style>
+    :root {
+      --bg:      #f9f9f7;
+      --surface: #ffffff;
+      --border:  #e8e8e5;
+      --text:    #1a1a1a;
+      --muted:   #888884;
+      --accent:  #534AB7;
+      --radius:  12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:      #111110;
+        --surface: #1c1c1a;
+        --border:  #2e2e2b;
+        --text:    #f0f0ec;
+        --muted:   #666660;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family:  system-ui, -apple-system, sans-serif;
+      background:   var(--bg);
+      color:        var(--text);
+      padding:      3rem 2rem;
+      max-width:    920px;
+      margin:       0 auto;
+      line-height:  1.6;
+    }
+
+    /* ── Header ── */
+    header { margin-bottom: 3rem; }
+    .logo  { font-size: 1.75rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: .4rem; }
+    .logo span { color: var(--accent); }
+    .tagline { color: var(--muted); font-size: .9rem; max-width: 520px; }
+    .badges  { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem; }
+    .badge {
+      font-size: .7rem; font-weight: 500;
+      padding:   3px 10px; border-radius: 20px;
+      background: var(--surface);
+      border:     0.5px solid var(--border);
+      color:      var(--muted);
+    }
+
+    /* ── Icon grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 10px;
+      margin-bottom: 3rem;
+    }
+    .card {
+      background:      var(--surface);
+      border:          0.5px solid var(--border);
+      border-radius:   var(--radius);
+      padding:         1.75rem 1rem 1.25rem;
+      display:         flex;
+      flex-direction:  column;
+      align-items:     center;
+      gap:             .85rem;
+      text-decoration: none;
+      color:           inherit;
+      transition:      border-color .15s, transform .15s, box-shadow .15s;
+    }
+    .card:hover {
+      border-color: #aaa8f8;
+      transform:    translateY(-2px);
+      box-shadow:   0 4px 16px rgba(83,74,183,.08);
+    }
+    .card-num  { font-size: .65rem; color: var(--muted); align-self: flex-start; font-variant-numeric: tabular-nums; }
+    .card-name { font-size: .8rem;  font-weight: 500; text-align: center; }
+    .card-tech { font-size: .7rem;  color: var(--muted); text-align: center; }
+    .icon-wrap { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding-top: 1.5rem;
+      color: var(--muted);
+      font-size: .8rem;
+      display: flex; flex-wrap: wrap; gap: .5rem; justify-content: space-between;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ════════════════ ICON ANIMATIONS ════════════════ */
+
+    /* 01 · Classic Spinner */
+    .demo-spinner {
+      width: 32px; height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: #7F77DD;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* 02 · Dots Wave */
+    .demo-dots { display: flex; gap: 5px; align-items: center; }
+    .demo-dots span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #1D9E75;
+      animation: wave 1.2s ease-in-out infinite;
+    }
+    .demo-dots span:nth-child(2) { animation-delay: .15s; }
+    .demo-dots span:nth-child(3) { animation-delay: .30s; }
+    @keyframes wave { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-10px)} }
+
+    /* 03 · Pulse Ring */
+    .demo-pulse {
+      position: relative; width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .demo-pulse::before {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      background: #D4537E; opacity: .3;
+      animation: pring 1.5s ease-out infinite;
+    }
+    .demo-pulse::after {
+      content: ''; width: 13px; height: 13px; border-radius: 50%;
+      background: #D4537E; animation: pdot 1.5s ease-in-out infinite;
+    }
+    @keyframes pring { 0%{transform:scale(.7);opacity:.3} 100%{transform:scale(1.8);opacity:0} }
+    @keyframes pdot  { 0%,100%{transform:scale(1)} 50%{transform:scale(.88)} }
+
+    /* 04 · Bar Loader */
+    .demo-bars { display: flex; gap: 3px; align-items: flex-end; height: 28px; }
+    .demo-bars span {
+      display: block; width: 4px; height: 22px;
+      border-radius: 2px; background: #378ADD;
+      transform-origin: bottom;
+      animation: bscale 1s ease-in-out infinite;
+    }
+    .demo-bars span:nth-child(2) { animation-delay: .1s; }
+    .demo-bars span:nth-child(3) { animation-delay: .2s; }
+    .demo-bars span:nth-child(4) { animation-delay: .3s; }
+    @keyframes bscale { 0%,100%{transform:scaleY(.35)} 50%{transform:scaleY(1)} }
+
+    /* 05 · Orbit */
+    .demo-orbit {
+      position: relative; width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .demo-orbit-ring {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1.5px dashed rgba(186,117,23,.35);
+      animation: ospin 1.8s linear infinite;
+    }
+    .demo-orbit-dot {
+      position: absolute; width: 7px; height: 7px; border-radius: 50%;
+      background: #EF9F27; top: -3.5px; left: 50%; transform: translateX(-50%);
+    }
+    .demo-orbit-core { width: 9px; height: 9px; border-radius: 50%; background: #BA7517; }
+    @keyframes ospin { to { transform: rotate(360deg); } }
+
+    /* 06 · Shimmer Skeleton */
+    .demo-skeleton { width: 90px; display: flex; flex-direction: column; gap: 5px; }
+    .demo-skel-line {
+      height: 8px; border-radius: 3px;
+      background: linear-gradient(90deg, var(--border) 25%, #e8e8e5 50%, var(--border) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s ease-in-out infinite;
+    }
+    .demo-skel-line:nth-child(2) { width: 75%; }
+    .demo-skel-line:nth-child(3) { width: 50%; }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+    /* 07 · Typing Indicator */
+    .demo-typing {
+      display: flex; gap: 4px; align-items: center;
+      background: var(--surface); border: 0.5px solid var(--border);
+      border-radius: 16px; border-bottom-left-radius: 3px;
+      padding: 8px 12px;
+    }
+    .demo-typing span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #888780;
+      animation: tbounce 1.3s ease-in-out infinite;
+    }
+    .demo-typing span:nth-child(2) { animation-delay: .2s; }
+    .demo-typing span:nth-child(3) { animation-delay: .4s; }
+    @keyframes tbounce { 0%,60%,100%{transform:translateY(0);opacity:.4} 30%{transform:translateY(-5px);opacity:1} }
+
+    /* 08 · Circular Progress */
+    .demo-circ svg {
+      animation: cspin 1.6s linear infinite;
+      transform-origin: center;
+    }
+    @keyframes cspin { from{transform:rotate(-90deg)} to{transform:rotate(270deg)} }
+
+    /* 09 · Morphing Shape */
+    .demo-morph {
+      width: 28px; height: 28px; background: #993C1D;
+      animation: mshape 2s ease-in-out infinite;
+    }
+    @keyframes mshape {
+      0%  { border-radius:4px; transform:rotate(  0deg) scale(1);    }
+      25% { border-radius:50%; transform:rotate( 90deg) scale(.82);  }
+      50% { border-radius:4px; transform:rotate(180deg) scale(1);    }
+      75% { border-radius:50%; transform:rotate(270deg) scale(.82);  }
+      100%{ border-radius:4px; transform:rotate(360deg) scale(1);    }
+    }
+
+    /* 10 · Split Ring */
+    .demo-split {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #0F6E56; border-bottom-color: #0F6E56;
+      animation: spin 1s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="logo">Load<span>Icons</span></p>
+    <p class="tagline">10 lightweight, reusable CSS loading icons — fully customizable via CSS Custom Properties, zero dependencies.</p>
+    <div class="badges">
+      <span class="badge">Pure CSS</span>
+      <span class="badge">Zero Dependency</span>
+      <span class="badge">CSS Custom Properties</span>
+      <span class="badge">Dark Mode Ready</span>
+      <span class="badge">MIT License</span>
+    </div>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="icons/01-classic-spinner/">
+      <span class="card-num">01</span>
+      <div class="icon-wrap"><div class="demo-spinner"></div></div>
+      <span class="card-name">Classic Spinner</span>
+      <span class="card-tech">border-trick · rotate</span>
+    </a>
+    <a class="card" href="icons/02-dots-wave/">
+      <span class="card-num">02</span>
+      <div class="icon-wrap"><div class="demo-dots"><span></span><span></span><span></span></div></div>
+      <span class="card-name">Dots Wave</span>
+      <span class="card-tech">translateY · stagger</span>
+    </a>
+    <a class="card" href="icons/03-pulse-ring/">
+      <span class="card-num">03</span>
+      <div class="icon-wrap"><div class="demo-pulse"></div></div>
+      <span class="card-name">Pulse Ring</span>
+      <span class="card-tech">scale · opacity</span>
+    </a>
+    <a class="card" href="icons/04-bar-loader/">
+      <span class="card-num">04</span>
+      <div class="icon-wrap"><div class="demo-bars"><span></span><span></span><span></span><span></span></div></div>
+      <span class="card-name">Bar Loader</span>
+      <span class="card-tech">scaleY · stagger</span>
+    </a>
+    <a class="card" href="icons/05-orbit/">
+      <span class="card-num">05</span>
+      <div class="icon-wrap">
+        <div class="demo-orbit">
+          <div class="demo-orbit-ring"><div class="demo-orbit-dot"></div></div>
+          <div class="demo-orbit-core"></div>
+        </div>
+      </div>
+      <span class="card-name">Orbit</span>
+      <span class="card-tech">rotate · absolute pos</span>
+    </a>
+    <a class="card" href="icons/06-shimmer-skeleton/">
+      <span class="card-num">06</span>
+      <div class="icon-wrap"><div class="demo-skeleton"><div class="demo-skel-line"></div><div class="demo-skel-line"></div><div class="demo-skel-line"></div></div></div>
+      <span class="card-name">Shimmer Skeleton</span>
+      <span class="card-tech">bg-position · gradient</span>
+    </a>
+    <a class="card" href="icons/07-typing-indicator/">
+      <span class="card-num">07</span>
+      <div class="icon-wrap"><div class="demo-typing"><span></span><span></span><span></span></div></div>
+      <span class="card-name">Typing Indicator</span>
+      <span class="card-tech">bounce · fade · bubble</span>
+    </a>
+    <a class="card" href="icons/08-circular-progress/">
+      <span class="card-num">08</span>
+      <div class="icon-wrap">
+        <div class="demo-circ">
+          <svg width="38" height="38" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+            <circle fill="none" stroke="var(--border)" stroke-width="3" cx="22" cy="22" r="18"/>
+            <circle fill="none" stroke="#534AB7" stroke-width="3" stroke-linecap="round"
+              cx="22" cy="22" r="18" pathLength="100"
+              stroke-dasharray="60 100" stroke-dashoffset="25"/>
+          </svg>
+        </div>
+      </div>
+      <span class="card-name">Circular Progress</span>
+      <span class="card-tech">SVG stroke-dasharray</span>
+    </a>
+    <a class="card" href="icons/09-morphing-shape/">
+      <span class="card-num">09</span>
+      <div class="icon-wrap"><div class="demo-morph"></div></div>
+      <span class="card-name">Morphing Shape</span>
+      <span class="card-tech">border-radius · rotate</span>
+    </a>
+    <a class="card" href="icons/10-split-ring/">
+      <span class="card-num">10</span>
+      <div class="icon-wrap"><div class="demo-split"></div></div>
+      <span class="card-name">Split Ring</span>
+      <span class="card-tech">dual-arc border</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>LoadIcons · MIT License · <a href="https://github.com/your-username/loadicons">github.com/your-username/loadicons</a></span>
+    <span>All icons are customized via CSS Custom Properties — no JavaScript required.</span>
+  </footer>
+</body>
+</html>

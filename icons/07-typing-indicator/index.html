@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Indicator — LoadIcons</title>
+  <link rel="stylesheet" href="typing-indicator.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8f8f6; color: #1a1a1a; padding: 2rem; }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title { font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:#aaa; margin-bottom:1rem; }
+    .demo-row  { display:flex; align-items:center; gap:2rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .demo-block { display:flex; flex-direction:column; align-items:flex-start; gap:.65rem; }
+    .demo-block span { font-size:.75rem; color:#888; }
+    /* Chat window simulation */
+    .chat-window {
+      background:#fff; border:1px solid #ebebeb; border-radius:12px;
+      padding:1rem; max-width:300px;
+      display:flex; flex-direction:column; gap:10px; margin-bottom:2.5rem;
+    }
+    .chat-msg {
+      background:#f0f0ee; border:0.5px solid #e2e2df;
+      border-radius:18px; border-bottom-left-radius:4px;
+      padding:8px 14px; font-size:.85rem; max-width:80%;
+    }
+    .chat-msg--out {
+      background:#EEEDFE; border-color:#AFA9EC;
+      border-radius:18px; border-bottom-right-radius:4px;
+      align-self:flex-end; color:#3C3489;
+    }
+    pre { background:#f0f0ee; border-radius:8px; padding:1rem; font-size:.78rem; overflow-x:auto; color:#333; }
+  </style>
+</head>
+<body>
+  <h1>07 · Typing Indicator</h1>
+  <p class="sub">The industry-standard "someone is typing" indicator for chat and messaging interfaces.</p>
+
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="typing typing--sm"><span></span><span></span><span></span></div><span>sm</span></div>
+    <div class="demo-block"><div class="typing typing--md"><span></span><span></span><span></span></div><span>md (default)</span></div>
+    <div class="demo-block"><div class="typing typing--lg"><span></span><span></span><span></span></div><span>lg</span></div>
+  </div>
+
+  <h2 class="section-title">Themes</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="typing"><span></span><span></span><span></span></div><span>default</span></div>
+    <div class="demo-block"><div class="typing typing--primary"><span></span><span></span><span></span></div><span>primary</span></div>
+    <div class="demo-block"><div class="typing typing--dark"><span></span><span></span><span></span></div><span>dark</span></div>
+    <div class="demo-block"><div class="typing typing--bare"><span></span><span></span><span></span></div><span>bare (no bubble)</span></div>
+  </div>
+
+  <h2 class="section-title">Chat window simulation</h2>
+  <div class="chat-window">
+    <div class="chat-msg chat-msg--out">Hey, are you still there?</div>
+    <div class="chat-msg chat-msg--out">I'm sending the file now.</div>
+    <!-- Incoming typing indicator -->
+    <div class="typing typing--left"><span></span><span></span><span></span></div>
+  </div>
+
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="typing" style="--typing-bg:#FBEAF0;--typing-border:#F4C0D1;--typing-dot-color:#993356;--typing-speed:0.9s;">
+        <span></span><span></span><span></span>
+      </div>
+      <span>pink · fast</span>
+    </div>
+    <div class="demo-block">
+      <div class="typing typing--right" style="--typing-bg:#f0fdf4;--typing-border:#86efac;--typing-dot-color:#16a34a;">
+        <span></span><span></span><span></span>
+      </div>
+      <span>outgoing · green</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;link rel="stylesheet" href="typing-indicator.css" /&gt;
+
+&lt;!-- Default (incoming / left bubble) --&gt;
+&lt;div class="typing"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Outgoing / right bubble --&gt;
+&lt;div class="typing typing--right typing--primary"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Bare (dots only, no bubble) --&gt;
+&lt;div class="typing typing--bare"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse Ring — LoadIcons</title>
+  <link rel="stylesheet" href="pulse-ring.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8f8f6; color: #1a1a1a; padding: 2rem; }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title { font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:#aaa; margin-bottom:1rem; }
+    .demo-row  { display:flex; align-items:center; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .demo-block { display:flex; flex-direction:column; align-items:center; gap:.65rem; }
+    .demo-block span { font-size:.75rem; color:#888; }
+    .dark-bg { background:#1a1a1a; padding:1.25rem 1.75rem; border-radius:8px; }
+    pre { background:#f0f0ee; border-radius:8px; padding:1rem; font-size:.78rem; overflow-x:auto; color:#333; }
+
+    /* Use-case: avatar status indicator */
+    .avatar {
+      position:relative; width:48px; height:48px;
+      border-radius:50%; background:#c7c7c7; overflow:hidden;
+    }
+    .avatar-badge { position:absolute; bottom:1px; right:1px; }
+  </style>
+</head>
+<body>
+  <h1>03 · Pulse Ring</h1>
+  <p class="sub">An expanding, fading ring — ideal for live-status indicators, online badges, and active alerts.</p>
+
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="pulse-ring pulse-ring--sm pulse-ring--pink"></div><span>sm · 22px</span></div>
+    <div class="demo-block"><div class="pulse-ring pulse-ring--md pulse-ring--pink"></div><span>md · 36px (default)</span></div>
+    <div class="demo-block"><div class="pulse-ring pulse-ring--lg pulse-ring--pink"></div><span>lg · 56px</span></div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="pulse-ring pulse-ring--primary"></div><span>primary</span></div>
+    <div class="demo-block"><div class="pulse-ring pulse-ring--success"></div><span>success</span></div>
+    <div class="demo-block"><div class="pulse-ring pulse-ring--warning"></div><span>warning</span></div>
+    <div class="demo-block"><div class="pulse-ring pulse-ring--danger"></div><span>danger</span></div>
+    <div class="demo-block dark-bg">
+      <div class="pulse-ring pulse-ring--white"></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Variants & use cases</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="pulse-ring pulse-ring--outline pulse-ring--primary"></div>
+      <span>outline dot</span>
+    </div>
+    <div class="demo-block">
+      <div class="pulse-ring" style="--pulse-color:#EF9F27;--pulse-speed:0.8s;--pulse-scale:2.2;"></div>
+      <span>fast · amber</span>
+    </div>
+    <!-- Avatar online status badge -->
+    <div class="demo-block">
+      <div style="position:relative;display:inline-block;">
+        <div class="avatar"></div>
+        <div class="avatar-badge">
+          <div class="pulse-ring pulse-ring--sm pulse-ring--success"></div>
+        </div>
+      </div>
+      <span>online badge</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;link rel="stylesheet" href="pulse-ring.css" /&gt;
+
+&lt;!-- Basic --&gt;
+&lt;div class="pulse-ring"&gt;&lt;/div&gt;
+
+&lt;!-- With modifiers --&gt;
+&lt;div class="pulse-ring pulse-ring--lg pulse-ring--success"&gt;&lt;/div&gt;
+
+&lt;!-- Custom speed and scale --&gt;
+&lt;div class="pulse-ring" style="--pulse-color:#EF9F27; --pulse-speed:0.8s; --pulse-scale:2.2;"&gt;&lt;/div&gt;</pre>
+</body>
+</html>

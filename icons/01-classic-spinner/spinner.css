@@ -1,0 +1,53 @@
+/**
+ * Classic Spinner — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : CSS border-trick + rotate animation
+ * Usage     : Apply the `.spinner` class to any <div> element.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.spinner {
+  /* === SIZE === */
+  --spinner-size:       36px;       /* width & height of the element        */
+  --spinner-thickness:  3px;        /* thickness of the ring stroke          */
+
+  /* === COLOR === */
+  --spinner-color:      #7F77DD;    /* color of the active arc               */
+  --spinner-track-color:#e2e2e2;    /* color of the background track ring    */
+
+  /* === ANIMATION === */
+  --spinner-speed:      0.8s;       /* duration of one full rotation         */
+  --spinner-easing:     linear;     /* timing function                       */
+
+  /* ─── Do not edit below this line ─── */
+  display:      inline-block;
+  box-sizing:   border-box;
+  width:        var(--spinner-size);
+  height:       var(--spinner-size);
+  border-width: var(--spinner-thickness);
+  border-style: solid;
+  border-color: var(--spinner-track-color);
+  border-top-color: var(--spinner-color);
+  border-radius: 50%;
+  animation: spinner-rotate var(--spinner-speed) var(--spinner-easing) infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spinner-rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Size presets ─── */
+.spinner--sm { --spinner-size: 20px; --spinner-thickness: 2px; }
+.spinner--md { --spinner-size: 36px; --spinner-thickness: 3px; }
+.spinner--lg { --spinner-size: 56px; --spinner-thickness: 4px; }
+
+/* ─── Color presets ─── */
+.spinner--primary { --spinner-color: #7F77DD; }
+.spinner--success { --spinner-color: #1D9E75; }
+.spinner--warning { --spinner-color: #EF9F27; }
+.spinner--danger  { --spinner-color: #E24B4A; }
+.spinner--dark    { --spinner-color: #2C2C2A; --spinner-track-color: rgba(0,0,0,0.1); }
+.spinner--white   { --spinner-color: #ffffff; --spinner-track-color: rgba(255,255,255,0.25); }
