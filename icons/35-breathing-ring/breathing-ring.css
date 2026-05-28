@@ -1,0 +1,58 @@
+/**
+ * Breathing Ring — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Synced scale & box-shadow glow expansion.
+ *             A single circular element expands and breathes in a
+ *             natural sinusoidal rhythm, casting an expanding,
+ *             translucent shadow that decays at maximum extension.
+ *
+ * Usage     : <div class="breathing-ring" role="status" aria-label="Loading"></div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.breathing-ring {
+  /* === SIZE === */
+  --ring-size: 40px;
+
+  /* === COLOR === */
+  --ring-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --ring-speed: 2.2s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--ring-size);
+  height: var(--ring-size);
+  border-radius: 50%;
+  border: calc(var(--ring-size) * 0.08) solid var(--ring-color);
+  box-sizing: border-box;
+  animation: breathing-pulse var(--ring-speed) ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes breathing-pulse {
+  0%, 100% {
+    transform: scale(0.85);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--ring-color) 40%, transparent);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 calc(var(--ring-size) * 0.4) calc(var(--ring-size) * 0.15) color-mix(in srgb, var(--ring-color) 0%, transparent);
+    opacity: 1;
+  }
+}
+
+/* ─── Size presets ─── */
+.breathing-ring--sm { --ring-size: 24px; }
+.breathing-ring--md { --ring-size: 40px; }
+.breathing-ring--lg { --ring-size: 60px; }
+.breathing-ring--xl { --ring-size: 88px; }
+
+/* ─── Color presets ─── */
+.breathing-ring--primary { --ring-color: #7F77DD; }
+.breathing-ring--success { --ring-color: #1D9E75; }
+.breathing-ring--warning { --ring-color: #EF9F27; }
+.breathing-ring--danger  { --ring-color: #E24B4A; }
+.breathing-ring--white   { --ring-color: #ffffff; }
+.breathing-ring--dark    { --ring-color: #2C2C2A; }

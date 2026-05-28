@@ -1,0 +1,131 @@
+/**
+ * Atom Orbit — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Three-ring 3D atomic orbits with orbital travel.
+ *             An atomic nucleus surrounded by three rings inclined
+ *             at 120-degree intervals in 3D space. Electron dots
+ *             orbit continuously along their stationary elliptical perimeters.
+ *
+ * Usage     : <div class="atom-orbit" role="status" aria-label="Loading">
+ *               <div class="atom-orbit__nucleus"></div>
+ *               <div class="atom-orbit__ring atom-orbit__ring--1">
+ *                 <div class="atom-orbit__electron"></div>
+ *               </div>
+ *               <div class="atom-orbit__ring atom-orbit__ring--2">
+ *                 <div class="atom-orbit__electron"></div>
+ *               </div>
+ *               <div class="atom-orbit__ring atom-orbit__ring--3">
+ *                 <div class="atom-orbit__electron"></div>
+ *               </div>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.atom-orbit {
+  /* === SIZE === */
+  --atom-size: 40px;
+
+  /* === COLOR === */
+  --atom-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --atom-speed: 1.2s;
+
+  /* ─── Do not edit below this line ─── */
+  position: relative;
+  width: var(--atom-size);
+  height: var(--atom-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  perspective: calc(var(--atom-size) * 4);
+  transform-style: preserve-3d;
+}
+
+/* Central nucleus dot */
+.atom-orbit__nucleus {
+  width: calc(var(--atom-size) * 0.18);
+  height: calc(var(--atom-size) * 0.18);
+  background: var(--atom-color);
+  border-radius: 50%;
+  box-shadow: 0 0 calc(var(--atom-size) * 0.12) var(--atom-color);
+  z-index: 10;
+  box-sizing: border-box;
+  transform: translateZ(0);
+}
+
+/* Orbiting ring frames */
+.atom-orbit__ring {
+  position: absolute;
+  inset: 0;
+  border: calc(var(--atom-size) * 0.035) solid color-mix(in srgb, var(--atom-color) 45%, transparent);
+  border-radius: 50%;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+/* Three inclined 3D spatial orientations spaced at 120deg intervals */
+.atom-orbit__ring--1 {
+  transform: rotateX(70deg) rotateY(15deg);
+}
+
+.atom-orbit__ring--2 {
+  transform: rotateX(70deg) rotateY(135deg);
+}
+
+.atom-orbit__ring--3 {
+  transform: rotateX(70deg) rotateY(255deg);
+}
+
+/* Rotating container holding the electron */
+.atom-orbit__electron {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: atom-spin var(--atom-speed) linear infinite;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+/* The orbiting particle itself */
+.atom-orbit__electron::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--atom-size) * -0.05);
+  left: calc(50% - calc(var(--atom-size) * 0.05));
+  width: calc(var(--atom-size) * 0.1);
+  height: calc(var(--atom-size) * 0.1);
+  background: var(--atom-color);
+  border-radius: 50%;
+  box-shadow: 0 0 calc(var(--atom-size) * 0.08) var(--atom-color);
+  box-sizing: border-box;
+}
+
+/* Orbit timing delays to distribute electrons along paths */
+.atom-orbit__ring--1 .atom-orbit__electron { animation-delay: 0s; }
+.atom-orbit__ring--2 .atom-orbit__electron { animation-delay: calc(var(--atom-speed) * -0.33); }
+.atom-orbit__ring--3 .atom-orbit__electron { animation-delay: calc(var(--atom-speed) * -0.66); }
+
+@keyframes atom-spin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* ─── Size presets ─── */
+.atom-orbit--sm { --atom-size: 24px; }
+.atom-orbit--md { --atom-size: 40px; }
+.atom-orbit--lg { --atom-size: 60px; }
+.atom-orbit--xl { --atom-size: 88px; }
+
+/* ─── Color presets ─── */
+.atom-orbit--primary { --atom-color: #7F77DD; }
+.atom-orbit--success { --atom-color: #1D9E75; }
+.atom-orbit--warning { --atom-color: #EF9F27; }
+.atom-orbit--danger  { --atom-color: #E24B4A; }
+.atom-orbit--white   { --atom-color: #ffffff; }
+.atom-orbit--dark    { --atom-color: #2C2C2A; }

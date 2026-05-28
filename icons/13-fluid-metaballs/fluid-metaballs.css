@@ -1,0 +1,119 @@
+/**
+ * Fluid Metaballs — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Gooey effect using contrast & blur filters.
+ *             Two orbiting satellite dots collide and merge into
+ *             a stationary central core dot, stretching fluidly.
+ *
+ * Note      : For the gooey effect to render correctly, the parent
+ *             must define a solid background (`--metaballs-bg`).
+ *             By default, it is configured for a light-grey theme (#f8f8f6)
+ *             and can be easily customized to match your page surface.
+ *
+ * Usage     : <div class="fluid-metaballs" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.fluid-metaballs {
+  /* === SIZE === */
+  --metaballs-size: 64px;
+
+  /* === COLOR === */
+  --metaballs-color: #7F77DD;
+
+  /* === BACKDROP COLOR === */
+  /* CRITICAL: Must match the background behind the loader for gooey filter to blend */
+  --metaballs-bg: #f8f8f6;
+
+  /* === ANIMATION === */
+  --metaballs-speed: 2s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  position: relative;
+  width: var(--metaballs-size);
+  height: var(--metaballs-size);
+  background: var(--metaballs-bg);
+  /* Apply contrast at container level */
+  filter: blur(5px) contrast(14);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.fluid-metaballs span {
+  position: absolute;
+  background: var(--metaballs-color);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+/* 1. The Stationary Central Core */
+.fluid-metaballs span:nth-child(1) {
+  top: 32.5%;
+  left: 32.5%;
+  width: 35%;
+  height: 35%;
+}
+
+/* 2. Oscillating Satellite A */
+.fluid-metaballs span:nth-child(2) {
+  top: 35%;
+  left: 35%;
+  width: 30%;
+  height: 30%;
+  animation: metaball-swing-a var(--metaballs-speed) ease-in-out infinite;
+}
+
+/* 3. Oscillating Satellite B */
+.fluid-metaballs span:nth-child(3) {
+  top: 35%;
+  left: 35%;
+  width: 30%;
+  height: 30%;
+  animation: metaball-swing-b var(--metaballs-speed) ease-in-out infinite;
+}
+
+@keyframes metaball-swing-a {
+  0%, 100% {
+    transform: translateX(-140%);
+  }
+  50% {
+    transform: translateX(140%);
+  }
+}
+
+@keyframes metaball-swing-b {
+  0%, 100% {
+    transform: translateX(140%);
+  }
+  50% {
+    transform: translateX(-140%);
+  }
+}
+
+/* ─── Size presets ─── */
+.fluid-metaballs--sm { --metaballs-size: 40px; }
+.fluid-metaballs--md { --metaballs-size: 64px; }
+.fluid-metaballs--lg { --metaballs-size: 96px; }
+.fluid-metaballs--xl { --metaballs-size: 128px; }
+
+/* ─── Color presets ─── */
+.fluid-metaballs--primary { --metaballs-color: #7F77DD; }
+.fluid-metaballs--success { --metaballs-color: #1D9E75; }
+.fluid-metaballs--warning { --metaballs-color: #EF9F27; }
+.fluid-metaballs--danger  { --metaballs-color: #E24B4A; }
+.fluid-metaballs--white   { --metaballs-color: #ffffff; }
+.fluid-metaballs--dark    { --metaballs-color: #2C2C2A; }
+
+/* ─── Theme adaptations ─── */
+.fluid-metaballs--dark-bg {
+  --metaballs-bg: #1a1a1a;
+}
+.fluid-metaballs--dim-bg {
+  --metaballs-bg: #2a2a2e;
+}
+.fluid-metaballs--transparent-card {
+  --metaballs-bg: #ffffff;
+}

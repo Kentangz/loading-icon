@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radar Sweep — LoadIcons</title>
+  <link rel="stylesheet" href="radar-sweep.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>27 · Radar Sweep</h1>
+  <p class="sub">
+    A premium submarine sonar loader. A circular face is swept by a rotating conic gradient beam. Staggered target indicators (blips) flash and glow exactly as the sweeping beam crosses their spatial positions.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="radar-sweep radar-sweep--sm radar-sweep--primary" role="status" aria-label="Loading">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>sm · 32px</span>
+    </div>
+    <div class="demo-block">
+      <div class="radar-sweep radar-sweep--md radar-sweep--primary" role="status" aria-label="Loading">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>md · 50px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="radar-sweep radar-sweep--lg radar-sweep--primary" role="status" aria-label="Loading">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>lg · 72px</span>
+    </div>
+    <div class="demo-block">
+      <div class="radar-sweep radar-sweep--xl radar-sweep--primary" role="status" aria-label="Loading">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>xl · 104px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="radar-sweep radar-sweep--primary">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="radar-sweep radar-sweep--success">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="radar-sweep radar-sweep--warning">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="radar-sweep radar-sweep--danger">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="radar-sweep radar-sweep--dark">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="radar-sweep radar-sweep--white">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="radar-sweep" style="--radar-color: #ec4899; --radar-speed: 1.2s;">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>pink · fast scan (1.2s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="radar-sweep" style="--radar-color: #0ea5e9; --radar-speed: 4s; --radar-size: 80px;">
+        <div class="radar-sweep__line"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+        <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+      </div>
+      <span>cyan · slow scan (4s) · 80px</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="radar-sweep.css" /&gt;
+
+&lt;!-- 2. Structure — requires exactly the line & 2 blip elements --&gt;
+&lt;div class="radar-sweep" role="status" aria-label="Loading"&gt;
+  &lt;div class="radar-sweep__line"&gt;&lt;/div&gt;
+  &lt;div class="radar-sweep__blip radar-sweep__blip--1"&gt;&lt;/div&gt;
+  &lt;div class="radar-sweep__blip radar-sweep__blip--2"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. Size + color modifiers --&gt;
+&lt;div class="radar-sweep radar-sweep--lg radar-sweep--success"&gt;
+  &lt;div class="radar-sweep__line"&gt;&lt;/div&gt;
+  &lt;div class="radar-sweep__blip radar-sweep__blip--1"&gt;&lt;/div&gt;
+  &lt;div class="radar-sweep__blip radar-sweep__blip--2"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

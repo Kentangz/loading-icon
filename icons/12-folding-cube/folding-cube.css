@@ -1,0 +1,90 @@
+/**
+ * Folding Cube — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : CSS 3D Transforms (perspective, rotateX, rotateY)
+ *             applied sequentially to four quad-squares,
+ *             creating a seamless folding box effect.
+ *
+ * Usage     : <div class="folding-cube" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.folding-cube {
+  /* === SIZE === */
+  --cube-size: 40px;
+
+  /* === COLOR === */
+  --cube-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --cube-speed: 2.4s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  position: relative;
+  transform: rotateZ(45deg);
+  box-sizing: border-box;
+}
+
+.folding-cube span {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  transform: scale(1.1);
+  box-sizing: border-box;
+}
+
+.folding-cube span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--cube-color);
+  transform-origin: 100% 100%;
+  animation: foldCube var(--cube-speed) infinite linear both;
+  box-sizing: border-box;
+}
+
+.folding-cube span:nth-child(2) { transform: scale(1.1) rotateZ(90deg); }
+.folding-cube span:nth-child(4) { transform: scale(1.1) rotateZ(180deg); }
+.folding-cube span:nth-child(3) { transform: scale(1.1) rotateZ(270deg); }
+
+.folding-cube span:nth-child(2)::before { animation-delay: calc(var(--cube-speed) / 8); }
+.folding-cube span:nth-child(4)::before { animation-delay: calc(var(--cube-speed) / 4); }
+.folding-cube span:nth-child(3)::before { animation-delay: calc(var(--cube-speed) * 3 / 8); }
+
+@keyframes foldCube {
+  0%, 10% {
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  }
+  25%, 75% {
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  }
+  90%, 100% {
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+/* ─── Size presets ─── */
+.folding-cube--sm { --cube-size: 24px; }
+.folding-cube--md { --cube-size: 40px; }
+.folding-cube--lg { --cube-size: 60px; }
+.folding-cube--xl { --cube-size: 88px; }
+
+/* ─── Color presets ─── */
+.folding-cube--primary { --cube-color: #7F77DD; }
+.folding-cube--success { --cube-color: #1D9E75; }
+.folding-cube--warning { --cube-color: #EF9F27; }
+.folding-cube--danger  { --cube-color: #E24B4A; }
+.folding-cube--white   { --cube-color: #ffffff; }
+.folding-cube--dark    { --cube-color: #2C2C2A; }

@@ -1,0 +1,106 @@
+/**
+ * Matrix Fade — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Grid alignment combined with Manhattan-distance
+ *             diagonal staggered delay sweeps, pulsing both scale
+ *             and opacity simultaneously.
+ *
+ * Usage     : <div class="matrix-fade" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *               <span></span><span></span><span></span>
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.matrix-fade {
+  /* === SIZE === */
+  --matrix-size:   40px;
+  --matrix-gap:     4px;
+
+  /* === COLOR === */
+  --matrix-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --matrix-speed: 1.2s;
+
+  /* === SHAPE === */
+  --matrix-radius: 50%;     /* 50% = circles, 4px = rounded squares, 0px = sharp squares */
+
+  /* ─── Do not edit below this line ─── */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: var(--matrix-gap);
+  width: var(--matrix-size);
+  height: var(--matrix-size);
+  box-sizing: border-box;
+}
+
+.matrix-fade span {
+  display: block;
+  background: var(--matrix-color);
+  border-radius: var(--matrix-radius);
+  animation: matrix-pulse var(--matrix-speed) ease-in-out infinite;
+  box-sizing: border-box;
+}
+
+/* Diagonal wave staggered delays */
+/* Wave 0 (top-left) */
+.matrix-fade span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+/* Wave 1 */
+.matrix-fade span:nth-child(2),
+.matrix-fade span:nth-child(4) {
+  animation-delay: calc(var(--matrix-speed) * -0.15);
+}
+
+/* Wave 2 */
+.matrix-fade span:nth-child(3),
+.matrix-fade span:nth-child(5),
+.matrix-fade span:nth-child(7) {
+  animation-delay: calc(var(--matrix-speed) * -0.30);
+}
+
+/* Wave 3 */
+.matrix-fade span:nth-child(6),
+.matrix-fade span:nth-child(8) {
+  animation-delay: calc(var(--matrix-speed) * -0.45);
+}
+
+/* Wave 4 (bottom-right) */
+.matrix-fade span:nth-child(9) {
+  animation-delay: calc(var(--matrix-speed) * -0.60);
+}
+
+@keyframes matrix-pulse {
+  0%, 100% {
+    transform: scale(0.6);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ─── Size presets ─── */
+.matrix-fade--sm { --matrix-size: 24px; --matrix-gap: 2.5px; }
+.matrix-fade--md { --matrix-size: 40px; --matrix-gap: 4px; }
+.matrix-fade--lg { --matrix-size: 64px; --matrix-gap: 6px; }
+.matrix-fade--xl { --matrix-size: 96px; --matrix-gap: 9px; }
+
+/* ─── Color presets ─── */
+.matrix-fade--primary { --matrix-color: #7F77DD; }
+.matrix-fade--success { --matrix-color: #1D9E75; }
+.matrix-fade--warning { --matrix-color: #EF9F27; }
+.matrix-fade--danger  { --matrix-color: #E24B4A; }
+.matrix-fade--white   { --matrix-color: #ffffff; }
+.matrix-fade--dark    { --matrix-color: #2C2C2A; }
+
+/* ─── Modifier: rounded squares instead of circles ─── */
+.matrix-fade--square {
+  --matrix-radius: 4px;
+}

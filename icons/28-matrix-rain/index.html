@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matrix Rain — LoadIcons</title>
+  <link rel="stylesheet" href="matrix-rain.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>28 · Matrix Rain</h1>
+  <p class="sub">
+    A digital cyberpunk waterfall stream loader. Glowing code droplets descend down parallel tracks at slightly different velocities and phase delays to prevent synchronization lock.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="matrix-rain matrix-rain--sm matrix-rain--success" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>sm · 28px wide</span>
+    </div>
+    <div class="demo-block">
+      <div class="matrix-rain matrix-rain--md matrix-rain--success" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>md · 44px wide (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="matrix-rain matrix-rain--lg matrix-rain--success" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>lg · 64px wide</span>
+    </div>
+    <div class="demo-block">
+      <div class="matrix-rain matrix-rain--xl matrix-rain--success" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>xl · 90px wide</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="matrix-rain matrix-rain--success">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>success (Matrix Green)</span>
+    </div>
+    <div class="demo-block">
+      <div class="matrix-rain matrix-rain--primary">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="matrix-rain matrix-rain--warning">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="matrix-rain matrix-rain--danger">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="matrix-rain matrix-rain--dark">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="matrix-rain matrix-rain--white">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="matrix-rain" style="--rain-color: #ec4899; --rain-speed: 0.6s;">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>pink · rapid rain (0.6s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="matrix-rain" style="--rain-color: #0ea5e9; --rain-speed: 3s; --rain-height: 60px; --rain-width: 60px;">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span>cyan · slow drizzle (3s) · tall</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="matrix-rain.css" /&gt;
+
+&lt;!-- 2. Structure — requires exactly 4 span children --&gt;
+&lt;div class="matrix-rain" role="status" aria-label="Loading"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. Size + success color modifier --&gt;
+&lt;div class="matrix-rain matrix-rain--lg matrix-rain--success"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

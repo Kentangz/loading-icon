@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squishy Ball — LoadIcons</title>
+  <link rel="stylesheet" href="squishy-ball.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: flex-end; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px; display: flex; align-items: flex-end;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>25 · Squishy Ball</h1>
+  <p class="sub">
+    A satisfying, high-fidelity physics-driven loader. A sphere drops down, flattens/squashes dynamically upon hitting a solid floor, stretches vertically on liftoff, and casts an inverse-scaling fading shadow beneath.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="squishy-ball squishy-ball--sm squishy-ball--primary" role="status" aria-label="Loading">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>sm · 18px ball</span>
+    </div>
+    <div class="demo-block">
+      <div class="squishy-ball squishy-ball--md squishy-ball--primary" role="status" aria-label="Loading">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>md · 28px ball (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="squishy-ball squishy-ball--lg squishy-ball--primary" role="status" aria-label="Loading">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>lg · 40px ball</span>
+    </div>
+    <div class="demo-block">
+      <div class="squishy-ball squishy-ball--xl squishy-ball--primary" role="status" aria-label="Loading">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>xl · 56px ball</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="squishy-ball squishy-ball--primary">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="squishy-ball squishy-ball--success">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="squishy-ball squishy-ball--warning">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="squishy-ball squishy-ball--danger">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="squishy-ball squishy-ball--dark">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="squishy-ball squishy-ball--white">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="squishy-ball" style="--ball-color: #ec4899; --ball-speed: 0.7s;">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>pink · hyper fast (0.7s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="squishy-ball" style="--ball-color: #0ea5e9; --ball-speed: 2.2s; --ball-height: 80px; --ball-size: 32px;">
+        <div class="squishy-ball__sphere"></div>
+        <div class="squishy-ball__shadow"></div>
+      </div>
+      <span>cyan · slow &amp; high (2.2s)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="squishy-ball.css" /&gt;
+
+&lt;!-- 2. Structure — requires sphere & shadow children --&gt;
+&lt;div class="squishy-ball" role="status" aria-label="Loading"&gt;
+  &lt;div class="squishy-ball__sphere"&gt;&lt;/div&gt;
+  &lt;div class="squishy-ball__shadow"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. Size + color modifiers --&gt;
+&lt;div class="squishy-ball squishy-ball--lg squishy-ball--success"&gt;
+  &lt;div class="squishy-ball__sphere"&gt;&lt;/div&gt;
+  &lt;div class="squishy-ball__shadow"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+/**
+ * Comet — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : conic-gradient (fading arc tail) masked by a
+ *             radial-gradient (punches out center → ring shape)
+ *             + continuous rotate animation.
+ *
+ *   Unlike a border-trick spinner, the arc itself fades from
+ *   fully transparent at the "tail" to solid color at the
+ *   "head", producing a natural comet-streak effect.
+ *
+ * Usage     : Apply `.comet` to an empty <div> element.
+ *             No child elements required.
+ *
+ *   <div class="comet" role="status" aria-label="Loading"></div>
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.comet {
+  /* === SIZE === */
+  --comet-size:      40px;   /* diameter of the spinner ring                */
+  --comet-thickness:  4px;   /* stroke width of the visible arc             */
+
+  /* === COLOR === */
+  --comet-color: #7F77DD;    /* color of the arc head (tail fades to clear) */
+
+  /* === ANIMATION === */
+  --comet-speed:  1.2s;      /* duration of one full rotation               */
+  --comet-easing: linear;
+
+  /* === ARC LENGTH === */
+  --comet-arc: 75%;          /* 0–100% — how much of the ring is the trail  */
+                              /* 50% = quarter ring, 75% = three-quarter arc */
+
+  /* ─── Do not edit below this line ─── */
+  display:       inline-block;
+  box-sizing:    border-box;
+  flex-shrink:   0;
+  width:         var(--comet-size);
+  height:        var(--comet-size);
+  border-radius: 50%;
+
+  /*
+   * Step 1 — paint a conic gradient: transparent at 0°,
+   *           fading smoothly into the full color at --comet-arc,
+   *           then hard-cut back to transparent for the gap.
+   */
+  background: conic-gradient(
+    from 0deg,
+    transparent                    0%,
+    var(--comet-color) var(--comet-arc)
+  );
+
+  /*
+   * Step 2 — mask out the centre to leave only a ring.
+   *   farthest-side: gradient radius = half of the element's size.
+   *   transparent up to (100% − thickness) = inner edge of ring.
+   *   black/opaque from (100% − thickness) onwards = visible ring.
+   */
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--comet-thickness) - 0.5px),
+    #000        calc(100% - var(--comet-thickness))
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--comet-thickness) - 0.5px),
+    #000        calc(100% - var(--comet-thickness))
+  );
+
+  animation: comet-spin var(--comet-speed) var(--comet-easing) infinite;
+}
+
+@keyframes comet-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Size presets ─── */
+.comet--sm { --comet-size: 24px; --comet-thickness: 3px; }
+.comet--md { --comet-size: 40px; --comet-thickness: 4px; }
+.comet--lg { --comet-size: 60px; --comet-thickness: 5px; }
+.comet--xl { --comet-size: 88px; --comet-thickness: 6px; }
+
+/* ─── Color presets ─── */
+.comet--primary { --comet-color: #7F77DD; }
+.comet--success { --comet-color: #1D9E75; }
+.comet--warning { --comet-color: #EF9F27; }
+.comet--danger  { --comet-color: #E24B4A; }
+.comet--white   { --comet-color: #ffffff; }
+.comet--dark    { --comet-color: #2C2C2A; }
+
+/* ─── Variant: counter-clockwise ─── */
+.comet--ccw {
+  animation-direction: reverse;
+}
+
+/* ─── Variant: glow — drop-shadow radiates from the arc head ─── */
+.comet--glow {
+  filter: drop-shadow(0 0 calc(var(--comet-thickness) * 1.5) var(--comet-color));
+}
+
+/* ─── Variant: wide arc (longer trail, ~270°) ─── */
+.comet--wide {
+  --comet-arc: 88%;
+}
+
+/* ─── Variant: short arc (tight streak, ~90°) ─── */
+.comet--short {
+  --comet-arc: 35%;
+}

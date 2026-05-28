@@ -1,0 +1,143 @@
+/**
+ * Liquid Drop — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Gravity fall and synchronized concentric ripple decay.
+ *             A liquid droplet forms at a top spout, drops vertically under
+ *             simulated gravity, squishes horizontally on impact, and 
+ *             triggers a expanding concentric ripple.
+ *
+ * Usage     : <div class="liquid-drop" role="status" aria-label="Loading">
+ *               <div class="liquid-drop__spout"></div>
+ *               <div class="liquid-drop__drip"></div>
+ *               <div class="liquid-drop__ripple"></div>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.liquid-drop {
+  /* === SIZE === */
+  --drop-size: 40px;
+
+  /* === COLOR === */
+  --drop-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --drop-speed: 2s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--drop-size);
+  height: calc(var(--drop-size) * 1.2);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Stationary top spout */
+.liquid-drop__spout {
+  position: absolute;
+  top: 0;
+  left: calc(50% - calc(var(--drop-size) * 0.12));
+  width: calc(var(--drop-size) * 0.24);
+  height: calc(var(--drop-size) * 0.12);
+  background: var(--drop-color);
+  border-radius: 0 0 calc(var(--drop-size) * 0.08) calc(var(--drop-size) * 0.08);
+  opacity: 0.85;
+}
+
+/* Falling fluid droplet */
+.liquid-drop__drip {
+  position: absolute;
+  top: calc(var(--drop-size) * 0.08);
+  left: calc(50% - calc(var(--drop-size) * 0.08));
+  width: calc(var(--drop-size) * 0.16);
+  height: calc(var(--drop-size) * 0.16);
+  background: var(--drop-color);
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  transform-origin: bottom center;
+  animation: drop-fall var(--drop-speed) cubic-bezier(0.4, 0, 0.9, 0.4) infinite;
+  box-sizing: border-box;
+}
+
+/* Expanding ripple circle */
+.liquid-drop__ripple {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - calc(var(--drop-size) * 0.4));
+  width: calc(var(--drop-size) * 0.8);
+  height: calc(var(--drop-size) * 0.2);
+  border: calc(var(--drop-size) * 0.04) solid var(--drop-color);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  animation: drop-ripple var(--drop-speed) linear infinite;
+  box-sizing: border-box;
+}
+
+@keyframes drop-fall {
+  /* 0% to 35%: Droplet slowly swells and forms at the spout */
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+    border-radius: 50%;
+  }
+  15% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  35% {
+    transform: translateY(0) scale(1) scaleX(0.85) scaleY(1.15);
+    opacity: 1;
+    border-radius: 50% 50% 30% 30% / 30% 30% 70% 70%;
+  }
+  /* 35% to 58%: Droplet detaches and falls under gravity acceleration */
+  58% {
+    transform: translateY(calc(var(--drop-size) * 0.8)) scaleX(0.8) scaleY(1.3);
+    opacity: 1;
+    border-radius: 50% 50% 20% 20% / 15% 15% 85% 85%;
+  }
+  /* 58% to 62%: Impact! Droplet squishes out horizontally */
+  60% {
+    transform: translateY(calc(var(--drop-size) * 0.96)) scaleX(1.6) scaleY(0.4);
+    opacity: 1;
+  }
+  /* 62% to 100%: Droplet vanishes completely during splash */
+  64%, 100% {
+    transform: translateY(calc(var(--drop-size) * 0.96)) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes drop-ripple {
+  /* Ripple triggers exactly on droplet impact (~60%) */
+  0%, 59% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  85% {
+    transform: scale(1.4);
+    opacity: 0.35;
+  }
+  96%, 100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* ─── Size presets ─── */
+.liquid-drop--sm { --drop-size: 24px; }
+.liquid-drop--md { --drop-size: 40px; }
+.liquid-drop--lg { --drop-size: 60px; }
+.liquid-drop--xl { --drop-size: 88px; }
+
+/* ─── Color presets ─── */
+.liquid-drop--primary { --drop-color: #7F77DD; }
+.liquid-drop--success { --drop-color: #1D9E75; }
+.liquid-drop--warning { --drop-color: #EF9F27; }
+.liquid-drop--danger  { --drop-color: #E24B4A; }
+.liquid-drop--white   { --drop-color: #ffffff; }
+.liquid-drop--dark    { --drop-color: #2C2C2A; }

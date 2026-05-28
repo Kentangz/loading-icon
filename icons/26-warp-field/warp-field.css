@@ -1,0 +1,115 @@
+/**
+ * Warp Field — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Compound coordinate transforms (rotate first, then
+ *             local translateY) to launch 8 star particles radially
+ *             outward on symmetric vector paths, using staggered
+ *             delay offsets for a continuous hyperdrive tunnel stream.
+ *
+ * Usage     : <div class="warp-field" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span>
+ *               <span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.warp-field {
+  /* === SIZE === */
+  --warp-size: 50px;
+
+  /* === COLOR === */
+  --warp-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --warp-speed: 1.4s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  position: relative;
+  width: var(--warp-size);
+  height: var(--warp-size);
+  box-sizing: border-box;
+  overflow: visible;
+
+  --star-w: calc(var(--warp-size) * 0.08);
+}
+
+.warp-field span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--star-w);
+  height: var(--star-w);
+  margin-top:  calc(var(--star-w) * -0.5);
+  margin-left: calc(var(--star-w) * -0.5);
+  background: var(--warp-color);
+  border-radius: 50%;
+  opacity: 0;
+  box-sizing: border-box;
+}
+
+/* Angles & Keyframe Assignments for all 8 Star Vectors */
+.warp-field span:nth-child(1) { transform: rotate(0deg); animation: warp-shoot-0 var(--warp-speed) infinite linear; animation-delay: 0s; }
+.warp-field span:nth-child(2) { transform: rotate(45deg); animation: warp-shoot-45 var(--warp-speed) infinite linear; animation-delay: calc(var(--warp-speed) * -0.25); }
+.warp-field span:nth-child(3) { transform: rotate(90deg); animation: warp-shoot-90 var(--warp-speed) infinite linear; animation-delay: calc(var(--warp-speed) * -0.5); }
+.warp-field span:nth-child(4) { transform: rotate(135deg); animation: warp-shoot-135 var(--warp-speed) infinite linear; animation-delay: calc(var(--warp-speed) * -0.75); }
+.warp-field span:nth-child(5) { transform: rotate(180deg); animation: warp-shoot-180 var(--warp-speed) infinite linear; animation-delay: calc(var(--warp-speed) * -0.125); }
+.warp-field span:nth-child(6) { transform: rotate(225deg); animation: warp-shoot-225 var(--warp-speed) infinite linear; animation-delay: calc(var(--warp-speed) * -0.375); }
+.warp-field span:nth-child(7) { transform: rotate(270deg); animation: warp-shoot-270 var(--warp-speed) infinite linear; animation-delay: calc(var(--warp-speed) * -0.625); }
+.warp-field span:nth-child(8) { transform: rotate(315deg); animation: warp-shoot-315 var(--warp-speed) infinite linear; animation-delay: calc(var(--warp-speed) * -0.875); }
+
+/* Individual direction keyframes to preserve original base rotation angles */
+@keyframes warp-shoot-0 {
+  0% { transform: rotate(0deg) translateY(0) scale(0.1); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: rotate(0deg) translateY(calc(var(--warp-size) * -0.52)) scale(1.6); opacity: 0; }
+}
+@keyframes warp-shoot-45 {
+  0% { transform: rotate(45deg) translateY(0) scale(0.1); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: rotate(45deg) translateY(calc(var(--warp-size) * -0.52)) scale(1.6); opacity: 0; }
+}
+@keyframes warp-shoot-90 {
+  0% { transform: rotate(90deg) translateY(0) scale(0.1); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: rotate(90deg) translateY(calc(var(--warp-size) * -0.52)) scale(1.6); opacity: 0; }
+}
+@keyframes warp-shoot-135 {
+  0% { transform: rotate(135deg) translateY(0) scale(0.1); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: rotate(135deg) translateY(calc(var(--warp-size) * -0.52)) scale(1.6); opacity: 0; }
+}
+@keyframes warp-shoot-180 {
+  0% { transform: rotate(180deg) translateY(0) scale(0.1); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: rotate(180deg) translateY(calc(var(--warp-size) * -0.52)) scale(1.6); opacity: 0; }
+}
+@keyframes warp-shoot-225 {
+  0% { transform: rotate(225deg) translateY(0) scale(0.1); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: rotate(225deg) translateY(calc(var(--warp-size) * -0.52)) scale(1.6); opacity: 0; }
+}
+@keyframes warp-shoot-270 {
+  0% { transform: rotate(270deg) translateY(0) scale(0.1); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: rotate(270deg) translateY(calc(var(--warp-size) * -0.52)) scale(1.6); opacity: 0; }
+}
+@keyframes warp-shoot-315 {
+  0% { transform: rotate(315deg) translateY(0) scale(0.1); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: rotate(315deg) translateY(calc(var(--warp-size) * -0.52)) scale(1.6); opacity: 0; }
+}
+
+/* ─── Size presets ─── */
+.warp-field--sm { --warp-size: 32px; }
+.warp-field--md { --warp-size: 50px; }
+.warp-field--lg { --warp-size: 72px; }
+.warp-field--xl { --warp-size: 104px; }
+
+/* ─── Color presets ─── */
+.warp-field--primary { --warp-color: #7F77DD; }
+.warp-field--success { --warp-color: #1D9E75; }
+.warp-field--warning { --warp-color: #EF9F27; }
+.warp-field--danger  { --warp-color: #E24B4A; }
+.warp-field--white   { --warp-color: #ffffff; }
+.warp-field--dark    { --warp-color: #2C2C2A; }

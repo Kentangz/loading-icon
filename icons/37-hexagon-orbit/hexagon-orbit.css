@@ -1,0 +1,95 @@
+/**
+ * Hexagon Orbit — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Multi-vertex coordinate tracking.
+ *             Three dots orbit along a perfect hexagonal perimeter
+ *             using six-stage keyframe coordinates based on
+ *             trigonometric offsets.
+ *
+ * Usage     : <div class="hexagon-orbit" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.hexagon-orbit {
+  /* === SIZE === */
+  --orbit-size: 40px;
+
+  /* === COLOR === */
+  --orbit-color: #EF9F27;
+
+  /* === ANIMATION === */
+  --orbit-speed: 2.4s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* Optional thin decorative hexagonal background track */
+.hexagon-orbit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px dashed color-mix(in srgb, var(--orbit-color) 15%, transparent);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  box-sizing: border-box;
+  animation: concentric-ccw calc(var(--orbit-speed) * 4) linear infinite;
+}
+
+.hexagon-orbit span {
+  position: absolute;
+  top: calc(50% - calc(var(--orbit-size) * 0.08));
+  left: calc(50% - calc(var(--orbit-size) * 0.08));
+  width: calc(var(--orbit-size) * 0.16);
+  height: calc(var(--orbit-size) * 0.16);
+  border-radius: 50%;
+  background: var(--orbit-color);
+  animation: hex-path var(--orbit-speed) linear infinite;
+  box-sizing: border-box;
+}
+
+/* Staggered delay for orbit trail */
+.hexagon-orbit span:nth-child(1) { animation-delay: 0s; }
+.hexagon-orbit span:nth-child(2) { animation-delay: calc(var(--orbit-speed) * -0.12); opacity: 0.7; }
+.hexagon-orbit span:nth-child(3) { animation-delay: calc(var(--orbit-speed) * -0.24); opacity: 0.4; }
+
+@keyframes hex-path {
+  /* R = var(--orbit-size) * 0.45 */
+  0%, 100% {
+    transform: translate(calc(var(--orbit-size) * 0.42), 0);
+  }
+  16.67% {
+    transform: translate(calc(var(--orbit-size) * 0.21), calc(var(--orbit-size) * 0.36));
+  }
+  33.33% {
+    transform: translate(calc(var(--orbit-size) * -0.21), calc(var(--orbit-size) * 0.36));
+  }
+  50% {
+    transform: translate(calc(var(--orbit-size) * -0.42), 0);
+  }
+  66.67% {
+    transform: translate(calc(var(--orbit-size) * -0.21), calc(var(--orbit-size) * -0.36));
+  }
+  83.33% {
+    transform: translate(calc(var(--orbit-size) * 0.21), calc(var(--orbit-size) * -0.36));
+  }
+}
+
+/* ─── Size presets ─── */
+.hexagon-orbit--sm { --orbit-size: 24px; }
+.hexagon-orbit--md { --orbit-size: 40px; }
+.hexagon-orbit--lg { --orbit-size: 60px; }
+.hexagon-orbit--xl { --orbit-size: 88px; }
+
+/* ─── Color presets ─── */
+.hexagon-orbit--primary { --orbit-color: #7F77DD; }
+.hexagon-orbit--success { --orbit-color: #1D9E75; }
+.hexagon-orbit--warning { --orbit-color: #EF9F27; }
+.hexagon-orbit--danger  { --orbit-color: #E24B4A; }
+.hexagon-orbit--white   { --orbit-color: #ffffff; }
+.hexagon-orbit--dark    { --orbit-color: #2C2C2A; }

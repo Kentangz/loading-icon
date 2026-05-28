@@ -1,0 +1,72 @@
+/**
+ * Pendulum Wave — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Staggered horizontal swing speeds.
+ *             Five dots swing back and forth horizontally with
+ *             slightly different period timings to simulate
+ *             mechanical pendulum phase interference.
+ *
+ * Usage     : <div class="pendulum-wave" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.pendulum-wave {
+  /* === SIZE === */
+  --wave-size: 40px;
+
+  /* === COLOR === */
+  --wave-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --wave-speed: 1.5s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--wave-size);
+  height: var(--wave-size);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.pendulum-wave span {
+  display: block;
+  width: calc(var(--wave-size) * 0.16);
+  height: calc(var(--wave-size) * 0.16);
+  border-radius: 50%;
+  background: var(--wave-color);
+  box-sizing: border-box;
+}
+
+/* Staggered swing durations to form drifting wave patterns */
+.pendulum-wave span:nth-child(1) { animation: pendulum-swing calc(var(--wave-speed) * 0.8) ease-in-out infinite alternate; }
+.pendulum-wave span:nth-child(2) { animation: pendulum-swing calc(var(--wave-speed) * 0.9) ease-in-out infinite alternate; }
+.pendulum-wave span:nth-child(3) { animation: pendulum-swing calc(var(--wave-speed) * 1.0) ease-in-out infinite alternate; }
+.pendulum-wave span:nth-child(4) { animation: pendulum-swing calc(var(--wave-speed) * 1.1) ease-in-out infinite alternate; }
+.pendulum-wave span:nth-child(5) { animation: pendulum-swing calc(var(--wave-speed) * 1.2) ease-in-out infinite alternate; }
+
+@keyframes pendulum-swing {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(var(--wave-size) * 0.84));
+  }
+}
+
+/* ─── Size presets ─── */
+.pendulum-wave--sm { --wave-size: 24px; }
+.pendulum-wave--md { --wave-size: 40px; }
+.pendulum-wave--lg { --wave-size: 60px; }
+.pendulum-wave--xl { --wave-size: 88px; }
+
+/* ─── Color presets ─── */
+.pendulum-wave--primary { --wave-color: #7F77DD; }
+.pendulum-wave--success { --wave-color: #1D9E75; }
+.pendulum-wave--warning { --wave-color: #EF9F27; }
+.pendulum-wave--danger  { --wave-color: #E24B4A; }
+.pendulum-wave--white   { --wave-color: #ffffff; }
+.pendulum-wave--dark    { --wave-color: #2C2C2A; }

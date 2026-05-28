@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breathing Ring — LoadIcons</title>
+  <link rel="stylesheet" href="breathing-ring.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>35 · Breathing Ring</h1>
+  <p class="sub">
+    A single circular element that expands and breathes in a natural sinusoidal rhythm, casting an expanding glowing shadow at full extension.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="breathing-ring breathing-ring--sm breathing-ring--primary" role="status" aria-label="Loading"></div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="breathing-ring breathing-ring--md breathing-ring--primary" role="status" aria-label="Loading"></div>
+      <span>md · 40px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="breathing-ring breathing-ring--lg breathing-ring--primary" role="status" aria-label="Loading"></div>
+      <span>lg · 60px</span>
+    </div>
+    <div class="demo-block">
+      <div class="breathing-ring breathing-ring--xl breathing-ring--primary" role="status" aria-label="Loading"></div>
+      <span>xl · 88px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="breathing-ring breathing-ring--primary"></div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="breathing-ring breathing-ring--success"></div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="breathing-ring breathing-ring--warning"></div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="breathing-ring breathing-ring--danger"></div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="breathing-ring breathing-ring--dark"></div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="breathing-ring breathing-ring--white"></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="breathing-ring" style="--ring-color: #ec4899; --ring-speed: 1.2s; --ring-size: 50px;"></div>
+      <span>pink · fast (1.2s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="breathing-ring" style="--ring-color: #0ea5e9; --ring-speed: 4s; --ring-size: 50px;"></div>
+      <span>cyan · slow (4s)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="breathing-ring.css" /&gt;
+
+&lt;!-- 2. Structure — single element --&gt;
+&lt;div class="breathing-ring" role="status" aria-label="Loading"&gt;&lt;/div&gt;</pre>
+
+</body>
+</html>

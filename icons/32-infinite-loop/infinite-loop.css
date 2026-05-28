@@ -1,0 +1,92 @@
+/**
+ * Infinite Loop — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Lissajous figure-8 coordinate translations.
+ *             Three staggered dots trace a smooth infinity path
+ *             utilizing parameterized horizontal and vertical
+ *             sine-wave keyframe steps.
+ *
+ * Usage     : <div class="infinite-loop" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.infinite-loop {
+  /* === SIZE === */
+  --loop-size: 40px;
+
+  /* === COLOR === */
+  --loop-color: #1D9E75;
+
+  /* === ANIMATION === */
+  --loop-speed: 2s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--loop-size);
+  height: calc(var(--loop-size) * 0.5);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.infinite-loop span {
+  position: absolute;
+  top: calc(50% - calc(var(--loop-size) * 0.08));
+  left: calc(50% - calc(var(--loop-size) * 0.08));
+  width: calc(var(--loop-size) * 0.16);
+  height: calc(var(--loop-size) * 0.16);
+  border-radius: 50%;
+  background: var(--loop-color);
+  animation: infinite-path var(--loop-speed) linear infinite;
+  box-sizing: border-box;
+}
+
+/* Staggered delay for snake trail effect */
+.infinite-loop span:nth-child(1) { animation-delay: 0s; }
+.infinite-loop span:nth-child(2) { animation-delay: calc(var(--loop-speed) * -0.08); opacity: 0.7; }
+.infinite-loop span:nth-child(3) { animation-delay: calc(var(--loop-speed) * -0.16); opacity: 0.4; }
+
+@keyframes infinite-path {
+  0% {
+    transform: translate(0, 0);
+  }
+  12.5% {
+    transform: translate(calc(var(--loop-size) * 0.28), calc(var(--loop-size) * -0.18));
+  }
+  25% {
+    transform: translate(calc(var(--loop-size) * 0.4), 0);
+  }
+  37.5% {
+    transform: translate(calc(var(--loop-size) * 0.28), calc(var(--loop-size) * 0.18));
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  62.5% {
+    transform: translate(calc(var(--loop-size) * -0.28), calc(var(--loop-size) * -0.18));
+  }
+  75% {
+    transform: translate(calc(var(--loop-size) * -0.4), 0);
+  }
+  87.5% {
+    transform: translate(calc(var(--loop-size) * -0.28), calc(var(--loop-size) * 0.18));
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* ─── Size presets ─── */
+.infinite-loop--sm { --loop-size: 24px; }
+.infinite-loop--md { --loop-size: 40px; }
+.infinite-loop--lg { --loop-size: 60px; }
+.infinite-loop--xl { --loop-size: 88px; }
+
+/* ─── Color presets ─── */
+.infinite-loop--primary { --loop-color: #7F77DD; }
+.infinite-loop--success { --loop-color: #1D9E75; }
+.infinite-loop--warning { --loop-color: #EF9F27; }
+.infinite-loop--danger  { --loop-color: #E24B4A; }
+.infinite-loop--white   { --loop-color: #ffffff; }
+.infinite-loop--dark    { --loop-color: #2C2C2A; }

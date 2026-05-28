@@ -1,0 +1,82 @@
+/**
+ * Wandering Cubes — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Multi-step relative translations combined with
+ *             complementary scaling & angular rotations,
+ *             staggered exactly in half-cycle phase (50% delay).
+ *
+ * Usage     : <div class="wandering-cubes" role="status" aria-label="Loading">
+ *               <span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.wandering-cubes {
+  /* === SIZE === */
+  --cubes-size: 40px;
+
+  /* === COLOR === */
+  --cubes-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --cubes-speed: 1.8s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  position: relative;
+  width: var(--cubes-size);
+  height: var(--cubes-size);
+  box-sizing: border-box;
+  overflow: visible;
+
+  /* Bounding dimension for each cube */
+  --cube-w: calc(var(--cubes-size) * 0.28);
+}
+
+.wandering-cubes span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--cube-w);
+  height: var(--cube-w);
+  background: var(--cubes-color);
+  animation: wanderingCube var(--cubes-speed) ease-in-out infinite;
+  box-sizing: border-box;
+}
+
+/* Offset second cube by half of the cycle duration */
+.wandering-cubes span:nth-child(2) {
+  animation-delay: calc(var(--cubes-speed) * -0.5);
+}
+
+@keyframes wanderingCube {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(calc(var(--cubes-size) - var(--cube-w)), 0) rotate(-90deg) scale(0.55);
+  }
+  50% {
+    transform: translate(calc(var(--cubes-size) - var(--cube-w)), calc(var(--cubes-size) - var(--cube-w))) rotate(-180deg);
+  }
+  75% {
+    transform: translate(0, calc(var(--cubes-size) - var(--cube-w))) rotate(-270deg) scale(0.55);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-360deg);
+  }
+}
+
+/* ─── Size presets ─── */
+.wandering-cubes--sm { --cubes-size: 24px; }
+.wandering-cubes--md { --cubes-size: 40px; }
+.wandering-cubes--lg { --cubes-size: 60px; }
+.wandering-cubes--xl { --cubes-size: 88px; }
+
+/* ─── Color presets ─── */
+.wandering-cubes--primary { --cubes-color: #7F77DD; }
+.wandering-cubes--success { --cubes-color: #1D9E75; }
+.wandering-cubes--warning { --cubes-color: #EF9F27; }
+.wandering-cubes--danger  { --cubes-color: #E24B4A; }
+.wandering-cubes--white   { --cubes-color: #ffffff; }
+.wandering-cubes--dark    { --cubes-color: #2C2C2A; }

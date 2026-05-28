@@ -1,0 +1,83 @@
+/**
+ * Jumping Dots — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : squash-and-stretch kinetic parabolic jumps.
+ *             Three horizontal dots leap upward in parabolic arcs
+ *             with physical timing curves, stretching on takeoff and
+ *             squishing flat on landing impact in staggered delays.
+ *
+ * Usage     : <div class="jumping-dots" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.jumping-dots {
+  /* === SIZE === */
+  --jump-size: 40px;
+
+  /* === COLOR === */
+  --jump-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --jump-speed: 1.1s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: var(--jump-size);
+  height: calc(var(--jump-size) * 0.65);
+  box-sizing: border-box;
+}
+
+.jumping-dots span {
+  display: block;
+  width: calc(var(--jump-size) * 0.22);
+  height: calc(var(--jump-size) * 0.22);
+  border-radius: 50%;
+  background: var(--jump-color);
+  transform-origin: bottom center;
+  animation: jump-bounce var(--jump-speed) ease-in-out infinite;
+  box-sizing: border-box;
+}
+
+/* Staggered leap phases */
+.jumping-dots span:nth-child(1) { animation-delay: 0s; }
+.jumping-dots span:nth-child(2) { animation-delay: calc(var(--jump-speed) * -0.66); }
+.jumping-dots span:nth-child(3) { animation-delay: calc(var(--jump-speed) * -0.33); }
+
+@keyframes jump-bounce {
+  0%, 100% {
+    transform: translateY(0) scaleX(1) scaleY(1);
+  }
+  15% {
+    transform: translateY(0) scaleX(1.3) scaleY(0.7); /* squish before takeoff */
+  }
+  20% {
+    transform: translateY(0) scaleX(0.8) scaleY(1.2); /* stretch on takeoff */
+  }
+  50% {
+    transform: translateY(calc(var(--jump-size) * -0.4)) scaleX(0.85) scaleY(1.15); /* vertical stretch at peak */
+  }
+  80% {
+    transform: translateY(0) scaleX(1.3) scaleY(0.7); /* impact squish on landing */
+  }
+  90% {
+    transform: translateY(0) scaleX(0.9) scaleY(1.1); /* rebound */
+  }
+}
+
+/* ─── Size presets ─── */
+.jumping-dots--sm { --jump-size: 24px; }
+.jumping-dots--md { --jump-size: 40px; }
+.jumping-dots--lg { --jump-size: 60px; }
+.jumping-dots--xl { --jump-size: 88px; }
+
+/* ─── Color presets ─── */
+.jumping-dots--primary { --jump-color: #7F77DD; }
+.jumping-dots--success { --jump-color: #1D9E75; }
+.jumping-dots--warning { --jump-color: #EF9F27; }
+.jumping-dots--danger  { --jump-color: #E24B4A; }
+.jumping-dots--white   { --jump-color: #ffffff; }
+.jumping-dots--dark    { --jump-color: #2C2C2A; }

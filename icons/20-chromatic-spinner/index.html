@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chromatic Spinner — LoadIcons</title>
+  <link rel="stylesheet" href="chromatic-spinner.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 2.5rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.25rem 1.75rem;
+      border-radius: 8px;
+    }
+    .dim-bg {
+      background: #2a2a2e; padding: 1.25rem 1.75rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>20 · Chromatic Spinner</h1>
+  <p class="sub">
+    A premium color-spectrum wheel spinner. A multi-spectral conic gradient is masked into a smooth ring shape, creating a gorgeous chromatic aberration rotation with zero SVG assets.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="chromatic-spinner chromatic-spinner--sm" role="status" aria-label="Loading"></div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="chromatic-spinner chromatic-spinner--md" role="status" aria-label="Loading"></div>
+      <span>md · 40px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="chromatic-spinner chromatic-spinner--lg" role="status" aria-label="Loading"></div>
+      <span>lg · 60px</span>
+    </div>
+    <div class="demo-block">
+      <div class="chromatic-spinner chromatic-spinner--xl" role="status" aria-label="Loading"></div>
+      <span>xl · 88px</span>
+    </div>
+  </div>
+
+  <!-- ─── DIRECTION & SPEED OVERRIDES ─── -->
+  <h2 class="section-title">Direction &amp; speed modifiers</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="chromatic-spinner chromatic-spinner--ccw"></div>
+      <span>counter-clockwise</span>
+    </div>
+    <div class="demo-block">
+      <div class="chromatic-spinner" style="--chromatic-speed: 0.5s;"></div>
+      <span>hyper fast (0.5s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="chromatic-spinner" style="--chromatic-speed: 3s;"></div>
+      <span>slow sweep (3s)</span>
+    </div>
+  </div>
+
+  <!-- ─── GLOW VARIANT ─── -->
+  <h2 class="section-title">Glow variant — best on dark backgrounds</h2>
+  <div class="demo-row">
+    <div class="demo-block dim-bg">
+      <div class="chromatic-spinner chromatic-spinner--lg chromatic-spinner--glow"></div>
+      <span style="color:#666">spectrum glow</span>
+    </div>
+    <div class="demo-block dim-bg">
+      <div class="chromatic-spinner chromatic-spinner--xl chromatic-spinner--glow" style="--chromatic-thickness: 6px;"></div>
+      <span style="color:#666">xl thick glow</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom thickness overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="chromatic-spinner chromatic-spinner--lg" style="--chromatic-thickness: 1.5px;"></div>
+      <span>thin ring (1.5px)</span>
+    </div>
+    <div class="demo-block">
+      <div class="chromatic-spinner chromatic-spinner--lg" style="--chromatic-thickness: 10px;"></div>
+      <span>fat wheel (10px)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="chromatic-spinner.css" /&gt;
+
+&lt;!-- 2. Single element — no children needed --&gt;
+&lt;div class="chromatic-spinner" role="status" aria-label="Loading"&gt;&lt;/div&gt;
+
+&lt;!-- 3. Size + Glow modifiers --&gt;
+&lt;div class="chromatic-spinner chromatic-spinner--lg chromatic-spinner--glow"&gt;&lt;/div&gt;
+
+&lt;!-- 4. Full custom thickness & speed override --&gt;
+&lt;div class="chromatic-spinner" style="
+  --chromatic-size:      56px;
+  --chromatic-thickness: 8px;
+  --chromatic-speed:     0.7s;
+"&gt;&lt;/div&gt;</pre>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bouncing Cube 3D — LoadIcons</title>
+  <link rel="stylesheet" href="bouncing-cube.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>48 · Bouncing Cube 3D</h1>
+  <p class="sub">
+    A stunning solid 3D isometric cube constructed via six closed panels with ambient depth shading. The cube leaps vertically, rotates 90 degrees in mid-air, and lands on a ground shadow plane with aspect-deforming vertical ground-oriented squishes (no sheared distortion).
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="bouncing-cube bouncing-cube--sm bouncing-cube--primary" role="status" aria-label="Loading">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="bouncing-cube bouncing-cube--md bouncing-cube--primary" role="status" aria-label="Loading">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>md · 40px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="bouncing-cube bouncing-cube--lg bouncing-cube--primary" role="status" aria-label="Loading">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>lg · 60px</span>
+    </div>
+    <div class="demo-block">
+      <div class="bouncing-cube bouncing-cube--xl bouncing-cube--primary" role="status" aria-label="Loading">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>xl · 88px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="bouncing-cube bouncing-cube--primary">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="bouncing-cube bouncing-cube--success">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="bouncing-cube bouncing-cube--warning">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="bouncing-cube bouncing-cube--danger">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="bouncing-cube bouncing-cube--dark">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="bouncing-cube bouncing-cube--white">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="bouncing-cube" style="--cube-color: #ec4899; --cube-speed: 0.8s; --cube-size: 50px;">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>pink · fast (0.8s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="bouncing-cube" style="--cube-color: #0ea5e9; --cube-speed: 2.5s; --cube-size: 50px;">
+        <div class="bouncing-cube__cube">
+          <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+          <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+        </div>
+      </div>
+      <span>cyan · slow (2.5s)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="bouncing-cube.css" /&gt;
+
+&lt;!-- 2. Structure — requires all 6 faces nested in cube for solid geometry --&gt;
+&lt;div class="bouncing-cube" role="status" aria-label="Loading"&gt;
+  &lt;div class="bouncing-cube__cube"&gt;
+    &lt;div class="bouncing-cube__face bouncing-cube__face--top"&gt;&lt;/div&gt;
+    &lt;div class="bouncing-cube__face bouncing-cube__face--bottom"&gt;&lt;/div&gt;
+    &lt;div class="bouncing-cube__face bouncing-cube__face--front"&gt;&lt;/div&gt;
+    &lt;div class="bouncing-cube__face bouncing-cube__face--back"&gt;&lt;/div&gt;
+    &lt;div class="bouncing-cube__face bouncing-cube__face--left"&gt;&lt;/div&gt;
+    &lt;div class="bouncing-cube__face bouncing-cube__face--side"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

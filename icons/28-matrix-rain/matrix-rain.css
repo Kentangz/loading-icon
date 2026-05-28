@@ -1,0 +1,111 @@
+/**
+ * Matrix Rain — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Flex column alignment containing vertically translated
+ *             glowing drop pseudo-elements (`::before`) falling with
+ *             slightly different speeds & staggered delays to simulate
+ *             continuous, organic digital waterfall code streams.
+ *
+ * Usage     : <div class="matrix-rain" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.matrix-rain {
+  /* === SIZE === */
+  --rain-width:  44px;
+  --rain-height: 38px;
+  --drop-size:    4px;
+
+  /* === COLOR === */
+  /* Default is the success green, standard for the matrix cyber aesthetic */
+  --rain-color: #1D9E75;
+
+  /* === ANIMATION === */
+  --rain-speed: 1.2s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-flex;
+  justify-content: space-between;
+  width: var(--rain-width);
+  height: var(--rain-height);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.matrix-rain span {
+  display: block;
+  width: var(--drop-size);
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.matrix-rain span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--drop-size);
+  border-radius: 50%;
+  background: var(--rain-color);
+  box-shadow: 0 0 6px var(--rain-color);
+  opacity: 0;
+  box-sizing: border-box;
+}
+
+/* Stagger speeds and delays across the 4 code lines */
+.matrix-rain span:nth-child(1)::before {
+  animation: matrix-fall var(--rain-speed) linear infinite;
+  animation-delay: 0s;
+}
+
+.matrix-rain span:nth-child(2)::before {
+  /* Run slightly faster */
+  animation: matrix-fall calc(var(--rain-speed) * 0.8) linear infinite;
+  animation-delay: calc(var(--rain-speed) * -0.25);
+}
+
+.matrix-rain span:nth-child(3)::before {
+  /* Run slightly slower */
+  animation: matrix-fall calc(var(--rain-speed) * 1.2) linear infinite;
+  animation-delay: calc(var(--rain-speed) * -0.55);
+}
+
+.matrix-rain span:nth-child(4)::before {
+  animation: matrix-fall calc(var(--rain-speed) * 0.95) linear infinite;
+  animation-delay: calc(var(--rain-speed) * -0.85);
+}
+
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(var(--rain-height));
+    opacity: 0;
+  }
+}
+
+/* ─── Size presets ─── */
+.matrix-rain--sm { --rain-width: 28px; --rain-height: 24px; --drop-size: 3px; }
+.matrix-rain--md { --rain-width: 44px; --rain-height: 38px; --drop-size: 4px; }
+.matrix-rain--lg { --rain-width: 64px; --rain-height: 56px; --drop-size: 5.5px; }
+.matrix-rain--xl { --rain-width: 90px; --rain-height: 80px; --drop-size: 7.5px; }
+
+/* ─── Color presets ─── */
+.matrix-rain--primary { --rain-color: #7F77DD; }
+.matrix-rain--success { --rain-color: #1D9E75; }
+.matrix-rain--warning { --rain-color: #EF9F27; }
+.matrix-rain--danger  { --rain-color: #E24B4A; }
+.matrix-rain--white   { --rain-color: #ffffff; }
+.matrix-rain--dark    { --rain-color: #2C2C2A; }

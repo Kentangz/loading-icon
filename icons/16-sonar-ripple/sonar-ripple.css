@@ -1,0 +1,89 @@
+/**
+ * Sonar Ripple — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Linear scales combined with linear opacity fades
+ *             staggered symmetrically across 3 child elements,
+ *             originating from a static central core beacon.
+ *
+ * Usage     : <div class="sonar-ripple" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.sonar-ripple {
+  /* === SIZE === */
+  --sonar-size: 40px;
+
+  /* === COLOR === */
+  --sonar-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --sonar-speed: 1.6s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  position: relative;
+  width: var(--sonar-size);
+  height: var(--sonar-size);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Central radar core beacon */
+.sonar-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25%;
+  height: 25%;
+  background: var(--sonar-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+
+/* Propagating radar waves */
+.sonar-ripple span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid var(--sonar-color);
+  opacity: 0;
+  animation: sonarWave var(--sonar-speed) linear infinite;
+  box-sizing: border-box;
+}
+
+/* Staggered delay wave offsets */
+.sonar-ripple span:nth-child(1) { animation-delay: 0s; }
+.sonar-ripple span:nth-child(2) { animation-delay: calc(var(--sonar-speed) * -0.33); }
+.sonar-ripple span:nth-child(3) { animation-delay: calc(var(--sonar-speed) * -0.66); }
+
+@keyframes sonarWave {
+  0% {
+    transform: scale(0.25);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+/* ─── Size presets ─── */
+.sonar-ripple--sm { --sonar-size: 24px; }
+.sonar-ripple--md { --sonar-size: 40px; }
+.sonar-ripple--lg { --sonar-size: 60px; }
+.sonar-ripple--xl { --sonar-size: 88px; }
+
+/* ─── Color presets ─── */
+.sonar-ripple--primary { --sonar-color: #7F77DD; }
+.sonar-ripple--success { --sonar-color: #1D9E75; }
+.sonar-ripple--warning { --sonar-color: #EF9F27; }
+.sonar-ripple--danger  { --sonar-color: #E24B4A; }
+.sonar-ripple--white   { --sonar-color: #ffffff; }
+.sonar-ripple--dark    { --sonar-color: #2C2C2A; }

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluid Metaballs — LoadIcons</title>
+  <link rel="stylesheet" href="fluid-metaballs.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 2.5rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.25rem 1.75rem;
+      border-radius: 8px;
+    }
+    .card-bg {
+      background: #ffffff; padding: 1.25rem 1.75rem;
+      border-radius: 8px; border: 1px solid #e8e8e5;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+    .alert-info {
+      background: #e9e7fa; border-left: 4px solid #7F77DD;
+      padding: 1rem; border-radius: 6px; margin-bottom: 2rem;
+      font-size: .85rem; max-width: 720px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>13 · Fluid Metaballs</h1>
+  <p class="sub">
+    An organic liquid gooey loader. As the satellite spheres pass through the central core dot, they merge, stretch, and sever in a realistic fluid animation.
+  </p>
+
+  <div class="alert-info">
+    <strong>💡 Gooey Effect Notice:</strong> The gooey effect utilizes CSS contrast filters. For it to render correctly, you <strong>must</strong> set the <code>--metaballs-bg</code> property to exactly match the solid background color of the surface behind the loader.
+  </div>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="fluid-metaballs fluid-metaballs--sm fluid-metaballs--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>sm · 40px</span>
+    </div>
+    <div class="demo-block">
+      <div class="fluid-metaballs fluid-metaballs--md fluid-metaballs--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>md · 64px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="fluid-metaballs fluid-metaballs--lg fluid-metaballs--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>lg · 96px</span>
+    </div>
+  </div>
+
+  <!-- ─── SURFACE BACKGROUND MATCHING ─── -->
+  <h2 class="section-title">Surface adaptations (matching backgrounds)</h2>
+  <div class="demo-row">
+    <!-- On default body bg (#f8f8f6) -->
+    <div class="demo-block">
+      <div class="fluid-metaballs fluid-metaballs--primary">
+        <span></span><span></span><span></span>
+      </div>
+      <span>Default Surface (#f8f8f6)</span>
+    </div>
+
+    <!-- On white card bg (#ffffff) -->
+    <div class="demo-block card-bg">
+      <div class="fluid-metaballs fluid-metaballs--primary fluid-metaballs--transparent-card">
+        <span></span><span></span><span></span>
+      </div>
+      <span style="color:#666">White Card Surface (#ffffff)</span>
+    </div>
+
+    <!-- On black page bg (#1a1a1a) -->
+    <div class="demo-block dark-bg">
+      <div class="fluid-metaballs fluid-metaballs--white fluid-metaballs--dark-bg">
+        <span></span><span></span><span></span>
+      </div>
+      <span style="color:#555">Dark Surface (#1a1a1a)</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets (On Default Surface)</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="fluid-metaballs fluid-metaballs--primary">
+        <span></span><span></span><span></span>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="fluid-metaballs fluid-metaballs--success">
+        <span></span><span></span><span></span>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="fluid-metaballs fluid-metaballs--warning">
+        <span></span><span></span><span></span>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="fluid-metaballs fluid-metaballs--danger">
+        <span></span><span></span><span></span>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="fluid-metaballs fluid-metaballs--dark">
+        <span></span><span></span><span></span>
+      </div>
+      <span>dark</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="fluid-metaballs" style="--metaballs-color: #8b5cf6; --metaballs-speed: 1s; --metaballs-size: 80px;">
+        <span></span><span></span><span></span>
+      </div>
+      <span>fast purple · 80px</span>
+    </div>
+    <div class="demo-block">
+      <div class="fluid-metaballs" style="--metaballs-color: #ec4899; --metaballs-speed: 4s;">
+        <span></span><span></span><span></span>
+      </div>
+      <span>slow pink (4s)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="fluid-metaballs.css" /&gt;
+
+&lt;!-- 2. Structure — requires exactly 3 span children --&gt;
+&lt;div class="fluid-metaballs" role="status" aria-label="Loading"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. Customizing the background color to match your layout --&gt;
+&lt;div class="fluid-metaballs" style="--metaballs-bg: #ffffff; --metaballs-color: #1D9E75;"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>
