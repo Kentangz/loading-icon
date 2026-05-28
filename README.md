@@ -6,7 +6,7 @@
 ![Pure CSS](https://img.shields.io/badge/Pure-CSS-1D9E75.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-7F77DD.svg)](CONTRIBUTING.md)
 
-[**Live Demo**](https://your-username.github.io/loadicons) · [**Browse Icons**](#icon-catalog) · [**Contributing**](CONTRIBUTING.md)
+[**Live Demo**](https://loading-icon.vercel.app) · [**Browse Icons**](#icon-catalog)
 
 ---
 
