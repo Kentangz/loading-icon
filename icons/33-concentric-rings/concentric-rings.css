@@ -1,0 +1,93 @@
+/**
+ * Concentric Rings — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Multi-axis concentric rotations.
+ *             Three nested circles with split-arc borders rotate
+ *             in alternating directions and staggered periods,
+ *             creating a technical gyro-orbital wait state.
+ *
+ * Usage     : <div class="concentric-rings" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.concentric-rings {
+  /* === SIZE === */
+  --ring-size: 40px;
+
+  /* === COLOR === */
+  --ring-color: #EF9F27;
+
+  /* === ANIMATION === */
+  --ring-speed: 2s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--ring-size);
+  height: var(--ring-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.concentric-rings span {
+  position: absolute;
+  border-radius: 50%;
+  border: calc(var(--ring-size) * 0.04) solid transparent;
+  box-sizing: border-box;
+}
+
+/* Outer ring (clockwise) */
+.concentric-rings span:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  border-top-color: var(--ring-color);
+  border-bottom-color: var(--ring-color);
+  animation: concentric-cw var(--ring-speed) linear infinite;
+}
+
+/* Middle ring (counter-clockwise) */
+.concentric-rings span:nth-child(2) {
+  width: 68%;
+  height: 68%;
+  border-left-color: var(--ring-color);
+  border-right-color: var(--ring-color);
+  animation: concentric-ccw calc(var(--ring-speed) * 0.8) linear infinite;
+}
+
+/* Inner ring (clockwise) */
+.concentric-rings span:nth-child(3) {
+  width: 36%;
+  height: 36%;
+  border-top-color: var(--ring-color);
+  border-bottom-color: var(--ring-color);
+  animation: concentric-cw calc(var(--ring-speed) * 0.6) linear infinite;
+}
+
+@keyframes concentric-cw {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes concentric-ccw {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* ─── Size presets ─── */
+.concentric-rings--sm { --ring-size: 24px; }
+.concentric-rings--md { --ring-size: 40px; }
+.concentric-rings--lg { --ring-size: 60px; }
+.concentric-rings--xl { --ring-size: 88px; }
+
+/* ─── Color presets ─── */
+.concentric-rings--primary { --ring-color: #7F77DD; }
+.concentric-rings--success { --ring-color: #1D9E75; }
+.concentric-rings--warning { --ring-color: #EF9F27; }
+.concentric-rings--danger  { --ring-color: #E24B4A; }
+.concentric-rings--white   { --ring-color: #ffffff; }
+.concentric-rings--dark    { --ring-color: #2C2C2A; }

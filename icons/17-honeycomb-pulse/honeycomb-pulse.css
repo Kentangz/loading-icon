@@ -1,0 +1,129 @@
+/**
+ * Honeycomb Pulse — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : CSS Hexagonal Clip-Path combined with an algebraic
+ *             concentric positioning lattice. The hexagons pulse
+ *             in opacity & scale, rippling from center outward.
+ *
+ * Usage     : <div class="honeycomb-pulse" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.honeycomb-pulse {
+  /* === SIZE === */
+  --honeycomb-size: 56px;
+
+  /* === COLOR === */
+  --honeycomb-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --honeycomb-speed: 1.5s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  position: relative;
+  width: var(--honeycomb-size);
+  height: var(--honeycomb-size);
+  box-sizing: border-box;
+  overflow: visible;
+
+  /* Layout Helper custom properties for close-packed hex grid */
+  --hex-w:  calc(var(--honeycomb-size) * 0.28);
+  --hex-h:  calc(var(--honeycomb-size) * 0.32);
+  --dy-lg:  calc(var(--honeycomb-size) * 0.28);
+  --dy-sm:  calc(var(--honeycomb-size) * 0.14);
+  --dx:     calc(var(--honeycomb-size) * 0.24);
+}
+
+.honeycomb-pulse span {
+  position: absolute;
+  width: var(--hex-w);
+  height: var(--hex-h);
+  background: var(--honeycomb-color);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  box-sizing: border-box;
+  animation: honeycomb-fade var(--honeycomb-speed) ease-in-out infinite;
+}
+
+/* 1. Center Hexagon */
+.honeycomb-pulse span:nth-child(1) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0s;
+}
+
+/* 2. Top Hexagon */
+.honeycomb-pulse span:nth-child(2) {
+  top: calc(50% - var(--dy-lg));
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: calc(var(--honeycomb-speed) * -0.33);
+}
+
+/* 3. Top-Right Hexagon */
+.honeycomb-pulse span:nth-child(3) {
+  top: calc(50% - var(--dy-sm));
+  left: calc(50% + var(--dx));
+  transform: translate(-50%, -50%);
+  animation-delay: calc(var(--honeycomb-speed) * -0.33);
+}
+
+/* 4. Bottom-Right Hexagon */
+.honeycomb-pulse span:nth-child(4) {
+  top: calc(50% + var(--dy-sm));
+  left: calc(50% + var(--dx));
+  transform: translate(-50%, -50%);
+  animation-delay: calc(var(--honeycomb-speed) * -0.33);
+}
+
+/* 5. Bottom Hexagon */
+.honeycomb-pulse span:nth-child(5) {
+  top: calc(50% + var(--dy-lg));
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: calc(var(--honeycomb-speed) * -0.33);
+}
+
+/* 6. Bottom-Left Hexagon */
+.honeycomb-pulse span:nth-child(6) {
+  top: calc(50% + var(--dy-sm));
+  left: calc(50% - var(--dx));
+  transform: translate(-50%, -50%);
+  animation-delay: calc(var(--honeycomb-speed) * -0.33);
+}
+
+/* 7. Top-Left Hexagon */
+.honeycomb-pulse span:nth-child(7) {
+  top: calc(50% - var(--dy-sm));
+  left: calc(50% - var(--dx));
+  transform: translate(-50%, -50%);
+  animation-delay: calc(var(--honeycomb-speed) * -0.33);
+}
+
+@keyframes honeycomb-fade {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.72);
+    opacity: 0.28;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* ─── Size presets ─── */
+.honeycomb-pulse--sm { --honeycomb-size: 36px; }
+.honeycomb-pulse--md { --honeycomb-size: 56px; }
+.honeycomb-pulse--lg { --honeycomb-size: 80px; }
+.honeycomb-pulse--xl { --honeycomb-size: 112px; }
+
+/* ─── Color presets ─── */
+.honeycomb-pulse--primary { --honeycomb-color: #7F77DD; }
+.honeycomb-pulse--success { --honeycomb-color: #1D9E75; }
+.honeycomb-pulse--warning { --honeycomb-color: #EF9F27; }
+.honeycomb-pulse--danger  { --honeycomb-color: #E24B4A; }
+.honeycomb-pulse--white   { --honeycomb-color: #ffffff; }
+.honeycomb-pulse--dark    { --honeycomb-color: #2C2C2A; }

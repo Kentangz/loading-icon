@@ -1,0 +1,144 @@
+/**
+ * Radar Sweep — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Rotating conic gradient sweep trail combined with
+ *             spatially positioned circular target blips. The blips
+ *             flash and decay in opacity using keyframes synchronized
+ *             mathematically with the sweep rotation angle.
+ *
+ * Usage     : <div class="radar-sweep" role="status" aria-label="Loading">
+ *               <div class="radar-sweep__line"></div>
+ *               <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+ *               <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.radar-sweep {
+  /* === SIZE === */
+  --radar-size: 50px;
+
+  /* === COLOR === */
+  --radar-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --radar-speed: 2.2s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  position: relative;
+  width: var(--radar-size);
+  height: var(--radar-size);
+  border-radius: 50%;
+  border: 1.5px solid var(--radar-color);
+  background: rgba(127, 119, 221, 0.04);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* The Sweeping Sonar Beam */
+.radar-sweep__line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /* Fades from solid color to fully transparent over 45% of the circle */
+  background: conic-gradient(
+    from 0deg,
+    var(--radar-color) 0%,
+    rgba(127, 119, 221, 0.15) 30%,
+    transparent 45%,
+    transparent 100%
+  );
+  animation: radar-sweep-beam var(--radar-speed) linear infinite;
+  box-sizing: border-box;
+}
+
+/* Base Blip Styling */
+.radar-sweep__blip {
+  position: absolute;
+  width: calc(var(--radar-size) * 0.1);
+  height: calc(var(--radar-size) * 0.1);
+  background: var(--radar-color);
+  border-radius: 50%;
+  opacity: 0;
+  box-sizing: border-box;
+}
+
+/* Target Blip 1: Positioned at ~50° (Top-Right) */
+.radar-sweep__blip--1 {
+  top: 22%;
+  left: 68%;
+  animation: radar-flash-blip-1 var(--radar-speed) linear infinite;
+}
+
+/* Target Blip 2: Positioned at ~230° (Bottom-Left) */
+.radar-sweep__blip--2 {
+  top: 68%;
+  left: 22%;
+  animation: radar-flash-blip-2 var(--radar-speed) linear infinite;
+}
+
+@keyframes radar-sweep-beam {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Flash timing matched to coordinate crossings */
+@keyframes radar-flash-blip-1 {
+  0%, 8% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  14% {
+    /* Beam crosses blip at ~50 degrees (14% into sweep) */
+    opacity: 1;
+    transform: scale(1.4);
+    filter: drop-shadow(0 0 3px var(--radar-color));
+  }
+  30% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  48%, 100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@keyframes radar-flash-blip-2 {
+  0%, 58% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  64% {
+    /* Beam crosses blip at ~230 degrees (64% into sweep) */
+    opacity: 1;
+    transform: scale(1.4);
+    filter: drop-shadow(0 0 3px var(--radar-color));
+  }
+  80% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  96%, 100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+/* ─── Size presets ─── */
+.radar-sweep--sm { --radar-size: 32px; }
+.radar-sweep--md { --radar-size: 50px; }
+.radar-sweep--lg { --radar-size: 72px; }
+.radar-sweep--xl { --radar-size: 104px; }
+
+/* ─── Color presets ─── */
+.radar-sweep--primary { --radar-color: #7F77DD; }
+.radar-sweep--success { --radar-color: #1D9E75; }
+.radar-sweep--warning { --radar-color: #EF9F27; }
+.radar-sweep--danger  { --radar-color: #E24B4A; }
+.radar-sweep--white   { --radar-color: #ffffff; }
+.radar-sweep--dark    { --radar-color: #2C2C2A; }

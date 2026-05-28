@@ -1,0 +1,99 @@
+/**
+ * Sparkling Stars — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Staggered spatial scale-rotation fades.
+ *             Three 4-point diamond star shapes, constructed via clip-path,
+ *             flash, scale, and rotate at distinct offset points in a 
+ *             bounding container to create a magical sparkling wait state.
+ *
+ * Usage     : <div class="sparkling-stars" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.sparkling-stars {
+  /* === SIZE === */
+  --star-size: 40px;
+
+  /* === COLOR === */
+  --star-color: #EF9F27;
+
+  /* === ANIMATION === */
+  --star-speed: 1.6s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--star-size);
+  height: var(--star-size);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.sparkling-stars span {
+  position: absolute;
+  background: var(--star-color);
+  clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);
+  box-sizing: border-box;
+  opacity: 0;
+}
+
+/* Star 1 (Top-Left) */
+.sparkling-stars span:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  width: 45%;
+  height: 45%;
+  animation: star-sparkle var(--star-speed) ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+/* Star 2 (Bottom-Right) */
+.sparkling-stars span:nth-child(2) {
+  bottom: 12%;
+  right: 12%;
+  width: 48%;
+  height: 48%;
+  animation: star-sparkle var(--star-speed) ease-in-out infinite;
+  animation-delay: calc(var(--star-speed) * -0.33);
+}
+
+/* Star 3 (Top-Right / small) */
+.sparkling-stars span:nth-child(3) {
+  top: 20%;
+  right: 15%;
+  width: 32%;
+  height: 32%;
+  animation: star-sparkle var(--star-speed) ease-in-out infinite;
+  animation-delay: calc(var(--star-speed) * -0.66);
+}
+
+@keyframes star-sparkle {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1) rotate(90deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 calc(var(--star-size) * 0.1) var(--star-color));
+  }
+  100% {
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* ─── Size presets ─── */
+.sparkling-stars--sm { --star-size: 24px; }
+.sparkling-stars--md { --star-size: 40px; }
+.sparkling-stars--lg { --star-size: 60px; }
+.sparkling-stars--xl { --star-size: 88px; }
+
+/* ─── Color presets ─── */
+.sparkling-stars--primary { --star-color: #7F77DD; }
+.sparkling-stars--success { --star-color: #1D9E75; }
+.sparkling-stars--warning { --star-color: #EF9F27; }
+.sparkling-stars--danger  { --star-color: #E24B4A; }
+.sparkling-stars--white   { --star-color: #ffffff; }
+.sparkling-stars--dark    { --star-color: #2C2C2A; }

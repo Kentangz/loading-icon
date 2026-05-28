@@ -1,0 +1,103 @@
+/**
+ * Gyro Spheres — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Concentric nested rings styled with 3D perspective
+ *             and `preserve-3d` axis alignments, rotating on
+ *             opposing and intersecting planes (rotateX, rotateY, rotateZ).
+ *
+ * Usage     : <div class="gyro-spheres" role="status" aria-label="Loading">
+ *               <div class="gyro-ring gyro-ring--outer"></div>
+ *               <div class="gyro-ring gyro-ring--middle"></div>
+ *               <div class="gyro-ring gyro-ring--inner"></div>
+ *               <div class="gyro-nucleus"></div>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.gyro-spheres {
+  /* === SIZE === */
+  --gyro-size: 50px;
+
+  /* === COLOR === */
+  --gyro-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --gyro-speed: 2.4s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  position: relative;
+  width: var(--gyro-size);
+  height: var(--gyro-size);
+  perspective: 200px;
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+}
+
+/* Base style for nested rings */
+.gyro-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid var(--gyro-color);
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+}
+
+/* Sizing configurations for outer, middle, and inner layers */
+.gyro-ring--outer {
+  inset: 0;
+  animation: gyro-outer var(--gyro-speed) linear infinite;
+}
+
+.gyro-ring--middle {
+  inset: 15%;
+  animation: gyro-middle var(--gyro-speed) linear infinite;
+}
+
+.gyro-ring--inner {
+  inset: 30%;
+  animation: gyro-inner var(--gyro-speed) linear infinite;
+}
+
+/* Static Atomic Nucleus Core */
+.gyro-nucleus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14%;
+  height: 14%;
+  background: var(--gyro-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+
+/* 3D Intersecting Rotation Cycles */
+@keyframes gyro-outer {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg); }
+}
+
+@keyframes gyro-middle {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(180deg) rotateY(360deg) rotateZ(180deg); }
+}
+
+@keyframes gyro-inner {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(-360deg); }
+}
+
+/* ─── Size presets ─── */
+.gyro-spheres--sm { --gyro-size: 32px; }
+.gyro-spheres--md { --gyro-size: 50px; }
+.gyro-spheres--lg { --gyro-size: 72px; }
+.gyro-spheres--xl { --gyro-size: 104px; }
+
+/* ─── Color presets ─── */
+.gyro-spheres--primary { --gyro-color: #7F77DD; }
+.gyro-spheres--success { --gyro-color: #1D9E75; }
+.gyro-spheres--warning { --gyro-color: #EF9F27; }
+.gyro-spheres--danger  { --gyro-color: #E24B4A; }
+.gyro-spheres--white   { --gyro-color: #ffffff; }
+.gyro-spheres--dark    { --gyro-color: #2C2C2A; }

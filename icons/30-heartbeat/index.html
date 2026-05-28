@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heartbeat — LoadIcons</title>
+  <link rel="stylesheet" href="heartbeat.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3.5rem;
+      flex-wrap: wrap; margin-bottom: 3.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.75rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>30 · Heartbeat</h1>
+  <p class="sub">
+    An organic, double-pulsing heart throb loader. A mathematically precise conjoined shape is formed using pseudo-elements, beating with physiological EKG-derived timing waves.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block" style="min-width: 80px;">
+      <div class="heartbeat heartbeat--sm heartbeat--danger" role="status" aria-label="Loading"></div>
+      <span style="margin-top:0.5rem">sm · 18px</span>
+    </div>
+    <div class="demo-block" style="min-width: 80px;">
+      <div class="heartbeat heartbeat--md heartbeat--danger" role="status" aria-label="Loading"></div>
+      <span style="margin-top:0.5rem">md · 28px (default)</span>
+    </div>
+    <div class="demo-block" style="min-width: 80px;">
+      <div class="heartbeat heartbeat--lg heartbeat--danger" role="status" aria-label="Loading"></div>
+      <span style="margin-top:0.5rem">lg · 40px</span>
+    </div>
+    <div class="demo-block" style="min-width: 80px;">
+      <div class="heartbeat heartbeat--xl heartbeat--danger" role="status" aria-label="Loading"></div>
+      <span style="margin-top:0.5rem">xl · 58px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="heartbeat heartbeat--danger"></div>
+      <span>danger (Heart Red)</span>
+    </div>
+    <div class="demo-block">
+      <div class="heartbeat heartbeat--primary"></div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="heartbeat heartbeat--success"></div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="heartbeat heartbeat--warning"></div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="heartbeat heartbeat--dark"></div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="heartbeat heartbeat--white"></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="heartbeat" style="--heart-color: #ec4899; --heart-speed: 0.7s;"></div>
+      <span>pink · fast pulse (0.7s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="heartbeat" style="--heart-color: #a855f7; --heart-speed: 2.2s; --heart-size: 34px;"></div>
+      <span>purple · slow beat (2.2s)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="heartbeat.css" /&gt;
+
+&lt;!-- 2. Single element — no children needed --&gt;
+&lt;div class="heartbeat" role="status" aria-label="Loading"&gt;&lt;/div&gt;
+
+&lt;!-- 3. Size + danger color modifier --&gt;
+&lt;div class="heartbeat heartbeat--lg heartbeat--danger"&gt;&lt;/div&gt;</pre>
+
+</body>
+</html>

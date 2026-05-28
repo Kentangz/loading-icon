@@ -1,0 +1,106 @@
+/**
+ * Solar Eclipse — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Rotating backdrop-blur radial glows & theme masking.
+ *             A glowing shimmering sun corona rotates and pulses in the
+ *             background, while a front occluder disc blocks the center,
+ *             forming a cosmic solar eclipse wait state.
+ *
+ * Usage     : <div class="solar-eclipse" role="status" aria-label="Loading">
+ *               <div class="solar-eclipse__corona"></div>
+ *               <div class="solar-eclipse__occluder"></div>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.solar-eclipse {
+  /* === SIZE === */
+  --eclipse-size: 40px;
+
+  /* === COLOR === */
+  --eclipse-color: #EF9F27;
+  --eclipse-occluder: #f8f8f6; /* Set this to match your page backdrop */
+
+  /* === ANIMATION === */
+  --eclipse-speed: 2.5s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--eclipse-size);
+  height: var(--eclipse-size);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Shimmering solar corona */
+.solar-eclipse__corona {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--eclipse-color) 0%,
+    color-mix(in srgb, var(--eclipse-color) 40%, transparent) 25%,
+    var(--eclipse-color) 50%,
+    color-mix(in srgb, var(--eclipse-color) 20%, transparent) 75%,
+    var(--eclipse-color) 100%
+  );
+  filter: blur(calc(var(--eclipse-size) * 0.12));
+  animation: 
+    eclipse-spin var(--eclipse-speed) linear infinite,
+    eclipse-flare calc(var(--eclipse-speed) * 0.8) ease-in-out infinite alternate;
+  box-sizing: border-box;
+}
+
+/* Dark occluder disc (the moon) */
+.solar-eclipse__occluder {
+  position: absolute;
+  inset: calc(var(--eclipse-size) * 0.12);
+  border-radius: 50%;
+  background: var(--eclipse-occluder);
+  border: 1px solid color-mix(in srgb, var(--eclipse-color) 25%, transparent);
+  box-shadow: inset 0 0 calc(var(--eclipse-size) * 0.15) rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  animation: eclipse-pulse var(--eclipse-speed) ease-in-out infinite alternate;
+}
+
+@keyframes eclipse-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes eclipse-flare {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes eclipse-pulse {
+  0% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+/* ─── Size presets ─── */
+.solar-eclipse--sm { --eclipse-size: 24px; }
+.solar-eclipse--md { --eclipse-size: 40px; }
+.solar-eclipse--lg { --eclipse-size: 60px; }
+.solar-eclipse--xl { --eclipse-size: 88px; }
+
+/* ─── Color presets ─── */
+.solar-eclipse--primary { --eclipse-color: #7F77DD; }
+.solar-eclipse--success { --eclipse-color: #1D9E75; }
+.solar-eclipse--warning { --eclipse-color: #EF9F27; }
+.solar-eclipse--danger  { --eclipse-color: #E24B4A; }
+.solar-eclipse--white   { --eclipse-color: #ffffff; }
+.solar-eclipse--dark    { --eclipse-color: #2C2C2A; }

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonar Ripple — LoadIcons</title>
+  <link rel="stylesheet" href="sonar-ripple.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 2.5rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.25rem 1.75rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>16 · Sonar Ripple</h1>
+  <p class="sub">
+    An elegant, concentric wireless or radar signal pulse loader. A solid core beacon emits staggered thin-bordered rings expanding outward while fading in density.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="sonar-ripple sonar-ripple--sm sonar-ripple--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="sonar-ripple sonar-ripple--md sonar-ripple--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>md · 40px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="sonar-ripple sonar-ripple--lg sonar-ripple--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>lg · 60px</span>
+    </div>
+    <div class="demo-block">
+      <div class="sonar-ripple sonar-ripple--xl sonar-ripple--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>xl · 88px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="sonar-ripple sonar-ripple--primary">
+        <span></span><span></span><span></span>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="sonar-ripple sonar-ripple--success">
+        <span></span><span></span><span></span>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="sonar-ripple sonar-ripple--warning">
+        <span></span><span></span><span></span>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="sonar-ripple sonar-ripple--danger">
+        <span></span><span></span><span></span>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="sonar-ripple sonar-ripple--dark">
+        <span></span><span></span><span></span>
+      </div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="sonar-ripple sonar-ripple--white">
+        <span></span><span></span><span></span>
+      </div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="sonar-ripple" style="--sonar-color: #ec4899; --sonar-speed: 0.8s;">
+        <span></span><span></span><span></span>
+      </div>
+      <span>rose · fast (0.8s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="sonar-ripple" style="--sonar-color: #0ea5e9; --sonar-size: 70px; --sonar-speed: 2.8s;">
+        <span></span><span></span><span></span>
+      </div>
+      <span>sky-blue · slow (2.8s) · 70px</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="sonar-ripple.css" /&gt;
+
+&lt;!-- 2. Structure — requires exactly 3 span children --&gt;
+&lt;div class="sonar-ripple" role="status" aria-label="Loading"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. Size + color modifiers --&gt;
+&lt;div class="sonar-ripple sonar-ripple--lg sonar-ripple--success"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

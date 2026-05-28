@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elastic Line — LoadIcons</title>
+  <link rel="stylesheet" href="elastic-line.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>43 · Elastic Line</h1>
+  <p class="sub">
+    A single horizontal line that stretches elastically to the right, snaps its tail inward, and sweeps back in the opposite direction using physical acceleration curves.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="elastic-line elastic-line--sm elastic-line--danger" role="status" aria-label="Loading"></div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="elastic-line elastic-line--md elastic-line--danger" role="status" aria-label="Loading"></div>
+      <span>md · 40px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="elastic-line elastic-line--lg elastic-line--danger" role="status" aria-label="Loading"></div>
+      <span>lg · 60px</span>
+    </div>
+    <div class="demo-block">
+      <div class="elastic-line elastic-line--xl elastic-line--danger" role="status" aria-label="Loading"></div>
+      <span>xl · 88px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="elastic-line elastic-line--primary"></div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="elastic-line elastic-line--success"></div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="elastic-line elastic-line--warning"></div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="elastic-line elastic-line--danger"></div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="elastic-line elastic-line--dark"></div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="elastic-line elastic-line--white"></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="elastic-line" style="--line-color: #ec4899; --line-speed: 0.9s; --line-size: 50px;"></div>
+      <span>pink · fast (0.9s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="elastic-line" style="--line-color: #0ea5e9; --line-speed: 2.5s; --line-size: 50px;"></div>
+      <span>cyan · slow (2.5s)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="elastic-line.css" /&gt;
+
+&lt;!-- 2. Structure — single element --&gt;
+&lt;div class="elastic-line" role="status" aria-label="Loading"&gt;&lt;/div&gt;</pre>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+/**
+ * Mesh Gears — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Gear tooth synthesis using centered multi-angular
+ *             rectangular spans, masked and layered concentric
+ *             cores (using ::after), rotated in opposing
+ *             directions at synchronized velocities.
+ *
+ * Usage     : <div class="mesh-gears" role="status" aria-label="Loading">
+ *               <div class="gear gear--large">
+ *                 <span></span><span></span><span></span><span></span>
+ *               </div>
+ *               <div class="gear gear--small">
+ *                 <span></span><span></span><span></span><span></span>
+ *               </div>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.mesh-gears {
+  /* === SIZE === */
+  --gears-width:  68px;
+  --gears-height: 48px;
+
+  /* === COLOR === */
+  --gears-color: #7F77DD;
+
+  /* === BACKDROP COLOR === */
+  /* Central punched hole matches this surface color */
+  --gears-bg: #f8f8f6;
+
+  /* === ANIMATION === */
+  --gears-speed: 3s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  position: relative;
+  width: var(--gears-width);
+  height: var(--gears-height);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Base style for both gears */
+.gear {
+  position: absolute;
+  background: transparent;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.gear span {
+  position: absolute;
+  background: var(--gears-color);
+  border-radius: 1.5px;
+  box-sizing: border-box;
+}
+
+/* Gear teeth spacing: 8 teeth total from 4 bars */
+.gear span:nth-child(1) { transform: rotate(0deg); }
+.gear span:nth-child(2) { transform: rotate(45deg); }
+.gear span:nth-child(3) { transform: rotate(90deg); }
+.gear span:nth-child(4) { transform: rotate(135deg); }
+
+/* Large Gear Configuration */
+.gear--large {
+  width: 44px;
+  height: 44px;
+  top: 0;
+  left: 0;
+  --tooth-w: 6px;
+  --tooth-h: 4.5px;
+  --rim-w:   4px;
+  animation: gear-spin-clockwise var(--gears-speed) linear infinite;
+}
+
+.gear--large span {
+  top: 0;
+  left: calc(50% - var(--tooth-w) / 2);
+  width: var(--tooth-w);
+  height: 100%;
+}
+
+.gear--large::after {
+  content: '';
+  position: absolute;
+  top: var(--tooth-h);
+  left: var(--tooth-h);
+  width: calc(100% - var(--tooth-h) * 2);
+  height: calc(100% - var(--tooth-h) * 2);
+  background: var(--gears-bg);
+  border: var(--rim-w) solid var(--gears-color);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+/* Small Gear Configuration */
+.gear--small {
+  width: 30px;
+  height: 30px;
+  bottom: 0;
+  right: 0;
+  --tooth-w: 4px;
+  --tooth-h: 3px;
+  --rim-w:   3px;
+  /* Phase offset + opposing speed synchronization */
+  animation: gear-spin-countercalc calc(var(--gears-speed) * 30 / 44) linear infinite;
+}
+
+.gear--small span {
+  top: 0;
+  left: calc(50% - var(--tooth-w) / 2);
+  width: var(--tooth-w);
+  height: 100%;
+}
+
+.gear--small::after {
+  content: '';
+  position: absolute;
+  top: var(--tooth-h);
+  left: var(--tooth-h);
+  width: calc(100% - var(--tooth-h) * 2);
+  height: calc(100% - var(--tooth-h) * 2);
+  background: var(--gears-bg);
+  border: var(--rim-w) solid var(--gears-color);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+@keyframes gear-spin-clockwise {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gear-spin-countercalc {
+  /* Offset start angle slightly to fit teeth interlocking */
+  from { transform: rotate(22deg); }
+  to   { transform: rotate(-338deg); }
+}
+
+/* ─── Size presets ─── */
+.mesh-gears--sm { --gears-width: 44px; --gears-height: 32px; }
+.mesh-gears--md { --gears-width: 68px; --gears-height: 48px; }
+.mesh-gears--lg { --gears-width: 96px; --gears-height: 68px; }
+.mesh-gears--xl { --gears-width: 130px; --gears-height: 92px; }
+
+/* Hand-scale sizing overrides for presets */
+.mesh-gears--sm .gear--large { width: 28px; height: 28px; --tooth-w: 4px; --tooth-h: 3px; }
+.mesh-gears--sm .gear--small { width: 20px; height: 20px; --tooth-w: 3px; --tooth-h: 2px; }
+.mesh-gears--lg .gear--large { width: 62px; height: 62px; --tooth-w: 8px; --tooth-h: 6px; }
+.mesh-gears--lg .gear--small { width: 42px; height: 42px; --tooth-w: 6px; --tooth-h: 4.5px; }
+.mesh-gears--xl .gear--large { width: 84px; height: 84px; --tooth-w: 11px; --tooth-h: 8px; }
+.mesh-gears--xl .gear--small { width: 58px; height: 58px; --tooth-w: 8px; --tooth-h: 6px; }
+
+/* ─── Color presets ─── */
+.mesh-gears--primary { --gears-color: #7F77DD; }
+.mesh-gears--success { --gears-color: #1D9E75; }
+.mesh-gears--warning { --gears-color: #EF9F27; }
+.mesh-gears--danger  { --gears-color: #E24B4A; }
+.mesh-gears--white   { --gears-color: #ffffff; }
+.mesh-gears--dark    { --gears-color: #2C2C2A; }
+
+/* ─── Theme adaptations ─── */
+.mesh-gears--dark-bg { --gears-bg: #1a1a1a; }
+.mesh-gears--dim-bg  { --gears-bg: #2a2a2e; }
+.mesh-gears--transparent-card { --gears-bg: #ffffff; }

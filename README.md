@@ -1,6 +1,6 @@
 # LoadIcons ⟳
 
-**10 lightweight, reusable CSS loading icons — fully customizable via CSS Custom Properties, zero dependencies.**
+**50 lightweight, reusable CSS loading icons — fully customizable via CSS Custom Properties, zero dependencies.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Pure CSS](https://img.shields.io/badge/Pure-CSS-1D9E75.svg)
@@ -36,6 +36,46 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 08 | [Circular Progress](icons/08-circular-progress/) | SVG `stroke-dasharray` + `pathLength` | Progress tracking (determinate & indeterminate) |
 | 09 | [Morphing Shape](icons/09-morphing-shape/) | `border-radius` morph + `rotate` | Splash screens, onboarding flows |
 | 10 | [Split Ring](icons/10-split-ring/) | Dual-arc `border` + `rotate` | Minimal spinner for light & dark themes |
+| 11 | [Comet](icons/11-comet/) | `conic-gradient` + `mask` + `rotate` | Premium loaders, dark-mode UIs, branded splash screens |
+| 12 | [Folding Cube](icons/12-folding-cube/) | 3D rotates + perspectives | Clean 3D dashboard & app loaders |
+| 13 | [Fluid Metaballs](icons/13-fluid-metaballs/) | gooey contrast + blur filters | Playful, organic liquid visual branding |
+| 14 | [DNA Helix](icons/14-dna-helix/) | counter-phase scales + translates | Scientific, biotechnology, high-tech UIs |
+| 15 | [Atom Orbit](icons/15-atom-orbit/) | 3D angled rings + orbital spin | Spatial chemistry, science, physics wait states |
+| 16 | [Sonar Ripple](icons/16-sonar-ripple/) | scale + concentric waves | Wireless, search, radar, connection UIs |
+| 17 | [Honeycomb Pulse](icons/17-honeycomb-pulse/) | clip-path hex + grid lattice | Creative hexagon dashboard & telemetry grids |
+| 18 | [Matrix Fade](icons/18-matrix-fade/) | Manhattan diagonal grid delay | Admin panels, statistics, data analytics loaders |
+| 19 | [Wandering Cubes](icons/19-wandering-cubes/) | 2D offset track + rotations | Minimalist grid and box progress widgets |
+| 20 | [Chromatic Spinner](icons/20-chromatic-spinner/) | rainbow conic gradient + mask | Modern SaaS platforms, colorful onboarding sweeps |
+| 21 | [Mesh Gears](icons/21-mesh-gears/) | interlocking mechanical gear teeth | System processing, configuration, engine indicators |
+| 22 | [Particle Vortex](icons/22-particle-vortex/) | orbital spiral sweeps + scales | Deep tech, dark mode interfaces, epic animations |
+| 23 | [Hourglass](icons/23-hourglass/) | drips sand + gravity flip | Gravity-driven sand draining bulb loader |
+| 24 | [Page Flip](icons/24-page-flip/) | 3D paper flip + perspective | Flipping book pages and progress indices |
+| 25 | [Squishy Ball](icons/25-squishy-ball/) | elastic bounce squash + shadows | Satisfying spring physics and kinetic wait states |
+| 26 | [Warp Field](icons/26-warp-field/) | radial coordinate translations | First-person space hyperdrive warp tunnels |
+| 27 | [Radar Sweep](icons/27-radar-sweep/) | conic gradient + sync blip flash | Sonar radar feeds and circular scanning indicators |
+| 28 | [Matrix Rain](icons/28-matrix-rain/) | vertical drop delay cascades | Coding, analytics waterfall, cyberpunk loading screens |
+| 29 | [Gyro Spheres](icons/29-gyro-spheres/) | conjoined concentric 3D orbits | Atomic orbits, spatial gyroscopes, telemetry widgets |
+| 30 | [Heartbeat](icons/30-heartbeat/) | EKG double throb + heart shape | Medical, vital telemetry, vital statistics throb indicators |
+| 31 | [Pendulum Wave](icons/31-pendulum-wave/) | phase drift + horizontal swing | Dynamic physics-driven pendulum wave wait states |
+| 32 | [Infinite Loop](icons/32-infinite-loop/) | figure-8 path translation | Infinity path tracing digital wait states |
+| 33 | [Concentric Rings](icons/33-concentric-rings/) | split-arc counter rotations | Mechanical gyroscope concentric orbital sweeps |
+| 34 | [Waveform Audio](icons/34-waveform-audio/) | symmetrical double scale | Audio processing, sound, voice recording wait states |
+| 35 | [Breathing Ring](icons/35-breathing-ring/) | scale pulse + box-shadow glow | Calm, breathing circular ambient loaders |
+| 36 | [Liquid Drop](icons/36-liquid-drop/) | gravity fall + ripple splash | Fluid drip, watering, ecological visual branding |
+| 37 | [Hexagon Orbit](icons/37-hexagon-orbit/) | trig hexagonal vertex trace | Close-packed grid hexagonal boundary sweeps |
+| 38 | [Sparkling Stars](icons/38-sparkling-stars/) | clip-path star sparkles + fades | Magical, celestial, glowing wait states |
+| 39 | [Snake Chase](icons/39-snake-chase/) | perimeter trailing delay | Unified snake-path border waits |
+| 40 | [Solar Eclipse](icons/40-solar-eclipse/) | conic corona + occluder mask | High-fidelity dark mode cosmic eclipses |
+| 41 | [Pulsing Grid](icons/41-pulsing-grid/) | grid center radial delay | Numeric dashboard, telemetry lattice grids |
+| 42 | [Helix Tunnel](icons/42-helix-tunnel/) | concentric depth rotations | 3D depth tunnels, dimensional travel sweeps |
+| 43 | [Elastic Line](icons/43-elastic-line/) | left/width asymmetric sweeps | Premium SaaS, horizontal progress lines |
+| 44 | [Jumping Dots](icons/44-jumping-dots/) | squash-and-stretch parabolic | Satisfying cartoon bouncy bubble kinetics |
+| 45 | [Newton's Cradle 3D](icons/45-newton-cradle-3d/) | 3D isometric momentum swing | Physics-driven mechanical 3D spatial cradles |
+| 46 | [Signal Beacons](icons/46-signal-beacons/) | semicircular scale-opacity ripples | Wireless transmitter, radio towers, signals |
+| 47 | [Ticking Clock](icons/47-ticking-clock/) | stepped Quartz hand rotation | Time tracking, calendars, chronometer widgets |
+| 48 | [Bouncing Cube 3D](icons/48-bouncing-cube/) | 3D projections + squishing | 3D visual apps, modular projections, structural |
+| 49 | [Digital Segment](icons/49-digital-segment/) | 7-segment stepped LEDs | Cyberpunk telemetry, digital segmented counts |
+| 50 | [Perspective Tunnel](icons/50-perspective-tunnel/) | concentric ring zoom flythrough | Sci-fi warp, tunnel loading, hyperdrive screens |
 
 ---
 
@@ -118,6 +158,226 @@ Each icon has a minimal, documented HTML structure:
 
 <!-- 10 · Split Ring (single element) -->
 <div class="split-ring" role="status" aria-label="Loading"></div>
+
+<!-- 11 · Comet (single element) -->
+<div class="comet" role="status" aria-label="Loading"></div>
+
+<!-- 12 · Folding Cube (parent + 4 spans) -->
+<div class="folding-cube" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 13 · Fluid Metaballs (parent + 3 spans) -->
+<div class="fluid-metaballs" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 14 · DNA Helix (parent + 10 spans) -->
+<div class="dna-helix" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 15 · Atom Orbit (parent + nucleus + 3 rings with electrons) -->
+<div class="atom-orbit" role="status" aria-label="Loading">
+  <div class="atom-orbit__nucleus"></div>
+  <div class="atom-orbit__ring atom-orbit__ring--1"><div class="atom-orbit__electron"></div></div>
+  <div class="atom-orbit__ring atom-orbit__ring--2"><div class="atom-orbit__electron"></div></div>
+  <div class="atom-orbit__ring atom-orbit__ring--3"><div class="atom-orbit__electron"></div></div>
+</div>
+
+<!-- 16 · Sonar Ripple (parent + 3 spans) -->
+<div class="sonar-ripple" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 17 · Honeycomb Pulse (parent + 7 spans) -->
+<div class="honeycomb-pulse" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 18 · Matrix Fade (parent + 9 spans) -->
+<div class="matrix-fade" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+  <span></span><span></span><span></span>
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 19 · Wandering Cubes (parent + 2 spans) -->
+<div class="wandering-cubes" role="status" aria-label="Loading">
+  <span></span><span></span>
+</div>
+
+<!-- 20 · Chromatic Spinner (single element) -->
+<div class="chromatic-spinner" role="status" aria-label="Loading"></div>
+
+<!-- 21 · Mesh Gears (parent + nested gears & teeth spans) -->
+<div class="mesh-gears" role="status" aria-label="Loading">
+  <div class="gear gear--large">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <div class="gear gear--small">
+    <span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- 22 · Particle Vortex (parent + 6 spans) -->
+<div class="particle-vortex" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 23 · Hourglass (parent + top/stream/bottom) -->
+<div class="hourglass" role="status" aria-label="Loading">
+  <div class="hourglass__top"></div>
+  <div class="hourglass__stream"></div>
+  <div class="hourglass__bottom"></div>
+</div>
+
+<!-- 24 · Page Flip (parent + 3 spans) -->
+<div class="page-flip" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 25 · Squishy Ball (parent + sphere & shadow) -->
+<div class="squishy-ball" role="status" aria-label="Loading">
+  <div class="squishy-ball__sphere"></div>
+  <div class="squishy-ball__shadow"></div>
+</div>
+
+<!-- 26 · Warp Field (parent + 8 spans) -->
+<div class="warp-field" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 27 · Radar Sweep (parent + line & 2 blips) -->
+<div class="radar-sweep" role="status" aria-label="Loading">
+  <div class="radar-sweep__line"></div>
+  <div class="radar-sweep__blip radar-sweep__blip--1"></div>
+  <div class="radar-sweep__blip radar-sweep__blip--2"></div>
+</div>
+
+<!-- 28 · Matrix Rain (parent + 4 spans) -->
+<div class="matrix-rain" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 29 · Gyro Spheres (parent + 3 rings & nucleus) -->
+<div class="gyro-spheres" role="status" aria-label="Loading">
+  <div class="gyro-ring gyro-ring--outer"></div>
+  <div class="gyro-ring gyro-ring--middle"></div>
+  <div class="gyro-ring gyro-ring--inner"></div>
+  <div class="gyro-nucleus"></div>
+</div>
+
+<!-- 30 · Heartbeat (single element) -->
+<div class="heartbeat" role="status" aria-label="Loading"></div>
+
+<!-- 31 · Pendulum Wave (parent + 5 spans) -->
+<div class="pendulum-wave" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 32 · Infinite Loop (parent + 3 spans) -->
+<div class="infinite-loop" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 33 · Concentric Rings (parent + 3 spans) -->
+<div class="concentric-rings" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 34 · Waveform Audio (parent + 5 spans) -->
+<div class="waveform-audio" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 35 · Breathing Ring (single element) -->
+<div class="breathing-ring" role="status" aria-label="Loading"></div>
+
+<!-- 36 · Liquid Drop (parent + spout/drip/ripple) -->
+<div class="liquid-drop" role="status" aria-label="Loading">
+  <div class="liquid-drop__spout"></div>
+  <div class="liquid-drop__drip"></div>
+  <div class="liquid-drop__ripple"></div>
+</div>
+
+<!-- 37 · Hexagon Orbit (parent + 3 spans) -->
+<div class="hexagon-orbit" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 38 · Sparkling Stars (parent + 3 spans) -->
+<div class="sparkling-stars" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 39 · Snake Chase (parent + 4 spans) -->
+<div class="snake-chase" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 40 · Solar Eclipse (parent + corona & occluder) -->
+<div class="solar-eclipse" role="status" aria-label="Loading">
+  <div class="solar-eclipse__corona"></div>
+  <div class="solar-eclipse__occluder" style="--eclipse-occluder: #ffffff;"></div>
+</div>
+
+<!-- 41 · Pulsing Grid (parent + 9 spans) -->
+<div class="pulsing-grid" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+  <span></span><span></span><span></span>
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 42 · Helix Tunnel (parent + 5 spans) -->
+<div class="helix-tunnel" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 43 · Elastic Line (single element) -->
+<div class="elastic-line" role="status" aria-label="Loading"></div>
+
+<!-- 44 · Jumping Dots (parent + 3 spans) -->
+<div class="jumping-dots" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 45 · Newton's Cradle 3D (parent + 5 spans) -->
+<div class="newton-cradle-3d" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 46 · Signal Beacons (parent + 3 spans) -->
+<div class="signal-beacons" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 47 · Ticking Clock (parent + hour & minute) -->
+<div class="ticking-clock" role="status" aria-label="Loading">
+  <div class="ticking-clock__hour"></div>
+  <div class="ticking-clock__minute"></div>
+</div>
+
+<!-- 48 · Bouncing Cube 3D (parent + nested cube & 3 faces) -->
+<div class="bouncing-cube" role="status" aria-label="Loading">
+  <div class="bouncing-cube__cube">
+    <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+    <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+    <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+  </div>
+</div>
+
+<!-- 49 · Digital Segment (parent + 7 spans) -->
+<div class="digital-segment" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 50 · Perspective Tunnel (parent + 6 spans) -->
+<div class="perspective-tunnel" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
 ```
 
 ---
@@ -175,6 +435,46 @@ Every icon ships with ready-to-use modifier classes:
 | Circular Progress | `--circ-size` `--circ-stroke` `--circ-color` `--circ-track-color` `--circ-speed` `--circ-arc` `--progress-value` |
 | Morphing Shape | `--morph-size` `--morph-color` `--morph-speed` `--morph-radius-square` `--morph-scale-min` |
 | Split Ring | `--ring-size` `--ring-thickness` `--ring-color` `--ring-speed` `--ring-color-2` |
+| Comet | `--comet-size` `--comet-thickness` `--comet-color` `--comet-speed` `--comet-arc` |
+| Folding Cube | `--cube-size` `--cube-color` `--cube-speed` |
+| Fluid Metaballs | `--metaballs-size` `--metaballs-color` `--metaballs-bg` `--metaballs-speed` |
+| DNA Helix | `--dna-width` `--dna-height` `--dna-dot-size` `--dna-color` `--dna-speed` |
+| Atom Orbit | `--atom-size` `--atom-color` `--atom-speed` |
+| Sonar Ripple | `--sonar-size` `--sonar-color` `--sonar-speed` |
+| Honeycomb Pulse | `--honeycomb-size` `--honeycomb-color` `--honeycomb-speed` |
+| Matrix Fade | `--matrix-size` `--matrix-gap` `--matrix-color` `--matrix-speed` `--matrix-radius` |
+| Wandering Cubes | `--cubes-size` `--cubes-color` `--cubes-speed` |
+| Chromatic Spinner | `--chromatic-size` `--chromatic-thickness` `--chromatic-speed` |
+| Mesh Gears | `--gears-width` `--gears-height` `--gears-color` `--gears-bg` `--gears-speed` |
+| Particle Vortex | `--vortex-size` `--particle-size` `--vortex-color` `--vortex-speed` |
+| Hourglass | `--glass-size` `--glass-color` `--glass-speed` |
+| Page Flip | `--book-width` `--book-height` `--book-color` `--book-speed` |
+| Squishy Ball | `--ball-size` `--ball-height` `--ball-color` `--ball-speed` |
+| Warp Field | `--warp-size` `--warp-color` `--warp-speed` |
+| Radar Sweep | `--radar-size` `--radar-color` `--radar-speed` |
+| Matrix Rain | `--rain-width` `--rain-height` `--drop-size` `--rain-color` `--rain-speed` |
+| Gyro Spheres | `--gyro-size` `--gyro-color` `--gyro-speed` |
+| Heartbeat | `--heart-size` `--heart-color` `--heart-speed` |
+| Pendulum Wave | `--wave-size` `--wave-color` `--wave-speed` |
+| Infinite Loop | `--loop-size` `--loop-color` `--loop-speed` |
+| Concentric Rings | `--ring-size` `--ring-color` `--ring-speed` |
+| Waveform Audio | `--audio-size` `--audio-color` `--audio-speed` |
+| Breathing Ring | `--ring-size` `--ring-color` `--ring-speed` |
+| Liquid Drop | `--drop-size` `--drop-color` `--drop-speed` `--eclipse-occluder` |
+| Hexagon Orbit | `--orbit-size` `--orbit-color` `--orbit-speed` |
+| Sparkling Stars | `--star-size` `--star-color` `--star-speed` |
+| Snake Chase | `--track-size` `--track-color` `--track-speed` |
+| Solar Eclipse | `--eclipse-size` `--eclipse-color` `--eclipse-speed` `--eclipse-occluder` |
+| Pulsing Grid | `--grid-size` `--grid-color` `--grid-speed` |
+| Helix Tunnel | `--tunnel-size` `--tunnel-color` `--tunnel-speed` |
+| Elastic Line | `--line-size` `--line-color` `--line-speed` |
+| Jumping Dots | `--jump-size` `--jump-color` `--jump-speed` |
+| Newton's Cradle 3D | `--cradle-size` `--cradle-color` `--cradle-speed` |
+| Signal Beacons | `--beacon-size` `--beacon-color` `--beacon-speed` |
+| Ticking Clock | `--clock-size` `--clock-color` `--clock-speed` |
+| Bouncing Cube 3D | `--cube-size` `--cube-color` `--cube-speed` |
+| Digital Segment | `--segment-size` `--segment-color` `--segment-speed` |
+| Perspective Tunnel | `--pt-size` `--pt-color` `--pt-glow` `--pt-speed` `--pt-thickness` `--pt-bg` |
 
 ---
 
@@ -219,8 +519,128 @@ loadicons/
     ├── 09-morphing-shape/
     │   ├── morphing-shape.css
     │   └── index.html
-    └── 10-split-ring/
-        ├── split-ring.css
+    ├── 10-split-ring/
+    │   ├── split-ring.css
+    │   └── index.html
+    ├── 11-comet/
+    │   ├── comet.css
+    │   └── index.html
+    ├── 12-folding-cube/
+    │   ├── folding-cube.css
+    │   └── index.html
+    ├── 13-fluid-metaballs/
+    │   ├── fluid-metaballs.css
+    │   └── index.html
+    ├── 14-dna-helix/
+    │   ├── dna-helix.css
+    │   └── index.html
+    ├── 15-atom-orbit/
+    │   ├── atom-orbit.css
+    │   └── index.html
+    ├── 16-sonar-ripple/
+    │   ├── sonar-ripple.css
+    │   └── index.html
+    ├── 17-honeycomb-pulse/
+    │   ├── honeycomb-pulse.css
+    │   └── index.html
+    ├── 18-matrix-fade/
+    │   ├── matrix-fade.css
+    │   └── index.html
+    ├── 19-wandering-cubes/
+    │   ├── wandering-cubes.css
+    │   └── index.html
+    ├── 20-chromatic-spinner/
+    │   ├── chromatic-spinner.css
+    │   └── index.html
+    ├── 21-mesh-gears/
+    │   ├── mesh-gears.css
+    │   └── index.html
+    └── 22-particle-vortex/
+        ├── particle-vortex.css
+        └── index.html
+    ├── 23-hourglass/
+    │   ├── hourglass.css
+    │   └── index.html
+    ├── 24-page-flip/
+    │   ├── page-flip.css
+    │   └── index.html
+    ├── 25-squishy-ball/
+    │   ├── squishy-ball.css
+    │   └── index.html
+    ├── 26-warp-field/
+    │   ├── warp-field.css
+    │   └── index.html
+    ├── 27-radar-sweep/
+    │   ├── radar-sweep.css
+    │   └── index.html
+    ├── 28-matrix-rain/
+    │   ├── matrix-rain.css
+    │   └── index.html
+    ├── 29-gyro-spheres/
+    │   ├── gyro-spheres.css
+    │   └── index.html
+    ├── 30-heartbeat/
+    │   ├── heartbeat.css
+    │   └── index.html
+    ├── 31-pendulum-wave/
+    │   ├── pendulum-wave.css
+    │   └── index.html
+    ├── 32-infinite-loop/
+    │   ├── infinite-loop.css
+    │   └── index.html
+    ├── 33-concentric-rings/
+    │   ├── concentric-rings.css
+    │   └── index.html
+    ├── 34-waveform-audio/
+    │   ├── waveform-audio.css
+    │   └── index.html
+    ├── 35-breathing-ring/
+    │   ├── breathing-ring.css
+    │   └── index.html
+    ├── 36-liquid-drop/
+    │   ├── liquid-drop.css
+    │   └── index.html
+    ├── 37-hexagon-orbit/
+    │   ├── hexagon-orbit.css
+    │   └── index.html
+    ├── 38-sparkling-stars/
+    │   ├── sparkling-stars.css
+    │   └── index.html
+    ├── 39-snake-chase/
+    │   ├── snake-chase.css
+    │   └── index.html
+    ├── 40-solar-eclipse/
+    │   ├── solar-eclipse.css
+    │   └── index.html
+    ├── 41-pulsing-grid/
+    │   ├── pulsing-grid.css
+    │   └── index.html
+    ├── 42-helix-tunnel/
+    │   ├── helix-tunnel.css
+    │   └── index.html
+    ├── 43-elastic-line/
+    │   ├── elastic-line.css
+    │   └── index.html
+    ├── 44-jumping-dots/
+    │   ├── jumping-dots.css
+    │   └── index.html
+    ├── 45-newton-cradle-3d/
+    │   ├── newton-cradle-3d.css
+    │   └── index.html
+    ├── 46-signal-beacons/
+    │   ├── signal-beacons.css
+    │   └── index.html
+    ├── 47-ticking-clock/
+    │   ├── ticking-clock.css
+    │   └── index.html
+    ├── 48-bouncing-cube/
+    │   ├── bouncing-cube.css
+    │   └── index.html
+    ├── 49-digital-segment/
+    │   ├── digital-segment.css
+    │   └── index.html
+    └── 50-perspective-tunnel/
+        ├── perspective-tunnel.css
         └── index.html
 ```
 
@@ -266,7 +686,25 @@ All icons use CSS animations. To honor the user's system preference:
   /* Option A: pause all LoadIcons animations */
   .spinner, .dots-wave > span, .pulse-ring::before,
   .bar-loader > span, .orbit__ring, .demo-skel-line,
-  .typing > span, .circ-progress__svg, .morph, .split-ring {
+  .typing > span, .circ-progress__svg, .morph, .split-ring,
+  .comet, .folding-cube span::before, .fluid-metaballs span,
+  .dna-helix span, .atom-orbit__electron, .sonar-ripple span,
+  .honeycomb-pulse span, .matrix-fade span, .wandering-cubes span,
+  .chromatic-spinner, .gear, .particle-vortex span,
+  .hourglass, .hourglass__top::before, .hourglass__bottom::before,
+  .hourglass__stream, .page-flip span, .squishy-ball__sphere,
+  .squishy-ball__shadow, .warp-field span, .radar-sweep__line,
+  .radar-sweep__blip, .matrix-rain span::before, .gyro-ring,
+  .heartbeat, .pendulum-wave span, .infinite-loop span,
+  .concentric-rings span, .waveform-audio span, .breathing-ring,
+  .liquid-drop__drip, .liquid-drop__ripple, .hexagon-orbit span,
+  .sparkling-stars span, .snake-chase span, .solar-eclipse__corona,
+  .solar-eclipse__occluder, .pulsing-grid span, .helix-tunnel span,
+  .elastic-line::before, .jumping-dots span, .newton-cradle-3d span,
+  .newton-cradle-3d span::before, .newton-cradle-3d span::after,
+  .signal-beacons span::after, .ticking-clock__hour,
+  .ticking-clock__minute, .bouncing-cube__cube, .bouncing-cube::before,
+  .digital-segment span, .perspective-tunnel span {
     animation-play-state: paused;
   }
 

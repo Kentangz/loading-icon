@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liquid Drop — LoadIcons</title>
+  <link rel="stylesheet" href="liquid-drop.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>36 · Liquid Drop</h1>
+  <p class="sub">
+    A gravity-driven physical fluid simulation. A droplet forms at the top spout, falls downwards, squishes out horizontally on impact, and generates an expanding ripple wave.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="liquid-drop liquid-drop--sm liquid-drop--primary" role="status" aria-label="Loading">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="liquid-drop liquid-drop--md liquid-drop--primary" role="status" aria-label="Loading">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>md · 40px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="liquid-drop liquid-drop--lg liquid-drop--primary" role="status" aria-label="Loading">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>lg · 60px</span>
+    </div>
+    <div class="demo-block">
+      <div class="liquid-drop liquid-drop--xl liquid-drop--primary" role="status" aria-label="Loading">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>xl · 88px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="liquid-drop liquid-drop--primary">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="liquid-drop liquid-drop--success">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="liquid-drop liquid-drop--warning">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="liquid-drop liquid-drop--danger">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="liquid-drop liquid-drop--dark">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="liquid-drop liquid-drop--white">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="liquid-drop" style="--drop-color: #ec4899; --drop-speed: 1.2s; --drop-size: 50px;">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>pink · fast (1.2s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="liquid-drop" style="--drop-color: #0ea5e9; --drop-speed: 3.5s; --drop-size: 50px;">
+        <div class="liquid-drop__spout"></div>
+        <div class="liquid-drop__drip"></div>
+        <div class="liquid-drop__ripple"></div>
+      </div>
+      <span>cyan · slow (3.5s)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="liquid-drop.css" /&gt;
+
+&lt;!-- 2. Structure — requires spout, drip & ripple children --&gt;
+&lt;div class="liquid-drop" role="status" aria-label="Loading"&gt;
+  &lt;div class="liquid-drop__spout"&gt;&lt;/div&gt;
+  &lt;div class="liquid-drop__drip"&gt;&lt;/div&gt;
+  &lt;div class="liquid-drop__ripple"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

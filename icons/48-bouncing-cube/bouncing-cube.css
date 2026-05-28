@@ -1,0 +1,176 @@
+/**
+ * Bouncing Cube 3D — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Isometric 3D solid projection, shading & vertical kinetic bounce.
+ *             A solid 3D isometric cube constructed via six closed panels
+ *             with realistic ambient shading leaps vertically, rotates 90°
+ *             in mid-air, and lands on a ground plane with aspect-deforming
+ *             vertical squishes (preventing diagonal 3D shearing).
+ *
+ * Usage     : <div class="bouncing-cube" role="status" aria-label="Loading">
+ *               <div class="bouncing-cube__cube">
+ *                 <div class="bouncing-cube__face bouncing-cube__face--top"></div>
+ *                 <div class="bouncing-cube__face bouncing-cube__face--bottom"></div>
+ *                 <div class="bouncing-cube__face bouncing-cube__face--front"></div>
+ *                 <div class="bouncing-cube__face bouncing-cube__face--back"></div>
+ *                 <div class="bouncing-cube__face bouncing-cube__face--left"></div>
+ *                 <div class="bouncing-cube__face bouncing-cube__face--side"></div>
+ *               </div>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.bouncing-cube {
+  /* === SIZE === */
+  --cube-size: 40px;
+
+  /* === COLOR === */
+  --cube-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --cube-speed: 1.2s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--cube-size);
+  height: calc(var(--cube-size) * 1.3);
+  position: relative;
+  perspective: calc(var(--cube-size) * 4);
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* Ground shadow beneath the cube */
+.bouncing-cube::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: calc(var(--cube-size) * 0.12);
+  background: color-mix(in srgb, var(--cube-color) 20%, transparent);
+  border-radius: 50%;
+  animation: cube-shadow var(--cube-speed) ease-in-out infinite;
+  box-sizing: border-box;
+}
+
+/* The 3D Cube container */
+.bouncing-cube__cube {
+  width: calc(var(--cube-size) * 0.5);
+  height: calc(var(--cube-size) * 0.5);
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  transform-style: preserve-3d;
+  transform-origin: bottom center;
+  /* Shifting scale and translate to the left of rotations preserves vertical screen-space squash */
+  animation: cube-bounce var(--cube-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  box-sizing: border-box;
+}
+
+/* Base style for all 6 3D faces */
+.bouncing-cube__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: calc(var(--cube-size) * 0.035) solid var(--cube-color);
+  border-radius: 2px;
+  backface-visibility: visible;
+}
+
+/* ──────────────── Complete 6-Face Geometry & Shading ──────────────── */
+
+/* Top Face (Brightest - direct ambient light) */
+.bouncing-cube__face--top {
+  transform: rotateX(90deg) translateZ(calc(var(--cube-size) * 0.25));
+  background: color-mix(in srgb, var(--cube-color) 80%, #ffffff);
+}
+
+/* Bottom Face (Darkest - hidden shadow face) */
+.bouncing-cube__face--bottom {
+  transform: rotateX(-90deg) translateZ(calc(var(--cube-size) * 0.25));
+  background: color-mix(in srgb, var(--cube-color) 50%, #000000);
+}
+
+/* Front Face (Primary solid tone) */
+.bouncing-cube__face--front {
+  transform: rotateY(0deg) translateZ(calc(var(--cube-size) * 0.25));
+  background: var(--cube-color);
+}
+
+/* Back Face (Subtle deep tone) */
+.bouncing-cube__face--back {
+  transform: rotateY(180deg) translateZ(calc(var(--cube-size) * 0.25));
+  background: color-mix(in srgb, var(--cube-color) 70%, #000000);
+}
+
+/* Left Face (Medium deep tone) */
+.bouncing-cube__face--left {
+  transform: rotateY(-90deg) translateZ(calc(var(--cube-size) * 0.25));
+  background: color-mix(in srgb, var(--cube-color) 85%, #000000);
+}
+
+/* Right/Side Face (Medium bright tone) */
+.bouncing-cube__face--side {
+  transform: rotateY(90deg) translateZ(calc(var(--cube-size) * 0.25));
+  background: color-mix(in srgb, var(--cube-color) 75%, #000000);
+}
+
+/* 
+  Bounce Keyframes: Order of operations puts translation and scale first (leftmost) 
+  so squash-and-stretch is relative to the ground plane, preventing 3D sheared distortion.
+*/
+@keyframes cube-bounce {
+  0%, 100% {
+    transform: translateY(0) scale3d(1.22, 0.62, 1.22) rotateX(-30deg) rotateY(45deg);
+  }
+  12% {
+    /* Stretch during takeoff */
+    transform: translateY(0) scale3d(0.82, 1.28, 0.82) rotateX(-30deg) rotateY(45deg);
+  }
+  50% {
+    /* Peak heights with exactly 90deg rotation */
+    transform: translateY(calc(var(--cube-size) * -0.7)) scale3d(1, 1, 1) rotateX(-30deg) rotateY(135deg);
+  }
+  78% {
+    /* Ground squash impact */
+    transform: translateY(0) scale3d(1.25, 0.55, 1.25) rotateX(-30deg) rotateY(225deg);
+  }
+  90% {
+    /* Bounce recovery overshoot */
+    transform: translateY(0) scale3d(0.9, 1.1, 0.9) rotateX(-30deg) rotateY(225deg);
+  }
+}
+
+@keyframes cube-shadow {
+  0%, 78%, 100% {
+    transform: scale(1.25);
+    opacity: 0.8;
+  }
+  12% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(0.5);
+    opacity: 0.15;
+  }
+  90% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* ─── Size presets ─── */
+.bouncing-cube--sm { --cube-size: 24px; }
+.bouncing-cube--md { --cube-size: 40px; }
+.bouncing-cube--lg { --cube-size: 60px; }
+.bouncing-cube--xl { --cube-size: 88px; }
+
+/* ─── Color presets ─── */
+.bouncing-cube--primary { --cube-color: #7F77DD; }
+.bouncing-cube--success { --cube-color: #1D9E75; }
+.bouncing-cube--warning { --cube-color: #EF9F27; }
+.bouncing-cube--danger  { --cube-color: #E24B4A; }
+.bouncing-cube--white   { --cube-color: #ffffff; }
+.bouncing-cube--dark    { --cube-color: #2C2C2A; }

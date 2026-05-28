@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Particle Vortex — LoadIcons</title>
+  <link rel="stylesheet" href="particle-vortex.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 2.5rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.25rem 1.75rem;
+      border-radius: 8px;
+    }
+    .dim-bg {
+      background: #2a2a2e; padding: 1.25rem 1.75rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>22 · Particle Vortex</h1>
+  <p class="sub">
+    A premium cosmic orbital spiral loader. Multiple particles eject outward and smoothly swirl inward toward a central black-hole point, accelerating and shrinking before disappearing.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="particle-vortex particle-vortex--sm particle-vortex--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>sm · 32px</span>
+    </div>
+    <div class="demo-block">
+      <div class="particle-vortex particle-vortex--md particle-vortex--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>md · 50px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="particle-vortex particle-vortex--lg particle-vortex--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>lg · 72px</span>
+    </div>
+    <div class="demo-block">
+      <div class="particle-vortex particle-vortex--xl particle-vortex--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>xl · 104px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="particle-vortex particle-vortex--primary">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="particle-vortex particle-vortex--success">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="particle-vortex particle-vortex--warning">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="particle-vortex particle-vortex--danger">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="particle-vortex particle-vortex--dark">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="particle-vortex particle-vortex--white">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── GLOW VARIANT ─── -->
+  <h2 class="section-title">Glow variant — best on dark backgrounds</h2>
+  <div class="demo-row">
+    <div class="demo-block dim-bg">
+      <div class="particle-vortex particle-vortex--lg particle-vortex--glow particle-vortex--primary">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span style="color:#666">primary glow</span>
+    </div>
+    <div class="demo-block dim-bg">
+      <div class="particle-vortex particle-vortex--lg particle-vortex--glow particle-vortex--success">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span style="color:#666">success glow</span>
+    </div>
+    <div class="demo-block dim-bg">
+      <div class="particle-vortex particle-vortex--lg particle-vortex--glow particle-vortex--warning">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span style="color:#666">warning glow</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="particle-vortex" style="--vortex-color: #ec4899; --vortex-speed: 1s;">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>pink · fast (1s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="particle-vortex" style="--vortex-color: #06b6d4; --vortex-speed: 3.5s; --vortex-size: 80px; --particle-size: 8px;">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span>cyan · slow (3.5s) · 80px</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="particle-vortex.css" /&gt;
+
+&lt;!-- 2. Structure — requires exactly 6 span children --&gt;
+&lt;div class="particle-vortex" role="status" aria-label="Loading"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. Size + color modifiers --&gt;
+&lt;div class="particle-vortex particle-vortex--lg particle-vortex--success"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

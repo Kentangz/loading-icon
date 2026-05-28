@@ -1,0 +1,73 @@
+/**
+ * Chromatic Spinner — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Conic Gradient multi-spectral chromatic sweep
+ *             masked into a ring shape via radial gradient,
+ *             powered by high-velocity continuous angular rotation.
+ *
+ * Usage     : <div class="chromatic-spinner" role="status" aria-label="Loading"></div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.chromatic-spinner {
+  /* === SIZE === */
+  --chromatic-size:      40px;
+  --chromatic-thickness:  4px;
+
+  /* === ANIMATION === */
+  --chromatic-speed: 1s;
+
+  /* ─── Do not edit below this line ─── */
+  display:       inline-block;
+  box-sizing:    border-box;
+  flex-shrink:   0;
+  width:         var(--chromatic-size);
+  height:        var(--chromatic-size);
+  border-radius: 50%;
+
+  /* High fidelity color-spectrum sweep */
+  background: conic-gradient(
+    #e11d48 0deg,    /* Rose */
+    #ea580c 60deg,   /* Orange */
+    #eab308 120deg,  /* Yellow */
+    #16a34a 180deg,  /* Green */
+    #2563eb 240deg,  /* Blue */
+    #9333ea 300deg,  /* Purple */
+    #e11d48 360deg   /* Wrap to Rose */
+  );
+
+  /* Clean ring mask */
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--chromatic-thickness) - 0.5px),
+    #000        calc(100% - var(--chromatic-thickness))
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--chromatic-thickness) - 0.5px),
+    #000        calc(100% - var(--chromatic-thickness))
+  );
+
+  animation: chromatic-spin var(--chromatic-speed) linear infinite;
+}
+
+@keyframes chromatic-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Size presets ─── */
+.chromatic-spinner--sm { --chromatic-size: 24px; --chromatic-thickness: 3px; }
+.chromatic-spinner--md { --chromatic-size: 40px; --chromatic-thickness: 4px; }
+.chromatic-spinner--lg { --chromatic-size: 60px; --chromatic-thickness: 5px; }
+.chromatic-spinner--xl { --chromatic-size: 88px; --chromatic-thickness: 6px; }
+
+/* ─── Variant: Counter-Clockwise ─── */
+.chromatic-spinner--ccw {
+  animation-direction: reverse;
+}
+
+/* ─── Variant: Glow (Multi-layered drop shadow for maximum vibrancy) ─── */
+.chromatic-spinner--glow {
+  filter: drop-shadow(0 0 calc(var(--chromatic-thickness) * 1.2) rgba(225, 29, 72, 0.45))
+          drop-shadow(0 0 calc(var(--chromatic-thickness) * 2) rgba(37, 99, 235, 0.35));
+}

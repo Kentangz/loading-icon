@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sparkling Stars — LoadIcons</title>
+  <link rel="stylesheet" href="sparkling-stars.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>38 · Sparkling Stars</h1>
+  <p class="sub">
+    Three 4-point diamond star shapes, constructed via clip-path, flash, scale, and rotate at distinct offset coordinates to create a magical sparkling wait state.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="sparkling-stars sparkling-stars--sm sparkling-stars--warning" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="sparkling-stars sparkling-stars--md sparkling-stars--warning" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>md · 40px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="sparkling-stars sparkling-stars--lg sparkling-stars--warning" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>lg · 60px</span>
+    </div>
+    <div class="demo-block">
+      <div class="sparkling-stars sparkling-stars--xl sparkling-stars--warning" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>xl · 88px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="sparkling-stars sparkling-stars--primary">
+        <span></span><span></span><span></span>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="sparkling-stars sparkling-stars--success">
+        <span></span><span></span><span></span>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="sparkling-stars sparkling-stars--warning">
+        <span></span><span></span><span></span>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="sparkling-stars sparkling-stars--danger">
+        <span></span><span></span><span></span>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="sparkling-stars sparkling-stars--dark">
+        <span></span><span></span><span></span>
+      </div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="sparkling-stars sparkling-stars--white">
+        <span></span><span></span><span></span>
+      </div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="sparkling-stars" style="--star-color: #ec4899; --star-speed: 1s; --star-size: 50px;">
+        <span></span><span></span><span></span>
+      </div>
+      <span>pink · fast (1s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="sparkling-stars" style="--star-color: #0ea5e9; --star-speed: 3s; --star-size: 50px;">
+        <span></span><span></span><span></span>
+      </div>
+      <span>cyan · slow (3s)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="sparkling-stars.css" /&gt;
+
+&lt;!-- 2. Structure — requires 3 spans --&gt;
+&lt;div class="sparkling-stars" role="status" aria-label="Loading"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

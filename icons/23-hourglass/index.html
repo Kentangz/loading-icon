@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hourglass — LoadIcons</title>
+  <link rel="stylesheet" href="hourglass.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>23 · Hourglass</h1>
+  <p class="sub">
+    A gravity-driven physical sand-dripping hourglass loader. Sand drains from the top bulb to the bottom bulb through a central stream, and the entire glass flips 180 degrees at the end of each cycle.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="hourglass hourglass--sm hourglass--primary" role="status" aria-label="Loading">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="hourglass hourglass--md hourglass--primary" role="status" aria-label="Loading">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>md · 40px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="hourglass hourglass--lg hourglass--primary" role="status" aria-label="Loading">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>lg · 60px</span>
+    </div>
+    <div class="demo-block">
+      <div class="hourglass hourglass--xl hourglass--primary" role="status" aria-label="Loading">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>xl · 88px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="hourglass hourglass--primary">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="hourglass hourglass--success">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="hourglass hourglass--warning">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="hourglass hourglass--danger">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="hourglass hourglass--dark">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="hourglass hourglass--white">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="hourglass" style="--glass-color: #ec4899; --glass-speed: 1.5s; --glass-size: 50px;">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>pink · fast (1.5s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="hourglass" style="--glass-color: #0ea5e9; --glass-speed: 5s; --glass-size: 50px;">
+        <div class="hourglass__top"></div>
+        <div class="hourglass__stream"></div>
+        <div class="hourglass__bottom"></div>
+      </div>
+      <span>cyan · slow (5s)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="hourglass.css" /&gt;
+
+&lt;!-- 2. Structure — requires top, stream & bottom children --&gt;
+&lt;div class="hourglass" role="status" aria-label="Loading"&gt;
+  &lt;div class="hourglass__top"&gt;&lt;/div&gt;
+  &lt;div class="hourglass__stream"&gt;&lt;/div&gt;
+  &lt;div class="hourglass__bottom"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. Size + warning color modifier --&gt;
+&lt;div class="hourglass hourglass--lg hourglass--warning"&gt;
+  &lt;div class="hourglass__top"&gt;&lt;/div&gt;
+  &lt;div class="hourglass__stream"&gt;&lt;/div&gt;
+  &lt;div class="hourglass__bottom"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

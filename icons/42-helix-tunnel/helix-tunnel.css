@@ -1,0 +1,101 @@
+/**
+ * Helix Tunnel — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Nested concentric depth rotations.
+ *             Five circular wireframe rings scale down sequentially
+ *             into depth while rotating with staggered delay offsets,
+ *             forming a perfect 3D spiral helix tunnel travel effect.
+ *
+ * Usage     : <div class="helix-tunnel" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.helix-tunnel {
+  /* === SIZE === */
+  --tunnel-size: 40px;
+
+  /* === COLOR === */
+  --tunnel-color: #378ADD;
+
+  /* === ANIMATION === */
+  --tunnel-speed: 1.8s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--tunnel-size);
+  height: var(--tunnel-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.helix-tunnel span {
+  position: absolute;
+  border-radius: 50%;
+  border: calc(var(--tunnel-size) * 0.04) solid transparent;
+  border-top-color: var(--tunnel-color);
+  box-sizing: border-box;
+  animation: helix-spin var(--tunnel-speed) ease-in-out infinite;
+}
+
+/* Concentric scaling & staggered delays */
+.helix-tunnel span:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+  opacity: 1;
+}
+
+.helix-tunnel span:nth-child(2) {
+  width: 80%;
+  height: 80%;
+  animation-delay: calc(var(--tunnel-speed) * -0.15);
+  opacity: 0.8;
+}
+
+.helix-tunnel span:nth-child(3) {
+  width: 60%;
+  height: 60%;
+  animation-delay: calc(var(--tunnel-speed) * -0.30);
+  opacity: 0.6;
+}
+
+.helix-tunnel span:nth-child(4) {
+  width: 40%;
+  height: 40%;
+  animation-delay: calc(var(--tunnel-speed) * -0.45);
+  opacity: 0.4;
+}
+
+.helix-tunnel span:nth-child(5) {
+  width: 20%;
+  height: 20%;
+  animation-delay: calc(var(--tunnel-speed) * -0.60);
+  opacity: 0.2;
+}
+
+@keyframes helix-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Size presets ─── */
+.helix-tunnel--sm { --tunnel-size: 24px; }
+.helix-tunnel--md { --tunnel-size: 40px; }
+.helix-tunnel--lg { --tunnel-size: 60px; }
+.helix-tunnel--xl { --tunnel-size: 88px; }
+
+/* ─── Color presets ─── */
+.helix-tunnel--primary { --tunnel-color: #7F77DD; }
+.helix-tunnel--success { --tunnel-color: #1D9E75; }
+.helix-tunnel--warning { --tunnel-color: #EF9F27; }
+.helix-tunnel--danger  { --tunnel-color: #E24B4A; }
+.helix-tunnel--white   { --tunnel-color: #ffffff; }
+.helix-tunnel--dark    { --tunnel-color: #2C2C2A; }

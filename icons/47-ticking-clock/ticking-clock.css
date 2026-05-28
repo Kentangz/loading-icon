@@ -1,0 +1,98 @@
+/**
+ * Ticking Clock — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Multi-axis stepped Quartz ticking rotations.
+ *             An analogue clock dial containing hour and minute hands.
+ *             The minute hand sweeps rapidly in mechanical quartz ticks,
+ *             while the hour hand moves at 1/12th the period.
+ *
+ * Usage     : <div class="ticking-clock" role="status" aria-label="Loading">
+ *               <div class="ticking-clock__hour"></div>
+ *               <div class="ticking-clock__minute"></div>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.ticking-clock {
+  /* === SIZE === */
+  --clock-size: 40px;
+
+  /* === COLOR === */
+  --clock-color: #EF9F27;
+
+  /* === ANIMATION === */
+  --clock-speed: 6s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--clock-size);
+  height: var(--clock-size);
+  border: calc(var(--clock-size) * 0.06) solid var(--clock-color);
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* Central pivot pin */
+.ticking-clock::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - calc(var(--clock-size) * 0.05));
+  left: calc(50% - calc(var(--clock-size) * 0.05));
+  width: calc(var(--clock-size) * 0.1);
+  height: calc(var(--clock-size) * 0.1);
+  background: var(--clock-color);
+  border-radius: 50%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Hands structural base */
+.ticking-clock__hour,
+.ticking-clock__minute {
+  position: absolute;
+  bottom: 50%;
+  left: calc(50% - calc(var(--clock-size) * 0.025));
+  width: calc(var(--clock-size) * 0.05);
+  background: var(--clock-color);
+  border-radius: calc(var(--clock-size) * 0.025) calc(var(--clock-size) * 0.025) 0 0;
+  transform-origin: bottom center;
+  box-sizing: border-box;
+}
+
+/* Hour hand (shorter, thicker, sweeps 360deg over full speed period) */
+.ticking-clock__hour {
+  height: 28%;
+  animation: clock-tick var(--clock-speed) steps(12) infinite;
+}
+
+/* Minute hand (longer, thinner, sweeps 360deg 12 times faster) */
+.ticking-clock__minute {
+  height: 38%;
+  width: calc(var(--clock-size) * 0.035);
+  left: calc(50% - calc(var(--clock-size) * 0.0175));
+  animation: clock-tick calc(var(--clock-speed) / 12) steps(60) infinite;
+}
+
+@keyframes clock-tick {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Size presets ─── */
+.ticking-clock--sm { --clock-size: 24px; }
+.ticking-clock--md { --clock-size: 40px; }
+.ticking-clock--lg { --clock-size: 60px; }
+.ticking-clock--xl { --clock-size: 88px; }
+
+/* ─── Color presets ─── */
+.ticking-clock--primary { --clock-color: #7F77DD; }
+.ticking-clock--success { --clock-color: #1D9E75; }
+.ticking-clock--warning { --clock-color: #EF9F27; }
+.ticking-clock--danger  { --clock-color: #E24B4A; }
+.ticking-clock--white   { --clock-color: #ffffff; }
+.ticking-clock--dark    { --clock-color: #2C2C2A; }

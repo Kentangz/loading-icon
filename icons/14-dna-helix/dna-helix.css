@@ -1,0 +1,118 @@
+/**
+ * DNA Helix — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Counter-phase sinusoidal vertical translations
+ *             combined with scale & opacity shifts. This simulates
+ *             a double helix rotating in 3D space with zero SVG.
+ *
+ * Usage     : <div class="dna-helix" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span><span></span>
+ *               <span></span><span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.dna-helix {
+  /* === SIZE === */
+  --dna-width:    64px;
+  --dna-height:   32px;
+  --dna-dot-size:  8px;
+
+  /* === COLOR === */
+  --dna-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --dna-speed: 1.6s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  position: relative;
+  width: var(--dna-width);
+  height: calc(var(--dna-height) + var(--dna-dot-size));
+  box-sizing: border-box;
+}
+
+.dna-helix span {
+  position: absolute;
+  width: var(--dna-dot-size);
+  height: var(--dna-dot-size);
+  background: var(--dna-color);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+/* Horizontal spacing for the 5 columns */
+.dna-helix span:nth-child(1), .dna-helix span:nth-child(2)   { left: 0%; }
+.dna-helix span:nth-child(3), .dna-helix span:nth-child(4)   { left: 25%; }
+.dna-helix span:nth-child(5), .dna-helix span:nth-child(6)   { left: 50%; }
+.dna-helix span:nth-child(7), .dna-helix span:nth-child(8)   { left: 75%; }
+.dna-helix span:nth-child(9), .dna-helix span:nth-child(10)  { left: 100%; transform: translateX(-100%); }
+
+/* Odd children: Top strand, moves down and back up */
+.dna-helix span:nth-child(odd) {
+  top: 0;
+  animation: dna-strand-top var(--dna-speed) ease-in-out infinite;
+}
+
+/* Even children: Bottom strand, moves up and back down */
+.dna-helix span:nth-child(even) {
+  top: 0;
+  animation: dna-strand-bottom var(--dna-speed) ease-in-out infinite;
+}
+
+/* Stagger delays across the 5 columns */
+.dna-helix span:nth-child(1), .dna-helix span:nth-child(2) {
+  animation-delay: 0s;
+}
+.dna-helix span:nth-child(3), .dna-helix span:nth-child(4) {
+  animation-delay: calc(var(--dna-speed) * -0.15);
+}
+.dna-helix span:nth-child(5), .dna-helix span:nth-child(6) {
+  animation-delay: calc(var(--dna-speed) * -0.30);
+}
+.dna-helix span:nth-child(7), .dna-helix span:nth-child(8) {
+  animation-delay: calc(var(--dna-speed) * -0.45);
+}
+.dna-helix span:nth-child(9), .dna-helix span:nth-child(10) {
+  animation-delay: calc(var(--dna-speed) * -0.60);
+}
+
+@keyframes dna-strand-top {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+  50% {
+    transform: translateY(var(--dna-height)) scale(0.65);
+    opacity: 0.4;
+    filter: brightness(0.7);
+  }
+}
+
+@keyframes dna-strand-bottom {
+  0%, 100% {
+    transform: translateY(var(--dna-height)) scale(0.65);
+    opacity: 0.4;
+    filter: brightness(0.7);
+  }
+  50% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+}
+
+/* ─── Size presets ─── */
+.dna-helix--sm { --dna-width: 44px; --dna-height: 20px; --dna-dot-size: 6px; }
+.dna-helix--md { --dna-width: 64px; --dna-height: 32px; --dna-dot-size: 8px; }
+.dna-helix--lg { --dna-width: 96px; --dna-height: 48px; --dna-dot-size: 11px; }
+.dna-helix--xl { --dna-width: 140px; --dna-height: 64px; --dna-dot-size: 14px; }
+
+/* ─── Color presets ─── */
+.dna-helix--primary { --dna-color: #7F77DD; }
+.dna-helix--success { --dna-color: #1D9E75; }
+.dna-helix--warning { --dna-color: #EF9F27; }
+.dna-helix--danger  { --dna-color: #E24B4A; }
+.dna-helix--white   { --dna-color: #ffffff; }
+.dna-helix--dark    { --dna-color: #2C2C2A; }

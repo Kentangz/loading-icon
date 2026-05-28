@@ -1,0 +1,73 @@
+/**
+ * Waveform Audio — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Symmetrical double-ended scaleY animations.
+ *             Five vertical bars grow and shrink symmetrically from
+ *             their center line with staggered delay offsets,
+ *             forming a smooth active digital audio waveform loop.
+ *
+ * Usage     : <div class="waveform-audio" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.waveform-audio {
+  /* === SIZE === */
+  --audio-size: 40px;
+
+  /* === COLOR === */
+  --audio-color: #378ADD;
+
+  /* === ANIMATION === */
+  --audio-speed: 1.2s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--audio-size);
+  height: calc(var(--audio-size) * 0.7);
+  box-sizing: border-box;
+}
+
+.waveform-audio span {
+  display: block;
+  width: calc(var(--audio-size) * 0.12);
+  height: 100%;
+  border-radius: calc(var(--audio-size) * 0.06);
+  background: var(--audio-color);
+  transform-origin: center center;
+  animation: audio-pulse var(--audio-speed) ease-in-out infinite;
+  box-sizing: border-box;
+}
+
+/* Staggered delay for wave effect */
+.waveform-audio span:nth-child(1) { animation-delay: -1.0s; }
+.waveform-audio span:nth-child(2) { animation-delay: -0.8s; }
+.waveform-audio span:nth-child(3) { animation-delay: -0.6s; }
+.waveform-audio span:nth-child(4) { animation-delay: -0.8s; }
+.waveform-audio span:nth-child(5) { animation-delay: -1.0s; }
+
+@keyframes audio-pulse {
+  0%, 100% {
+    transform: scaleY(0.2);
+  }
+  50% {
+    transform: scaleY(1.0);
+  }
+}
+
+/* ─── Size presets ─── */
+.waveform-audio--sm { --audio-size: 24px; }
+.waveform-audio--md { --audio-size: 40px; }
+.waveform-audio--lg { --audio-size: 60px; }
+.waveform-audio--xl { --audio-size: 88px; }
+
+/* ─── Color presets ─── */
+.waveform-audio--primary { --audio-color: #7F77DD; }
+.waveform-audio--success { --audio-color: #1D9E75; }
+.waveform-audio--warning { --audio-color: #EF9F27; }
+.waveform-audio--danger  { --audio-color: #E24B4A; }
+.waveform-audio--white   { --audio-color: #ffffff; }
+.waveform-audio--dark    { --audio-color: #2C2C2A; }

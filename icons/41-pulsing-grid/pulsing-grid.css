@@ -1,0 +1,90 @@
+/**
+ * Pulsing Grid — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Grid-based radial distance delay mapping.
+ *             Nine circular dots arranged in a 3x3 grid fade and scale
+ *             outwards from the center using delay staggered offsets
+ *             calculated from their relative Manhattan distances.
+ *
+ * Usage     : <div class="pulsing-grid" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *               <span></span><span></span><span></span>
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.pulsing-grid {
+  /* === SIZE === */
+  --grid-size: 40px;
+
+  /* === COLOR === */
+  --grid-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --grid-speed: 1.2s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: calc(var(--grid-size) * 0.1);
+  width: var(--grid-size);
+  height: var(--grid-size);
+  box-sizing: border-box;
+}
+
+.pulsing-grid span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--grid-color);
+  animation: grid-pulse var(--grid-speed) ease-in-out infinite;
+  box-sizing: border-box;
+}
+
+/* Staggered radial delays centered on Span 5 (row 2, col 2) */
+/* Distance 0: Center */
+.pulsing-grid span:nth-child(5) { animation-delay: 0s; }
+
+/* Distance 1: Cardinal Neighbors (Top, Left, Right, Bottom) */
+.pulsing-grid span:nth-child(2),
+.pulsing-grid span:nth-child(4),
+.pulsing-grid span:nth-child(6),
+.pulsing-grid span:nth-child(8) {
+  animation-delay: calc(var(--grid-speed) * -0.25);
+}
+
+/* Distance 2: Diagonal Corners */
+.pulsing-grid span:nth-child(1),
+.pulsing-grid span:nth-child(3),
+.pulsing-grid span:nth-child(7),
+.pulsing-grid span:nth-child(9) {
+  animation-delay: calc(var(--grid-speed) * -0.5);
+}
+
+@keyframes grid-pulse {
+  0%, 100% {
+    transform: scale(0.45);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ─── Size presets ─── */
+.pulsing-grid--sm { --grid-size: 24px; }
+.pulsing-grid--md { --grid-size: 40px; }
+.pulsing-grid--lg { --grid-size: 60px; }
+.pulsing-grid--xl { --grid-size: 88px; }
+
+/* ─── Color presets ─── */
+.pulsing-grid--primary { --grid-color: #7F77DD; }
+.pulsing-grid--success { --grid-color: #1D9E75; }
+.pulsing-grid--warning { --grid-color: #EF9F27; }
+.pulsing-grid--danger  { --grid-color: #E24B4A; }
+.pulsing-grid--white   { --grid-color: #ffffff; }
+.pulsing-grid--dark    { --grid-color: #2C2C2A; }

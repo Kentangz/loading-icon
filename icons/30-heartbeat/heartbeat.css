@@ -1,0 +1,94 @@
+/**
+ * Heartbeat — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Conjoined heart shape formed via rotating parent square
+ *             combined with circular pseudo-elements (`::before` / `::after`),
+ *             animated with a realistic EKG double-beat throb curve.
+ *
+ * Usage     : <div class="heartbeat" role="status" aria-label="Loading"></div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.heartbeat {
+  /* === SIZE === */
+  --heart-size: 28px;
+
+  /* === COLOR === */
+  /* Default is the danger red, standard for organic vital heartbeats */
+  --heart-color: #E24B4A;
+
+  /* === ANIMATION === */
+  --heart-speed: 1.2s;
+
+  /* ─── Do not edit below this line ─── */
+  display: inline-block;
+  position: relative;
+  width: var(--heart-size);
+  height: var(--heart-size);
+  background: var(--heart-color);
+  transform: rotate(-45deg);
+  animation: heart-pulse var(--heart-speed) infinite;
+  box-sizing: border-box;
+}
+
+.heartbeat::before,
+.heartbeat::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.heartbeat::before {
+  top: -50%;
+  left: 0;
+}
+
+.heartbeat::after {
+  top: 0;
+  left: -50%;
+}
+
+/* Physiological EKG Double-Pulse */
+@keyframes heart-pulse {
+  0% {
+    transform: rotate(-45deg) scale(0.95);
+  }
+  12% {
+    /* First throb (atrium contraction) */
+    transform: rotate(-45deg) scale(1.26);
+  }
+  22% {
+    /* Slight recoil */
+    transform: rotate(-45deg) scale(1.08);
+  }
+  32% {
+    /* Second, stronger throb (ventricle push) */
+    transform: rotate(-45deg) scale(1.38);
+  }
+  48% {
+    /* Baseline relaxation */
+    transform: rotate(-45deg) scale(0.95);
+  }
+  100% {
+    /* Diastole resting state */
+    transform: rotate(-45deg) scale(0.95);
+  }
+}
+
+/* ─── Size presets ─── */
+.heartbeat--sm { --heart-size: 18px; }
+.heartbeat--md { --heart-size: 28px; }
+.heartbeat--lg { --heart-size: 40px; }
+.heartbeat--xl { --heart-size: 58px; }
+
+/* ─── Color presets ─── */
+.heartbeat--primary { --heart-color: #7F77DD; }
+.heartbeat--success { --heart-color: #1D9E75; }
+.heartbeat--warning { --heart-color: #EF9F27; }
+.heartbeat--danger  { --heart-color: #E24B4A; }
+.heartbeat--white   { --heart-color: #ffffff; }
+.heartbeat--dark    { --heart-color: #2C2C2A; }

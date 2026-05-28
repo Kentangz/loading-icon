@@ -1,0 +1,88 @@
+/**
+ * Snake Chase — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Perimeter tracking translation.
+ *             Four dots follow a square perimeter track with staggered
+ *             delay parameters, creating a sleek, unified trailing 
+ *             "snake" motion loop.
+ *
+ * Usage     : <div class="snake-chase" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.snake-chase {
+  /* === SIZE === */
+  --track-size: 40px;
+
+  /* === COLOR === */
+  --track-color: #1D9E75;
+
+  /* === ANIMATION === */
+  --track-speed: 1.6s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--track-size);
+  height: var(--track-size);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* Optional soft square background track border */
+.snake-chase::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--track-size) * 0.08);
+  border: 1px dashed color-mix(in srgb, var(--track-color) 12%, transparent);
+  border-radius: calc(var(--track-size) * 0.16);
+  box-sizing: border-box;
+}
+
+.snake-chase span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--track-size) * 0.16);
+  height: calc(var(--track-size) * 0.16);
+  border-radius: 50%;
+  background: var(--track-color);
+  animation: snake-path var(--track-speed) cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  box-sizing: border-box;
+}
+
+/* Staggered delay loop to create trailing tail */
+.snake-chase span:nth-child(1) { animation-delay: 0s; }
+.snake-chase span:nth-child(2) { animation-delay: calc(var(--track-speed) * -0.06); opacity: 0.75; }
+.snake-chase span:nth-child(3) { animation-delay: calc(var(--track-speed) * -0.12); opacity: 0.5; }
+.snake-chase span:nth-child(4) { animation-delay: calc(var(--track-speed) * -0.18); opacity: 0.25; }
+
+@keyframes snake-path {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(calc(var(--track-size) * 0.84), 0);
+  }
+  50% {
+    transform: translate(calc(var(--track-size) * 0.84), calc(var(--track-size) * 0.84));
+  }
+  75% {
+    transform: translate(0, calc(var(--track-size) * 0.84));
+  }
+}
+
+/* ─── Size presets ─── */
+.snake-chase--sm { --track-size: 24px; }
+.snake-chase--md { --track-size: 40px; }
+.snake-chase--lg { --track-size: 60px; }
+.snake-chase--xl { --track-size: 88px; }
+
+/* ─── Color presets ─── */
+.snake-chase--primary { --track-color: #7F77DD; }
+.snake-chase--success { --track-color: #1D9E75; }
+.snake-chase--warning { --track-color: #EF9F27; }
+.snake-chase--danger  { --track-color: #E24B4A; }
+.snake-chase--white   { --track-color: #ffffff; }
+.snake-chase--dark    { --track-color: #2C2C2A; }

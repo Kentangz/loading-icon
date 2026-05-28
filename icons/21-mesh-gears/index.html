@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mesh Gears — LoadIcons</title>
+  <link rel="stylesheet" href="mesh-gears.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 2.5rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.25rem 1.75rem;
+      border-radius: 8px;
+    }
+    .card-bg {
+      background: #ffffff; padding: 1.25rem 1.75rem;
+      border-radius: 8px; border: 1px solid #e8e8e5;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+    .alert-info {
+      background: #e9e7fa; border-left: 4px solid #7F77DD;
+      padding: 1rem; border-radius: 6px; margin-bottom: 2rem;
+      font-size: .85rem; max-width: 720px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>21 · Mesh Gears</h1>
+  <p class="sub">
+    An interlocking mechanical processing loader. A larger and smaller gear wheel turn in opposing directions with perfectly calculated angular offsets and synchronized teeth speed.
+  </p>
+
+  <div class="alert-info">
+    <strong>💡 Punched Core Notice:</strong> The hollow core in the center of each gear matches your page surface color. Set the <code>--gears-bg</code> property to exactly match the solid background color behind the loader.
+  </div>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="mesh-gears mesh-gears--sm mesh-gears--primary" role="status" aria-label="Loading">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>sm · 44px wide</span>
+    </div>
+    <div class="demo-block">
+      <div class="mesh-gears mesh-gears--md mesh-gears--primary" role="status" aria-label="Loading">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>md · 68px wide (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="mesh-gears mesh-gears--lg mesh-gears--primary" role="status" aria-label="Loading">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>lg · 96px wide</span>
+    </div>
+    <div class="demo-block">
+      <div class="mesh-gears mesh-gears--xl mesh-gears--primary" role="status" aria-label="Loading">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>xl · 130px wide</span>
+    </div>
+  </div>
+
+  <!-- ─── SURFACE BACKGROUND MATCHING ─── -->
+  <h2 class="section-title">Surface adaptations (matching backgrounds)</h2>
+  <div class="demo-row">
+    <!-- On default body bg (#f8f8f6) -->
+    <div class="demo-block">
+      <div class="mesh-gears mesh-gears--primary">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>Default Surface (#f8f8f6)</span>
+    </div>
+
+    <!-- On white card bg (#ffffff) -->
+    <div class="demo-block card-bg">
+      <div class="mesh-gears mesh-gears--primary mesh-gears--transparent-card">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span style="color:#666">White Card Surface (#ffffff)</span>
+    </div>
+
+    <!-- On black page bg (#1a1a1a) -->
+    <div class="demo-block dark-bg">
+      <div class="mesh-gears mesh-gears--white mesh-gears--dark-bg">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span style="color:#555">Dark Surface (#1a1a1a)</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets (On Default Surface)</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="mesh-gears mesh-gears--primary">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="mesh-gears mesh-gears--success">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="mesh-gears mesh-gears--warning">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="mesh-gears mesh-gears--danger">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="mesh-gears mesh-gears--dark">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>dark</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom speed overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="mesh-gears" style="--gears-color: #ec4899; --gears-speed: 1.5s;">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>pink · fast (1.5s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="mesh-gears" style="--gears-color: #06b6d4; --gears-speed: 6s;">
+        <div class="gear gear--large"><span></span><span></span><span></span><span></span></div>
+        <div class="gear gear--small"><span></span><span></span><span></span><span></span></div>
+      </div>
+      <span>cyan · slow (6s)</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="mesh-gears.css" /&gt;
+
+&lt;!-- 2. Structure — requires exactly 4 spans per gear --&gt;
+&lt;div class="mesh-gears" role="status" aria-label="Loading"&gt;
+  &lt;div class="gear gear--large"&gt;
+    &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="gear gear--small"&gt;
+    &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. Customizing the background color to match your surface layout --&gt;
+&lt;div class="mesh-gears" style="--gears-bg: #ffffff; --gears-color: #1D9E75;"&gt;
+  &lt;div class="gear gear--large"&gt;
+    &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="gear gear--small"&gt;
+    &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

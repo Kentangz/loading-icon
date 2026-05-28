@@ -1,0 +1,95 @@
+/* ═══════════════════════════════════════════
+   50 · Perspective Tunnel
+   Pure-CSS concentric-ring zoom flythrough
+   ─────────────────────────────────────────── */
+
+/* ── Custom Properties ── */
+.perspective-tunnel {
+  --pt-size:      64px;        /* overall diameter of the outermost ring   */
+  --pt-rings:     6;           /* visual ring count (matches HTML spans)    */
+  --pt-color:     #7F77DD;     /* primary ring stroke colour                */
+  --pt-glow:      #a09af0;     /* inner-glow highlight colour               */
+  --pt-speed:     1.4s;        /* full cycle duration                       */
+  --pt-thickness: 2px;         /* ring border width                         */
+  --pt-bg:        transparent; /* scene background                          */
+}
+
+/* ── Colour modifiers ── */
+.perspective-tunnel--primary { --pt-color: #7F77DD; --pt-glow: #a09af0; }
+.perspective-tunnel--success { --pt-color: #1D9E75; --pt-glow: #3bcf9a; }
+.perspective-tunnel--warning { --pt-color: #EF9F27; --pt-glow: #f7c56d; }
+.perspective-tunnel--danger  { --pt-color: #E24B4A; --pt-glow: #ef8787; }
+.perspective-tunnel--white   { --pt-color: #ffffff; --pt-glow: rgba(255,255,255,.4); }
+
+/* ── Container ── */
+.perspective-tunnel {
+  width:               var(--pt-size);
+  height:              var(--pt-size);
+  position:            relative;
+  display:             flex;
+  align-items:         center;
+  justify-content:     center;
+  background:          var(--pt-bg);
+  perspective:         calc(var(--pt-size) * 1.5);
+  perspective-origin:  50% 50%;
+}
+
+/* ── Each ring is a <span> child ── */
+.perspective-tunnel span {
+  position:      absolute;
+  border-radius: 50%;
+  border:        var(--pt-thickness) solid var(--pt-color);
+  box-shadow:    0 0 6px var(--pt-glow),
+                 inset 0 0 4px rgba(255,255,255,.05);
+  opacity:       0;
+  /* start tiny & far away, zoom toward viewer and fade */
+  animation:     pt-zoom var(--pt-speed) linear infinite;
+}
+
+/* ── Stagger each ring so they emerge from centre continuously ── */
+.perspective-tunnel span:nth-child(1) { animation-delay: calc(var(--pt-speed) * -0 / 6); }
+.perspective-tunnel span:nth-child(2) { animation-delay: calc(var(--pt-speed) * -1 / 6); }
+.perspective-tunnel span:nth-child(3) { animation-delay: calc(var(--pt-speed) * -2 / 6); }
+.perspective-tunnel span:nth-child(4) { animation-delay: calc(var(--pt-speed) * -3 / 6); }
+.perspective-tunnel span:nth-child(5) { animation-delay: calc(var(--pt-speed) * -4 / 6); }
+.perspective-tunnel span:nth-child(6) { animation-delay: calc(var(--pt-speed) * -5 / 6); }
+
+/* ── Size variants ── */
+.perspective-tunnel--sm  { --pt-size: 40px;  --pt-thickness: 1.5px; }
+.perspective-tunnel--lg  { --pt-size: 96px;  --pt-thickness: 3px; }
+.perspective-tunnel--xl  { --pt-size: 128px; --pt-thickness: 3.5px; }
+
+/* ── Keyframes ── */
+@keyframes pt-zoom {
+  0% {
+    /* Born at centre — tiny vanishing point */
+    width:   8%;
+    height:  8%;
+    opacity: 0;
+    transform: translateZ(0);
+  }
+  10% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    /* Expand to fill the container — rushes past viewer */
+    width:   140%;
+    height:  140%;
+    opacity: 0;
+    transform: translateZ(0);
+  }
+}
+
+/* ── Accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  .perspective-tunnel span { animation: none; opacity: 0.35; }
+  .perspective-tunnel span:nth-child(1) { width: 15%;  height: 15%; }
+  .perspective-tunnel span:nth-child(2) { width: 35%;  height: 35%; }
+  .perspective-tunnel span:nth-child(3) { width: 55%;  height: 55%; }
+  .perspective-tunnel span:nth-child(4) { width: 75%;  height: 75%; }
+  .perspective-tunnel span:nth-child(5) { width: 90%;  height: 90%; }
+  .perspective-tunnel span:nth-child(6) { width: 105%; height: 105%; }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Flip — LoadIcons</title>
+  <link rel="stylesheet" href="page-flip.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 2.5rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.25rem 1.75rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>24 · Page Flip</h1>
+  <p class="sub">
+    A realistic 3D book page-turning animation. Staggered paper page segments hinge from a central spine, flipping smoothly in 3D perspective.
+  </p>
+
+  <!-- ─── SIZE VARIANTS ─── -->
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="page-flip page-flip--sm page-flip--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>sm · 26px</span>
+    </div>
+    <div class="demo-block">
+      <div class="page-flip page-flip--md page-flip--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>md · 38px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="page-flip page-flip--lg page-flip--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>lg · 56px</span>
+    </div>
+    <div class="demo-block">
+      <div class="page-flip page-flip--xl page-flip--primary" role="status" aria-label="Loading">
+        <span></span><span></span><span></span>
+      </div>
+      <span>xl · 80px</span>
+    </div>
+  </div>
+
+  <!-- ─── COLOR PRESETS ─── -->
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="page-flip page-flip--primary">
+        <span></span><span></span><span></span>
+      </div>
+      <span>primary</span>
+    </div>
+    <div class="demo-block">
+      <div class="page-flip page-flip--success">
+        <span></span><span></span><span></span>
+      </div>
+      <span>success</span>
+    </div>
+    <div class="demo-block">
+      <div class="page-flip page-flip--warning">
+        <span></span><span></span><span></span>
+      </div>
+      <span>warning</span>
+    </div>
+    <div class="demo-block">
+      <div class="page-flip page-flip--danger">
+        <span></span><span></span><span></span>
+      </div>
+      <span>danger</span>
+    </div>
+    <div class="demo-block">
+      <div class="page-flip page-flip--dark">
+        <span></span><span></span><span></span>
+      </div>
+      <span>dark</span>
+    </div>
+    <div class="demo-block dark-bg">
+      <div class="page-flip page-flip--white">
+        <span></span><span></span><span></span>
+      </div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <!-- ─── CUSTOM OVERRIDES ─── -->
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="page-flip" style="--book-color: #ec4899; --book-speed: 1s;">
+        <span></span><span></span><span></span>
+      </div>
+      <span>pink · fast (1s)</span>
+    </div>
+    <div class="demo-block">
+      <div class="page-flip" style="--book-color: #0ea5e9; --book-speed: 3.5s; --book-width: 50px; --book-height: 35px;">
+        <span></span><span></span><span></span>
+      </div>
+      <span>cyan · slow (3.5s) · 50px</span>
+    </div>
+  </div>
+
+  <!-- ─── USAGE NOTE ─── -->
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import the stylesheet --&gt;
+&lt;link rel="stylesheet" href="page-flip.css" /&gt;
+
+&lt;!-- 2. Structure — requires exactly 3 span children --&gt;
+&lt;div class="page-flip" role="status" aria-label="Loading"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. Size + color modifiers --&gt;
+&lt;div class="page-flip page-flip--lg page-flip--success"&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+
+</body>
+</html>

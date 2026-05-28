@@ -1,0 +1,80 @@
+/**
+ * Elastic Line — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Asymmetric left/width cubic-bezier morphs.
+ *             A single horizontal line stretches elastically to the right,
+ *             snaps its tail inward, and sweeps back in the opposite
+ *             direction using highly physical acceleration curves.
+ *
+ * Usage     : <div class="elastic-line" role="status" aria-label="Loading"></div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.elastic-line {
+  /* === SIZE === */
+  --line-size: 40px;
+
+  /* === COLOR === */
+  --line-color: #E24B4A;
+
+  /* === ANIMATION === */
+  --line-speed: 1.4s;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--line-size);
+  height: calc(var(--line-size) * 0.1);
+  position: relative;
+  background: color-mix(in srgb, var(--line-color) 12%, transparent);
+  border-radius: calc(var(--line-size) * 0.05);
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.elastic-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: var(--line-color);
+  border-radius: inherit;
+  animation: elastic-sweep var(--line-speed) cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+  box-sizing: border-box;
+}
+
+@keyframes elastic-sweep {
+  0% {
+    left: 0;
+    width: 20%;
+  }
+  40% {
+    left: 0;
+    width: 85%;
+  }
+  50% {
+    left: 80%;
+    width: 20%;
+  }
+  90% {
+    left: 15%;
+    width: 85%;
+  }
+  100% {
+    left: 0;
+    width: 20%;
+  }
+}
+
+/* ─── Size presets ─── */
+.elastic-line--sm { --line-size: 24px; }
+.elastic-line--md { --line-size: 40px; }
+.elastic-line--lg { --line-size: 60px; }
+.elastic-line--xl { --line-size: 88px; }
+
+/* ─── Color presets ─── */
+.elastic-line--primary { --line-color: #7F77DD; }
+.elastic-line--success { --line-color: #1D9E75; }
+.elastic-line--warning { --line-color: #EF9F27; }
+.elastic-line--danger  { --line-color: #E24B4A; }
+.elastic-line--white   { --line-color: #ffffff; }
+.elastic-line--dark    { --line-color: #2C2C2A; }
