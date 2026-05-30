@@ -59,5 +59,6 @@ architecture.md
 
 .vercel
 
-# Automation State Tracking
+# Automation State Tracking & Temps
 scripts/.auto-state.json
+scripts/.temp-concept.json
