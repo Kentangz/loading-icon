@@ -1,0 +1,12 @@
+{
+  "name": "Domino Fall",
+  "category": "waves",
+  "tags": [
+    "perspective",
+    "rotateX",
+    "stagger",
+    "3d"
+  ],
+  "html": "<div class=\"demo-dfall\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-dfall {\n  display: flex; gap: 4px; align-items: flex-end; height: 32px;\n  perspective: 200px;\n}\n.demo-dfall span {\n  width: 5px; height: 24px; border-radius: 2px;\n  background: var(--color-warning);\n  transform-origin: bottom center;\n  animation: dfall-topple calc(1.5s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-dfall span:nth-child(2) { animation-delay: calc(0.12s * var(--loader-speed-scale)); }\n.demo-dfall span:nth-child(3) { animation-delay: calc(0.24s * var(--loader-speed-scale)); }\n.demo-dfall span:nth-child(4) { animation-delay: calc(0.36s * var(--loader-speed-scale)); }\n.demo-dfall span:nth-child(5) { animation-delay: calc(0.48s * var(--loader-speed-scale)); }\n@keyframes dfall-topple {\n  0%, 100% { transform: rotateX(0deg); }\n  35% { transform: rotateX(-70deg); }\n  65% { transform: rotateX(-70deg); }\n  85% { transform: rotateX(5deg); }\n}"
+}

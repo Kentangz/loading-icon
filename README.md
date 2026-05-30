@@ -102,6 +102,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 74 | [Glitch Barcode](icons/74-glitch-barcode/) | cyberpunk + flicker | Premium automated loaders |
 | 75 | [Infinite Maze](icons/75-infinite-maze/) | translate + geometric | Premium automated loaders |
 | 76 | [Concentric Chevrons](icons/76-concentric-chevrons/) | direction + arrows | Premium automated loaders |
+| 77 | [Typewriter Cursor](icons/77-typewriter-cursor/) | blink + cursor | Premium automated loaders |
+| 78 | [Ripple Target](icons/78-ripple-target/) | concentric + radar | Premium automated loaders |
+| 79 | [Domino Fall](icons/79-domino-fall/) | perspective + rotateX | Premium automated loaders |
+| 80 | [Traffic Signal](icons/80-traffic-signal/) | sequential-color + dots | Premium automated loaders |
+| 81 | [Diamond Morph](icons/81-diamond-morph/) | rotate + border-radius | Premium automated loaders |
 
 ---
 
@@ -542,6 +547,31 @@ Each icon has a minimal, documented HTML structure:
 <div class="concentric-chevrons" role="status" aria-label="Loading">
   <span></span><span></span><span></span>
 </div>
+
+<!-- 77 · Typewriter Cursor -->
+<div class="typewriter-cursor" role="status" aria-label="Loading">
+  <span></span>
+</div>
+
+<!-- 78 · Ripple Target -->
+<div class="ripple-target" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 79 · Domino Fall -->
+<div class="domino-fall" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 80 · Traffic Signal -->
+<div class="traffic-signal" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 81 · Diamond Morph -->
+<div class="diamond-morph" role="status" aria-label="Loading">
+  <span></span>
+</div>
   <div class="glow-quantum__ring"><span></span></div>
 </div>
 ```
@@ -647,6 +677,11 @@ Every icon ships with ready-to-use modifier classes:
 | Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
 | Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
 | Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
+| Typewriter Cursor | `--tc-size` `--tc-color` `--tc-speed` |
+| Ripple Target | `--rt-size` `--rt-color` `--rt-speed` |
+| Domino Fall | `--df-size` `--df-color` `--df-speed` |
+| Traffic Signal | `--ts-size` `--ts-color` `--ts-speed` |
+| Diamond Morph | `--dm-size` `--dm-color` `--dm-speed` |
 | Kinetic Loom | `--kl-size` `--kl-color` `--kl-speed` |
 | Cellular Division | `--cd-size` `--cd-color` `--cd-speed` |
 | Glitch Barcode | `--gb-size` `--gb-color` `--gb-speed` |
@@ -912,6 +947,21 @@ loadicons/
     ├── 76-concentric-chevrons/
     │   ├── concentric-chevrons.css
     │   └── index.html
+    ├── 77-typewriter-cursor/
+    │   ├── typewriter-cursor.css
+    │   └── index.html
+    ├── 78-ripple-target/
+    │   ├── ripple-target.css
+    │   └── index.html
+    ├── 79-domino-fall/
+    │   ├── domino-fall.css
+    │   └── index.html
+    ├── 80-traffic-signal/
+    │   ├── traffic-signal.css
+    │   └── index.html
+    ├── 81-diamond-morph/
+    │   ├── diamond-morph.css
+    │   └── index.html
 ```
 
 ---
@@ -977,7 +1027,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 

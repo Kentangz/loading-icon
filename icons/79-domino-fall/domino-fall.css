@@ -1,0 +1,38 @@
+.domino-fall {
+  --df-size: 32px;
+  --df-color: #EF9F27;
+  --df-speed: 1.5s;
+  box-sizing: border-box; display: inline-flex; gap: 4px; align-items: flex-end;
+  height: var(--df-size); perspective: 200px;
+}
+.domino-fall * { box-sizing: border-box; }
+.domino-fall span {
+  width: calc(var(--df-size) * 0.16); height: calc(var(--df-size) * 0.75);
+  border-radius: 2px; background: var(--df-color);
+  transform-origin: bottom center;
+  animation: domino-fall-topple var(--df-speed) ease-in-out infinite;
+}
+.domino-fall span:nth-child(2) { animation-delay: calc(var(--df-speed) * 0.08); }
+.domino-fall span:nth-child(3) { animation-delay: calc(var(--df-speed) * 0.16); }
+.domino-fall span:nth-child(4) { animation-delay: calc(var(--df-speed) * 0.24); }
+.domino-fall span:nth-child(5) { animation-delay: calc(var(--df-speed) * 0.32); }
+@keyframes domino-fall-topple {
+  0%, 100% { transform: rotateX(0deg); }
+  35% { transform: rotateX(-70deg); }
+  65% { transform: rotateX(-70deg); }
+  85% { transform: rotateX(5deg); }
+}
+.domino-fall--sm { --df-size: 24px; gap: 3px; }
+.domino-fall--md { --df-size: 32px; }
+.domino-fall--lg { --df-size: 48px; gap: 6px; }
+.domino-fall--primary { --df-color: #7F77DD; }
+.domino-fall--success { --df-color: #1D9E75; }
+.domino-fall--warning { --df-color: #EF9F27; }
+.domino-fall--danger  { --df-color: #E24B4A; }
+.domino-fall--white   { --df-color: #ffffff; }
+.domino-fall--fast { --df-speed: 0.9s; }
+.domino-fall--slow { --df-speed: 2.5s; }
+.domino-fall--soft { --df-speed: 1.5s; }
+@media (prefers-reduced-motion: reduce) {
+  .domino-fall span { animation: none; transform: none; }
+}

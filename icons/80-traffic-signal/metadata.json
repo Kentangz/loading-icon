@@ -1,0 +1,12 @@
+{
+  "name": "Traffic Signal",
+  "category": "special",
+  "tags": [
+    "sequential-color",
+    "dots",
+    "progress",
+    "semaphore"
+  ],
+  "html": "<div class=\"demo-tsig\"><span></span><span></span><span></span></div>",
+  "css": ".demo-tsig {\n  display: flex; flex-direction: column; gap: 4px;\n  align-items: center; justify-content: center;\n  padding: 4px; border-radius: 10px;\n  background: rgba(0,0,0,0.08);\n}\n.demo-tsig span {\n  width: 8px; height: 8px; border-radius: 50%;\n  background: #555; opacity: 0.25;\n}\n.demo-tsig span:nth-child(1) {\n  animation: tsig-red calc(2.4s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-tsig span:nth-child(2) {\n  animation: tsig-yellow calc(2.4s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-tsig span:nth-child(3) {\n  animation: tsig-green calc(2.4s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n@keyframes tsig-red {\n  0%, 30% { background: #E24B4A; opacity: 1; box-shadow: 0 0 8px #E24B4A; }\n  35%, 100% { background: #555; opacity: 0.25; box-shadow: none; }\n}\n@keyframes tsig-yellow {\n  0%, 30% { background: #555; opacity: 0.25; box-shadow: none; }\n  35%, 65% { background: #EF9F27; opacity: 1; box-shadow: 0 0 8px #EF9F27; }\n  70%, 100% { background: #555; opacity: 0.25; box-shadow: none; }\n}\n@keyframes tsig-green {\n  0%, 65% { background: #555; opacity: 0.25; box-shadow: none; }\n  70%, 100% { background: #1D9E75; opacity: 1; box-shadow: 0 0 8px #1D9E75; }\n}"
+}

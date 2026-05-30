@@ -1,0 +1,35 @@
+.diamond-morph {
+  --dm-size: 36px;
+  --dm-color: #7F77DD;
+  --dm-speed: 2.0s;
+  box-sizing: border-box; display: inline-flex;
+  align-items: center; justify-content: center;
+  width: var(--dm-size); height: var(--dm-size);
+}
+.diamond-morph * { box-sizing: border-box; }
+.diamond-morph span {
+  width: 100%; height: 100%;
+  background: var(--dm-color);
+  animation: diamond-morph-spin var(--dm-speed) cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+@keyframes diamond-morph-spin {
+  0% { border-radius: 50%; transform: rotate(0deg) scale(0.8); }
+  25% { border-radius: 10%; transform: rotate(90deg) scale(1.0); }
+  50% { border-radius: 50%; transform: rotate(180deg) scale(0.8); }
+  75% { border-radius: 10%; transform: rotate(270deg) scale(1.0); }
+  100% { border-radius: 50%; transform: rotate(360deg) scale(0.8); }
+}
+.diamond-morph--sm { --dm-size: 24px; }
+.diamond-morph--md { --dm-size: 36px; }
+.diamond-morph--lg { --dm-size: 48px; }
+.diamond-morph--primary { --dm-color: #7F77DD; }
+.diamond-morph--success { --dm-color: #1D9E75; }
+.diamond-morph--warning { --dm-color: #EF9F27; }
+.diamond-morph--danger  { --dm-color: #E24B4A; }
+.diamond-morph--white   { --dm-color: #ffffff; }
+.diamond-morph--fast { --dm-speed: 1.2s; }
+.diamond-morph--slow { --dm-speed: 3.2s; }
+.diamond-morph--soft { --dm-speed: 2.0s; }
+@media (prefers-reduced-motion: reduce) {
+  .diamond-morph span { animation: none; border-radius: 50%; transform: none; }
+}
