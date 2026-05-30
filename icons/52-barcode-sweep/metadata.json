@@ -1,0 +1,10 @@
+{
+  "name": "Barcode Sweep",
+  "category": "waves",
+  "tags": [
+    "scanline",
+    "stagger-bars"
+  ],
+  "html": "<div class=\"demo-bcodesweep\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-bcodesweep {\n  --bs-w: 56px; --bs-h: 34px; --bs-gap: 3px;\n  width: var(--bs-w); height: var(--bs-h); position: relative;\n  display: flex; align-items: stretch; justify-content: center; gap: var(--bs-gap);\n}\n.demo-bcodesweep::after {\n  content: ''; position: absolute; top: 0; bottom: 0; width: 35%;\n  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 48%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0.12) 52%, transparent 100%);\n  mix-blend-mode: screen; pointer-events: none;\n  animation: dbcode-scan calc(1.6s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n.demo-bcodesweep span {\n  flex: 1 1 0; border-radius: 2px; background: var(--color-success); opacity: 0.18;\n  transform-origin: bottom center;\n  animation: dbcode-bars calc(1s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-bcodesweep span:nth-child(1) { animation-delay: calc(-0.00s * var(--loader-speed-scale)); }\n.demo-bcodesweep span:nth-child(2) { animation-delay: calc(-0.09s * var(--loader-speed-scale)); }\n.demo-bcodesweep span:nth-child(3) { animation-delay: calc(-0.18s * var(--loader-speed-scale)); }\n.demo-bcodesweep span:nth-child(4) { animation-delay: calc(-0.27s * var(--loader-speed-scale)); }\n.demo-bcodesweep span:nth-child(5) { animation-delay: calc(-0.36s * var(--loader-speed-scale)); }\n.demo-bcodesweep span:nth-child(6) { animation-delay: calc(-0.45s * var(--loader-speed-scale)); }\n.demo-bcodesweep span:nth-child(7) { animation-delay: calc(-0.54s * var(--loader-speed-scale)); }\n@keyframes dbcode-bars {\n  0%,100% { transform: scaleY(0.35); opacity: 0.2; }\n  50% { transform: scaleY(1); opacity: 0.95; }\n}\n@keyframes dbcode-scan {\n  0% { left: -35%; opacity: 0; }\n  12% { opacity: 1; }\n  88% { opacity: 1; }\n  100% { left: 100%; opacity: 0; }\n}"
+}

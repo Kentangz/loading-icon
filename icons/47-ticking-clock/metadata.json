@@ -1,0 +1,10 @@
+{
+  "name": "Ticking Clock",
+  "category": "special",
+  "tags": [
+    "quartz-stepped",
+    "rotates"
+  ],
+  "html": "<div class=\"demo-tclock\"><div class=\"demo-tclock-hour\"></div><div class=\"demo-tclock-minute\"></div></div>",
+  "css": ".demo-tclock {\n  width: 32px; height: 32px; border: 2px solid var(--color-warning); border-radius: 50%;\n  position: relative; display: inline-block;\n}\n.demo-tclock::before {\n  content: ''; position: absolute; top: calc(50% - 1.6px); left: calc(50% - 1.6px);\n  width: 3.2px; height: 3.2px; background: var(--color-warning); border-radius: 50%; z-index: 10;\n}\n.demo-tclock-hour, .demo-tclock-minute {\n  position: absolute; bottom: 50%; left: calc(50% - 0.8px); width: 1.6px;\n  background: var(--color-warning); border-radius: 0.8px 0.8px 0 0; transform-origin: bottom center;\n}\n.demo-tclock-hour { height: 28%; animation: clock-tick calc(6s * var(--loader-speed-scale)) steps(12) var(--loader-cycles); }\n.demo-tclock-minute { height: 38%; width: 1.1px; left: calc(50% - 0.55px); animation: clock-tick calc(0.5s * var(--loader-speed-scale)) steps(60) var(--loader-cycles); }\n@keyframes clock-tick { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }"
+}

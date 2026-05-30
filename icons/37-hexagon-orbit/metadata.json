@@ -1,0 +1,10 @@
+{
+  "name": "Hexagon Orbit",
+  "category": "spinners",
+  "tags": [
+    "hexagonal-track",
+    "trig"
+  ],
+  "html": "<div class=\"demo-horbit\"><span></span><span></span><span></span></div>",
+  "css": ".demo-horbit { width: 32px; height: 32px; position: relative; }\n.demo-horbit::before {\n  content: ''; position: absolute; inset: 0; border: 0.8px dashed rgba(239,159,39,0.15);\n  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);\n  animation: ospin-ccw calc(9.6s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n.demo-horbit span {\n  position: absolute; top: calc(50% - 2.5px); left: calc(50% - 2.5px);\n  width: 5px; height: 5px; border-radius: 50%; background: var(--color-warning);\n  animation: dhorbit-p calc(2.4s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n.demo-horbit span:nth-child(1) { animation-delay: 0s; }\n.demo-horbit span:nth-child(2) { animation-delay: calc(-0.288s * var(--loader-speed-scale)); opacity: 0.7; }\n.demo-horbit span:nth-child(3) { animation-delay: calc(-0.576s * var(--loader-speed-scale)); opacity: 0.4; }\n@keyframes dhorbit-p {\n  0%, 100% { transform: translate(13px, 0); }\n  16.67% { transform: translate(6.5px, 11.2px); }\n  33.33% { transform: translate(-6.5px, 11.2px); }\n  50% { transform: translate(-13px, 0); }\n  66.67% { transform: translate(-6.5px, -11.2px); }\n  83.33% { transform: translate(6.5px, -11.2px); }\n}"
+}

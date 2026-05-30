@@ -1,0 +1,10 @@
+{
+  "name": "Folding Cube",
+  "category": "3d",
+  "tags": [
+    "3D-rotate",
+    "perspective"
+  ],
+  "html": "<div class=\"demo-folding\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-folding {\n  width: 28px; height: 28px; position: relative;\n  transform: rotateZ(45deg);\n}\n.demo-folding span {\n  float: left; width: 50%; height: 50%;\n  position: relative; transform: scale(1.1);\n}\n.demo-folding span::before {\n  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;\n  background-color: var(--color-primary); transform-origin: 100% 100%;\n  animation: dfold calc(2.4s * var(--loader-speed-scale)) var(--loader-cycles) linear both;\n}\n.demo-folding span:nth-child(2) { transform: scale(1.1) rotateZ(90deg); }\n.demo-folding span:nth-child(4) { transform: scale(1.1) rotateZ(180deg); }\n.demo-folding span:nth-child(3) { transform: scale(1.1) rotateZ(270deg); }\n.demo-folding span:nth-child(2)::before { animation-delay: calc(.3s * var(--loader-speed-scale)); }\n.demo-folding span:nth-child(4)::before { animation-delay: calc(.6s * var(--loader-speed-scale)); }\n.demo-folding span:nth-child(3)::before { animation-delay: calc(.9s * var(--loader-speed-scale)); }\n@keyframes dfold {\n  0%, 10% { transform: perspective(140px) rotateX(-180deg); opacity: 0; }\n  25%, 75% { transform: perspective(140px) rotateX(0deg); opacity: 1; }\n  90%, 100% { transform: perspective(140px) rotateY(180deg); opacity: 0; }\n}"
+}

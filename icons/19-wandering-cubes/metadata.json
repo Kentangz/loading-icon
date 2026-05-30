@@ -1,0 +1,10 @@
+{
+  "name": "Wandering Cubes",
+  "category": "special",
+  "tags": [
+    "offset-track",
+    "rotation"
+  ],
+  "html": "<div class=\"demo-wandering\"><span></span><span></span></div>",
+  "css": ".demo-wandering { position: relative; width: 32px; height: 32px; --dw-size: 9px; }\n.demo-wandering span { position: absolute; top: 0; left: 0; width: var(--dw-size); height: var(--dw-size); background: var(--color-success); animation: dwander 1.8s ease-in-out var(--loader-cycles); }\n.demo-wandering span:nth-child(2) { animation-delay: -.9s; }\n@keyframes dwander {\n  0% { transform: translate(0,0) rotate(0deg); }\n  25% { transform: translate(23px,0) rotate(-90deg) scale(0.55); }\n  50% { transform: translate(23px,23px) rotate(-180deg); }\n  75% { transform: translate(0,23px) rotate(-270deg) scale(0.55); }\n  100% { transform: translate(0,0) rotate(-360deg); }\n}"
+}

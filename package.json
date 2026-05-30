@@ -1,0 +1,25 @@
+{
+  "name": "loadicons",
+  "version": "1.0.0",
+  "description": "55 lightweight, reusable CSS loading icons — fully customizable via CSS Custom Properties, zero dependencies.",
+  "main": "loaders-data.js",
+  "scripts": {
+    "build:registry": "node scripts/build-registry.js",
+    "lint": "node scripts/lint-loaders.js",
+    "test": "node scripts/lint-loaders.js"
+  },
+  "keywords": [
+    "css",
+    "loading",
+    "spinner",
+    "animations",
+    "pure-css",
+    "frontend",
+    "a11y"
+  ],
+  "author": "Kentangz",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

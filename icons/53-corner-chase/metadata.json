@@ -1,0 +1,10 @@
+{
+  "name": "Corner Chase",
+  "category": "spinners",
+  "tags": [
+    "border-brackets",
+    "quadrant-steps"
+  ],
+  "html": "<div class=\"demo-cchase\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-cchase {\n  --cc-size: 44px;\n  --cc-corner: calc(var(--cc-size) * 0.26);\n  --cc-thick: calc(var(--cc-size) * 0.06);\n  --cc-radius: calc(var(--cc-size) * 0.08);\n  --cc-color: var(--color-primary);\n  --cc-dim: color-mix(in srgb, var(--cc-color) 25%, transparent);\n  --cc-speed: calc(1.2s * var(--loader-speed-scale));\n  --cc-dir: 1;\n\n  width: var(--cc-size);\n  height: var(--cc-size);\n  position: relative;\n  display: inline-block;\n  box-sizing: border-box;\n}\n.demo-cchase span {\n  position: absolute;\n  width: var(--cc-corner);\n  height: var(--cc-corner);\n  border-radius: var(--cc-radius);\n  box-sizing: border-box;\n  border: var(--cc-thick) solid var(--cc-color);\n  filter: drop-shadow(0 0 calc(var(--cc-size) * 0.07) var(--cc-dim));\n  animation: dcchase var(--cc-speed) steps(4) var(--loader-cycles);\n}\n.demo-cchase span:nth-child(1) { border-right-color: transparent; border-bottom-color: transparent; animation-delay: calc(var(--cc-speed) * -0 / 4); }\n.demo-cchase span:nth-child(2) { border-left-color: transparent;  border-bottom-color: transparent; animation-delay: calc(var(--cc-speed) * -1 / 4); }\n.demo-cchase span:nth-child(3) { border-left-color: transparent;  border-top-color: transparent; animation-delay: calc(var(--cc-speed) * -2 / 4); }\n.demo-cchase span:nth-child(4) { border-right-color: transparent; border-top-color: transparent; animation-delay: calc(var(--cc-speed) * -3 / 4); }\n@keyframes dcchase {\n  0% { transform: translate(0, 0) scale(0.92); }\n  25% { transform: translate(calc((var(--cc-size) - var(--cc-corner)) * var(--cc-dir)), 0) scale(1); }\n  50% { transform: translate(calc((var(--cc-size) - var(--cc-corner)) * var(--cc-dir)), calc(var(--cc-size) - var(--cc-corner))) scale(0.92); }\n  75% { transform: translate(0, calc(var(--cc-size) - var(--cc-corner))) scale(1); }\n  100% { transform: translate(0, 0) scale(0.92); }\n}"
+}

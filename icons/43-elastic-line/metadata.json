@@ -1,0 +1,10 @@
+{
+  "name": "Elastic Line",
+  "category": "waves",
+  "tags": [
+    "asymmetric-morph",
+    "sweep"
+  ],
+  "html": "<div class=\"demo-eline\"></div>",
+  "css": ".demo-eline {\n  width: 32px; height: 3px; position: relative;\n  background: rgba(226,75,74,0.12); border-radius: 1.5px; overflow: hidden;\n}\n.demo-eline::before {\n  content: ''; position: absolute; top: 0; height: 100%; background: var(--color-danger);\n  border-radius: inherit; animation: delastic-s calc(1.4s * var(--loader-speed-scale)) cubic-bezier(0.65, 0.05, 0.36, 1) var(--loader-cycles);\n}\n@keyframes delastic-s {\n  0% { left: 0; width: 20%; }\n  40% { left: 0; width: 85%; }\n  50% { left: 80%; width: 20%; }\n  90% { left: 15%; width: 85%; }\n  100% { left: 0; width: 20%; }\n}"
+}

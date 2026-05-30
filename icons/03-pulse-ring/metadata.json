@@ -1,0 +1,11 @@
+{
+  "name": "Pulse Ring",
+  "category": "special",
+  "tags": [
+    "scale",
+    "opacity",
+    "pulse"
+  ],
+  "html": "<div class=\"demo-pulse\"></div>",
+  "css": ".demo-pulse {\n  position: relative; width: 32px; height: 32px;\n  display: flex; align-items: center; justify-content: center;\n}\n.demo-pulse::before {\n  content: ''; position: absolute; inset: 0; border-radius: 50%;\n  background: var(--color-danger); opacity: .3;\n  animation: pring calc(1.5s * var(--loader-speed-scale)) ease-out var(--loader-cycles);\n}\n.demo-pulse::after {\n  content: ''; width: 13px; height: 13px; border-radius: 50%;\n  background: var(--color-danger); animation: pdot calc(1.5s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n@keyframes pring { 0%{transform:scale(.7);opacity:.3} 100%{transform:scale(1.8);opacity:0} }\n@keyframes pdot  { 0%,100%{transform:scale(1)} 50%{transform:scale(.88)} }"
+}

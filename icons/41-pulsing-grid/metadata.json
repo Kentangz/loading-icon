@@ -1,0 +1,10 @@
+{
+  "name": "Pulsing Grid",
+  "category": "waves",
+  "tags": [
+    "radial-delay",
+    "grid-center"
+  ],
+  "html": "<div class=\"demo-pgrid\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-pgrid {\n  display: inline-grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);\n  gap: 3px; width: 32px; height: 32px;\n}\n.demo-pgrid span {\n  display: block; width: 100%; height: 100%; border-radius: 50%; background: var(--color-primary);\n  animation: dpgrid-p calc(1.2s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-pgrid span:nth-child(5) { animation-delay: 0s; }\n.demo-pgrid span:nth-child(2), .demo-pgrid span:nth-child(4),\n.demo-pgrid span:nth-child(6), .demo-pgrid span:nth-child(8) { animation-delay: calc(-0.3s * var(--loader-speed-scale)); }\n.demo-pgrid span:nth-child(1), .demo-pgrid span:nth-child(3),\n.demo-pgrid span:nth-child(7), .demo-pgrid span:nth-child(9) { animation-delay: calc(-0.6s * var(--loader-speed-scale)); }\n@keyframes dpgrid-p { 0%,100%{transform:scale(0.45);opacity:0.35} 50%{transform:scale(1);opacity:1} }"
+}

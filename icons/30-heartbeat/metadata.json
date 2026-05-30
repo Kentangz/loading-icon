@@ -1,0 +1,10 @@
+{
+  "name": "Heartbeat",
+  "category": "special",
+  "tags": [
+    "EKG-double-pulse",
+    "vital"
+  ],
+  "html": "<div class=\"demo-hbeat\"></div>",
+  "css": ".demo-hbeat {\n  position: relative; width: 22px; height: 22px; background: var(--color-danger); transform: rotate(-45deg);\n  animation: dhbeat calc(1.2s * var(--loader-speed-scale)) var(--loader-cycles);\n}\n.demo-hbeat::before, .demo-hbeat::after { content: ''; position: absolute; width: 100%; height: 100%; background: inherit; border-radius: 50%; }\n.demo-hbeat::before { top: -50%; left: 0; }\n.demo-hbeat::after { top: 0; left: -50%; }\n@keyframes dhbeat {\n  0%, 48%, 100% { transform: rotate(-45deg) scale(0.95); }\n  12% { transform: rotate(-45deg) scale(1.26); }\n  22% { transform: rotate(-45deg) scale(1.08); }\n  32% { transform: rotate(-45deg) scale(1.38); }\n}"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Split Ring",
+  "category": "spinners",
+  "tags": [
+    "dual-arc",
+    "border"
+  ],
+  "html": "<div class=\"demo-split\"></div>",
+  "css": ".demo-split {\n  width: 32px; height: 32px; border-radius: 50%;\n  border: 3px solid transparent;\n  border-top-color: #0F6E56; border-bottom-color: #0F6E56;\n  animation: spin calc(1s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}"
+}

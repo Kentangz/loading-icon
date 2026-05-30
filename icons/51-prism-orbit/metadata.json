@@ -1,0 +1,10 @@
+{
+  "name": "Prism Orbit",
+  "category": "special",
+  "tags": [
+    "orbital-flip",
+    "triple-tile"
+  ],
+  "html": "<div class=\"demo-prismorbit\"><span></span><span></span><span></span></div>",
+  "css": ".demo-prismorbit {\n  --po-size: 52px; --po-tile: calc(var(--po-size) * 0.24); --po-radius: calc(var(--po-size) * 0.28);\n  width: var(--po-size); height: var(--po-size); position: relative; display: inline-grid; place-items: center;\n}\n.demo-prismorbit span {\n  position: absolute; width: var(--po-tile); height: var(--po-tile); border-radius: 6px;\n  background: var(--color-primary); opacity: 0.92; transform-origin: center center;\n  filter: drop-shadow(0 0 6px rgba(127,119,221,0.4));\n  animation: dprism-orbit calc(1.35s * var(--loader-speed-scale)) linear var(--loader-cycles),\n             dprism-flip calc(1.22s * var(--loader-speed-scale)) cubic-bezier(0.42,0,0.58,1) var(--loader-cycles);\n}\n.demo-prismorbit span:nth-child(1) { --phase: 0deg; animation-delay: 0s, 0s; }\n.demo-prismorbit span:nth-child(2) { --phase: 120deg; animation-delay: calc(1.35s * -1 / 3 * var(--loader-speed-scale)), calc(1.22s * -1 / 3 * var(--loader-speed-scale)); }\n.demo-prismorbit span:nth-child(3) { --phase: 240deg; animation-delay: calc(1.35s * -2 / 3 * var(--loader-speed-scale)), calc(1.22s * -2 / 3 * var(--loader-speed-scale)); }\n@keyframes dprism-orbit {\n  from { transform: rotate(var(--phase)) translateY(calc(var(--po-radius) * -1)) rotate(calc(-1 * var(--phase))); }\n  to   { transform: rotate(calc(360deg + var(--phase))) translateY(calc(var(--po-radius) * -1)) rotate(calc(-360deg - var(--phase))); }\n}\n@keyframes dprism-flip {\n  0%,100% { border-radius: 6px; scale: 1; }\n  50% { border-radius: 3px; scale: 0.72; }\n}"
+}

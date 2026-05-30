@@ -1,0 +1,10 @@
+{
+  "name": "Particle Vortex",
+  "category": "special",
+  "tags": [
+    "sinusoidal",
+    "spiral-sweep"
+  ],
+  "html": "<div class=\"demo-vortex\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-vortex { position: relative; width: 36px; height: 36px; }\n.demo-vortex span { position: absolute; top: 50%; left: 50%; width: 4px; height: 4px; background: var(--color-danger); border-radius: 50%; opacity: 0; animation: dvortex 2s var(--loader-cycles); }\n.demo-vortex span:nth-child(1) { animation-delay: 0s; }\n.demo-vortex span:nth-child(2) { animation-delay: calc(-0.33s * var(--loader-speed-scale)); }\n.demo-vortex span:nth-child(3) { animation-delay: calc(-0.66s * var(--loader-speed-scale)); }\n.demo-vortex span:nth-child(4) { animation-delay: calc(-1s * var(--loader-speed-scale)); }\n.demo-vortex span:nth-child(5) { animation-delay: calc(-1.33s * var(--loader-speed-scale)); }\n.demo-vortex span:nth-child(6) { animation-delay: calc(-1.66s * var(--loader-speed-scale)); }\n@keyframes dvortex {\n  0% { transform: rotate(0deg) translate(0,0) scale(0.1); opacity:0; }\n  15% { transform: rotate(90deg) translate(16px,0) scale(1); opacity:1; }\n  80% { opacity: 0.8; }\n  100% { transform: rotate(540deg) translate(0,0) scale(0.1); opacity:0; }\n}"
+}

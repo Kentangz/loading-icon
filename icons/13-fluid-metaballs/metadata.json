@@ -1,0 +1,10 @@
+{
+  "name": "Fluid Metaballs",
+  "category": "special",
+  "tags": [
+    "gooey-filter",
+    "contrast"
+  ],
+  "html": "<div class=\"demo-metaballs\"><span></span><span></span><span></span></div>",
+  "css": ".demo-metaballs {\n  /* Match standalone icon: blur + contrast gooey */\n  --metaballs-size: 44px;\n  --metaballs-color: var(--color-primary);\n  --metaballs-bg: var(--surface);\n  --metaballs-speed: calc(2s * var(--loader-speed-scale));\n\n  display: inline-block;\n  position: relative;\n  width: var(--metaballs-size);\n  height: var(--metaballs-size);\n  background: var(--metaballs-bg);\n  filter: blur(5px) contrast(14);\n  box-sizing: border-box;\n  overflow: visible;\n}\n.demo-metaballs span { position: absolute; background: var(--metaballs-color); border-radius: 50%; box-sizing: border-box; }\n.demo-metaballs span:nth-child(1) { top: 32.5%; left: 32.5%; width: 35%; height: 35%; }\n.demo-metaballs span:nth-child(2) { top: 35%; left: 35%; width: 30%; height: 30%; animation: dmeta-a var(--metaballs-speed) ease-in-out var(--loader-cycles); }\n.demo-metaballs span:nth-child(3) { top: 35%; left: 35%; width: 30%; height: 30%; animation: dmeta-b var(--metaballs-speed) ease-in-out var(--loader-cycles); }\n@keyframes dmeta-a { 0%,100%{transform:translateX(-140%)} 50%{transform:translateX(140%)} }\n@keyframes dmeta-b { 0%,100%{transform:translateX(140%)} 50%{transform:translateX(-140%)} }"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Snake Chase",
+  "category": "spinners",
+  "tags": [
+    "square-track",
+    "delay-trailing"
+  ],
+  "html": "<div class=\"demo-schase\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-schase { width: 32px; height: 32px; position: relative; }\n.demo-schase::before {\n  content: ''; position: absolute; inset: 3px;\n  border: 0.8px dashed rgba(29,158,117,0.12); border-radius: 5px;\n}\n.demo-schase span {\n  position: absolute; top: 0; left: 0; width: 5px; height: 5px;\n  border-radius: 50%; background: var(--color-success);\n  animation: dschase-p calc(1.6s * var(--loader-speed-scale)) cubic-bezier(0.25, 1, 0.5, 1) var(--loader-cycles);\n}\n.demo-schase span:nth-child(1) { animation-delay: 0s; }\n.demo-schase span:nth-child(2) { animation-delay: calc(-0.096s * var(--loader-speed-scale)); opacity: 0.75; }\n.demo-schase span:nth-child(3) { animation-delay: calc(-0.192s * var(--loader-speed-scale)); opacity: 0.5; }\n.demo-schase span:nth-child(4) { animation-delay: calc(-0.288s * var(--loader-speed-scale)); opacity: 0.25; }\n@keyframes dschase-p {\n  0%, 100% { transform: translate(0, 0); }\n  25% { transform: translate(27px, 0); }\n  50% { transform: translate(27px, 27px); }\n  75% { transform: translate(0, 27px); }\n}"
+}

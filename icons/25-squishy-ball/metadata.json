@@ -1,0 +1,10 @@
+{
+  "name": "Squishy Ball",
+  "category": "special",
+  "tags": [
+    "bounce-squash",
+    "shadows"
+  ],
+  "html": "<div class=\"demo-squish\"><div class=\"demo-squish-sphere\"></div><div class=\"demo-squish-shadow\"></div></div>",
+  "css": ".demo-squish { position: relative; width: 22px; height: 42px; }\n.demo-squish-sphere { position: absolute; top: 0; left: 0; width: 100%; height: 22px; background: var(--color-warning); border-radius: 50%; transform-origin: bottom center; animation: dsquish-b 1.1s var(--loader-cycles); }\n.demo-squish-shadow { position: absolute; bottom: 0; left: 10%; width: 80%; height: 3px; background: var(--color-warning); border-radius: 50%; opacity: 0.15; animation: dsquish-s 1.1s var(--loader-cycles); }\n@keyframes dsquish-b {\n  0%,100%{transform:translateY(0) scale(1)}\n  44%{transform:translateY(20px) scaleX(0.88) scaleY(1.12)}\n  50%{transform:translateY(24px) scaleX(1.3) scaleY(0.68)}\n  56%{transform:translateY(20px) scaleX(0.88) scaleY(1.12)}\n  78%{transform:translateY(0) scale(1)}\n}\n@keyframes dsquish-s {\n  0%,100%{transform:scale(1.6);opacity:0.12}\n  44%{transform:scale(0.95);opacity:0.45}\n  50%{transform:scale(0.55);opacity:0.72}\n  56%{transform:scale(0.95);opacity:0.45}\n  78%{transform:scale(1.6);opacity:0.12}\n}"
+}
