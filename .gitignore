@@ -58,3 +58,6 @@ logs
 architecture.md
 
 .vercel
+
+# Automation State Tracking
+scripts/.auto-state.json
