@@ -1411,4 +1411,46 @@ const loaders = [
 }
 @keyframes dsh-rot { to { transform: rotate(calc(360deg * var(--sb-dir))); } }`,
 	},
+	{
+		id: "56",
+		name: "Pulse Helix",
+		category: "waves",
+		tags: ["sinusoidal-bars","helix-wave","staggered-scale"],
+		html: "<div class=\"demo-phelix\"><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-phelix {
+  --ph-size: var(--loader-size);
+  --ph-gap: calc(var(--ph-size) * 0.1);
+  --ph-color: var(--color-primary);
+  --ph-glow: color-mix(in srgb, var(--ph-color) 40%, transparent);
+  --ph-speed: calc(1.1s * var(--loader-speed-scale));
+  --ph-opacity: 0.95;
+
+  width: var(--ph-size);
+  height: var(--ph-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.demo-phelix span {
+  display: block;
+  width: calc((var(--ph-size) - (var(--ph-gap) * 4)) / 5);
+  height: 90%;
+  border-radius: calc(var(--ph-size) * 0.08);
+  background: var(--ph-color);
+  opacity: var(--ph-opacity);
+  filter: drop-shadow(0 0 calc(var(--ph-size) * 0.1) var(--ph-glow));
+  transform-origin: center;
+  animation: ph-wave var(--ph-speed) ease-in-out var(--loader-cycles);
+}
+.demo-phelix span:nth-child(1) { animation-delay: calc(var(--ph-speed) * -0.4); }
+.demo-phelix span:nth-child(2) { animation-delay: calc(var(--ph-speed) * -0.3); }
+.demo-phelix span:nth-child(3) { animation-delay: calc(var(--ph-speed) * -0.2); }
+.demo-phelix span:nth-child(4) { animation-delay: calc(var(--ph-speed) * -0.1); }
+.demo-phelix span:nth-child(5) { animation-delay: calc(var(--ph-speed) * 0); }
+@keyframes ph-wave {
+  0%, 100% { transform: scaleY(0.2); opacity: 0.35; }
+  50% { transform: scaleY(1.0); opacity: 1; }
+}`,
+	},
 ];

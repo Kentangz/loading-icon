@@ -1,0 +1,11 @@
+{
+  "name": "Pulse Helix",
+  "category": "waves",
+  "tags": [
+    "sinusoidal-bars",
+    "helix-wave",
+    "staggered-scale"
+  ],
+  "html": "<div class=\"demo-phelix\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-phelix {\n  --ph-size: var(--loader-size);\n  --ph-gap: calc(var(--ph-size) * 0.1);\n  --ph-color: var(--color-primary);\n  --ph-glow: color-mix(in srgb, var(--ph-color) 40%, transparent);\n  --ph-speed: calc(1.1s * var(--loader-speed-scale));\n  --ph-opacity: 0.95;\n\n  width: var(--ph-size);\n  height: var(--ph-size);\n  display: inline-flex;\n  align-items: center;\n  justify-content: space-between;\n  box-sizing: border-box;\n}\n.demo-phelix span {\n  display: block;\n  width: calc((var(--ph-size) - (var(--ph-gap) * 4)) / 5);\n  height: 90%;\n  border-radius: calc(var(--ph-size) * 0.08);\n  background: var(--ph-color);\n  opacity: var(--ph-opacity);\n  filter: drop-shadow(0 0 calc(var(--ph-size) * 0.1) var(--ph-glow));\n  transform-origin: center;\n  animation: ph-wave var(--ph-speed) ease-in-out var(--loader-cycles);\n}\n.demo-phelix span:nth-child(1) { animation-delay: calc(var(--ph-speed) * -0.4); }\n.demo-phelix span:nth-child(2) { animation-delay: calc(var(--ph-speed) * -0.3); }\n.demo-phelix span:nth-child(3) { animation-delay: calc(var(--ph-speed) * -0.2); }\n.demo-phelix span:nth-child(4) { animation-delay: calc(var(--ph-speed) * -0.1); }\n.demo-phelix span:nth-child(5) { animation-delay: calc(var(--ph-speed) * 0); }\n@keyframes ph-wave {\n  0%, 100% { transform: scaleY(0.2); opacity: 0.35; }\n  50% { transform: scaleY(1.0); opacity: 1; }\n}"
+}
