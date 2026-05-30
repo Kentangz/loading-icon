@@ -62,3 +62,4 @@ architecture.md
 # Automation State Tracking & Temps
 scripts/.auto-state.json
 scripts/.temp-concept.json
+scripts/auto-generate.js
