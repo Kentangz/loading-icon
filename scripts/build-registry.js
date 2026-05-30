@@ -114,6 +114,36 @@ compiledContent += `];\n`;
 try {
   fs.writeFileSync(REGISTRY_PATH, compiledContent, "utf8");
   console.log(`${COLORS.green}✔ Dynamic Registry compiled successfully! Registered ${loadersList.length} loaders inside 'loaders-data.js'.${COLORS.reset}\n`);
+
+  // Statically update loader counts in root index.html
+  const INDEX_HTML_PATH = path.join(WORKSPACE, "index.html");
+  if (fs.existsSync(INDEX_HTML_PATH)) {
+    try {
+      let indexHtml = fs.readFileSync(INDEX_HTML_PATH, "utf8");
+      const count = loadersList.length;
+
+      // 1. Update Title: <title>LoadIcons — 55 Reusable CSS Loading Icons</title>
+      indexHtml = indexHtml.replace(/<title>LoadIcons — \d+ Reusable CSS Loading Icons<\/title>/g, `<title>LoadIcons — ${count} Reusable CSS Loading Icons</title>`);
+
+      // 2. Update Meta description: <meta name="description" content="55 lightweight..." />
+      indexHtml = indexHtml.replace(/<meta name="description" content="\d+ lightweight, dependency-free/g, `<meta name="description" content="${count} lightweight, dependency-free`);
+
+      // 3. Update Tagline: <p class="tagline">Interactive design playground for 55 lightweight...
+      indexHtml = indexHtml.replace(/Interactive design playground for \d+ lightweight, pure-CSS/g, `Interactive design playground for ${count} lightweight, pure-CSS`);
+
+      // 4. Update Nav Pill Count: <span class="nav-pill-count" id="count-all">55</span>
+      indexHtml = indexHtml.replace(/<span class="nav-pill-count" id="count-all">\d+<\/span>/g, `<span class="nav-pill-count" id="count-all">${count}</span>`);
+
+      // 5. Update Results Count: <span id="results-count">Showing 55 indicators</span>
+      indexHtml = indexHtml.replace(/<span id="results-count">Showing \d+ indicators<\/span>/g, `<span id="results-count">Showing ${count} indicators</span>`);
+
+      fs.writeFileSync(INDEX_HTML_PATH, indexHtml, "utf8");
+      console.log(`${COLORS.green}✔ Updated index.html statically to show ${count} loaders.${COLORS.reset}\n`);
+    } catch (err) {
+      console.warn(`${COLORS.yellow}⚠ Warning: Could not update index.html: ${err.message}${COLORS.reset}\n`);
+    }
+  }
+
   process.exit(0);
 } catch (e) {
   console.error(`${COLORS.red}✘ Failed to write loaders-data.js: ${e.message}${COLORS.reset}`);
