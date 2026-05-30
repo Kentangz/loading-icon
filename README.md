@@ -91,7 +91,7 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 63 | [Quantum Ripple](icons/63-quantum-ripple/) | quantum-wave + concentric-glow | Premium automated loaders |
 | 64 | [Glitch Orbit](icons/64-glitch-orbit/) | glitch-effect + electronic-glow | Premium automated loaders |
 | 65 | [Viscous Wave](icons/65-viscous-wave/) | liquid-blur + gooey-merging | Premium automated loaders |
-| 66 | [Magnetic Bars](icons/66-magnetic-bars/) | magnetic-fields + harmonic-bars | Premium automated loaders |
+| 66 | [Crystalline Star](icons/66-crystalline-star/) | crystal-pulse + shimmering-nodes | Premium automated loaders |
 
 ---
 
@@ -478,9 +478,10 @@ Each icon has a minimal, documented HTML structure:
   <span></span>
 </div>
 
-<!-- 66 · Magnetic Bars -->
-<div class="magnetic-bars" role="status" aria-label="Loading">
-  <span></span><span></span><span></span><span></span><span></span>
+<!-- 66 · Crystalline Star -->
+<div class="crystalline-star" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
 </div>
   <div class="glow-quantum__ring"><span></span></div>
 </div>
@@ -591,7 +592,7 @@ Every icon ships with ready-to-use modifier classes:
 | Quantum Ripple | `--qr-size` `--qr-color` `--qr-speed` `--qr-opacity` |
 | Glitch Orbit | `--go-size` `--go-color` `--go-speed` `--go-opacity` |
 | Viscous Wave | `--vw-size` `--vw-color` `--vw-speed` `--vw-opacity` |
-| Magnetic Bars | `--mb-size` `--mb-gap` `--mb-color` `--mb-speed` `--mb-opacity` |
+| Crystalline Star | `--cs-size` `--cs-color` `--cs-speed` `--cs-opacity` |
 | Kinetic Vortex | `--kv-size` `--kv-color` `--kv-speed` |
 | Neon Matrix | `--nm-size` `--nm-color` `--nm-speed` |
 | Holographic Helix | `--hh-size` `--hh-gap` `--hh-color` `--hh-speed` |
@@ -809,8 +810,8 @@ loadicons/
     ├── 65-viscous-wave/
     │   ├── viscous-wave.css
     │   └── index.html
-    ├── 66-magnetic-bars/
-    │   ├── magnetic-bars.css
+    ├── 66-crystalline-star/
+    │   ├── crystalline-star.css
     │   └── index.html
 ```
 
@@ -877,7 +878,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .magnetic-bars span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 

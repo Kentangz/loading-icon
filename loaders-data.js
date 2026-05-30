@@ -1709,30 +1709,31 @@ const loaders = [
 	},
 	{
 		id: "66",
-		name: "Magnetic Bars",
-		category: "waves",
-		tags: ["magnetic-fields","harmonic-bars","linear-scaling"],
-		html: "<div class=\"demo-mbars\"><span></span><span></span><span></span><span></span><span></span></div>",
-		css: `.demo-mbars {
-  --mb-size: 48px; --mb-gap: 5px;
-  --mb-color: var(--color-primary);
-  --mb-speed: calc(1.1s * var(--loader-speed-scale));
-  width: var(--mb-size); height: var(--mb-size); display: flex;
-  align-items: center; justify-content: space-between; gap: var(--mb-gap);
+		name: "Crystalline Star",
+		category: "special",
+		tags: ["crystal-pulse","shimmering-nodes","star-geometry"],
+		html: "<div class=\"demo-cstar\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-cstar {
+  --cs-size: 50px;
+  --cs-color: var(--color-primary);
+  --cs-speed: calc(1.2s * var(--loader-speed-scale));
+  width: var(--cs-size); height: var(--cs-size); position: relative;
 }
-.demo-mbars span {
-  flex: 1; height: 80%; border-radius: 4px;
-  background: var(--mb-color);
-  animation: d-mbars-scale var(--mb-speed) ease-in-out infinite;
+.demo-cstar span {
+  position: absolute; width: 20%; height: 20%; border-radius: 50%;
+  background: var(--cs-color); animation: d-cstar-pulse var(--cs-speed) ease-in-out var(--loader-cycles);
 }
-.demo-mbars span:nth-child(1) { animation-delay: calc(var(--mb-speed) * -0.4); }
-.demo-mbars span:nth-child(2) { animation-delay: calc(var(--mb-speed) * -0.3); }
-.demo-mbars span:nth-child(3) { animation-delay: calc(var(--mb-speed) * -0.2); }
-.demo-mbars span:nth-child(4) { animation-delay: calc(var(--mb-speed) * -0.1); }
-.demo-mbars span:nth-child(5) { animation-delay: 0s; }
-@keyframes d-mbars-scale {
-  0%, 100% { transform: scaleY(0.25); opacity: 0.35; }
-  50% { transform: scaleY(1.0); opacity: 1; filter: brightness(1.2); }
+.demo-cstar span:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); animation-delay: calc(var(--cs-speed) * -0.875); }
+.demo-cstar span:nth-child(2) { top: 14.6%; left: 85.4%; transform: translate(-50%, -50%); animation-delay: calc(var(--cs-speed) * -0.75); }
+.demo-cstar span:nth-child(3) { top: 50%; left: 100%; transform: translateY(-50%); animation-delay: calc(var(--cs-speed) * -0.625); }
+.demo-cstar span:nth-child(4) { top: 85.4%; left: 85.4%; transform: translate(-50%, -50%); animation-delay: calc(var(--cs-speed) * -0.5); }
+.demo-cstar span:nth-child(5) { top: 100%; left: 50%; transform: translateX(-50%); animation-delay: calc(var(--cs-speed) * -0.375); }
+.demo-cstar span:nth-child(6) { top: 85.4%; left: 14.6%; transform: translate(-50%, -50%); animation-delay: calc(var(--cs-speed) * -0.25); }
+.demo-cstar span:nth-child(7) { top: 50%; left: 0; transform: translateY(-50%); animation-delay: calc(var(--cs-speed) * -0.125); }
+.demo-cstar span:nth-child(8) { top: 14.6%; left: 14.6%; transform: translate(-50%, -50%); animation-delay: 0s; }
+@keyframes d-cstar-pulse {
+  0%, 100% { transform: scale(0.6); opacity: 0.25; }
+  50% { transform: scale(1.2); opacity: 1; filter: drop-shadow(0 0 4px var(--cs-color)); }
 }`,
 	},
 ];
