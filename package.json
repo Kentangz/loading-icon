@@ -4,7 +4,7 @@
   "description": "55 lightweight, reusable CSS loading icons — fully customizable via CSS Custom Properties, zero dependencies.",
   "main": "loaders-data.js",
   "scripts": {
-    "build": "node scripts/build-registry.js",
+    "build:registry": "node scripts/build-registry.js",
     "lint": "node scripts/lint-loaders.js",
     "test": "node scripts/lint-loaders.js"
   },
