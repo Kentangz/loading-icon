@@ -55,6 +55,6 @@ logs
 .github/
 
 # Documentation
-CONTRIBUTING.md
+architecture.md
 
 .vercel
