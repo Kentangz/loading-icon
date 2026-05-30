@@ -489,6 +489,110 @@ validatedIcons.forEach((icon) => {
 logSuccess("Registry validation audit complete");
 
 // ══════════════════════════════════════════════════════════════
+// 5. VALIDATE GLOBAL DOCUMENTATION SYNC (README.md)
+// ══════════════════════════════════════════════════════════════
+logHeader("5. Auditing Global Documentation Sync (README.md)");
+
+if (!fs.existsSync(README_PATH)) {
+  console.log(`${COLORS.red}✘ README.md not found at ${README_PATH}${COLORS.reset}`);
+  process.exit(1);
+}
+
+const readme = fs.readFileSync(README_PATH, "utf8");
+
+validatedIcons.forEach((icon) => {
+  // 5.1 Check Catalog Table
+  const tableRegex = new RegExp(`\\|\\s*${icon.id}\\s*\\|\\s*\\[[^\\]]+\\]\\(icons/${icon.folder}/\\)`);
+  if (!tableRegex.test(readme)) {
+    reportError(
+      README_PATH,
+      icon.isHistorical,
+      `Icon ID '${icon.id}' is not linked properly in the Catalog Table (Region 1)`
+    );
+  }
+
+  // 5.2 Check Getting Started HTML inclusion
+  const htmlSnippet = `class="${icon.kebab}"`;
+  let hasHtmlSnippet = readme.includes(htmlSnippet);
+  
+  // Historical exceptions
+  if (!hasHtmlSnippet && icon.isHistorical) {
+    const historicalClassOverrides = {
+      "01": "spinner",
+      "06": "skeleton",
+      "07": "typing",
+      "08": "circ-progress",
+      "09": "morph",
+    };
+    if (historicalClassOverrides[icon.id]) {
+      hasHtmlSnippet = readme.includes(`class="${historicalClassOverrides[icon.id]}"`);
+    }
+  }
+
+  if (!hasHtmlSnippet) {
+    reportError(
+      README_PATH,
+      icon.isHistorical,
+      `HTML class '.${icon.kebab}' is missing from Getting Started list (Region 2)`
+    );
+  }
+
+  // 5.3 Check Token reference
+  let targetName = icon.kebab.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+  if (icon.id === "01") targetName = "Classic Spinner";
+  else if (icon.id === "06") targetName = "Shimmer Skeleton";
+  else if (icon.id === "07") targetName = "Typing Indicator";
+  else if (icon.id === "08") targetName = "Circular Progress";
+  else if (icon.id === "09") targetName = "Morphing Shape";
+  else if (icon.id === "45") targetName = "Newton's Cradle 3D";
+  else if (icon.id === "48") targetName = "Bouncing Cube 3D";
+  
+  const tokenRegex = new RegExp(`\\|\\s*${targetName.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1")}\\s*\\|`);
+  if (!tokenRegex.test(readme)) {
+    reportError(
+      README_PATH,
+      icon.isHistorical,
+      `Icon name '${targetName}' is missing from Token Reference Table (Region 3)`
+    );
+  }
+
+  // 5.4 Check Folder tree
+  const treeEntry = `${icon.folder}/`;
+  if (!readme.includes(treeEntry)) {
+    reportError(
+      README_PATH,
+      icon.isHistorical,
+      `Folder tree visual is missing directory entry '${treeEntry}' (Region 4)`
+    );
+  }
+
+  // 5.5 Check Reduced Motion list inclusion
+  let reducedMotionClass = `.${icon.kebab}`;
+  if (icon.isHistorical) {
+    const historicalClassOverrides = {
+      "01": "spinner",
+      "06": "demo-skel-line",
+      "07": "typing",
+      "08": "circ-progress__svg",
+      "09": "morph",
+    };
+    if (historicalClassOverrides[icon.id]) {
+      reducedMotionClass = `.${historicalClassOverrides[icon.id]}`;
+    }
+  }
+
+  if (!readme.includes(reducedMotionClass)) {
+    reportError(
+      README_PATH,
+      icon.isHistorical,
+      `Class '${reducedMotionClass}' should be added to the Reduced Motion CSS list (Region 5) in README`
+    );
+  }
+});
+
+logSuccess("Documentation alignment audit complete");
+
+// ══════════════════════════════════════════════════════════════
 // SUMMARY REPORT & EXIT
 // ══════════════════════════════════════════════════════════════
 console.log(`\n${COLORS.bright}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${COLORS.reset}`);

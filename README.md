@@ -81,6 +81,7 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 53 | [Corner Chase](icons/53-corner-chase/) | border brackets + quadrant steps | Tracking, scanning, and “locking onto target” waits |
 | 54 | [Shard Flip](icons/54-shard-flip/) | radial shards + 3D flip | Premium 3D flipping panels, futuristic wait states |
 | 55 | [Shutter Bloom](icons/55-shutter-bloom/) | iris blades + stagger bloom | Camera shutter, focus, capture, and aperture-themed loads |
+| 56 | [Pulse Helix](icons/56-pulse-helix/) | `scaleY` + stagger sinusoidal wave | Premium SaaS loaders, kinetic wave wait states |
 
 ---
 
@@ -383,6 +384,36 @@ Each icon has a minimal, documented HTML structure:
 <div class="perspective-tunnel" role="status" aria-label="Loading">
   <span></span><span></span><span></span><span></span><span></span><span></span>
 </div>
+
+<!-- 51 · Prism Orbit (parent + 3 spans) -->
+<div class="prism-orbit" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 52 · Barcode Sweep (parent + 7 spans) -->
+<div class="barcode-sweep" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 53 · Corner Chase (parent + 4 spans) -->
+<div class="corner-chase" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 54 · Shard Flip (parent + 8 spans) -->
+<div class="shard-flip" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 55 · Shutter Bloom (parent + 6 spans) -->
+<div class="shutter-bloom" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 56 · Pulse Helix (parent + 5 spans) -->
+<div class="pulse-helix" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
 ```
 
 ---
@@ -480,6 +511,12 @@ Every icon ships with ready-to-use modifier classes:
 | Bouncing Cube 3D | `--cube-size` `--cube-color` `--cube-speed` |
 | Digital Segment | `--segment-size` `--segment-color` `--segment-speed` |
 | Perspective Tunnel | `--pt-size` `--pt-color` `--pt-glow` `--pt-speed` `--pt-thickness` `--pt-bg` |
+| Prism Orbit | `--po-size` `--po-tile` `--po-radius` `--po-color` `--po-speed` |
+| Barcode Sweep | `--bs-w` `--bs-h` `--bs-gap` `--bs-color` `--bs-speed` |
+| Corner Chase | `--cc-size` `--cc-corner` `--cc-thick` `--cc-radius` `--cc-color` `--cc-speed` |
+| Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
+| Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
+| Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
 
 ---
 
@@ -650,8 +687,20 @@ loadicons/
     ├── 51-prism-orbit/
     │   ├── prism-orbit.css
     │   └── index.html
-    └── 52-barcode-sweep/
-        ├── barcode-sweep.css
+    ├── 52-barcode-sweep/
+    │   ├── barcode-sweep.css
+    │   └── index.html
+    ├── 53-corner-chase/
+    │   ├── corner-chase.css
+    │   └── index.html
+    ├── 54-shard-flip/
+    │   ├── shard-flip.css
+    │   └── index.html
+    ├── 55-shutter-bloom/
+    │   ├── shutter-bloom.css
+    │   └── index.html
+    └── 56-pulse-helix/
+        ├── pulse-helix.css
         └── index.html
 ```
 
@@ -715,7 +764,10 @@ All icons use CSS animations. To honor the user's system preference:
   .newton-cradle-3d span::before, .newton-cradle-3d span::after,
   .signal-beacons span::after, .ticking-clock__hour,
   .ticking-clock__minute, .bouncing-cube__cube, .bouncing-cube::before,
-  .digital-segment span, .perspective-tunnel span {
+  .digital-segment span, .perspective-tunnel span,
+  .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
+  .corner-chase span, .shard-flip span, .shutter-bloom::before,
+  .shutter-bloom span, .pulse-helix span {
     animation-play-state: paused;
   }
 
