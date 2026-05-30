@@ -1,0 +1,66 @@
+/**
+ * 60 · Glow Quantum — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Central core pulsing while an electron orbits on a concentric track.
+ * Usage     : <div class="glow-quantum" role="status" aria-label="Loading">
+ *               <div class="glow-quantum__core"></div>
+ *               <div class="glow-quantum__ring"><span></span></div>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+.glow-quantum {
+  --gq-size: 44px;
+  --gq-color: #7f77dd;
+  --gq-speed: 1.6s;
+
+  width: var(--gq-size);
+  height: var(--gq-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.glow-quantum__core {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gq-color);
+  animation: glow-quantum-pulse calc(var(--gq-speed) * 0.6) ease-in-out infinite;
+}
+.glow-quantum__ring {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid color-mix(in srgb, var(--gq-color) 20%, transparent);
+  border-radius: 50%;
+  animation: glow-quantum-rot var(--gq-speed) linear infinite;
+}
+.glow-quantum__ring span {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gq-color);
+  box-shadow: 0 0 8px var(--gq-color);
+}
+@keyframes glow-quantum-pulse {
+  0%,100% { transform: scale(0.85); opacity: 0.6; } 
+  50% { transform: scale(1.2); opacity: 1; }
+}
+@keyframes glow-quantum-rot {
+  to { transform: rotate(360deg); }
+}
+.glow-quantum--sm { --gq-size: 32px; }
+.glow-quantum--md { --gq-size: 44px; }
+.glow-quantum--lg { --gq-size: 58px; }
+.glow-quantum--primary { --gq-color: #7f77dd; }
+.glow-quantum--success { --gq-color: #1d9e75; }
+.glow-quantum--warning { --gq-color: #ef9f27; }
+.glow-quantum--danger  { --gq-color: #e24b4a; }
+.glow-quantum--white   { --gq-color: #ffffff; }
+@media (prefers-reduced-motion: reduce) {
+  .glow-quantum__ring { animation: none; }
+  .glow-quantum__core { animation: none; }
+}

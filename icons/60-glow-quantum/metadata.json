@@ -1,0 +1,11 @@
+{
+  "name": "Glow Quantum",
+  "category": "special",
+  "tags": [
+    "pulsing-core",
+    "quantum-orbits",
+    "concentric-electrons"
+  ],
+  "html": "<div class=\"demo-gquantum\"><div class=\"demo-gquantum-core\"></div><div class=\"demo-gquantum-ring\"><span></span></div></div>",
+  "css": ".demo-gquantum {\n  --gq-size: 44px; --gq-color: var(--color-primary);\n  --gq-speed: calc(1.6s * var(--loader-speed-scale));\n  width: var(--gq-size); height: var(--gq-size); position: relative;\n  display: flex; align-items: center; justify-content: center;\n}\n.demo-gquantum-core {\n  width: 10px; height: 10px; border-radius: 50%; background: var(--gq-color);\n  animation: dgq-pulse calc(var(--gq-speed) * 0.6) ease-in-out infinite;\n}\n.demo-gquantum-ring {\n  position: absolute; inset: 0; border: 1.5px solid color-mix(in srgb, var(--gq-color) 20%, transparent);\n  border-radius: 50%;\n  animation: dgq-rot var(--gq-speed) linear var(--loader-cycles);\n}\n.demo-gquantum-ring span {\n  position: absolute; top: -4px; left: 50%; transform: translateX(-50%);\n  width: 7px; height: 7px; border-radius: 50%; background: var(--gq-color);\n  box-shadow: 0 0 8px var(--gq-color);\n}\n@keyframes dgq-pulse { 0%,100%{transform:scale(0.85);opacity:0.6} 50%{transform:scale(1.2);opacity:1} }\n@keyframes dgq-rot { to { transform: rotate(360deg); } }"
+}

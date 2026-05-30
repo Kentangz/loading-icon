@@ -82,6 +82,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 54 | [Shard Flip](icons/54-shard-flip/) | radial shards + 3D flip | Premium 3D flipping panels, futuristic wait states |
 | 55 | [Shutter Bloom](icons/55-shutter-bloom/) | iris blades + stagger bloom | Camera shutter, focus, capture, and aperture-themed loads |
 | 56 | [Pulse Helix](icons/56-pulse-helix/) | `scaleY` + stagger sinusoidal wave | Premium SaaS loaders, kinetic wave wait states |
+| 57 | [Kinetic Vortex](icons/57-kinetic-vortex/) | orbital-twist + expanding-rings | Premium automated loaders |
+| 58 | [Neon Matrix](icons/58-neon-matrix/) | cyber-grid + stepped-bars | Premium automated loaders |
+| 59 | [Holographic Helix](icons/59-holographic-helix/) | double-helix + sinusoidal-glow | Premium automated loaders |
+| 60 | [Glow Quantum](icons/60-glow-quantum/) | pulsing-core + quantum-orbits | Premium automated loaders |
+| 61 | [Liquid Drip](icons/61-liquid-drip/) | viscous-drips + gooey-merging | Premium automated loaders |
 
 ---
 
@@ -414,6 +419,32 @@ Each icon has a minimal, documented HTML structure:
 <div class="pulse-helix" role="status" aria-label="Loading">
   <span></span><span></span><span></span><span></span><span></span>
 </div>
+
+<!-- 57 · Kinetic Vortex (parent + 3 spans) -->
+<div class="kinetic-vortex" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 58 · Neon Matrix (parent + 4 spans) -->
+<div class="neon-matrix" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 59 · Holographic Helix (parent + 6 spans) -->
+<div class="holographic-helix" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 60 · Glow Quantum (nucleus + 1 orbit) -->
+<div class="glow-quantum" role="status" aria-label="Loading">
+  <div class="glow-quantum__core"></div>
+
+<!-- 61 · Liquid Drip (parent + 3 spans) -->
+<div class="liquid-drip" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+  <div class="glow-quantum__ring"><span></span></div>
+</div>
 ```
 
 ---
@@ -517,6 +548,11 @@ Every icon ships with ready-to-use modifier classes:
 | Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
 | Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
 | Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
+| Kinetic Vortex | `--kv-size` `--kv-color` `--kv-speed` |
+| Neon Matrix | `--nm-size` `--nm-color` `--nm-speed` |
+| Holographic Helix | `--hh-size` `--hh-gap` `--hh-color` `--hh-speed` |
+| Glow Quantum | `--gq-size` `--gq-color` `--gq-speed` |
+| Liquid Drip | `--ld-size` `--ld-color` `--ld-speed` |
 
 ---
 
@@ -702,6 +738,21 @@ loadicons/
     └── 56-pulse-helix/
         ├── pulse-helix.css
         └── index.html
+    ├── 57-kinetic-vortex/
+    │   ├── kinetic-vortex.css
+    │   └── index.html
+    ├── 58-neon-matrix/
+    │   ├── neon-matrix.css
+    │   └── index.html
+    ├── 59-holographic-helix/
+    │   ├── holographic-helix.css
+    │   └── index.html
+    ├── 60-glow-quantum/
+    │   ├── glow-quantum.css
+    │   └── index.html
+    ├── 61-liquid-drip/
+    │   ├── liquid-drip.css
+    │   └── index.html
 ```
 
 ---
@@ -767,7 +818,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span {
+  .shutter-bloom span, .pulse-helix span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 

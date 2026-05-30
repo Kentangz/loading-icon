@@ -1,0 +1,11 @@
+{
+  "name": "Liquid Drip",
+  "category": "special",
+  "tags": [
+    "viscous-drips",
+    "gooey-merging",
+    "fluid-fall"
+  ],
+  "html": "<div class=\"demo-ldrip\"><span></span><span></span><span></span></div>",
+  "css": ".demo-ldrip {\n  --ld-size: 52px; --ld-color: var(--color-primary);\n  --ld-speed: calc(1.5s * var(--loader-speed-scale));\n  width: var(--ld-size); height: var(--ld-size); position: relative;\n  filter: blur(4px) contrast(15);\n}\n.demo-ldrip span {\n  position: absolute; width: 14px; height: 14px; border-radius: 50%;\n  background: var(--ld-color);\n}\n.demo-ldrip span:nth-child(1) { top: 8px; left: 50%; transform: translateX(-50%); }\n.demo-ldrip span:nth-child(2) {\n  top: 8px; left: 50%; transform: translateX(-50%);\n  animation: dldrip-drip var(--ld-speed) ease-in-out var(--loader-cycles);\n}\n.demo-ldrip span:nth-child(3) {\n  bottom: 8px; left: 50%; transform: translateX(-50%) scaleY(0.7);\n  width: 20px; height: 8px; border-radius: 50%;\n  animation: dldrip-reservoir var(--ld-speed) ease-in-out var(--loader-cycles);\n}\n@keyframes dldrip-drip {\n  0% { top: 8px; scale: 1.0; }\n  35% { top: 28px; scale: 0.85; }\n  60%, 100% { top: 38px; scale: 0.1; opacity: 0; }\n}\n@keyframes dldrip-reservoir {\n  0%, 45% { transform: translateX(-50%) scale(1.0); }\n  62% { transform: translateX(-50%) scale(1.22); }\n  100% { transform: translateX(-50%) scale(1.0); }\n}"
+}

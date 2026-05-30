@@ -1,0 +1,46 @@
+/**
+ * 58 · Neon Matrix — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Grid-based pulse matrix mimicking neon indicator segments.
+ * Usage     : <div class="neon-matrix" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+.neon-matrix {
+  --nm-size: 40px;
+  --nm-color: #e24b4a;
+  --nm-speed: 0.9s;
+  --nm-opacity: 0.95;
+
+  width: var(--nm-size);
+  height: var(--nm-size);
+  display: inline-grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+.neon-matrix span {
+  border-radius: 3px;
+  background: var(--nm-color);
+  opacity: 0.25;
+  animation: neon-matrix-pulse var(--nm-speed) ease-in-out infinite;
+}
+.neon-matrix span:nth-child(1) { animation-delay: 0s; }
+.neon-matrix span:nth-child(2) { animation-delay: calc(var(--nm-speed) * -0.675); }
+.neon-matrix span:nth-child(4) { animation-delay: calc(var(--nm-speed) * -0.45); }
+.neon-matrix span:nth-child(3) { animation-delay: calc(var(--nm-speed) * -0.225); }
+@keyframes neon-matrix-pulse {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  50% { opacity: var(--nm-opacity); transform: scale(1.05); filter: drop-shadow(0 0 6px var(--nm-color)); }
+}
+.neon-matrix--sm { --nm-size: 28px; gap: 3px; }
+.neon-matrix--md { --nm-size: 40px; gap: 4px; }
+.neon-matrix--lg { --nm-size: 56px; gap: 6px; }
+.neon-matrix--primary { --nm-color: #7f77dd; }
+.neon-matrix--success { --nm-color: #1d9e75; }
+.neon-matrix--warning { --nm-color: #ef9f27; }
+.neon-matrix--danger  { --nm-color: #e24b4a; }
+.neon-matrix--white   { --nm-color: #ffffff; }
+@media (prefers-reduced-motion: reduce) {
+  .neon-matrix span { animation: none; opacity: 0.6; }
+}

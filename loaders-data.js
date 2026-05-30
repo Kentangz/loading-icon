@@ -1453,4 +1453,151 @@ const loaders = [
   50% { transform: scaleY(1.0); opacity: 1; }
 }`,
 	},
+	{
+		id: "57",
+		name: "Kinetic Vortex",
+		category: "3d",
+		tags: ["orbital-twist","expanding-rings","3d-frames"],
+		html: "<div class=\"demo-kvortex\"><span></span><span></span><span></span></div>",
+		css: `.demo-kvortex {
+  --kv-size: 52px;
+  --kv-color: var(--color-primary);
+  --kv-speed: calc(1.3s * var(--loader-speed-scale));
+  width: var(--kv-size); height: var(--kv-size); position: relative;
+  perspective: 200px; transform-style: preserve-3d;
+}
+.demo-kvortex span {
+  position: absolute; inset: 0; border: 2px solid transparent;
+  border-top-color: var(--kv-color); border-bottom-color: var(--kv-color); border-radius: 50%;
+  animation: dkv-spin var(--kv-speed) cubic-bezier(0.5, 0, 0.5, 1) var(--loader-cycles);
+}
+.demo-kvortex span:nth-child(1) { --r: 0deg; --scale: 1; animation-delay: calc(var(--kv-speed) * -0.3); }
+.demo-kvortex span:nth-child(2) { --r: 45deg; --scale: 0.75; animation-delay: calc(var(--kv-speed) * -0.15); }
+.demo-kvortex span:nth-child(3) { --r: 90deg; --scale: 0.5; animation-delay: 0s; }
+@keyframes dkv-spin {
+  0% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(0deg) scale(var(--scale)); }
+  100% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(360deg) scale(var(--scale)); }
+}`,
+	},
+	{
+		id: "58",
+		name: "Neon Matrix",
+		category: "spinners",
+		tags: ["cyber-grid","stepped-bars","neon-sweep"],
+		html: "<div class=\"demo-nmatrix\"><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-nmatrix {
+  --nm-size: 40px;
+  --nm-color: var(--color-danger);
+  --nm-speed: calc(0.9s * var(--loader-speed-scale));
+  width: var(--nm-size); height: var(--nm-size); display: grid;
+  grid-template-columns: repeat(2, 1fr); gap: 4px;
+}
+.demo-nmatrix span {
+  border-radius: 3px; background: var(--nm-color); opacity: 0.25;
+  animation: dnmatrix-pulse var(--nm-speed) ease-in-out var(--loader-cycles);
+}
+.demo-nmatrix span:nth-child(1) { animation-delay: 0s; }
+.demo-nmatrix span:nth-child(2) { animation-delay: calc(var(--nm-speed) * -0.675); }
+.demo-nmatrix span:nth-child(4) { animation-delay: calc(var(--nm-speed) * -0.45); }
+.demo-nmatrix span:nth-child(3) { animation-delay: calc(var(--nm-speed) * -0.225); }
+@keyframes dnmatrix-pulse {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 6px var(--nm-color)); }
+}`,
+	},
+	{
+		id: "59",
+		name: "Holographic Helix",
+		category: "waves",
+		tags: ["double-helix","sinusoidal-glow","translating-orbits"],
+		html: "<div class=\"demo-hhelix\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-hhelix {
+  --hh-size: 52px; --hh-gap: 4px;
+  --hh-color: var(--color-info);
+  --hh-speed: calc(1.4s * var(--loader-speed-scale));
+  width: var(--hh-size); height: var(--hh-size); display: flex;
+  align-items: center; justify-content: space-between; gap: var(--hh-gap);
+}
+.demo-hhelix span {
+  flex: 1; height: 35%; border-radius: 4px;
+  background: var(--hh-color); opacity: 0.85;
+  animation: dhhelix-wave var(--hh-speed) ease-in-out var(--loader-cycles);
+}
+.demo-hhelix span:nth-child(1) { animation-delay: calc(var(--hh-speed) * -0.5); }
+.demo-hhelix span:nth-child(2) { animation-delay: calc(var(--hh-speed) * -0.4); }
+.demo-hhelix span:nth-child(3) { animation-delay: calc(var(--hh-speed) * -0.3); }
+.demo-hhelix span:nth-child(4) { animation-delay: calc(var(--hh-speed) * -0.2); }
+.demo-hhelix span:nth-child(5) { animation-delay: calc(var(--hh-speed) * -0.1); }
+.demo-hhelix span:nth-child(6) { animation-delay: 0s; }
+@keyframes dhhelix-wave {
+  0%, 100% { transform: translateY(-10px) scale(0.6); opacity: 0.3; }
+  50% { transform: translateY(10px) scale(1.1); opacity: 1; filter: drop-shadow(0 0 5px var(--hh-color)); }
+}`,
+	},
+	{
+		id: "60",
+		name: "Glow Quantum",
+		category: "special",
+		tags: ["pulsing-core","quantum-orbits","concentric-electrons"],
+		html: "<div class=\"demo-gquantum\"><div class=\"demo-gquantum-core\"></div><div class=\"demo-gquantum-ring\"><span></span></div></div>",
+		css: `.demo-gquantum {
+  --gq-size: 44px; --gq-color: var(--color-primary);
+  --gq-speed: calc(1.6s * var(--loader-speed-scale));
+  width: var(--gq-size); height: var(--gq-size); position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.demo-gquantum-core {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--gq-color);
+  animation: dgq-pulse calc(var(--gq-speed) * 0.6) ease-in-out infinite;
+}
+.demo-gquantum-ring {
+  position: absolute; inset: 0; border: 1.5px solid color-mix(in srgb, var(--gq-color) 20%, transparent);
+  border-radius: 50%;
+  animation: dgq-rot var(--gq-speed) linear var(--loader-cycles);
+}
+.demo-gquantum-ring span {
+  position: absolute; top: -4px; left: 50%; transform: translateX(-50%);
+  width: 7px; height: 7px; border-radius: 50%; background: var(--gq-color);
+  box-shadow: 0 0 8px var(--gq-color);
+}
+@keyframes dgq-pulse { 0%,100%{transform:scale(0.85);opacity:0.6} 50%{transform:scale(1.2);opacity:1} }
+@keyframes dgq-rot { to { transform: rotate(360deg); } }`,
+	},
+	{
+		id: "61",
+		name: "Liquid Drip",
+		category: "special",
+		tags: ["viscous-drips","gooey-merging","fluid-fall"],
+		html: "<div class=\"demo-ldrip\"><span></span><span></span><span></span></div>",
+		css: `.demo-ldrip {
+  --ld-size: 52px; --ld-color: var(--color-primary);
+  --ld-speed: calc(1.5s * var(--loader-speed-scale));
+  width: var(--ld-size); height: var(--ld-size); position: relative;
+  filter: blur(4px) contrast(15);
+}
+.demo-ldrip span {
+  position: absolute; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--ld-color);
+}
+.demo-ldrip span:nth-child(1) { top: 8px; left: 50%; transform: translateX(-50%); }
+.demo-ldrip span:nth-child(2) {
+  top: 8px; left: 50%; transform: translateX(-50%);
+  animation: dldrip-drip var(--ld-speed) ease-in-out var(--loader-cycles);
+}
+.demo-ldrip span:nth-child(3) {
+  bottom: 8px; left: 50%; transform: translateX(-50%) scaleY(0.7);
+  width: 20px; height: 8px; border-radius: 50%;
+  animation: dldrip-reservoir var(--ld-speed) ease-in-out var(--loader-cycles);
+}
+@keyframes dldrip-drip {
+  0% { top: 8px; scale: 1.0; }
+  35% { top: 28px; scale: 0.85; }
+  60%, 100% { top: 38px; scale: 0.1; opacity: 0; }
+}
+@keyframes dldrip-reservoir {
+  0%, 45% { transform: translateX(-50%) scale(1.0); }
+  62% { transform: translateX(-50%) scale(1.22); }
+  100% { transform: translateX(-50%) scale(1.0); }
+}`,
+	},
 ];
