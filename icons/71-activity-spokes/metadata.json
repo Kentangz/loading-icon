@@ -1,0 +1,12 @@
+{
+  "id": 71,
+  "name": "Activity Spokes",
+  "kebab": "activity-spokes",
+  "category": "spinners",
+  "tags": ["spokes", "sequential-fade", "activity-indicator", "ios-style"],
+  "description": "8 thin rounded spokes radiating from center, each fading in sequence via staggered animation-delay — the iconic macOS/iOS UIActivityIndicatorView pattern implemented in pure CSS.",
+  "html": "<div class=\"demo-aspoke\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-aspoke {\n  --as-size: 48px;\n  --as-color: var(--color-primary);\n  --as-speed: calc(0.8s * var(--loader-speed-scale));\n  width: var(--as-size); height: var(--as-size); position: relative;\n  display: inline-flex;\n}\n.demo-aspoke span {\n  position: absolute;\n  width: 11%; height: 30%;\n  left: 44.5%; top: 14%;\n  border-radius: 9999px;\n  background: var(--as-color);\n  transform-origin: 50% 120%;\n  opacity: 0.15;\n  animation: d-aspoke-fade var(--as-speed) linear var(--loader-cycles);\n}\n.demo-aspoke span:nth-child(1) { transform: rotate(0deg);   animation-delay: calc(var(--as-speed) * -0.875); }\n.demo-aspoke span:nth-child(2) { transform: rotate(45deg);  animation-delay: calc(var(--as-speed) * -0.75);  }\n.demo-aspoke span:nth-child(3) { transform: rotate(90deg);  animation-delay: calc(var(--as-speed) * -0.625); }\n.demo-aspoke span:nth-child(4) { transform: rotate(135deg); animation-delay: calc(var(--as-speed) * -0.5);   }\n.demo-aspoke span:nth-child(5) { transform: rotate(180deg); animation-delay: calc(var(--as-speed) * -0.375); }\n.demo-aspoke span:nth-child(6) { transform: rotate(225deg); animation-delay: calc(var(--as-speed) * -0.25);  }\n.demo-aspoke span:nth-child(7) { transform: rotate(270deg); animation-delay: calc(var(--as-speed) * -0.125); }\n.demo-aspoke span:nth-child(8) { transform: rotate(315deg); animation-delay: 0s; }\n@keyframes d-aspoke-fade {\n  0%        { opacity: 1; }\n  75%, 100% { opacity: 0.12; }\n}",
+  "htmlSnippet": "<!-- 71 · Activity Spokes -->\n<div class=\"activity-spokes\" role=\"status\" aria-label=\"Loading\">\n  <span></span><span></span><span></span><span></span>\n  <span></span><span></span><span></span><span></span>\n</div>",
+  "tokens": "`--as-size` `--as-color` `--as-speed`"
+}

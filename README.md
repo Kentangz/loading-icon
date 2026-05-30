@@ -96,7 +96,7 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 68 | [Orbit Chain](icons/68-orbit-chain/) | css-motion-path + orbit | Premium automated loaders |
 | 69 | [Scanning Line](icons/69-scanning-line/) | scan + glow-line | Premium automated loaders |
 | 70 | [Morphing Blob](icons/70-morphing-blob/) | blob + organic | Premium automated loaders |
-| 71 | [Bounce Shadow](icons/71-bounce-shadow/) | physics + bounce | Premium automated loaders |
+| 71 | [Activity Spokes](icons/71-activity-spokes/) | sequential-fade + spokes | Premium automated loaders |
 
 ---
 
@@ -507,10 +507,10 @@ Each icon has a minimal, documented HTML structure:
 <!-- 70 · Morphing Blob -->
 <div class="morphing-blob" role="status" aria-label="Loading"></div>
 
-<!-- 71 · Bounce Shadow -->
-<div class="bounce-shadow" role="status" aria-label="Loading">
-  <span class="bounce-shadow__ball"></span>
-  <span class="bounce-shadow__shadow"></span>
+<!-- 71 · Activity Spokes -->
+<div class="activity-spokes" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
 </div>
   <div class="glow-quantum__ring"><span></span></div>
 </div>
@@ -621,7 +621,7 @@ Every icon ships with ready-to-use modifier classes:
 | Orbit Chain | `--oc-size` `--oc-color` `--oc-speed` |
 | Scanning Line | `--sl-size` `--sl-color` `--sl-speed` |
 | Morphing Blob | `--mb-size` `--mb-color` `--mb-speed` `--mb-opacity` |
-| Bounce Shadow | `--bs-size` `--bs-color` `--bs-speed` |
+| Activity Spokes | `--as-size` `--as-color` `--as-speed` |
 | Folding Prism | `--fp-size` `--fp-color` `--fp-speed` `--fp-opacity` |
 | Quantum Ripple | `--qr-size` `--qr-color` `--qr-speed` `--qr-opacity` |
 | Glitch Orbit | `--go-size` `--go-color` `--go-speed` `--go-opacity` |
@@ -859,8 +859,8 @@ loadicons/
     ├── 70-morphing-blob/
     │   ├── morphing-blob.css
     │   └── index.html
-    ├── 71-bounce-shadow/
-    │   ├── bounce-shadow.css
+    ├── 71-activity-spokes/
+    │   ├── activity-spokes.css
     │   └── index.html
 ```
 
@@ -927,7 +927,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .bounce-shadow span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 

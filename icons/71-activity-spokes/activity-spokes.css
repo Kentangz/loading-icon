@@ -1,0 +1,74 @@
+/**
+ * 71 · Activity Spokes — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : 8 thin rectangular spokes radiating from center,
+ *             each fading in sequence via staggered animation-delay
+ *             — the classic macOS / iOS UIActivityIndicatorView
+ *             pattern, implemented entirely in CSS.
+ * Usage     : Apply `.activity-spokes` to a <div> with 8 <span>s.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.activity-spokes {
+  --as-size:  48px;
+  --as-color: #7f77dd;
+  --as-speed: 0.8s;
+
+  width: var(--as-size);
+  height: var(--as-size);
+  position: relative;
+  display: inline-flex;
+}
+
+.activity-spokes * {
+  box-sizing: border-box;
+}
+
+.activity-spokes span {
+  position: absolute;
+  width: 11%;
+  height: 30%;
+  left: 44.5%;
+  top: 14%;
+  border-radius: 9999px;
+  background: var(--as-color);
+  transform-origin: 50% 120%;
+  opacity: 0.15;
+  animation: activity-spokes-fade var(--as-speed) linear infinite;
+}
+
+/* ─── Angular positions — each spoke 45° apart ─── */
+.activity-spokes span:nth-child(1) { transform: rotate(0deg);    animation-delay: calc(var(--as-speed) * -0.875); }
+.activity-spokes span:nth-child(2) { transform: rotate(45deg);   animation-delay: calc(var(--as-speed) * -0.75);  }
+.activity-spokes span:nth-child(3) { transform: rotate(90deg);   animation-delay: calc(var(--as-speed) * -0.625); }
+.activity-spokes span:nth-child(4) { transform: rotate(135deg);  animation-delay: calc(var(--as-speed) * -0.5);   }
+.activity-spokes span:nth-child(5) { transform: rotate(180deg);  animation-delay: calc(var(--as-speed) * -0.375); }
+.activity-spokes span:nth-child(6) { transform: rotate(225deg);  animation-delay: calc(var(--as-speed) * -0.25);  }
+.activity-spokes span:nth-child(7) { transform: rotate(270deg);  animation-delay: calc(var(--as-speed) * -0.125); }
+.activity-spokes span:nth-child(8) { transform: rotate(315deg);  animation-delay: 0s; }
+
+@keyframes activity-spokes-fade {
+  0%   { opacity: 1; }
+  75%, 100% { opacity: 0.12; }
+}
+
+/* ─── Size presets ─── */
+.activity-spokes--sm { --as-size: 32px; }
+.activity-spokes--md { --as-size: 48px; }
+.activity-spokes--lg { --as-size: 64px; }
+
+/* ─── Color presets ─── */
+.activity-spokes--primary { --as-color: #7f77dd; }
+.activity-spokes--success { --as-color: #1d9e75; }
+.activity-spokes--warning { --as-color: #ef9f27; }
+.activity-spokes--danger  { --as-color: #e24b4a; }
+.activity-spokes--white   { --as-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.activity-spokes--fast { --as-speed: 0.45s; }
+.activity-spokes--slow { --as-speed: 1.6s;  }
+.activity-spokes--soft { opacity: 0.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-spokes span { animation-play-state: paused; }
+}

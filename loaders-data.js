@@ -1843,43 +1843,38 @@ const loaders = [
 	},
 	{
 		id: "71",
-		name: "Bounce Shadow",
-		category: "special",
-		tags: ["physics","bounce","shadow","squash-stretch","special"],
-		html: "<div class=\"demo-bshd\"><span class=\"demo-bshd-ball\"></span><span class=\"demo-bshd-shadow\"></span></div>",
-		css: `.demo-bshd {
-  --bs-size: 50px;
-  --bs-color: var(--color-primary);
-  --bs-speed: calc(1.0s * var(--loader-speed-scale));
-  width: var(--bs-size); height: var(--bs-size); position: relative;
+		name: "Activity Spokes",
+		category: "spinners",
+		tags: ["spokes","sequential-fade","activity-indicator","ios-style"],
+		html: "<div class=\"demo-aspoke\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-aspoke {
+  --as-size: 48px;
+  --as-color: var(--color-primary);
+  --as-speed: calc(0.8s * var(--loader-speed-scale));
+  width: var(--as-size); height: var(--as-size); position: relative;
   display: inline-flex;
 }
-.demo-bshd-ball {
+.demo-aspoke span {
   position: absolute;
-  width: 28%; height: 28%; border-radius: 50%;
-  background: var(--bs-color);
-  left: 50%; bottom: 14%;
-  transform: translateX(-50%);
-  filter: drop-shadow(0 0 4px var(--bs-color));
-  animation: d-bshd-ball var(--bs-speed) cubic-bezier(0.215, 0.61, 0.355, 1) var(--loader-cycles);
+  width: 11%; height: 30%;
+  left: 44.5%; top: 14%;
+  border-radius: 9999px;
+  background: var(--as-color);
+  transform-origin: 50% 120%;
+  opacity: 0.15;
+  animation: d-aspoke-fade var(--as-speed) linear var(--loader-cycles);
 }
-.demo-bshd-shadow {
-  position: absolute;
-  width: 28%; height: 8%; border-radius: 50%;
-  background: var(--bs-color);
-  opacity: 0.22; left: 50%; bottom: 6%;
-  transform: translateX(-50%);
-  animation: d-bshd-shadow var(--bs-speed) ease-in-out var(--loader-cycles);
-}
-@keyframes d-bshd-ball {
-  0%, 100% { transform: translateX(-50%) scaleX(1.25) scaleY(0.75); }
-  15%       { transform: translateX(-50%) scaleX(1) scaleY(1); }
-  50%       { transform: translateX(-50%) translateY(-160%) scaleX(0.92) scaleY(1.08); }
-  85%       { transform: translateX(-50%) scaleX(1) scaleY(1); }
-}
-@keyframes d-bshd-shadow {
-  0%, 100% { transform: translateX(-50%) scaleX(1.2); opacity: 0.28; }
-  50%       { transform: translateX(-50%) scaleX(0.4); opacity: 0.08; }
+.demo-aspoke span:nth-child(1) { transform: rotate(0deg);   animation-delay: calc(var(--as-speed) * -0.875); }
+.demo-aspoke span:nth-child(2) { transform: rotate(45deg);  animation-delay: calc(var(--as-speed) * -0.75);  }
+.demo-aspoke span:nth-child(3) { transform: rotate(90deg);  animation-delay: calc(var(--as-speed) * -0.625); }
+.demo-aspoke span:nth-child(4) { transform: rotate(135deg); animation-delay: calc(var(--as-speed) * -0.5);   }
+.demo-aspoke span:nth-child(5) { transform: rotate(180deg); animation-delay: calc(var(--as-speed) * -0.375); }
+.demo-aspoke span:nth-child(6) { transform: rotate(225deg); animation-delay: calc(var(--as-speed) * -0.25);  }
+.demo-aspoke span:nth-child(7) { transform: rotate(270deg); animation-delay: calc(var(--as-speed) * -0.125); }
+.demo-aspoke span:nth-child(8) { transform: rotate(315deg); animation-delay: 0s; }
+@keyframes d-aspoke-fade {
+  0%        { opacity: 1; }
+  75%, 100% { opacity: 0.12; }
 }`,
 	},
 ];
