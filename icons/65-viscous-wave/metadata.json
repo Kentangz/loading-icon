@@ -1,0 +1,11 @@
+{
+  "name": "Viscous Wave",
+  "category": "waves",
+  "tags": [
+    "liquid-blur",
+    "gooey-merging",
+    "fluid-waves"
+  ],
+  "html": "<div class=\"demo-vwave\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-vwave {\n  --vw-size: 52px;\n  --vw-color: var(--color-primary);\n  --vw-speed: calc(1.5s * var(--loader-speed-scale));\n  width: var(--vw-size); height: var(--vw-size); position: relative;\n  filter: blur(4px) contrast(12);\n  display: flex; align-items: center; justify-content: space-around;\n}\n.demo-vwave span {\n  width: 10px; height: 10px; border-radius: 50%; background: var(--vw-color);\n  animation: d-vwave-slide var(--vw-speed) ease-in-out infinite;\n}\n.demo-vwave span:nth-child(1) { animation-delay: 0s; }\n.demo-vwave span:nth-child(2) { animation-delay: calc(var(--vw-speed) * -0.25); }\n.demo-vwave span:nth-child(3) { animation-delay: calc(var(--vw-speed) * -0.5); }\n.demo-vwave span:nth-child(4) { animation-delay: calc(var(--vw-speed) * -0.75); }\n@keyframes d-vwave-slide {\n  0%, 100% { transform: translateY(-12px) scale(1); }\n  50% { transform: translateY(12px) scale(1.3); }\n}"
+}

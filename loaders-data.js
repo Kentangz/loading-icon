@@ -1600,4 +1600,139 @@ const loaders = [
   100% { transform: translateX(-50%) scale(1.0); }
 }`,
 	},
+	{
+		id: "62",
+		name: "Folding Prism",
+		category: "3d",
+		tags: ["3d-shapes","folding-planes","prism-twist"],
+		html: "<div class=\"demo-fprism\"><span class=\"demo-fprism-face\"></span><span class=\"demo-fprism-face\"></span><span class=\"demo-fprism-face\"></span></div>",
+		css: `.demo-fprism {
+  --fp-size: 52px;
+  --fp-color: var(--color-primary);
+  --fp-speed: calc(1.5s * var(--loader-speed-scale));
+  width: var(--fp-size); height: var(--fp-size); position: relative;
+  perspective: 200px; transform-style: preserve-3d;
+}
+.demo-fprism-face {
+  position: absolute; inset: 0; border: 2px solid transparent;
+  border-top-color: var(--fp-color); border-radius: 50%;
+  animation: d-fprism-spin var(--fp-speed) cubic-bezier(0.4, 0, 0.2, 1) var(--loader-cycles);
+}
+.demo-fprism-face:nth-child(1) { --r: 0deg; animation-delay: calc(var(--fp-speed) * -0.4); }
+.demo-fprism-face:nth-child(2) { --r: 120deg; animation-delay: calc(var(--fp-speed) * -0.2); }
+.demo-fprism-face:nth-child(3) { --r: 240deg; animation-delay: 0s; }
+@keyframes d-fprism-spin {
+  0% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(0deg); }
+  100% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(360deg); }
+}`,
+	},
+	{
+		id: "63",
+		name: "Quantum Ripple",
+		category: "special",
+		tags: ["quantum-wave","concentric-glow","expanding-cores"],
+		html: "<div class=\"demo-qripple\"><span class=\"demo-qripple-core\"></span><span class=\"demo-qripple-ring\"></span><span class=\"demo-qripple-ring\"></span></div>",
+		css: `.demo-qripple {
+  --qr-size: 48px;
+  --qr-color: var(--color-primary);
+  --qr-speed: calc(1.4s * var(--loader-speed-scale));
+  width: var(--qr-size); height: var(--qr-size); position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.demo-qripple-core {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--qr-color);
+  animation: d-qripple-pulse calc(var(--qr-speed) * 0.5) ease-in-out infinite;
+}
+.demo-qripple-ring {
+  position: absolute; inset: 0; border: 2px solid var(--qr-color); border-radius: 50%;
+  opacity: 0; animation: d-qripple-expand var(--qr-speed) cubic-bezier(0.1, 0.8, 0.3, 1) var(--loader-cycles);
+}
+.demo-qripple-ring:nth-child(2) { animation-delay: 0s; }
+.demo-qripple-ring:nth-child(3) { animation-delay: calc(var(--qr-speed) * -0.5); }
+@keyframes d-qripple-pulse { 0%,100%{transform:scale(0.8);opacity:0.6} 50%{transform:scale(1.2);opacity:1} }
+@keyframes d-qripple-expand {
+  0% { transform: scale(0.1); opacity: 0.8; }
+  100% { transform: scale(1.0); opacity: 0; }
+}`,
+	},
+	{
+		id: "64",
+		name: "Glitch Orbit",
+		category: "special",
+		tags: ["glitch-effect","electronic-glow","orbiting-tracks"],
+		html: "<div class=\"demo-gorbit\"><span class=\"demo-gorbit-dot\"></span><span class=\"demo-gorbit-dot\"></span><span class=\"demo-gorbit-dot\"></span></div>",
+		css: `.demo-gorbit {
+  --go-size: 50px;
+  --go-color: var(--color-danger);
+  --go-speed: calc(1.1s * var(--loader-speed-scale));
+  width: var(--go-size); height: var(--go-size); position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.demo-gorbit-dot {
+  position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--go-color);
+  animation: d-gorbit-translate var(--go-speed) cubic-bezier(0.77, 0, 0.175, 1) var(--loader-cycles);
+}
+.demo-gorbit-dot:nth-child(1) { --offset: -20px; animation-delay: calc(var(--go-speed) * -0.4); }
+.demo-gorbit-dot:nth-child(2) { --offset: 0px; animation-delay: calc(var(--go-speed) * -0.2); }
+.demo-gorbit-dot:nth-child(3) { --offset: 20px; animation-delay: 0s; }
+@keyframes d-gorbit-translate {
+  0%, 100% { transform: translateX(var(--offset)) scale(1); filter: drop-shadow(0 0 0 transparent); }
+  50% { transform: translateX(calc(var(--offset) * -1)) scale(1.3); filter: drop-shadow(0 0 6px var(--go-color)); }
+}`,
+	},
+	{
+		id: "65",
+		name: "Viscous Wave",
+		category: "waves",
+		tags: ["liquid-blur","gooey-merging","fluid-waves"],
+		html: "<div class=\"demo-vwave\"><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-vwave {
+  --vw-size: 52px;
+  --vw-color: var(--color-primary);
+  --vw-speed: calc(1.5s * var(--loader-speed-scale));
+  width: var(--vw-size); height: var(--vw-size); position: relative;
+  filter: blur(4px) contrast(12);
+  display: flex; align-items: center; justify-content: space-around;
+}
+.demo-vwave span {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--vw-color);
+  animation: d-vwave-slide var(--vw-speed) ease-in-out infinite;
+}
+.demo-vwave span:nth-child(1) { animation-delay: 0s; }
+.demo-vwave span:nth-child(2) { animation-delay: calc(var(--vw-speed) * -0.25); }
+.demo-vwave span:nth-child(3) { animation-delay: calc(var(--vw-speed) * -0.5); }
+.demo-vwave span:nth-child(4) { animation-delay: calc(var(--vw-speed) * -0.75); }
+@keyframes d-vwave-slide {
+  0%, 100% { transform: translateY(-12px) scale(1); }
+  50% { transform: translateY(12px) scale(1.3); }
+}`,
+	},
+	{
+		id: "66",
+		name: "Magnetic Bars",
+		category: "waves",
+		tags: ["magnetic-fields","harmonic-bars","linear-scaling"],
+		html: "<div class=\"demo-mbars\"><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-mbars {
+  --mb-size: 48px; --mb-gap: 5px;
+  --mb-color: var(--color-primary);
+  --mb-speed: calc(1.1s * var(--loader-speed-scale));
+  width: var(--mb-size); height: var(--mb-size); display: flex;
+  align-items: center; justify-content: space-between; gap: var(--mb-gap);
+}
+.demo-mbars span {
+  flex: 1; height: 80%; border-radius: 4px;
+  background: var(--mb-color);
+  animation: d-mbars-scale var(--mb-speed) ease-in-out infinite;
+}
+.demo-mbars span:nth-child(1) { animation-delay: calc(var(--mb-speed) * -0.4); }
+.demo-mbars span:nth-child(2) { animation-delay: calc(var(--mb-speed) * -0.3); }
+.demo-mbars span:nth-child(3) { animation-delay: calc(var(--mb-speed) * -0.2); }
+.demo-mbars span:nth-child(4) { animation-delay: calc(var(--mb-speed) * -0.1); }
+.demo-mbars span:nth-child(5) { animation-delay: 0s; }
+@keyframes d-mbars-scale {
+  0%, 100% { transform: scaleY(0.25); opacity: 0.35; }
+  50% { transform: scaleY(1.0); opacity: 1; filter: brightness(1.2); }
+}`,
+	},
 ];

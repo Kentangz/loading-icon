@@ -1,0 +1,55 @@
+/**
+ * 62 · Folding Prism — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : 3D perspective folding concentric prism facets.
+ * Usage     : <div class="folding-prism" role="status" aria-label="Loading">
+ *               <span class="folding-prism__face"></span><span class="folding-prism__face"></span><span class="folding-prism__face"></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+.folding-prism {
+  --fp-size: 52px;
+  --fp-color: #7f77dd;
+  --fp-speed: 1.5s;
+  --fp-opacity: 0.95;
+
+  width: var(--fp-size);
+  height: var(--fp-size);
+  position: relative;
+  perspective: 200px;
+  transform-style: preserve-3d;
+  display: inline-flex;
+}
+.folding-prism__face {
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-top-color: var(--fp-color);
+  border-radius: 50%;
+  opacity: var(--fp-opacity);
+  animation: folding-prism-spin var(--fp-speed) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.folding-prism__face:nth-child(1) { --r: 0deg; animation-delay: calc(var(--fp-speed) * -0.4); }
+.folding-prism__face:nth-child(2) { --r: 120deg; animation-delay: calc(var(--fp-speed) * -0.2); }
+.folding-prism__face:nth-child(3) { --r: 240deg; animation-delay: 0s; }
+@keyframes folding-prism-spin {
+  0% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(0deg); }
+  100% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(360deg); }
+}
+.folding-prism--sm { --fp-size: 36px; }
+.folding-prism--md { --fp-size: 52px; }
+.folding-prism--lg { --fp-size: 68px; }
+.folding-prism--primary { --fp-color: #7f77dd; }
+.folding-prism--success { --fp-color: #1d9e75; }
+.folding-prism--warning { --fp-color: #ef9f27; }
+.folding-prism--danger  { --fp-color: #e24b4a; }
+.folding-prism--white   { --fp-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.folding-prism--fast { --fp-speed: 0.7s; }
+.folding-prism--slow { --fp-speed: 2.2s; }
+.folding-prism--soft { --fp-opacity: 0.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .folding-prism__face { animation: none; transform: rotateX(var(--r)) rotateY(var(--r)); }
+}
