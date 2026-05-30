@@ -11,8 +11,11 @@ Thank you for considering a contribution to LoadIcons! This document explains ho
 3. [Requesting a New Icon](#requesting-a-new-icon)
 4. [Submitting a Pull Request](#submitting-a-pull-request)
 5. [Icon File Conventions](#icon-file-conventions)
-6. [CSS Style Guide](#css-style-guide)
-7. [Checklist Before Opening a PR](#checklist-before-opening-a-pr)
+6. [Registry in loaders-data.js](#registry-in-loaders-datajs)
+7. [Uniqueness & Novelty Guidelines](#uniqueness--novelty-guidelines)
+8. [CSS Style Guide](#css-style-guide)
+9. [index.html Demo Conventions](#indexhtml-demo-conventions)
+10. [Checklist Before Opening a PR](#checklist-before-opening-a-pr)
 
 ---
 
@@ -100,7 +103,9 @@ To make the new icon show up in the main interactive dashboard, you must registe
 ```
 
 ### Interactive Preview CSS Guidelines
+
 The CSS inside [loaders-data.js](file:///c:/Users/Lenovo/VSC/GitHub/loading-icon/loaders-data.js) is used in the main dashboard customizer. To ensure it reacts dynamically to the sidebar sliders, you **must**:
+
 1. **Scale**: Use `var(--loader-size)` for dimensions, or scale the root element using `transform: scale(calc(var(--loader-size) / 32px)); transform-origin: center;` (if it relies on complex absolute positioning).
 2. **Speed**: Multiply all animation cycle durations by `var(--loader-speed-scale)` (e.g. `animation: spin calc(1s * var(--loader-speed-scale)) linear var(--loader-cycles);`).
 3. **Colors**: Map components to the system's global semantic palette variables:
@@ -118,6 +123,7 @@ The CSS inside [loaders-data.js](file:///c:/Users/Lenovo/VSC/GitHub/loading-icon
 To maintain a high-quality, creative, and diverse collection of loaders, **every new icon must be completely unique**. Duplicate layouts or clone designs will be rejected.
 
 ### What makes an icon unique?
+
 1. **Visual Shape**: The visual structure must be distinct. Do not submit minor variants of existing shapes (e.g., changing a 3-dot wave to a 4-dot wave is not unique).
 2. **Animation Technique**: The keyframe logic and properties animated (e.g., `clip-path`, `perspective`, 3D rotation, `stroke-dashoffset`) must use a different mechanical approach.
 3. **Motion Pattern & Timing**: The flow and speed-curves of the animation (e.g., staggered delay sequences, sinusoidal orbits, mechanical gears, physics-based squish) must look and feel completely different from existing icons.
@@ -127,7 +133,7 @@ Before designing, browse the existing catalog or check [loaders-data.js](file://
 
 ---
 
-## CSS Style Guide (for Standalone files in `icons/`)
+## CSS Style Guide
 
 ### 1. Expose every configurable value as a CSS Custom Property
 
