@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scanning Line — LoadIcons</title>
+  <link rel="stylesheet" href="scanning-line.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; max-width: 70ch; line-height: 1.5; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>69 · Scanning Line</h1>
+  <p class="sub">
+    A glowing gradient beam sweeps top-to-bottom inside a bordered container using box-shadow glow — evoking medical imaging or security scanners.
+  </p>
+
+  
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="scanning-line scanning-line--sm" role="status" aria-label="Loading"><span></span></div>
+      <span>sm · 36px</span>
+    </div>
+    <div class="demo-block">
+      <div class="scanning-line scanning-line--md" role="status" aria-label="Loading"><span></span></div>
+      <span>md · 48px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="scanning-line scanning-line--lg" role="status" aria-label="Loading"><span></span></div>
+      <span>lg · 64px</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="scanning-line scanning-line--primary" role="status" aria-label="Loading"><span></span></div><span>primary</span></div>
+    <div class="demo-block"><div class="scanning-line scanning-line--success" role="status" aria-label="Loading"><span></span></div><span>success</span></div>
+    <div class="demo-block"><div class="scanning-line scanning-line--warning" role="status" aria-label="Loading"><span></span></div><span>warning</span></div>
+    <div class="demo-block"><div class="scanning-line scanning-line--danger" role="status" aria-label="Loading"><span></span></div><span>danger</span></div>
+    <div class="demo-block dark-bg">
+      <div class="scanning-line scanning-line--white" role="status" aria-label="Loading"><span></span></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Modifier classes</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="scanning-line scanning-line--primary scanning-line--fast" role="status" aria-label="Loading"><span></span></div>
+      <span>Fast</span>
+    </div>
+    <div class="demo-block">
+      <div class="scanning-line scanning-line--primary scanning-line--slow" role="status" aria-label="Loading"><span></span></div>
+      <span>Slow</span>
+    </div>
+    <div class="demo-block">
+      <div class="scanning-line scanning-line--primary scanning-line--soft" role="status" aria-label="Loading"><span></span></div>
+      <span>No border</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="scanning-line" style="--sl-color:#06b6d4; --sl-size:56px;" role="status" aria-label="Loading"><span></span></div>
+      <span>Cyan scanner</span>
+    </div>
+    <div class="demo-block">
+      <div class="scanning-line" style="--sl-color:#ef4444; --sl-speed:0.6s;" role="status" aria-label="Loading"><span></span></div>
+      <span>Red alert</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import stylesheet --&gt;
+&lt;link rel="stylesheet" href="scanning-line.css" /&gt;
+
+&lt;!-- 2. Structure --&gt;
+&lt;div class="scanning-line" role="status" aria-label="Loading"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;</pre>
+</body>
+</html>

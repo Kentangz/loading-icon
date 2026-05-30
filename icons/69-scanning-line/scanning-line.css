@@ -1,0 +1,72 @@
+/**
+ * 69 · Scanning Line — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : A glowing gradient beam sweeps top-to-bottom
+ *             inside a bordered container with box-shadow glow
+ *             — evoking security scanners and medical imaging.
+ * Usage     : Apply `.scanning-line` to a <div> with 1 <span>.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.scanning-line {
+  --sl-size: 48px;
+  --sl-color: #7f77dd;
+  --sl-speed: 1.4s;
+
+  width: var(--sl-size);
+  height: var(--sl-size);
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1.5px solid color-mix(in srgb, var(--sl-color) 25%, transparent);
+  background: color-mix(in srgb, var(--sl-color) 5%, transparent);
+  display: inline-flex;
+}
+
+.scanning-line * {
+  box-sizing: border-box;
+}
+
+.scanning-line span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--sl-color) 40%,
+    #ffffff 50%,
+    var(--sl-color) 60%,
+    transparent 100%
+  );
+  box-shadow: 0 0 6px var(--sl-color), 0 0 14px var(--sl-color);
+  animation: scanning-line-sweep var(--sl-speed) ease-in-out infinite;
+}
+
+@keyframes scanning-line-sweep {
+  0%, 100% { top: 0; opacity: 1; }
+  48%       { top: calc(100% - 2px); opacity: 0.8; }
+  50%       { top: calc(100% - 2px); opacity: 0.6; }
+}
+
+/* ─── Size presets ─── */
+.scanning-line--sm { --sl-size: 36px; }
+.scanning-line--md { --sl-size: 48px; }
+.scanning-line--lg { --sl-size: 64px; }
+
+/* ─── Color presets ─── */
+.scanning-line--primary { --sl-color: #7f77dd; }
+.scanning-line--success { --sl-color: #1d9e75; }
+.scanning-line--warning { --sl-color: #ef9f27; }
+.scanning-line--danger  { --sl-color: #e24b4a; }
+.scanning-line--white   { --sl-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.scanning-line--fast { --sl-speed: 0.7s; }
+.scanning-line--slow { --sl-speed: 2.4s; }
+.scanning-line--soft { border-color: transparent; background: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  .scanning-line span { animation-play-state: paused; }
+}

@@ -1736,4 +1736,150 @@ const loaders = [
   50% { transform: scale(1.2); opacity: 1; filter: drop-shadow(0 0 4px var(--cs-color)); }
 }`,
 	},
+	{
+		id: "67",
+		name: "Spiral Coil",
+		category: "spinners",
+		tags: ["dual-arc","counter-rotation","coil-twist","spinners"],
+		html: "<div class=\"demo-scoil\"><span></span><span></span></div>",
+		css: `.demo-scoil {
+  --sc-size: 48px;
+  --sc-color: var(--color-primary);
+  --sc-speed: calc(1.2s * var(--loader-speed-scale));
+  width: var(--sc-size); height: var(--sc-size); position: relative;
+  display: inline-flex;
+}
+.demo-scoil span {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 3px solid transparent;
+  animation: d-scoil-spin var(--sc-speed) linear var(--loader-cycles);
+}
+.demo-scoil span:nth-child(1) {
+  border-top-color: var(--sc-color);
+  border-right-color: var(--sc-color);
+}
+.demo-scoil span:nth-child(2) {
+  border-bottom-color: var(--sc-color);
+  border-left-color: var(--sc-color);
+  animation-direction: reverse;
+  animation-duration: calc(var(--sc-speed) * 0.7);
+}
+@keyframes d-scoil-spin { to { transform: rotate(360deg); } }`,
+	},
+	{
+		id: "68",
+		name: "Orbit Chain",
+		category: "spinners",
+		tags: ["css-motion-path","orbit","chain-dots","spinners"],
+		html: "<div class=\"demo-ochain\"><span></span><span></span><span></span></div>",
+		css: `.demo-ochain {
+  --oc-size: 50px;
+  --oc-color: var(--color-primary);
+  --oc-speed: calc(1.5s * var(--loader-speed-scale));
+  width: var(--oc-size); height: var(--oc-size); position: relative;
+}
+.demo-ochain span {
+  position: absolute;
+  width: 18%; height: 18%; border-radius: 50%;
+  background: var(--oc-color);
+  offset-path: circle(38% at 50% 50%);
+  offset-distance: 0%;
+  animation: d-ochain-orbit var(--oc-speed) linear var(--loader-cycles);
+}
+.demo-ochain span:nth-child(1) { animation-delay: 0s; }
+.demo-ochain span:nth-child(2) { animation-delay: calc(var(--oc-speed) / -3); opacity: 0.6; }
+.demo-ochain span:nth-child(3) { animation-delay: calc(var(--oc-speed) * -2 / 3); opacity: 0.3; }
+@keyframes d-ochain-orbit { to { offset-distance: 100%; } }`,
+	},
+	{
+		id: "69",
+		name: "Scanning Line",
+		category: "special",
+		tags: ["scan","glow-line","security","special"],
+		html: "<div class=\"demo-scanl\"><span></span></div>",
+		css: `.demo-scanl {
+  --sl-size: 48px;
+  --sl-color: var(--color-primary);
+  --sl-speed: calc(1.4s * var(--loader-speed-scale));
+  width: var(--sl-size); height: var(--sl-size); position: relative;
+  overflow: hidden; border-radius: 6px;
+  border: 1.5px solid color-mix(in srgb, var(--sl-color) 25%, transparent);
+  background: color-mix(in srgb, var(--sl-color) 5%, transparent);
+}
+.demo-scanl span {
+  position: absolute; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--sl-color) 40%, #fff 50%, var(--sl-color) 60%, transparent 100%);
+  box-shadow: 0 0 6px var(--sl-color), 0 0 14px var(--sl-color);
+  animation: d-scanl-sweep var(--sl-speed) ease-in-out var(--loader-cycles);
+}
+@keyframes d-scanl-sweep {
+  0%, 100% { top: 0; opacity: 1; }
+  48% { top: calc(100% - 2px); opacity: 0.8; }
+  50% { top: calc(100% - 2px); opacity: 0.6; }
+}`,
+	},
+	{
+		id: "70",
+		name: "Morphing Blob",
+		category: "special",
+		tags: ["blob","organic","border-radius-morph","special"],
+		html: "<div class=\"demo-mblob\"></div>",
+		css: `.demo-mblob {
+  --mb-size: 44px;
+  --mb-color: var(--color-primary);
+  --mb-speed: calc(2.4s * var(--loader-speed-scale));
+  width: var(--mb-size); height: var(--mb-size);
+  background: var(--mb-color);
+  filter: drop-shadow(0 0 7px var(--mb-color));
+  animation: d-mblob-morph var(--mb-speed) ease-in-out var(--loader-cycles);
+}
+@keyframes d-mblob-morph {
+  0%, 100% { border-radius: 50%; transform: rotate(0deg) scale(1); }
+  20% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(72deg) scale(1.05); }
+  40% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(144deg) scale(0.93); }
+  60% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(216deg) scale(1.08); }
+  80% { border-radius: 70% 30% 50% 50% / 30% 70% 70% 30%; transform: rotate(288deg) scale(0.96); }
+}`,
+	},
+	{
+		id: "71",
+		name: "Bounce Shadow",
+		category: "special",
+		tags: ["physics","bounce","shadow","squash-stretch","special"],
+		html: "<div class=\"demo-bshd\"><span class=\"demo-bshd-ball\"></span><span class=\"demo-bshd-shadow\"></span></div>",
+		css: `.demo-bshd {
+  --bs-size: 50px;
+  --bs-color: var(--color-primary);
+  --bs-speed: calc(1.0s * var(--loader-speed-scale));
+  width: var(--bs-size); height: var(--bs-size); position: relative;
+  display: inline-flex;
+}
+.demo-bshd-ball {
+  position: absolute;
+  width: 28%; height: 28%; border-radius: 50%;
+  background: var(--bs-color);
+  left: 50%; bottom: 14%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 4px var(--bs-color));
+  animation: d-bshd-ball var(--bs-speed) cubic-bezier(0.215, 0.61, 0.355, 1) var(--loader-cycles);
+}
+.demo-bshd-shadow {
+  position: absolute;
+  width: 28%; height: 8%; border-radius: 50%;
+  background: var(--bs-color);
+  opacity: 0.22; left: 50%; bottom: 6%;
+  transform: translateX(-50%);
+  animation: d-bshd-shadow var(--bs-speed) ease-in-out var(--loader-cycles);
+}
+@keyframes d-bshd-ball {
+  0%, 100% { transform: translateX(-50%) scaleX(1.25) scaleY(0.75); }
+  15%       { transform: translateX(-50%) scaleX(1) scaleY(1); }
+  50%       { transform: translateX(-50%) translateY(-160%) scaleX(0.92) scaleY(1.08); }
+  85%       { transform: translateX(-50%) scaleX(1) scaleY(1); }
+}
+@keyframes d-bshd-shadow {
+  0%, 100% { transform: translateX(-50%) scaleX(1.2); opacity: 0.28; }
+  50%       { transform: translateX(-50%) scaleX(0.4); opacity: 0.08; }
+}`,
+	},
 ];

@@ -1,0 +1,86 @@
+/**
+ * 71 · Bounce Shadow — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Physics-based squash-and-stretch bounce using
+ *             translateY + scaleX/scaleY on the ball, paired
+ *             with an inverse-scale shadow element. Pure CSS
+ *             GPU-accelerated transforms — no layout cost.
+ * Usage     : Apply `.bounce-shadow` to a <div> with 2 <span>s
+ *             (.bounce-shadow__ball + .bounce-shadow__shadow).
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.bounce-shadow {
+  --bs-size: 50px;
+  --bs-color: #7f77dd;
+  --bs-speed: 1.0s;
+
+  width: var(--bs-size);
+  height: var(--bs-size);
+  position: relative;
+  display: inline-flex;
+}
+
+.bounce-shadow * {
+  box-sizing: border-box;
+}
+
+.bounce-shadow__ball {
+  position: absolute;
+  width: 28%;
+  height: 28%;
+  border-radius: 50%;
+  background: var(--bs-color);
+  left: 50%;
+  bottom: 14%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 4px var(--bs-color));
+  animation: bounce-shadow-ball var(--bs-speed) cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.bounce-shadow__shadow {
+  position: absolute;
+  width: 28%;
+  height: 8%;
+  border-radius: 50%;
+  background: var(--bs-color);
+  opacity: 0.22;
+  left: 50%;
+  bottom: 6%;
+  transform: translateX(-50%);
+  animation: bounce-shadow-shd var(--bs-speed) ease-in-out infinite;
+}
+
+@keyframes bounce-shadow-ball {
+  0%, 100% { transform: translateX(-50%) scaleX(1.25) scaleY(0.75); }
+  15%       { transform: translateX(-50%) scaleX(1) scaleY(1); }
+  50%       { transform: translateX(-50%) translateY(-160%) scaleX(0.92) scaleY(1.08); }
+  85%       { transform: translateX(-50%) scaleX(1) scaleY(1); }
+}
+
+@keyframes bounce-shadow-shd {
+  0%, 100% { transform: translateX(-50%) scaleX(1.2); opacity: 0.28; }
+  50%       { transform: translateX(-50%) scaleX(0.4); opacity: 0.08; }
+}
+
+/* ─── Size presets ─── */
+.bounce-shadow--sm { --bs-size: 36px; }
+.bounce-shadow--md { --bs-size: 50px; }
+.bounce-shadow--lg { --bs-size: 66px; }
+
+/* ─── Color presets ─── */
+.bounce-shadow--primary { --bs-color: #7f77dd; }
+.bounce-shadow--success { --bs-color: #1d9e75; }
+.bounce-shadow--warning { --bs-color: #ef9f27; }
+.bounce-shadow--danger  { --bs-color: #e24b4a; }
+.bounce-shadow--white   { --bs-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.bounce-shadow--fast { --bs-speed: 0.55s; }
+.bounce-shadow--slow { --bs-speed: 1.8s; }
+.bounce-shadow--soft { opacity: 0.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bounce-shadow__ball   { animation-play-state: paused; }
+  .bounce-shadow__shadow { animation-play-state: paused; }
+}

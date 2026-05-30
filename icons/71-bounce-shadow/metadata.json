@@ -1,0 +1,13 @@
+{
+  "name": "Bounce Shadow",
+  "category": "special",
+  "tags": [
+    "physics",
+    "bounce",
+    "shadow",
+    "squash-stretch",
+    "special"
+  ],
+  "html": "<div class=\"demo-bshd\"><span class=\"demo-bshd-ball\"></span><span class=\"demo-bshd-shadow\"></span></div>",
+  "css": ".demo-bshd {\n  --bs-size: 50px;\n  --bs-color: var(--color-primary);\n  --bs-speed: calc(1.0s * var(--loader-speed-scale));\n  width: var(--bs-size); height: var(--bs-size); position: relative;\n  display: inline-flex;\n}\n.demo-bshd-ball {\n  position: absolute;\n  width: 28%; height: 28%; border-radius: 50%;\n  background: var(--bs-color);\n  left: 50%; bottom: 14%;\n  transform: translateX(-50%);\n  filter: drop-shadow(0 0 4px var(--bs-color));\n  animation: d-bshd-ball var(--bs-speed) cubic-bezier(0.215, 0.61, 0.355, 1) var(--loader-cycles);\n}\n.demo-bshd-shadow {\n  position: absolute;\n  width: 28%; height: 8%; border-radius: 50%;\n  background: var(--bs-color);\n  opacity: 0.22; left: 50%; bottom: 6%;\n  transform: translateX(-50%);\n  animation: d-bshd-shadow var(--bs-speed) ease-in-out var(--loader-cycles);\n}\n@keyframes d-bshd-ball {\n  0%, 100% { transform: translateX(-50%) scaleX(1.25) scaleY(0.75); }\n  15%       { transform: translateX(-50%) scaleX(1) scaleY(1); }\n  50%       { transform: translateX(-50%) translateY(-160%) scaleX(0.92) scaleY(1.08); }\n  85%       { transform: translateX(-50%) scaleX(1) scaleY(1); }\n}\n@keyframes d-bshd-shadow {\n  0%, 100% { transform: translateX(-50%) scaleX(1.2); opacity: 0.28; }\n  50%       { transform: translateX(-50%) scaleX(0.4); opacity: 0.08; }\n}"
+}

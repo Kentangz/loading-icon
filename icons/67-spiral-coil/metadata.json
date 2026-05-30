@@ -1,0 +1,12 @@
+{
+  "name": "Spiral Coil",
+  "category": "spinners",
+  "tags": [
+    "dual-arc",
+    "counter-rotation",
+    "coil-twist",
+    "spinners"
+  ],
+  "html": "<div class=\"demo-scoil\"><span></span><span></span></div>",
+  "css": ".demo-scoil {\n  --sc-size: 48px;\n  --sc-color: var(--color-primary);\n  --sc-speed: calc(1.2s * var(--loader-speed-scale));\n  width: var(--sc-size); height: var(--sc-size); position: relative;\n  display: inline-flex;\n}\n.demo-scoil span {\n  position: absolute; inset: 0; border-radius: 50%;\n  border: 3px solid transparent;\n  animation: d-scoil-spin var(--sc-speed) linear var(--loader-cycles);\n}\n.demo-scoil span:nth-child(1) {\n  border-top-color: var(--sc-color);\n  border-right-color: var(--sc-color);\n}\n.demo-scoil span:nth-child(2) {\n  border-bottom-color: var(--sc-color);\n  border-left-color: var(--sc-color);\n  animation-direction: reverse;\n  animation-duration: calc(var(--sc-speed) * 0.7);\n}\n@keyframes d-scoil-spin { to { transform: rotate(360deg); } }"
+}
