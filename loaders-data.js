@@ -1877,4 +1877,143 @@ const loaders = [
   75%, 100% { opacity: 0.12; }
 }`,
 	},
+	{
+		id: "72",
+		name: "Kinetic Loom",
+		category: "spinners",
+		tags: ["geometric","minimal","slide","border"],
+		html: "<div class=\"demo-kloom\"><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-kloom {
+  width: 32px; height: 32px; position: relative;
+}
+.demo-kloom span {
+  position: absolute; background: var(--color-primary);
+}
+.demo-kloom span:nth-child(1) { top: 0; left: 0; height: 2px; width: 0; animation: kloom-top calc(1.6s * var(--loader-speed-scale)) ease-in-out infinite; }
+.demo-kloom span:nth-child(2) { top: 0; right: 0; width: 2px; height: 0; animation: kloom-right calc(1.6s * var(--loader-speed-scale)) ease-in-out infinite; animation-delay: calc(0.4s * var(--loader-speed-scale)); }
+.demo-kloom span:nth-child(3) { bottom: 0; right: 0; height: 2px; width: 0; animation: kloom-bottom calc(1.6s * var(--loader-speed-scale)) ease-in-out infinite; animation-delay: calc(0.8s * var(--loader-speed-scale)); }
+.demo-kloom span:nth-child(4) { bottom: 0; left: 0; width: 2px; height: 0; animation: kloom-left calc(1.6s * var(--loader-speed-scale)) ease-in-out infinite; animation-delay: calc(1.2s * var(--loader-speed-scale)); }
+@keyframes kloom-top { 0% { width: 0; left: 0; } 25% { width: 100%; left: 0; } 50% { width: 0; left: 100%; } 100% { width: 0; left: 100%; } }
+@keyframes kloom-right { 0% { height: 0; top: 0; } 25% { height: 100%; top: 0; } 50% { height: 0; top: 100%; } 100% { height: 0; top: 100%; } }
+@keyframes kloom-bottom { 0% { width: 0; right: 0; } 25% { width: 100%; right: 0; } 50% { width: 0; right: 100%; } 100% { width: 0; right: 100%; } }
+@keyframes kloom-left { 0% { height: 0; bottom: 0; } 25% { height: 100%; bottom: 0; } 50% { height: 0; bottom: 100%; } 100% { height: 0; bottom: 100%; } }`,
+	},
+	{
+		id: "73",
+		name: "Cellular Division",
+		category: "special",
+		tags: ["gooey","organic","scale","physics"],
+		html: "<div class=\"demo-cdiv\"><span></span><span></span></div>",
+		css: `.demo-cdiv {
+  width: 48px; height: 48px; position: relative;
+  filter: blur(4px) contrast(12); display: inline-flex; background: transparent;
+}
+.demo-cdiv span {
+  position: absolute; top: 16px; left: 16px; width: 16px; height: 16px;
+  border-radius: 50%; background: var(--color-success);
+}
+.demo-cdiv span:nth-child(1) {
+  animation: cdiv-left calc(1.8s * var(--loader-speed-scale)) ease-in-out infinite;
+}
+.demo-cdiv span:nth-child(2) {
+  animation: cdiv-right calc(1.8s * var(--loader-speed-scale)) ease-in-out infinite;
+}
+@keyframes cdiv-left {
+  0%, 100% { transform: translateX(0) scale(1.0); }
+  30% { transform: translateX(-8px) scale(1.2); }
+  60% { transform: translateX(-14px) scale(0.85); opacity: 0.9; }
+  80% { transform: translateX(-4px) scale(0.95); }
+}
+@keyframes cdiv-right {
+  0%, 100% { transform: translateX(0) scale(1.0); }
+  30% { transform: translateX(8px) scale(1.2); }
+  60% { transform: translateX(14px) scale(0.85); opacity: 0.9; }
+  80% { transform: translateX(4px) scale(0.95); }
+}`,
+	},
+	{
+		id: "74",
+		name: "Glitch Barcode",
+		category: "special",
+		tags: ["cyberpunk","flicker","minimal","glitch"],
+		html: "<div class=\"demo-gbar\"><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-gbar {
+  display: flex; gap: 4px; align-items: center; height: 32px;
+}
+.demo-gbar span {
+  width: 3px; height: 24px; background: var(--color-danger);
+  animation: gbar-anim calc(1.0s * var(--loader-speed-scale)) steps(4) infinite;
+}
+.demo-gbar span:nth-child(1) { height: 18px; animation-delay: calc(-0.15s * var(--loader-speed-scale)); }
+.demo-gbar span:nth-child(2) { width: 5px; height: 28px; animation-delay: calc(-0.35s * var(--loader-speed-scale)); }
+.demo-gbar span:nth-child(3) { height: 14px; animation-delay: calc(-0.05s * var(--loader-speed-scale)); }
+.demo-gbar span:nth-child(4) { width: 2px; height: 22px; animation-delay: calc(-0.55s * var(--loader-speed-scale)); }
+.demo-gbar span:nth-child(5) { height: 26px; animation-delay: calc(-0.25s * var(--loader-speed-scale)); }
+@keyframes gbar-anim {
+  0%, 100% { transform: scaleY(1) translateX(0); opacity: 1; }
+  20% { transform: scaleY(0.6) translateX(1px); opacity: 0.85; }
+  40% { transform: scaleY(1.1) translateX(-1px); opacity: 0.95; }
+  60% { transform: scaleY(0.4) translateX(2px); opacity: 0.75; }
+  80% { transform: scaleY(1.2) translateX(-2px); opacity: 1; }
+}`,
+	},
+	{
+		id: "75",
+		name: "Infinite Maze",
+		category: "special",
+		tags: ["translate","geometric","minimal","path"],
+		html: "<div class=\"demo-imaze\"><span></span></div>",
+		css: `.demo-imaze {
+  width: 32px; height: 32px; position: relative;
+  border: 2px solid rgba(127,119,221,0.15); border-radius: 4px;
+}
+.demo-imaze span {
+  position: absolute; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--color-primary); box-shadow: 0 0 8px var(--color-primary);
+  animation: imaze-anim calc(2.4s * var(--loader-speed-scale)) linear infinite;
+}
+@keyframes imaze-anim {
+  0% { top: -4px; left: -4px; }
+  25% { top: -4px; left: calc(100% - 2px); }
+  50% { top: calc(100% - 2px); left: calc(100% - 2px); }
+  75% { top: calc(100% - 2px); left: -4px; }
+  100% { top: -4px; left: -4px; }
+}`,
+	},
+	{
+		id: "76",
+		name: "Concentric Chevrons",
+		category: "waves",
+		tags: ["direction","arrows","stagger","progress"],
+		html: "<div class=\"demo-cchev\"><span></span><span></span><span></span></div>",
+		css: `.demo-cchev {
+  display: flex; gap: 6px; align-items: center; justify-content: center;
+}
+.demo-cchev span {
+  width: 8px; height: 8px; position: relative; display: block;
+}
+.demo-cchev span::before, .demo-cchev span::after {
+  content: ''; position: absolute; background: var(--color-warning);
+  border-radius: 2px;
+}
+.demo-cchev span::before {
+  width: 2px; height: 8px; top: 0; left: 1px;
+  transform: rotate(-45deg); transform-origin: top left;
+}
+.demo-cchev span::after {
+  width: 2px; height: 8px; bottom: 0; left: 1px;
+  transform: rotate(45deg); transform-origin: bottom left;
+}
+.demo-cchev span {
+  opacity: 0.15; transform: scale(0.9);
+  animation: cchev-anim calc(1.2s * var(--loader-speed-scale)) ease-in-out infinite;
+}
+.demo-cchev span:nth-child(2) { animation-delay: calc(0.2s * var(--loader-speed-scale)); }
+.demo-cchev span:nth-child(3) { animation-delay: calc(0.4s * var(--loader-speed-scale)); }
+@keyframes cchev-anim {
+  0%, 100% { opacity: 0.15; transform: scale(0.9); }
+  40% { opacity: 1.0; transform: scale(1.15); }
+  60% { opacity: 0.4; transform: scale(1.0); }
+}`,
+	},
 ];

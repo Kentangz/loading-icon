@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infinite Maze — LoadIcons</title>
+  <link rel="stylesheet" href="infinite-maze.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; max-width: 70ch; line-height: 1.5; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>75 · Infinite Maze</h1>
+  <p class="sub">
+    A square geometric maze indicator where a singular glowing dot seamlessly navigates around the perimeter, tracing a trailing path.
+  </p>
+
+  
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="infinite-maze infinite-maze--sm" role="status" aria-label="Loading"><span></span></div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="infinite-maze infinite-maze--md" role="status" aria-label="Loading"><span></span></div>
+      <span>md · 36px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="infinite-maze infinite-maze--lg" role="status" aria-label="Loading"><span></span></div>
+      <span>lg · 48px</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="infinite-maze infinite-maze--primary" role="status" aria-label="Loading"><span></span></div><span>primary</span></div>
+    <div class="demo-block"><div class="infinite-maze infinite-maze--success" role="status" aria-label="Loading"><span></span></div><span>success</span></div>
+    <div class="demo-block"><div class="infinite-maze infinite-maze--warning" role="status" aria-label="Loading"><span></span></div><span>warning</span></div>
+    <div class="demo-block"><div class="infinite-maze infinite-maze--danger" role="status" aria-label="Loading"><span></span></div><span>danger</span></div>
+    <div class="demo-block dark-bg">
+      <div class="infinite-maze infinite-maze--white" role="status" aria-label="Loading"><span></span></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Modifier classes</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="infinite-maze infinite-maze--primary infinite-maze--fast" role="status" aria-label="Loading"><span></span></div>
+      <span>fast</span>
+    </div>
+    <div class="demo-block">
+      <div class="infinite-maze infinite-maze--primary infinite-maze--slow" role="status" aria-label="Loading"><span></span></div>
+      <span>slow</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="infinite-maze" style="--im-color: #E24B4A; border-color: rgba(226,75,74,0.15)" role="status" aria-label="Loading"><span></span></div>
+      <span>Danger Red</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import stylesheet --&gt;
+&lt;link rel="stylesheet" href="infinite-maze.css" /&gt;
+
+&lt;!-- 2. Structure --&gt;
+&lt;div class="infinite-maze" role="status" aria-label="Loading"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;</pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "Concentric Chevrons",
+  "category": "waves",
+  "tags": [
+    "direction",
+    "arrows",
+    "stagger",
+    "progress"
+  ],
+  "html": "<div class=\"demo-cchev\"><span></span><span></span><span></span></div>",
+  "css": ".demo-cchev {\n  display: flex; gap: 6px; align-items: center; justify-content: center;\n}\n.demo-cchev span {\n  width: 8px; height: 8px; position: relative; display: block;\n}\n.demo-cchev span::before, .demo-cchev span::after {\n  content: ''; position: absolute; background: var(--color-warning);\n  border-radius: 2px;\n}\n.demo-cchev span::before {\n  width: 2px; height: 8px; top: 0; left: 1px;\n  transform: rotate(-45deg); transform-origin: top left;\n}\n.demo-cchev span::after {\n  width: 2px; height: 8px; bottom: 0; left: 1px;\n  transform: rotate(45deg); transform-origin: bottom left;\n}\n.demo-cchev span {\n  opacity: 0.15; transform: scale(0.9);\n  animation: cchev-anim calc(1.2s * var(--loader-speed-scale)) ease-in-out infinite;\n}\n.demo-cchev span:nth-child(2) { animation-delay: calc(0.2s * var(--loader-speed-scale)); }\n.demo-cchev span:nth-child(3) { animation-delay: calc(0.4s * var(--loader-speed-scale)); }\n@keyframes cchev-anim {\n  0%, 100% { opacity: 0.15; transform: scale(0.9); }\n  40% { opacity: 1.0; transform: scale(1.15); }\n  60% { opacity: 0.4; transform: scale(1.0); }\n}"
+}

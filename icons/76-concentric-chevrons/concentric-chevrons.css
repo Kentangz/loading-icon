@@ -1,0 +1,48 @@
+.concentric-chevrons {
+  --cc-size: 36px;
+  --cc-color: #EF9F27;
+  --cc-speed: 1.2s;
+  box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
+  gap: calc(var(--cc-size) * 0.16); height: var(--cc-size);
+}
+.concentric-chevrons * { box-sizing: border-box; }
+.concentric-chevrons span {
+  width: calc(var(--cc-size) * 0.22); height: calc(var(--cc-size) * 0.22);
+  position: relative; display: block; opacity: 0.15; transform: scale(0.9);
+  animation: concentric-chevrons-anim var(--cc-speed) ease-in-out infinite;
+}
+.concentric-chevrons span::before, .concentric-chevrons span::after {
+  content: ''; position: absolute; background: var(--cc-color);
+  border-radius: 2px;
+}
+.concentric-chevrons span::before {
+  width: 2px; height: 100%; top: 0; left: 12%;
+  transform: rotate(-45deg); transform-origin: top left;
+}
+.concentric-chevrons span::after {
+  width: 2px; height: 100%; bottom: 0; left: 12%;
+  transform: rotate(45deg); transform-origin: bottom left;
+}
+.concentric-chevrons span:nth-child(2) { animation-delay: calc(var(--cc-speed) * 0.16); }
+.concentric-chevrons span:nth-child(3) { animation-delay: calc(var(--cc-speed) * 0.32); }
+@keyframes concentric-chevrons-anim {
+  0%, 100% { opacity: 0.15; transform: scale(0.9); }
+  40% { opacity: 1.0; transform: scale(1.15); }
+  60% { opacity: 0.4; transform: scale(1.0); }
+}
+.concentric-chevrons--sm { --cc-size: 24px; }
+.concentric-chevrons--sm span::before, .concentric-chevrons--sm span::after { width: 1.5px; }
+.concentric-chevrons--md { --cc-size: 36px; }
+.concentric-chevrons--lg { --cc-size: 48px; }
+.concentric-chevrons--lg span::before, .concentric-chevrons--lg span::after { width: 3px; }
+.concentric-chevrons--primary { --cc-color: #7F77DD; }
+.concentric-chevrons--success { --cc-color: #1D9E75; }
+.concentric-chevrons--warning { --cc-color: #EF9F27; }
+.concentric-chevrons--danger  { --cc-color: #E24B4A; }
+.concentric-chevrons--white   { --cc-color: #ffffff; }
+.concentric-chevrons--fast { --cc-speed: 0.8s; }
+.concentric-chevrons--slow { --cc-speed: 2.0s; }
+.concentric-chevrons--soft { --cc-speed: 1.2s; }
+@media (prefers-reduced-motion: reduce) {
+  .concentric-chevrons span { animation: none; opacity: 0.8; transform: none; }
+}
