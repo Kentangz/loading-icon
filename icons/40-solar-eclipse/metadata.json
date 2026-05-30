@@ -1,0 +1,10 @@
+{
+  "name": "Solar Eclipse",
+  "category": "special",
+  "tags": [
+    "corona-gradient",
+    "mask"
+  ],
+  "html": "<div class=\"demo-seclipse\"><div class=\"demo-seclipse-corona\"></div><div class=\"demo-seclipse-occluder\"></div></div>",
+  "css": ".demo-seclipse { width: 32px; height: 32px; position: relative; }\n.demo-seclipse-corona {\n  position: absolute; inset: 0; border-radius: 50%;\n  background: conic-gradient(from 0deg, var(--color-warning) 0%, rgba(239,159,39,0.4) 25%, var(--color-warning) 50%, rgba(239,159,39,0.2) 75%, var(--color-warning) 100%);\n  filter: blur(3.8px); animation: ospin calc(2.5s * var(--loader-speed-scale)) linear var(--loader-cycles), declipse-f calc(2s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles) alternate;\n}\n.demo-seclipse-occluder {\n  position: absolute; inset: 3.8px; border-radius: 50%;\n  background: var(--surface); border: 0.8px solid rgba(239,159,39,0.25);\n  box-shadow: inset 0 0 5px rgba(0,0,0,0.4); animation: declipse-p calc(2.5s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles) alternate;\n}\n@keyframes declipse-f { from{filter:blur(3.8px) opacity(0.85)} to{filter:blur(4.5px) opacity(1)} }\n@keyframes declipse-p { from{transform:scale(1)} to{transform:scale(0.86)} }"
+}

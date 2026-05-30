@@ -1,0 +1,10 @@
+{
+  "name": "Dots Wave",
+  "category": "waves",
+  "tags": [
+    "translateY",
+    "stagger"
+  ],
+  "html": "<div class=\"demo-dots\"><span></span><span></span><span></span></div>",
+  "css": ".demo-dots { display: flex; gap: 5px; align-items: center; }\n.demo-dots span {\n  width: 7px; height: 7px; border-radius: 50%;\n  background: var(--color-success);\n  animation: wave calc(1.2s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-dots span:nth-child(2) { animation-delay: calc(.15s * var(--loader-speed-scale)); }\n.demo-dots span:nth-child(3) { animation-delay: calc(.30s * var(--loader-speed-scale)); }\n@keyframes wave {\n  0%,80%,100%{transform:translateY(0)}\n  40%{transform:translateY(-10px)}\n}"
+}

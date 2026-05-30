@@ -1,0 +1,10 @@
+{
+  "name": "Signal Beacons",
+  "category": "special",
+  "tags": [
+    "transmitter",
+    "half-ring-arcs"
+  ],
+  "html": "<div class=\"demo-sbeacons\"><span></span><span></span><span></span></div>",
+  "css": ".demo-sbeacons {\n  display: inline-flex; align-items: flex-end; justify-content: space-between;\n  width: 32px; height: 27px;\n}\n.demo-sbeacons span { display: block; position: relative; width: 7.6px; height: 100%; }\n.demo-sbeacons span::before {\n  content: ''; position: absolute; bottom: 0; left: calc(50% - 1.3px);\n  width: 2.6px; height: 2.6px; border-radius: 50%; background: var(--color-info);\n}\n.demo-sbeacons span::after {\n  content: ''; position: absolute; bottom: 1.3px; left: 0; width: 100%; height: 20px;\n  border: 1.3px solid var(--color-info); border-bottom: none;\n  border-radius: 50% 50% 0 0 / 100% 100% 0 0; transform-origin: bottom center;\n  transform: scale(0.1); opacity: 0; animation: dsbeacons-w calc(1.5s * var(--loader-speed-scale)) cubic-bezier(0.1, 0.8, 0.3, 1) var(--loader-cycles);\n}\n.demo-sbeacons span:nth-child(1)::after { animation-delay: 0s; }\n.demo-sbeacons span:nth-child(2)::after { animation-delay: calc(-0.5s * var(--loader-speed-scale)); }\n.demo-sbeacons span:nth-child(3)::after { animation-delay: calc(-1.0s * var(--loader-speed-scale)); }\n@keyframes dsbeacons-w { 0% { transform: scale(0.1); opacity: 0; } 15% { opacity: 1; } 100% { transform: scale(1.1); opacity: 0; } }"
+}

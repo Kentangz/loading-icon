@@ -1,0 +1,10 @@
+{
+  "name": "Sparkling Stars",
+  "category": "special",
+  "tags": [
+    "clip-star",
+    "sparkle"
+  ],
+  "html": "<div class=\"demo-sstars\"><span></span><span></span><span></span></div>",
+  "css": ".demo-sstars { width: 32px; height: 32px; position: relative; }\n.demo-sstars span {\n  position: absolute; background: var(--color-warning);\n  clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);\n  opacity: 0;\n}\n.demo-sstars span:nth-child(1) {\n  top: 10%; left: 10%; width: 45%; height: 45%;\n  animation: dstar-s calc(1.6s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-sstars span:nth-child(2) {\n  bottom: 12%; right: 12%; width: 48%; height: 48%;\n  animation: dstar-s calc(1.6s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles); animation-delay: calc(-0.53s * var(--loader-speed-scale));\n}\n.demo-sstars span:nth-child(3) {\n  top: 20%; right: 15%; width: 32%; height: 32%;\n  animation: dstar-s calc(1.6s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles); animation-delay: calc(-1.06s * var(--loader-speed-scale));\n}\n@keyframes dstar-s {\n  0% { transform: scale(0) rotate(0deg); opacity: 0; }\n  50% { transform: scale(1) rotate(90deg); opacity: 1; }\n  100% { transform: scale(0) rotate(180deg); opacity: 0; }\n}"
+}

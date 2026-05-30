@@ -1,0 +1,10 @@
+{
+  "name": "Honeycomb Pulse",
+  "category": "special",
+  "tags": [
+    "clip-path",
+    "grid-lattice"
+  ],
+  "html": "<div class=\"demo-honeycomb\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-honeycomb { position: relative; width: 38px; height: 38px; --dh-w: 10.6px; --dh-h: 12.1px; --dh-dy-l: 10.6px; --dh-dy-s: 5.3px; --dh-dx: 9.1px; }\n.demo-honeycomb span { position: absolute; width: var(--dh-w); height: var(--dh-h); background: var(--color-warning); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); animation: dhoney 1.5s ease-in-out var(--loader-cycles); }\n.demo-honeycomb span:nth-child(1) { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 0s; }\n.demo-honeycomb span:nth-child(2) { top: calc(50% - var(--dh-dy-l)); left: 50%; transform: translate(-50%, -50%); animation-delay: calc(-0.5s * var(--loader-speed-scale)); }\n.demo-honeycomb span:nth-child(3) { top: calc(50% - var(--dh-dy-s)); left: calc(50% + var(--dh-dx)); transform: translate(-50%, -50%); animation-delay: calc(-0.5s * var(--loader-speed-scale)); }\n.demo-honeycomb span:nth-child(4) { top: calc(50% + var(--dh-dy-s)); left: calc(50% + var(--dh-dx)); transform: translate(-50%, -50%); animation-delay: calc(-0.5s * var(--loader-speed-scale)); }\n.demo-honeycomb span:nth-child(5) { top: calc(50% + var(--dh-dy-l)); left: 50%; transform: translate(-50%, -50%); animation-delay: calc(-0.5s * var(--loader-speed-scale)); }\n.demo-honeycomb span:nth-child(6) { top: calc(50% + var(--dh-dy-s)); left: calc(50% - var(--dh-dx)); transform: translate(-50%, -50%); animation-delay: calc(-0.5s * var(--loader-speed-scale)); }\n.demo-honeycomb span:nth-child(7) { top: calc(50% - var(--dh-dy-s)); left: calc(50% - var(--dh-dx)); transform: translate(-50%, -50%); animation-delay: calc(-0.5s * var(--loader-speed-scale)); }\n@keyframes dhoney { 0%,100%{transform:translate(-50%,-50%) scale(0.7);opacity:0.3} 50%{transform:translate(-50%,-50%) scale(1.05);opacity:1} }"
+}

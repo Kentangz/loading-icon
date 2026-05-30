@@ -1,0 +1,10 @@
+{
+  "name": "Mesh Gears",
+  "category": "special",
+  "tags": [
+    "mechanical-teeth",
+    "gears"
+  ],
+  "html": "<div class=\"demo-gears\"><div class=\"demo-dgear demo-dgear--large\"><span></span><span></span><span></span><span></span></div><div class=\"demo-dgear demo-dgear--small\"><span></span><span></span><span></span><span></span></div></div>",
+  "css": ".demo-gears { position: relative; width: 50px; height: 36px; }\n.demo-dgear { position: absolute; border-radius: 50%; }\n.demo-dgear span { position: absolute; background: #BA7517; width: 4px; height: 100%; left: calc(50% - 2px); }\n.demo-dgear span:nth-child(1) { transform: rotate(0deg); }\n.demo-dgear span:nth-child(2) { transform: rotate(45deg); }\n.demo-dgear span:nth-child(3) { transform: rotate(90deg); }\n.demo-dgear span:nth-child(4) { transform: rotate(135deg); }\n.demo-dgear--large { width: 32px; height: 32px; animation: spin 3s linear var(--loader-cycles); }\n.demo-dgear--large::after { content: ''; position: absolute; inset: 3px; background: var(--surface); border: 3px solid #BA7517; border-radius: 50%; }\n.demo-dgear--small { width: 22px; height: 22px; bottom: 0; right: 0; animation: dgear-r calc(3s * 22 / 32 * var(--loader-speed-scale)) linear var(--loader-cycles); }\n.demo-dgear--small::after { content: ''; position: absolute; inset: 2.2px; background: var(--surface); border: 2.2px solid #BA7517; border-radius: 50%; }\n@keyframes dgear-r { from{transform:rotate(22deg)} to{transform:rotate(-338deg)} }"
+}

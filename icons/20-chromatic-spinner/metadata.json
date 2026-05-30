@@ -1,0 +1,10 @@
+{
+  "name": "Chromatic Spinner",
+  "category": "spinners",
+  "tags": [
+    "rainbow-conic",
+    "mask"
+  ],
+  "html": "<div class=\"demo-chromatic\"></div>",
+  "css": ".demo-chromatic {\n  width: 32px; height: 32px; border-radius: 50%;\n  background: conic-gradient(#e11d48, #ea580c, #eab308, #16a34a, #2563eb, #9333ea, #e11d48);\n  -webkit-mask: radial-gradient(farthest-side, transparent 28px, #000 29px);\n  mask: radial-gradient(farthest-side, transparent calc(100% - 3.5px - 0.5px), #000 calc(100% - 3.5px));\n  animation: spin 1s linear var(--loader-cycles);\n}"
+}

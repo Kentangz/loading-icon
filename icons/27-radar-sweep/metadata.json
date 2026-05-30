@@ -1,0 +1,10 @@
+{
+  "name": "Radar Sweep",
+  "category": "special",
+  "tags": [
+    "conic-gradient",
+    "sync-flash"
+  ],
+  "html": "<div class=\"demo-radar\"><div class=\"demo-radar-line\"></div><div class=\"demo-radar-blip demo-radar-blip--1\"></div><div class=\"demo-radar-blip demo-radar-blip--2\"></div></div>",
+  "css": ".demo-radar {\n  position: relative; width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--color-info);\n  background: rgba(55,138,221,0.04);\n}\n.demo-radar-line {\n  position: absolute; inset: 0; border-radius: 50%;\n  background: conic-gradient(from 0deg, var(--color-info) 0%, rgba(55,138,221,0.15) 30%, transparent 45%, transparent 100%);\n  animation: spin calc(2.2s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n.demo-radar-blip { position: absolute; width: 3.6px; height: 3.6px; background: var(--color-info); border-radius: 50%; opacity: 0; }\n.demo-radar-blip--1 { top: 22%; left: 68%; animation: dradar-f1 calc(2.2s * var(--loader-speed-scale)) linear var(--loader-cycles); }\n.demo-radar-blip--2 { top: 68%; left: 22%; animation: dradar-f2 calc(2.2s * var(--loader-speed-scale)) linear var(--loader-cycles); }\n@keyframes dradar-f1 { 0%,8%{opacity:0;transform:scale(0.6)} 14%{opacity:1;transform:scale(1.4);filter:drop-shadow(0 0 2px var(--color-info))} 30%{opacity:0.35;transform:scale(0.9)} 48%,100%{opacity:0;transform:scale(0.6)} }\n@keyframes dradar-f2 { 0%,58%{opacity:0;transform:scale(0.6)} 64%{opacity:1;transform:scale(1.4);filter:drop-shadow(0 0 2px var(--color-info))} 80%{opacity:0.35;transform:scale(0.9)} 96%,100%{opacity:0;transform:scale(0.6)} }"
+}

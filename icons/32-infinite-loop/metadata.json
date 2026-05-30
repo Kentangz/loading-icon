@@ -1,0 +1,9 @@
+{
+  "name": "Infinite Loop",
+  "category": "special",
+  "tags": [
+    "lemniscate-translation"
+  ],
+  "html": "<div class=\"demo-iloop\"><span></span><span></span><span></span></div>",
+  "css": ".demo-iloop { width: 32px; height: 16px; position: relative; }\n.demo-iloop span {\n  position: absolute; top: calc(50% - 2.5px); left: calc(50% - 2.5px);\n  width: 5px; height: 5px; border-radius: 50%; background: var(--color-success);\n  animation: diloop-p calc(2s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n.demo-iloop span:nth-child(1) { animation-delay: 0s; }\n.demo-iloop span:nth-child(2) { animation-delay: calc(-0.16s * var(--loader-speed-scale)); opacity: 0.7; }\n.demo-iloop span:nth-child(3) { animation-delay: calc(-0.32s * var(--loader-speed-scale)); opacity: 0.4; }\n@keyframes diloop-p {\n  0% { transform: translate(0, 0); }\n  12.5% { transform: translate(9px, -6px); }\n  25% { transform: translate(13px, 0); }\n  37.5% { transform: translate(9px, 6px); }\n  50% { transform: translate(0, 0); }\n  62.5% { transform: translate(-9px, -6px); }\n  75% { transform: translate(-13px, 0); }\n  87.5% { transform: translate(-9px, 6px); }\n  100% { transform: translate(0, 0); }\n}"
+}

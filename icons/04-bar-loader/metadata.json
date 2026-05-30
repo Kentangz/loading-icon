@@ -1,0 +1,10 @@
+{
+  "name": "Bar Loader",
+  "category": "waves",
+  "tags": [
+    "scaleY",
+    "stagger"
+  ],
+  "html": "<div class=\"demo-bars\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-bars { display: flex; gap: 3px; align-items: flex-end; height: 28px; }\n.demo-bars span {\n  display: block; width: 4px; height: 22px;\n  border-radius: 2px; background: var(--color-info);\n  transform-origin: bottom;\n  animation: bscale calc(1s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-bars span:nth-child(2) { animation-delay: calc(.1s * var(--loader-speed-scale)); }\n.demo-bars span:nth-child(3) { animation-delay: calc(.2s * var(--loader-speed-scale)); }\n.demo-bars span:nth-child(4) { animation-delay: calc(.3s * var(--loader-speed-scale)); }\n@keyframes bscale { 0%,100%{transform:scaleY(.35)} 50%{transform:scaleY(1)} }"
+}

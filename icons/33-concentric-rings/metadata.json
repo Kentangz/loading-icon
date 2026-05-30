@@ -1,0 +1,10 @@
+{
+  "name": "Concentric Rings",
+  "category": "spinners",
+  "tags": [
+    "split-arc",
+    "counter-rotations"
+  ],
+  "html": "<div class=\"demo-crings\"><span></span><span></span><span></span></div>",
+  "css": ".demo-crings { width: 32px; height: 32px; position: relative; display: inline-flex; align-items: center; justify-content: center; }\n.demo-crings span { position: absolute; border-radius: 50%; border: 1.3px solid transparent; }\n.demo-crings span:nth-child(1) {\n  width: 100%; height: 100%; border-top-color: var(--color-warning); border-bottom-color: var(--color-warning);\n  animation: ospin calc(2s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n.demo-crings span:nth-child(2) {\n  width: 68%; height: 68%; border-left-color: var(--color-warning); border-right-color: var(--color-warning);\n  animation: ospin-ccw calc(1.6s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n.demo-crings span:nth-child(3) {\n  width: 36%; height: 36%; border-top-color: var(--color-warning); border-bottom-color: var(--color-warning);\n  animation: ospin calc(1.2s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n@keyframes ospin-ccw { to { transform: rotate(-360deg); } }"
+}

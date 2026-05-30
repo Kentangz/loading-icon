@@ -1,0 +1,10 @@
+{
+  "name": "Shimmer Skeleton",
+  "category": "waves",
+  "tags": [
+    "bg-position",
+    "gradient"
+  ],
+  "html": "<div class=\"demo-skeleton\"><div class=\"demo-skel-line\"></div><div class=\"demo-skel-line\"></div><div class=\"demo-skel-line\"></div></div>",
+  "css": ".demo-skeleton { width: 90px; display: flex; flex-direction: column; gap: 5px; }\n.demo-skel-line {\n  height: 8px; border-radius: 3px;\n  background: linear-gradient(90deg, var(--border) 25%, var(--border-hover) 50%, var(--border) 75%);\n  background-size: 200% 100%;\n  animation: shimmer calc(1.5s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-skel-line:nth-child(2) { width: 75%; }\n.demo-skel-line:nth-child(3) { width: 50%; }\n@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }"
+}

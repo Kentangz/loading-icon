@@ -1,0 +1,10 @@
+{
+  "name": "Circular Progress",
+  "category": "spinners",
+  "tags": [
+    "SVG",
+    "stroke-dasharray"
+  ],
+  "html": "<div class=\"demo-circ\"><svg width=\"38\" height=\"38\" viewBox=\"0 0 44 44\" xmlns=\"http://www.w3.org/2000/svg\"><circle fill=\"none\" stroke=\"var(--border)\" stroke-width=\"3\" cx=\"22\" cy=\"22\" r=\"18\"/><circle fill=\"none\" stroke=\"#534AB7\" stroke-width=\"3\" stroke-linecap=\"round\" cx=\"22\" cy=\"22\" r=\"18\" pathLength=\"100\" stroke-dasharray=\"60 100\" stroke-dashoffset=\"25\"/></svg></div>",
+  "css": ".demo-circ svg {\n  animation: cspin calc(1.6s * var(--loader-speed-scale)) linear var(--loader-cycles);\n  transform-origin: center;\n}\n@keyframes cspin { from{transform:rotate(-90deg)} to{transform:rotate(270deg)} }"
+}

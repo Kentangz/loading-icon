@@ -117,6 +117,7 @@ folders.forEach((folder) => {
 
   const cssPath = path.join(folderPath, cssFile);
   const htmlPath = path.join(folderPath, "index.html");
+  const metadataPath = path.join(folderPath, "metadata.json");
 
   let integrityOk = true;
 
@@ -130,6 +131,26 @@ folders.forEach((folder) => {
     integrityOk = false;
   }
 
+  if (!fs.existsSync(metadataPath)) {
+    reportError(null, isHistorical, `Folder '${folder}' is missing 'metadata.json'`);
+    integrityOk = false;
+  } else {
+    try {
+      const raw = fs.readFileSync(metadataPath, "utf8");
+      const parsed = JSON.parse(raw);
+      const reqs = ["name", "category", "tags", "html", "css"];
+      reqs.forEach((r) => {
+        if (parsed[r] === undefined || parsed[r] === null || parsed[r] === "") {
+          reportError(metadataPath, isHistorical, `Metadata is missing required field: '${r}'`);
+          integrityOk = false;
+        }
+      });
+    } catch (e) {
+      reportError(metadataPath, isHistorical, `Invalid JSON in metadata.json: ${e.message}`);
+      integrityOk = false;
+    }
+  }
+
   if (integrityOk) {
     validatedIcons.push({
       id,
@@ -138,6 +159,7 @@ folders.forEach((folder) => {
       cssPath,
       htmlPath,
       cssFile,
+      metadataPath,
       isHistorical,
     });
   }

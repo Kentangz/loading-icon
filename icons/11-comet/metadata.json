@@ -1,0 +1,10 @@
+{
+  "name": "Comet",
+  "category": "spinners",
+  "tags": [
+    "conic-gradient",
+    "mask"
+  ],
+  "html": "<div class=\"demo-comet\"></div>",
+  "css": ".demo-comet {\n  width: 34px; height: 34px; border-radius: 50%;\n  background: conic-gradient(from 0deg, transparent 0%, var(--color-primary) 75%);\n  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3.5px - 0.5px), #000 calc(100% - 3.5px));\n  mask: radial-gradient(farthest-side, transparent calc(100% - 3.5px - 0.5px), #000 calc(100% - 3.5px));\n  animation: spin calc(.8s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}"
+}

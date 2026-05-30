@@ -1,0 +1,10 @@
+{
+  "name": "Orbit",
+  "category": "spinners",
+  "tags": [
+    "rotate",
+    "absolute-position"
+  ],
+  "html": "<div class=\"demo-orbit\"><div class=\"demo-orbit-ring\"><div class=\"demo-orbit-dot\"></div></div><div class=\"demo-orbit-core\"></div></div>",
+  "css": ".demo-orbit {\n  position: relative; width: 36px; height: 36px;\n  display: flex; align-items: center; justify-content: center;\n}\n.demo-orbit-ring {\n  position: absolute; inset: 0; border-radius: 50%;\n  border: 1.5px dashed rgba(239,159,39,.35);\n  animation: ospin calc(1.8s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n.demo-orbit-dot {\n  position: absolute; width: 7px; height: 7px; border-radius: 50%;\n  background: var(--color-warning); top: -3.5px; left: 50%; transform: translateX(-50%);\n}\n.demo-orbit-core { width: 9px; height: 9px; border-radius: 50%; background: #BA7517; }\n@keyframes ospin { to { transform: rotate(360deg); } }"
+}

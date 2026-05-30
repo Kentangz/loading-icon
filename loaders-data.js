@@ -1,11 +1,12 @@
 // DATA SOURCE FOR ALL LOADERS (EXTRACTED TO SEPARATE MODULAR REGISTRY)
+// Automatically compiled by node scripts/build-registry.js — DO NOT EDIT DIRECTLY
 const loaders = [
 	{
 		id: "01",
 		name: "Classic Spinner",
 		category: "spinners",
-		tags: ["border-trick", "rotate"],
-		html: `<div class="demo-spinner"></div>`,
+		tags: ["border-trick","rotate"],
+		html: "<div class=\"demo-spinner\"></div>",
 		css: `.demo-spinner {
   width: 32px; height: 32px;
   border: 3px solid var(--border);
@@ -19,8 +20,8 @@ const loaders = [
 		id: "02",
 		name: "Dots Wave",
 		category: "waves",
-		tags: ["translateY", "stagger"],
-		html: `<div class="demo-dots"><span></span><span></span><span></span></div>`,
+		tags: ["translateY","stagger"],
+		html: "<div class=\"demo-dots\"><span></span><span></span><span></span></div>",
 		css: `.demo-dots { display: flex; gap: 5px; align-items: center; }
 .demo-dots span {
   width: 7px; height: 7px; border-radius: 50%;
@@ -38,8 +39,8 @@ const loaders = [
 		id: "03",
 		name: "Pulse Ring",
 		category: "special",
-		tags: ["scale", "opacity", "pulse"],
-		html: `<div class="demo-pulse"></div>`,
+		tags: ["scale","opacity","pulse"],
+		html: "<div class=\"demo-pulse\"></div>",
 		css: `.demo-pulse {
   position: relative; width: 32px; height: 32px;
   display: flex; align-items: center; justify-content: center;
@@ -60,8 +61,8 @@ const loaders = [
 		id: "04",
 		name: "Bar Loader",
 		category: "waves",
-		tags: ["scaleY", "stagger"],
-		html: `<div class="demo-bars"><span></span><span></span><span></span><span></span></div>`,
+		tags: ["scaleY","stagger"],
+		html: "<div class=\"demo-bars\"><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-bars { display: flex; gap: 3px; align-items: flex-end; height: 28px; }
 .demo-bars span {
   display: block; width: 4px; height: 22px;
@@ -78,8 +79,8 @@ const loaders = [
 		id: "05",
 		name: "Orbit",
 		category: "spinners",
-		tags: ["rotate", "absolute-position"],
-		html: `<div class="demo-orbit"><div class="demo-orbit-ring"><div class="demo-orbit-dot"></div></div><div class="demo-orbit-core"></div></div>`,
+		tags: ["rotate","absolute-position"],
+		html: "<div class=\"demo-orbit\"><div class=\"demo-orbit-ring\"><div class=\"demo-orbit-dot\"></div></div><div class=\"demo-orbit-core\"></div></div>",
 		css: `.demo-orbit {
   position: relative; width: 36px; height: 36px;
   display: flex; align-items: center; justify-content: center;
@@ -100,8 +101,8 @@ const loaders = [
 		id: "06",
 		name: "Shimmer Skeleton",
 		category: "waves",
-		tags: ["bg-position", "gradient"],
-		html: `<div class="demo-skeleton"><div class="demo-skel-line"></div><div class="demo-skel-line"></div><div class="demo-skel-line"></div></div>`,
+		tags: ["bg-position","gradient"],
+		html: "<div class=\"demo-skeleton\"><div class=\"demo-skel-line\"></div><div class=\"demo-skel-line\"></div><div class=\"demo-skel-line\"></div></div>",
 		css: `.demo-skeleton { width: 90px; display: flex; flex-direction: column; gap: 5px; }
 .demo-skel-line {
   height: 8px; border-radius: 3px;
@@ -117,8 +118,8 @@ const loaders = [
 		id: "07",
 		name: "Typing Indicator",
 		category: "waves",
-		tags: ["bounce", "fade", "bubble"],
-		html: `<div class="demo-typing"><span></span><span></span><span></span></div>`,
+		tags: ["bounce","fade","bubble"],
+		html: "<div class=\"demo-typing\"><span></span><span></span><span></span></div>",
 		css: `.demo-typing {
   display: flex; gap: 4px; align-items: center;
   background: var(--surface); border: 1px solid var(--border);
@@ -138,8 +139,8 @@ const loaders = [
 		id: "08",
 		name: "Circular Progress",
 		category: "spinners",
-		tags: ["SVG", "stroke-dasharray"],
-		html: `<div class="demo-circ"><svg width="38" height="38" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="var(--border)" stroke-width="3" cx="22" cy="22" r="18"/><circle fill="none" stroke="#534AB7" stroke-width="3" stroke-linecap="round" cx="22" cy="22" r="18" pathLength="100" stroke-dasharray="60 100" stroke-dashoffset="25"/></svg></div>`,
+		tags: ["SVG","stroke-dasharray"],
+		html: "<div class=\"demo-circ\"><svg width=\"38\" height=\"38\" viewBox=\"0 0 44 44\" xmlns=\"http://www.w3.org/2000/svg\"><circle fill=\"none\" stroke=\"var(--border)\" stroke-width=\"3\" cx=\"22\" cy=\"22\" r=\"18\"/><circle fill=\"none\" stroke=\"#534AB7\" stroke-width=\"3\" stroke-linecap=\"round\" cx=\"22\" cy=\"22\" r=\"18\" pathLength=\"100\" stroke-dasharray=\"60 100\" stroke-dashoffset=\"25\"/></svg></div>",
 		css: `.demo-circ svg {
   animation: cspin calc(1.6s * var(--loader-speed-scale)) linear var(--loader-cycles);
   transform-origin: center;
@@ -150,8 +151,8 @@ const loaders = [
 		id: "09",
 		name: "Morphing Shape",
 		category: "special",
-		tags: ["border-radius", "rotate"],
-		html: `<div class="demo-morph"></div>`,
+		tags: ["border-radius","rotate"],
+		html: "<div class=\"demo-morph\"></div>",
 		css: `.demo-morph {
   width: 28px; height: 28px; background: #993C1D;
   animation: mshape calc(2s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
@@ -168,8 +169,8 @@ const loaders = [
 		id: "10",
 		name: "Split Ring",
 		category: "spinners",
-		tags: ["dual-arc", "border"],
-		html: `<div class="demo-split"></div>`,
+		tags: ["dual-arc","border"],
+		html: "<div class=\"demo-split\"></div>",
 		css: `.demo-split {
   width: 32px; height: 32px; border-radius: 50%;
   border: 3px solid transparent;
@@ -181,8 +182,8 @@ const loaders = [
 		id: "11",
 		name: "Comet",
 		category: "spinners",
-		tags: ["conic-gradient", "mask"],
-		html: `<div class="demo-comet"></div>`,
+		tags: ["conic-gradient","mask"],
+		html: "<div class=\"demo-comet\"></div>",
 		css: `.demo-comet {
   width: 34px; height: 34px; border-radius: 50%;
   background: conic-gradient(from 0deg, transparent 0%, var(--color-primary) 75%);
@@ -195,8 +196,8 @@ const loaders = [
 		id: "12",
 		name: "Folding Cube",
 		category: "3d",
-		tags: ["3D-rotate", "perspective"],
-		html: `<div class="demo-folding"><span></span><span></span><span></span><span></span></div>`,
+		tags: ["3D-rotate","perspective"],
+		html: "<div class=\"demo-folding\"><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-folding {
   width: 28px; height: 28px; position: relative;
   transform: rotateZ(45deg);
@@ -226,8 +227,8 @@ const loaders = [
 		id: "13",
 		name: "Fluid Metaballs",
 		category: "special",
-		tags: ["gooey-filter", "contrast"],
-		html: `<div class="demo-metaballs"><span></span><span></span><span></span></div>`,
+		tags: ["gooey-filter","contrast"],
+		html: "<div class=\"demo-metaballs\"><span></span><span></span><span></span></div>",
 		css: `.demo-metaballs {
   /* Match standalone icon: blur + contrast gooey */
   --metaballs-size: 44px;
@@ -255,8 +256,8 @@ const loaders = [
 		id: "14",
 		name: "DNA Helix",
 		category: "waves",
-		tags: ["stagger", "counter-phase"],
-		html: `<div class="demo-dna"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["stagger","counter-phase"],
+		html: "<div class=\"demo-dna\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-dna {
   --dna-width: 64px;
   --dna-height: 32px;
@@ -306,8 +307,8 @@ const loaders = [
 		id: "15",
 		name: "Atom Orbit",
 		category: "spinners",
-		tags: ["3D-spatial", "physics"],
-		html: `<div class="demo-aorbit"><div class="demo-aorbit__nucleus"></div><div class="demo-aorbit__ring demo-aorbit__ring--1"><div class="demo-aorbit__electron"></div></div><div class="demo-aorbit__ring demo-aorbit__ring--2"><div class="demo-aorbit__electron"></div></div><div class="demo-aorbit__ring demo-aorbit__ring--3"><div class="demo-aorbit__electron"></div></div></div>`,
+		tags: ["3D-spatial","physics"],
+		html: "<div class=\"demo-aorbit\"><div class=\"demo-aorbit__nucleus\"></div><div class=\"demo-aorbit__ring demo-aorbit__ring--1\"><div class=\"demo-aorbit__electron\"></div></div><div class=\"demo-aorbit__ring demo-aorbit__ring--2\"><div class=\"demo-aorbit__electron\"></div></div><div class=\"demo-aorbit__ring demo-aorbit__ring--3\"><div class=\"demo-aorbit__electron\"></div></div></div>",
 		css: `.demo-aorbit {
   --atom-size: 40px;
   --atom-color: var(--color-primary);
@@ -374,8 +375,8 @@ const loaders = [
 		id: "16",
 		name: "Sonar Ripple",
 		category: "special",
-		tags: ["scale", "concentric-waves"],
-		html: `<div class="demo-sonar"><span></span><span></span><span></span></div>`,
+		tags: ["scale","concentric-waves"],
+		html: "<div class=\"demo-sonar\"><span></span><span></span><span></span></div>",
 		css: `.demo-sonar { position: relative; width: 32px; height: 32px; }
 .demo-sonar::before { content: ''; position: absolute; top: 50%; left: 50%; width: 25%; height: 25%; background: var(--color-info); border-radius: 50%; transform: translate(-50%, -50%); }
 .demo-sonar span { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid var(--color-info); opacity: 0; animation: dsonar 1.6s linear var(--loader-cycles); }
@@ -387,8 +388,8 @@ const loaders = [
 		id: "17",
 		name: "Honeycomb Pulse",
 		category: "special",
-		tags: ["clip-path", "grid-lattice"],
-		html: `<div class="demo-honeycomb"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["clip-path","grid-lattice"],
+		html: "<div class=\"demo-honeycomb\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-honeycomb { position: relative; width: 38px; height: 38px; --dh-w: 10.6px; --dh-h: 12.1px; --dh-dy-l: 10.6px; --dh-dy-s: 5.3px; --dh-dx: 9.1px; }
 .demo-honeycomb span { position: absolute; width: var(--dh-w); height: var(--dh-h); background: var(--color-warning); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); animation: dhoney 1.5s ease-in-out var(--loader-cycles); }
 .demo-honeycomb span:nth-child(1) { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 0s; }
@@ -404,8 +405,8 @@ const loaders = [
 		id: "18",
 		name: "Matrix Fade",
 		category: "special",
-		tags: ["delay-grid", "opacity"],
-		html: `<div class="demo-matrix"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["delay-grid","opacity"],
+		html: "<div class=\"demo-matrix\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; width: 32px; height: 32px; }
 .demo-matrix span { background: var(--color-primary); border-radius: 50%; animation: dmatrix 1.2s ease-in-out var(--loader-cycles); }
 .demo-matrix span:nth-child(1) { animation-delay: 0s; }
@@ -419,8 +420,8 @@ const loaders = [
 		id: "19",
 		name: "Wandering Cubes",
 		category: "special",
-		tags: ["offset-track", "rotation"],
-		html: `<div class="demo-wandering"><span></span><span></span></div>`,
+		tags: ["offset-track","rotation"],
+		html: "<div class=\"demo-wandering\"><span></span><span></span></div>",
 		css: `.demo-wandering { position: relative; width: 32px; height: 32px; --dw-size: 9px; }
 .demo-wandering span { position: absolute; top: 0; left: 0; width: var(--dw-size); height: var(--dw-size); background: var(--color-success); animation: dwander 1.8s ease-in-out var(--loader-cycles); }
 .demo-wandering span:nth-child(2) { animation-delay: -.9s; }
@@ -436,8 +437,8 @@ const loaders = [
 		id: "20",
 		name: "Chromatic Spinner",
 		category: "spinners",
-		tags: ["rainbow-conic", "mask"],
-		html: `<div class="demo-chromatic"></div>`,
+		tags: ["rainbow-conic","mask"],
+		html: "<div class=\"demo-chromatic\"></div>",
 		css: `.demo-chromatic {
   width: 32px; height: 32px; border-radius: 50%;
   background: conic-gradient(#e11d48, #ea580c, #eab308, #16a34a, #2563eb, #9333ea, #e11d48);
@@ -450,8 +451,8 @@ const loaders = [
 		id: "21",
 		name: "Mesh Gears",
 		category: "special",
-		tags: ["mechanical-teeth", "gears"],
-		html: `<div class="demo-gears"><div class="demo-dgear demo-dgear--large"><span></span><span></span><span></span><span></span></div><div class="demo-dgear demo-dgear--small"><span></span><span></span><span></span><span></span></div></div>`,
+		tags: ["mechanical-teeth","gears"],
+		html: "<div class=\"demo-gears\"><div class=\"demo-dgear demo-dgear--large\"><span></span><span></span><span></span><span></span></div><div class=\"demo-dgear demo-dgear--small\"><span></span><span></span><span></span><span></span></div></div>",
 		css: `.demo-gears { position: relative; width: 50px; height: 36px; }
 .demo-dgear { position: absolute; border-radius: 50%; }
 .demo-dgear span { position: absolute; background: #BA7517; width: 4px; height: 100%; left: calc(50% - 2px); }
@@ -469,8 +470,8 @@ const loaders = [
 		id: "22",
 		name: "Particle Vortex",
 		category: "special",
-		tags: ["sinusoidal", "spiral-sweep"],
-		html: `<div class="demo-vortex"><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["sinusoidal","spiral-sweep"],
+		html: "<div class=\"demo-vortex\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-vortex { position: relative; width: 36px; height: 36px; }
 .demo-vortex span { position: absolute; top: 50%; left: 50%; width: 4px; height: 4px; background: var(--color-danger); border-radius: 50%; opacity: 0; animation: dvortex 2s var(--loader-cycles); }
 .demo-vortex span:nth-child(1) { animation-delay: 0s; }
@@ -490,8 +491,8 @@ const loaders = [
 		id: "23",
 		name: "Hourglass",
 		category: "special",
-		tags: ["drips-sand", "gravity-flip"],
-		html: `<div class="demo-hourglass"><div class="demo-hour-top"></div><div class="demo-hour-stream"></div><div class="demo-hour-bottom"></div></div>`,
+		tags: ["drips-sand","gravity-flip"],
+		html: "<div class=\"demo-hourglass\"><div class=\"demo-hour-top\"></div><div class=\"demo-hour-stream\"></div><div class=\"demo-hour-bottom\"></div></div>",
 		css: `.demo-hourglass {
   display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
   width: 32px; height: 32px; position: relative;
@@ -522,8 +523,8 @@ const loaders = [
 		id: "24",
 		name: "Page Flip",
 		category: "3d",
-		tags: ["3D-paper", "perspective"],
-		html: `<div class="demo-pflip"><span></span><span></span><span></span></div>`,
+		tags: ["3D-paper","perspective"],
+		html: "<div class=\"demo-pflip\"><span></span><span></span><span></span></div>",
 		css: `.demo-pflip { position: relative; width: 32px; height: 22px; perspective: 100px; }
 .demo-pflip::before { content: ''; position: absolute; inset: 0; border: 1.5px solid var(--color-success); border-radius: 2px; opacity: 0.28; }
 .demo-pflip::after { content: ''; position: absolute; top: 0; left: 50%; width: 1.5px; height: 100%; background: var(--color-success); transform: translateX(-50%); }
@@ -537,8 +538,8 @@ const loaders = [
 		id: "25",
 		name: "Squishy Ball",
 		category: "special",
-		tags: ["bounce-squash", "shadows"],
-		html: `<div class="demo-squish"><div class="demo-squish-sphere"></div><div class="demo-squish-shadow"></div></div>`,
+		tags: ["bounce-squash","shadows"],
+		html: "<div class=\"demo-squish\"><div class=\"demo-squish-sphere\"></div><div class=\"demo-squish-shadow\"></div></div>",
 		css: `.demo-squish { position: relative; width: 22px; height: 42px; }
 .demo-squish-sphere { position: absolute; top: 0; left: 0; width: 100%; height: 22px; background: var(--color-warning); border-radius: 50%; transform-origin: bottom center; animation: dsquish-b 1.1s var(--loader-cycles); }
 .demo-squish-shadow { position: absolute; bottom: 0; left: 10%; width: 80%; height: 3px; background: var(--color-warning); border-radius: 50%; opacity: 0.15; animation: dsquish-s 1.1s var(--loader-cycles); }
@@ -561,8 +562,8 @@ const loaders = [
 		id: "26",
 		name: "Warp Field",
 		category: "special",
-		tags: ["radial-vector", "translation"],
-		html: `<div class="demo-warp"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["radial-vector","translation"],
+		html: "<div class=\"demo-warp\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-warp { position: relative; width: 36px; height: 36px; }
 .demo-warp span { position: absolute; top: 50%; left: 50%; width: 3px; height: 3px; margin-top: -1.5px; margin-left: -1.5px; background: var(--color-danger); border-radius: 50%; opacity: 0; }
 .demo-warp span:nth-child(1) { transform: rotate(0deg); animation: dwarp-s0 1.4s var(--loader-cycles) linear; }
@@ -586,8 +587,8 @@ const loaders = [
 		id: "27",
 		name: "Radar Sweep",
 		category: "special",
-		tags: ["conic-gradient", "sync-flash"],
-		html: `<div class="demo-radar"><div class="demo-radar-line"></div><div class="demo-radar-blip demo-radar-blip--1"></div><div class="demo-radar-blip demo-radar-blip--2"></div></div>`,
+		tags: ["conic-gradient","sync-flash"],
+		html: "<div class=\"demo-radar\"><div class=\"demo-radar-line\"></div><div class=\"demo-radar-blip demo-radar-blip--1\"></div><div class=\"demo-radar-blip demo-radar-blip--2\"></div></div>",
 		css: `.demo-radar {
   position: relative; width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--color-info);
   background: rgba(55,138,221,0.04);
@@ -607,8 +608,8 @@ const loaders = [
 		id: "28",
 		name: "Matrix Rain",
 		category: "waves",
-		tags: ["waterfall", "glowing-fall"],
-		html: `<div class="demo-mrain"><span></span><span></span><span></span><span></span></div>`,
+		tags: ["waterfall","glowing-fall"],
+		html: "<div class=\"demo-mrain\"><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-mrain { display: inline-flex; justify-content: space-between; width: 32px; height: 28px; }
 .demo-mrain span { display: block; width: 3px; height: 100%; position: relative; }
 .demo-mrain span::before {
@@ -625,8 +626,8 @@ const loaders = [
 		id: "29",
 		name: "Gyro Spheres",
 		category: "3d",
-		tags: ["concentric-3D", "gyroscope"],
-		html: `<div class="demo-dgyro"><div class="demo-dgyro-ring demo-dgyro-ring--outer"></div><div class="demo-dgyro-ring demo-dgyro-ring--middle"></div><div class="demo-dgyro-ring demo-dgyro-ring--inner"></div><div class="demo-dgyro-nucleus"></div></div>`,
+		tags: ["concentric-3D","gyroscope"],
+		html: "<div class=\"demo-dgyro\"><div class=\"demo-dgyro-ring demo-dgyro-ring--outer\"></div><div class=\"demo-dgyro-ring demo-dgyro-ring--middle\"></div><div class=\"demo-dgyro-ring demo-dgyro-ring--inner\"></div><div class=\"demo-dgyro-nucleus\"></div></div>",
 		css: `.demo-dgyro { position: relative; width: 36px; height: 36px; perspective: 150px; transform-style: preserve-3d; }
 .demo-dgyro-ring { position: absolute; border-radius: 50%; border: 1.5px solid var(--color-warning); transform-style: preserve-3d; }
 .demo-dgyro-ring--outer { inset: 0; animation: dgyro-o calc(2.4s * var(--loader-speed-scale)) linear var(--loader-cycles); }
@@ -641,8 +642,8 @@ const loaders = [
 		id: "30",
 		name: "Heartbeat",
 		category: "special",
-		tags: ["EKG-double-pulse", "vital"],
-		html: `<div class="demo-hbeat"></div>`,
+		tags: ["EKG-double-pulse","vital"],
+		html: "<div class=\"demo-hbeat\"></div>",
 		css: `.demo-hbeat {
   position: relative; width: 22px; height: 22px; background: var(--color-danger); transform: rotate(-45deg);
   animation: dhbeat calc(1.2s * var(--loader-speed-scale)) var(--loader-cycles);
@@ -661,8 +662,8 @@ const loaders = [
 		id: "31",
 		name: "Pendulum Wave",
 		category: "waves",
-		tags: ["phase-drift", "horizontal"],
-		html: `<div class="demo-pwave"><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["phase-drift","horizontal"],
+		html: "<div class=\"demo-pwave\"><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-pwave { display: inline-flex; flex-direction: column; justify-content: space-between; width: 32px; height: 32px; }
 .demo-pwave span { display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--color-primary); }
 .demo-pwave span:nth-child(1) { animation: dpwave-s calc(1.5s * 0.8 * var(--loader-speed-scale)) ease-in-out var(--loader-cycles) alternate; }
@@ -677,7 +678,7 @@ const loaders = [
 		name: "Infinite Loop",
 		category: "special",
 		tags: ["lemniscate-translation"],
-		html: `<div class="demo-iloop"><span></span><span></span><span></span></div>`,
+		html: "<div class=\"demo-iloop\"><span></span><span></span><span></span></div>",
 		css: `.demo-iloop { width: 32px; height: 16px; position: relative; }
 .demo-iloop span {
   position: absolute; top: calc(50% - 2.5px); left: calc(50% - 2.5px);
@@ -703,8 +704,8 @@ const loaders = [
 		id: "33",
 		name: "Concentric Rings",
 		category: "spinners",
-		tags: ["split-arc", "counter-rotations"],
-		html: `<div class="demo-crings"><span></span><span></span><span></span></div>`,
+		tags: ["split-arc","counter-rotations"],
+		html: "<div class=\"demo-crings\"><span></span><span></span><span></span></div>",
 		css: `.demo-crings { width: 32px; height: 32px; position: relative; display: inline-flex; align-items: center; justify-content: center; }
 .demo-crings span { position: absolute; border-radius: 50%; border: 1.3px solid transparent; }
 .demo-crings span:nth-child(1) {
@@ -725,8 +726,8 @@ const loaders = [
 		id: "34",
 		name: "Waveform Audio",
 		category: "waves",
-		tags: ["symmetrical-sound", "vertical-scale"],
-		html: `<div class="demo-waudio"><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["symmetrical-sound","vertical-scale"],
+		html: "<div class=\"demo-waudio\"><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-waudio { display: inline-flex; align-items: center; justify-content: space-between; width: 32px; height: 22px; }
 .demo-waudio span {
   display: block; width: 4px; height: 100%; border-radius: 2px;
@@ -744,8 +745,8 @@ const loaders = [
 		id: "35",
 		name: "Breathing Ring",
 		category: "spinners",
-		tags: ["sinusoidal-scale", "glow"],
-		html: `<div class="demo-bring"></div>`,
+		tags: ["sinusoidal-scale","glow"],
+		html: "<div class=\"demo-bring\"></div>",
 		css: `.demo-bring {
   width: 32px; height: 32px; border-radius: 50%;
   border: 2.5px solid var(--color-primary); animation: dbring-p calc(2.2s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
@@ -759,8 +760,8 @@ const loaders = [
 		id: "36",
 		name: "Liquid Drop",
 		category: "special",
-		tags: ["gravity-fall", "ripple"],
-		html: `<div class="demo-ldrop"><div class="demo-ldrop-spout"></div><div class="demo-ldrop-drip"></div><div class="demo-ldrop-ripple"></div></div>`,
+		tags: ["gravity-fall","ripple"],
+		html: "<div class=\"demo-ldrop\"><div class=\"demo-ldrop-spout\"></div><div class=\"demo-ldrop-drip\"></div><div class=\"demo-ldrop-ripple\"></div></div>",
 		css: `.demo-ldrop { width: 32px; height: 38px; position: relative; }
 .demo-ldrop-spout {
   position: absolute; top: 0; left: calc(50% - 4px); width: 8px; height: 4px;
@@ -795,8 +796,8 @@ const loaders = [
 		id: "37",
 		name: "Hexagon Orbit",
 		category: "spinners",
-		tags: ["hexagonal-track", "trig"],
-		html: `<div class="demo-horbit"><span></span><span></span><span></span></div>`,
+		tags: ["hexagonal-track","trig"],
+		html: "<div class=\"demo-horbit\"><span></span><span></span><span></span></div>",
 		css: `.demo-horbit { width: 32px; height: 32px; position: relative; }
 .demo-horbit::before {
   content: ''; position: absolute; inset: 0; border: 0.8px dashed rgba(239,159,39,0.15);
@@ -824,8 +825,8 @@ const loaders = [
 		id: "38",
 		name: "Sparkling Stars",
 		category: "special",
-		tags: ["clip-star", "sparkle"],
-		html: `<div class="demo-sstars"><span></span><span></span><span></span></div>`,
+		tags: ["clip-star","sparkle"],
+		html: "<div class=\"demo-sstars\"><span></span><span></span><span></span></div>",
 		css: `.demo-sstars { width: 32px; height: 32px; position: relative; }
 .demo-sstars span {
   position: absolute; background: var(--color-warning);
@@ -854,8 +855,8 @@ const loaders = [
 		id: "39",
 		name: "Snake Chase",
 		category: "spinners",
-		tags: ["square-track", "delay-trailing"],
-		html: `<div class="demo-schase"><span></span><span></span><span></span><span></span></div>`,
+		tags: ["square-track","delay-trailing"],
+		html: "<div class=\"demo-schase\"><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-schase { width: 32px; height: 32px; position: relative; }
 .demo-schase::before {
   content: ''; position: absolute; inset: 3px;
@@ -881,8 +882,8 @@ const loaders = [
 		id: "40",
 		name: "Solar Eclipse",
 		category: "special",
-		tags: ["corona-gradient", "mask"],
-		html: `<div class="demo-seclipse"><div class="demo-seclipse-corona"></div><div class="demo-seclipse-occluder"></div></div>`,
+		tags: ["corona-gradient","mask"],
+		html: "<div class=\"demo-seclipse\"><div class=\"demo-seclipse-corona\"></div><div class=\"demo-seclipse-occluder\"></div></div>",
 		css: `.demo-seclipse { width: 32px; height: 32px; position: relative; }
 .demo-seclipse-corona {
   position: absolute; inset: 0; border-radius: 50%;
@@ -901,8 +902,8 @@ const loaders = [
 		id: "41",
 		name: "Pulsing Grid",
 		category: "waves",
-		tags: ["radial-delay", "grid-center"],
-		html: `<div class="demo-pgrid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["radial-delay","grid-center"],
+		html: "<div class=\"demo-pgrid\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-pgrid {
   display: inline-grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);
   gap: 3px; width: 32px; height: 32px;
@@ -922,8 +923,8 @@ const loaders = [
 		id: "42",
 		name: "Helix Tunnel",
 		category: "spinners",
-		tags: ["depth-rotation", "concentric"],
-		html: `<div class="demo-htunnel"><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["depth-rotation","concentric"],
+		html: "<div class=\"demo-htunnel\"><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-htunnel {
   width: 32px; height: 32px; position: relative;
   display: inline-flex; align-items: center; justify-content: center;
@@ -943,8 +944,8 @@ const loaders = [
 		id: "43",
 		name: "Elastic Line",
 		category: "waves",
-		tags: ["asymmetric-morph", "sweep"],
-		html: `<div class="demo-eline"></div>`,
+		tags: ["asymmetric-morph","sweep"],
+		html: "<div class=\"demo-eline\"></div>",
 		css: `.demo-eline {
   width: 32px; height: 3px; position: relative;
   background: rgba(226,75,74,0.12); border-radius: 1.5px; overflow: hidden;
@@ -965,8 +966,8 @@ const loaders = [
 		id: "44",
 		name: "Jumping Dots",
 		category: "waves",
-		tags: ["parabolic-squash", "bounce"],
-		html: `<div class="demo-jdots"><span></span><span></span><span></span></div>`,
+		tags: ["parabolic-squash","bounce"],
+		html: "<div class=\"demo-jdots\"><span></span><span></span><span></span></div>",
 		css: `.demo-jdots {
   display: inline-flex; align-items: flex-end; justify-content: space-between;
   width: 32px; height: 20px;
@@ -992,8 +993,8 @@ const loaders = [
 		id: "45",
 		name: "Newton's Cradle 3D",
 		category: "3d",
-		tags: ["kinetic-swing", "3D-isometric"],
-		html: `<div class="demo-cradle3d"><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["kinetic-swing","3D-isometric"],
+		html: "<div class=\"demo-cradle3d\"><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-cradle3d {
   display: inline-flex; justify-content: center; align-items: flex-start;
   width: 32px; height: 32px; position: relative;
@@ -1033,8 +1034,8 @@ const loaders = [
 		id: "46",
 		name: "Signal Beacons",
 		category: "special",
-		tags: ["transmitter", "half-ring-arcs"],
-		html: `<div class="demo-sbeacons"><span></span><span></span><span></span></div>`,
+		tags: ["transmitter","half-ring-arcs"],
+		html: "<div class=\"demo-sbeacons\"><span></span><span></span><span></span></div>",
 		css: `.demo-sbeacons {
   display: inline-flex; align-items: flex-end; justify-content: space-between;
   width: 32px; height: 27px;
@@ -1059,8 +1060,8 @@ const loaders = [
 		id: "47",
 		name: "Ticking Clock",
 		category: "special",
-		tags: ["quartz-stepped", "rotates"],
-		html: `<div class="demo-tclock"><div class="demo-tclock-hour"></div><div class="demo-tclock-minute"></div></div>`,
+		tags: ["quartz-stepped","rotates"],
+		html: "<div class=\"demo-tclock\"><div class=\"demo-tclock-hour\"></div><div class=\"demo-tclock-minute\"></div></div>",
 		css: `.demo-tclock {
   width: 32px; height: 32px; border: 2px solid var(--color-warning); border-radius: 50%;
   position: relative; display: inline-block;
@@ -1081,8 +1082,8 @@ const loaders = [
 		id: "48",
 		name: "Bouncing Cube 3D",
 		category: "3d",
-		tags: ["projection-rotation", "bounce"],
-		html: `<div class="demo-bcube"><div class="demo-bcube-cube"><div class="demo-bcube-face demo-bcube-face--top"></div><div class="demo-bcube-face demo-bcube-face--bottom"></div><div class="demo-bcube-face demo-bcube-face--front"></div><div class="demo-bcube-face demo-bcube-face--back"></div><div class="demo-bcube-face demo-bcube-face--left"></div><div class="demo-bcube-face demo-bcube-face--side"></div></div></div>`,
+		tags: ["projection-rotation","bounce"],
+		html: "<div class=\"demo-bcube\"><div class=\"demo-bcube-cube\"><div class=\"demo-bcube-face demo-bcube-face--top\"></div><div class=\"demo-bcube-face demo-bcube-face--bottom\"></div><div class=\"demo-bcube-face demo-bcube-face--front\"></div><div class=\"demo-bcube-face demo-bcube-face--back\"></div><div class=\"demo-bcube-face demo-bcube-face--left\"></div><div class=\"demo-bcube-face demo-bcube-face--side\"></div></div></div>",
 		css: `.demo-bcube {
   width: 32px; height: 42px; position: relative; perspective: 128px; display: inline-block;
 }
@@ -1123,8 +1124,8 @@ const loaders = [
 		id: "49",
 		name: "Digital Segment",
 		category: "special",
-		tags: ["7-segment-LED", "cycle"],
-		html: `<div class="demo-dsegment"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["7-segment-LED","cycle"],
+		html: "<div class=\"demo-dsegment\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-dsegment {
   width: 18px; height: 32px; position: relative; display: inline-block;
   transform: skewX(-10deg); --thick: 2.8px;
@@ -1160,8 +1161,8 @@ const loaders = [
 		id: "50",
 		name: "Perspective Tunnel",
 		category: "spinners",
-		tags: ["flythrough-zoom", "concentric"],
-		html: `<div class="demo-ptunnel"><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["flythrough-zoom","concentric"],
+		html: "<div class=\"demo-ptunnel\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-ptunnel {
   width: 54px; height: 54px; position: relative;
   display: flex; align-items: center; justify-content: center;
@@ -1190,8 +1191,8 @@ const loaders = [
 		id: "51",
 		name: "Prism Orbit",
 		category: "special",
-		tags: ["orbital-flip", "triple-tile"],
-		html: `<div class="demo-prismorbit"><span></span><span></span><span></span></div>`,
+		tags: ["orbital-flip","triple-tile"],
+		html: "<div class=\"demo-prismorbit\"><span></span><span></span><span></span></div>",
 		css: `.demo-prismorbit {
   --po-size: 52px; --po-tile: calc(var(--po-size) * 0.24); --po-radius: calc(var(--po-size) * 0.28);
   width: var(--po-size); height: var(--po-size); position: relative; display: inline-grid; place-items: center;
@@ -1219,8 +1220,8 @@ const loaders = [
 		id: "52",
 		name: "Barcode Sweep",
 		category: "waves",
-		tags: ["scanline", "stagger-bars"],
-		html: `<div class="demo-bcodesweep"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["scanline","stagger-bars"],
+		html: "<div class=\"demo-bcodesweep\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-bcodesweep {
   --bs-w: 56px; --bs-h: 34px; --bs-gap: 3px;
   width: var(--bs-w); height: var(--bs-h); position: relative;
@@ -1259,8 +1260,8 @@ const loaders = [
 		id: "53",
 		name: "Corner Chase",
 		category: "spinners",
-		tags: ["border-brackets", "quadrant-steps"],
-		html: `<div class="demo-cchase"><span></span><span></span><span></span><span></span></div>`,
+		tags: ["border-brackets","quadrant-steps"],
+		html: "<div class=\"demo-cchase\"><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-cchase {
   --cc-size: 44px;
   --cc-corner: calc(var(--cc-size) * 0.26);
@@ -1303,8 +1304,8 @@ const loaders = [
 		id: "54",
 		name: "Shard Flip",
 		category: "3d",
-		tags: ["radial-shards", "3d-flip"],
-		html: `<div class="demo-sflip"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["radial-shards","3d-flip"],
+		html: "<div class=\"demo-sflip\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-sflip {
   --sf-size: 44px;
   --sf-w: calc(var(--sf-size) * 0.10);
@@ -1354,8 +1355,8 @@ const loaders = [
 		id: "55",
 		name: "Shutter Bloom",
 		category: "special",
-		tags: ["iris-blades", "staggered-bloom"],
-		html: `<div class="demo-shutter"><span></span><span></span><span></span><span></span><span></span><span></span></div>`,
+		tags: ["iris-blades","staggered-bloom"],
+		html: "<div class=\"demo-shutter\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-shutter {
   --sb-size: 44px;
   --sb-w: calc(var(--sb-size) * 0.16);

@@ -1,0 +1,10 @@
+{
+  "name": "Classic Spinner",
+  "category": "spinners",
+  "tags": [
+    "border-trick",
+    "rotate"
+  ],
+  "html": "<div class=\"demo-spinner\"></div>",
+  "css": ".demo-spinner {\n  width: 32px; height: 32px;\n  border: 3px solid var(--border);\n  border-top-color: var(--color-primary);\n  border-radius: 50%;\n  animation: spin calc(0.8s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n@keyframes spin { to { transform: rotate(360deg); } }"
+}
