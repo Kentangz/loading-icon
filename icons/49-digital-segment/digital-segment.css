@@ -185,3 +185,12 @@
 .digital-segment--danger  { --segment-color: #E24B4A; }
 .digital-segment--white   { --segment-color: #ffffff; }
 .digital-segment--dark    { --segment-color: #2C2C2A; }
+
+/* ─── Modifier presets ─── */
+.digital-segment--fast { --segment-speed: 2s; }
+.digital-segment--slow { --segment-speed: 8s; }
+.digital-segment--soft span { opacity: 0.2; filter: none; }
+.digital-segment--high-contrast span {
+  opacity: 0.12;
+  filter: drop-shadow(0 0 calc(var(--segment-size) * 0.04) color-mix(in srgb, var(--segment-color) 65%, transparent));
+}

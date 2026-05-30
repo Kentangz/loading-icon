@@ -1,0 +1,126 @@
+/**
+ * 51 · Prism Orbit
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Triple-tile orbital motion with 3D flip.
+ *             Three tiles rotate around the center while each tile
+ *             performs an additional local flip, creating a prism-like
+ *             orbital shimmer effect.
+ *
+ * Usage     : <div class="prism-orbit" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.prism-orbit {
+  /* === SIZE === */
+  --po-size: 52px;
+  --po-tile-size: calc(var(--po-size) * 0.24);
+  --po-radius: calc(var(--po-size) * 0.28);
+
+  /* === COLOR === */
+  --po-color: #7f77dd;
+  --po-shadow: color-mix(in srgb, var(--po-color) 45%, transparent);
+
+  /* === ANIMATION === */
+  --po-speed: 1.35s;
+  --po-flip-speed: calc(var(--po-speed) * 0.9);
+  --po-ease: cubic-bezier(0.42, 0, 0.58, 1);
+
+  /* === MODIFIER HELPERS === */
+  --po-direction: 1;
+  --po-opacity: 0.92;
+  --po-blur: 0px;
+
+  width: var(--po-size);
+  height: var(--po-size);
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  transform-style: preserve-3d;
+}
+
+.prism-orbit span {
+  position: absolute;
+  width: var(--po-tile-size);
+  height: var(--po-tile-size);
+  border-radius: 6px;
+  background: var(--po-color);
+  opacity: var(--po-opacity);
+  filter: blur(var(--po-blur)) drop-shadow(0 0 6px var(--po-shadow));
+  transform-origin: center center;
+  animation:
+    po-orbit var(--po-speed) linear infinite,
+    po-flip var(--po-flip-speed) var(--po-ease) infinite;
+}
+
+.prism-orbit span:nth-child(1) { --po-phase: 0deg; }
+.prism-orbit span:nth-child(2) { --po-phase: 120deg; }
+.prism-orbit span:nth-child(3) { --po-phase: 240deg; }
+
+.prism-orbit span:nth-child(1),
+.prism-orbit span:nth-child(2),
+.prism-orbit span:nth-child(3) {
+  animation-delay:
+    calc(var(--po-speed) * (var(--po-phase) / -360deg)),
+    calc(var(--po-flip-speed) * (var(--po-phase) / -360deg));
+}
+
+@keyframes po-orbit {
+  from {
+    transform:
+      rotate(calc(0deg + (var(--po-phase) * var(--po-direction))))
+      translateY(calc(var(--po-radius) * -1))
+      rotate(calc(0deg - (var(--po-phase) * var(--po-direction))));
+  }
+  to {
+    transform:
+      rotate(calc(360deg * var(--po-direction) + (var(--po-phase) * var(--po-direction))))
+      translateY(calc(var(--po-radius) * -1))
+      rotate(calc(-360deg * var(--po-direction) - (var(--po-phase) * var(--po-direction))));
+  }
+}
+
+@keyframes po-flip {
+  0%, 100% {
+    border-radius: 6px;
+    scale: 1;
+    filter: blur(var(--po-blur)) drop-shadow(0 0 6px var(--po-shadow));
+  }
+  50% {
+    border-radius: 3px;
+    scale: 0.72;
+    filter: blur(var(--po-blur)) drop-shadow(0 0 10px var(--po-shadow));
+  }
+}
+
+/* ─── Size presets ─── */
+.prism-orbit--sm { --po-size: 38px; }
+.prism-orbit--md { --po-size: 52px; }
+.prism-orbit--lg { --po-size: 74px; }
+
+/* ─── Color presets ─── */
+.prism-orbit--primary { --po-color: #7f77dd; }
+.prism-orbit--success { --po-color: #1d9e75; }
+.prism-orbit--warning { --po-color: #ef9f27; }
+.prism-orbit--danger  { --po-color: #e24b4a; }
+.prism-orbit--white   { --po-color: #ffffff; }
+.prism-orbit--dark    { --po-color: #2c2c2a; }
+
+/* ─── Modifier presets ─── */
+.prism-orbit--fast { --po-speed: 0.9s; }
+.prism-orbit--slow { --po-speed: 2s; }
+.prism-orbit--reverse { --po-direction: -1; }
+.prism-orbit--soft {
+  --po-opacity: 0.65;
+  --po-blur: 0.4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prism-orbit span {
+    animation: none;
+  }
+  .prism-orbit span:nth-child(1) { transform: translateY(calc(var(--po-radius) * -1)); }
+  .prism-orbit span:nth-child(2) { transform: rotate(120deg) translateY(calc(var(--po-radius) * -1)); }
+  .prism-orbit span:nth-child(3) { transform: rotate(240deg) translateY(calc(var(--po-radius) * -1)); }
+}

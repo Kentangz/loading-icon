@@ -107,3 +107,9 @@
   --circ-color:       #ffffff;
   --circ-track-color: rgba(255,255,255,0.25);
 }
+
+/* ─── Modifier presets ─── */
+.circ-progress--fast    { --circ-speed: 0.9s; }
+.circ-progress--slow    { --circ-speed: 2.4s; }
+.circ-progress--soft    { --circ-color: #a8a29e; --circ-track-color: #ece9e6; }
+.circ-progress--reverse .circ-progress__svg { animation-direction: reverse; }

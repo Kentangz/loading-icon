@@ -116,3 +116,12 @@
     --skeleton-shine: #3a3a3a;
   }
 }
+
+/* ─── Modifier presets ─── */
+.skeleton--fast    { --skeleton-speed: 0.9s; }
+.skeleton--slow    { --skeleton-speed: 2.4s; }
+.skeleton--soft    { --skeleton-base: #e7e5e4; --skeleton-shine: #f5f5f4; }
+.skeleton--reverse .skeleton__line,
+.skeleton--reverse .skeleton__circle,
+.skeleton--reverse .skeleton__block,
+.skeleton--reverse .skeleton__avatar { animation-direction: reverse; }

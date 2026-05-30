@@ -1,0 +1,107 @@
+/**
+ * 53 · Corner Chase
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Four corner brackets chase around a square path.
+ *             Each corner animates via discrete quadrant steps while
+ *             scaling slightly to create a kinetic “tracking” feel.
+ *
+ * Usage     : <div class="corner-chase" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.corner-chase {
+  /* === SIZE === */
+  --cc-size: 56px;
+  --cc-corner: calc(var(--cc-size) * 0.26);
+  --cc-thickness: calc(var(--cc-size) * 0.06);
+  --cc-radius: calc(var(--cc-size) * 0.08);
+
+  /* === COLOR === */
+  --cc-color: #7f77dd;
+  --cc-dim: color-mix(in srgb, var(--cc-color) 25%, transparent);
+
+  /* === ANIMATION === */
+  --cc-speed: 1.2s;
+
+  /* === MODIFIER HELPERS === */
+  --cc-opacity: 0.95;
+  --cc-direction: 1;
+
+  width: var(--cc-size);
+  height: var(--cc-size);
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.corner-chase span {
+  position: absolute;
+  width: var(--cc-corner);
+  height: var(--cc-corner);
+  border-radius: var(--cc-radius);
+  opacity: var(--cc-opacity);
+  box-sizing: border-box;
+  border: var(--cc-thickness) solid var(--cc-color);
+  filter: drop-shadow(0 0 calc(var(--cc-size) * 0.07) var(--cc-dim));
+  animation: cc-chase var(--cc-speed) steps(4) infinite;
+}
+
+/* Create a corner bracket by removing two sides per quadrant */
+.corner-chase span:nth-child(1) { border-right-color: transparent; border-bottom-color: transparent; }
+.corner-chase span:nth-child(2) { border-left-color: transparent;  border-bottom-color: transparent; }
+.corner-chase span:nth-child(3) { border-left-color: transparent;  border-top-color: transparent; }
+.corner-chase span:nth-child(4) { border-right-color: transparent; border-top-color: transparent; }
+
+/* Phase offsets so corners chase each other */
+.corner-chase span:nth-child(1) { animation-delay: calc(var(--cc-speed) * -0 / 4); }
+.corner-chase span:nth-child(2) { animation-delay: calc(var(--cc-speed) * -1 / 4); }
+.corner-chase span:nth-child(3) { animation-delay: calc(var(--cc-speed) * -2 / 4); }
+.corner-chase span:nth-child(4) { animation-delay: calc(var(--cc-speed) * -3 / 4); }
+
+@keyframes cc-chase {
+  0% {
+    transform: translate(0, 0) scale(0.92);
+  }
+  25% {
+    transform: translate(calc((var(--cc-size) - var(--cc-corner)) * var(--cc-direction)), 0) scale(1);
+  }
+  50% {
+    transform: translate(calc((var(--cc-size) - var(--cc-corner)) * var(--cc-direction)), calc(var(--cc-size) - var(--cc-corner))) scale(0.92);
+  }
+  75% {
+    transform: translate(0, calc(var(--cc-size) - var(--cc-corner))) scale(1);
+  }
+  100% {
+    transform: translate(0, 0) scale(0.92);
+  }
+}
+
+/* ─── Size presets ─── */
+.corner-chase--sm { --cc-size: 40px; }
+.corner-chase--md { --cc-size: 56px; }
+.corner-chase--lg { --cc-size: 80px; }
+
+/* ─── Color presets ─── */
+.corner-chase--primary { --cc-color: #7f77dd; }
+.corner-chase--success { --cc-color: #1d9e75; }
+.corner-chase--warning { --cc-color: #ef9f27; }
+.corner-chase--danger  { --cc-color: #e24b4a; }
+.corner-chase--white   { --cc-color: #ffffff; }
+.corner-chase--dark    { --cc-color: #2c2c2a; }
+
+/* ─── Modifier presets ─── */
+.corner-chase--fast { --cc-speed: 0.8s; }
+.corner-chase--slow { --cc-speed: 1.8s; }
+.corner-chase--reverse { --cc-direction: -1; }
+.corner-chase--soft { --cc-opacity: 0.6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .corner-chase span { animation: none; opacity: 0.45; }
+  .corner-chase span:nth-child(1) { transform: translate(0, 0); }
+  .corner-chase span:nth-child(2) { transform: translate(calc(var(--cc-size) - var(--cc-corner)), 0); }
+  .corner-chase span:nth-child(3) { transform: translate(calc(var(--cc-size) - var(--cc-corner)), calc(var(--cc-size) - var(--cc-corner))); }
+  .corner-chase span:nth-child(4) { transform: translate(0, calc(var(--cc-size) - var(--cc-corner))); }
+}
+

@@ -1,0 +1,136 @@
+/**
+ * 52 · Barcode Sweep
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Staggered barcode bars + horizontal scanline sweep.
+ *             Multiple bars pulse with slight phase offsets while a
+ *             glowing scanline travels left-to-right like a scanner.
+ *
+ * Usage     : <div class="barcode-sweep" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span>
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.barcode-sweep {
+  /* === SIZE === */
+  --bs-width: 56px;
+  --bs-height: 34px;
+  --bs-gap: 3px;
+  --bs-radius: 2px;
+
+  /* === COLOR === */
+  --bs-color: #1d9e75;
+  --bs-beam: color-mix(in srgb, var(--bs-color) 35%, #ffffff);
+
+  /* === ANIMATION === */
+  --bs-speed: 1s;
+  --bs-scan-speed: 1.6s;
+  --bs-ease: ease-in-out;
+
+  /* === MODIFIER HELPERS === */
+  --bs-opacity-min: 0.2;
+  --bs-opacity-max: 0.95;
+  --bs-direction: 1;
+
+  width: var(--bs-width);
+  height: var(--bs-height);
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--bs-gap);
+}
+
+.barcode-sweep span {
+  flex: 1 1 0;
+  border-radius: var(--bs-radius);
+  background: var(--bs-color);
+  opacity: var(--bs-opacity-min);
+  transform-origin: bottom center;
+  animation: bs-bars var(--bs-speed) var(--bs-ease) infinite;
+}
+
+.barcode-sweep::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 35%;
+  left: -35%;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--bs-beam) 30%, transparent) 45%,
+      color-mix(in srgb, var(--bs-beam) 90%, transparent) 50%,
+      color-mix(in srgb, var(--bs-beam) 30%, transparent) 55%,
+      transparent 100%
+    );
+  mix-blend-mode: screen;
+  animation: bs-scan var(--bs-scan-speed) linear infinite;
+}
+
+.barcode-sweep span:nth-child(1) { animation-delay: 0s; }
+.barcode-sweep span:nth-child(2) { animation-delay: calc(var(--bs-speed) * -0.09); }
+.barcode-sweep span:nth-child(3) { animation-delay: calc(var(--bs-speed) * -0.18); }
+.barcode-sweep span:nth-child(4) { animation-delay: calc(var(--bs-speed) * -0.27); }
+.barcode-sweep span:nth-child(5) { animation-delay: calc(var(--bs-speed) * -0.36); }
+.barcode-sweep span:nth-child(6) { animation-delay: calc(var(--bs-speed) * -0.45); }
+.barcode-sweep span:nth-child(7) { animation-delay: calc(var(--bs-speed) * -0.54); }
+
+@keyframes bs-bars {
+  0%, 100% {
+    transform: scaleY(0.35);
+    opacity: var(--bs-opacity-min);
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: var(--bs-opacity-max);
+  }
+}
+
+@keyframes bs-scan {
+  0% {
+    left: calc(-35% * var(--bs-direction));
+    opacity: 0;
+  }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% {
+    left: calc(100% * var(--bs-direction));
+    opacity: 0;
+  }
+}
+
+/* ─── Size presets ─── */
+.barcode-sweep--sm { --bs-width: 40px; --bs-height: 24px; --bs-gap: 2px; }
+.barcode-sweep--md { --bs-width: 56px; --bs-height: 34px; --bs-gap: 3px; }
+.barcode-sweep--lg { --bs-width: 76px; --bs-height: 44px; --bs-gap: 4px; }
+
+/* ─── Color presets ─── */
+.barcode-sweep--primary { --bs-color: #7f77dd; }
+.barcode-sweep--success { --bs-color: #1d9e75; }
+.barcode-sweep--warning { --bs-color: #ef9f27; }
+.barcode-sweep--danger  { --bs-color: #e24b4a; }
+.barcode-sweep--white   { --bs-color: #ffffff; }
+.barcode-sweep--dark    { --bs-color: #2c2c2a; }
+
+/* ─── Modifier presets ─── */
+.barcode-sweep--fast { --bs-speed: 0.72s; --bs-scan-speed: 1.1s; }
+.barcode-sweep--slow { --bs-speed: 1.6s; --bs-scan-speed: 2.2s; }
+.barcode-sweep--reverse { --bs-direction: -1; }
+.barcode-sweep--subtle {
+  --bs-opacity-min: 0.12;
+  --bs-opacity-max: 0.62;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barcode-sweep span,
+  .barcode-sweep::after {
+    animation: none;
+  }
+  .barcode-sweep span:nth-child(odd)  { transform: scaleY(0.55); opacity: 0.4; }
+  .barcode-sweep span:nth-child(even) { transform: scaleY(0.8); opacity: 0.65; }
+}

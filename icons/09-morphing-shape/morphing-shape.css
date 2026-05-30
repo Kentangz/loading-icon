@@ -89,3 +89,9 @@
   --morph-size:  64px;
   --morph-speed: 3s;
 }
+
+/* ─── Modifier presets ─── */
+.morph--fast    { --morph-speed: 1s; }
+.morph--slow    { --morph-speed: 3s; }
+.morph--soft    { --morph-color: #a8a29e; --morph-scale-min: 0.9; }
+.morph--reverse { animation-direction: reverse; }

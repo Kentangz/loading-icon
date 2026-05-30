@@ -108,3 +108,9 @@
   --orbit-dot-color:  #E24B4A;
   --orbit-ring-color: rgba(163,45,45,0.25);
 }
+
+/* ─── Modifier presets ─── */
+.orbit--fast    { --orbit-speed: 0.9s; }
+.orbit--slow    { --orbit-speed: 3s; }
+.orbit--soft    { --orbit-core-color: #a8a29e; --orbit-dot-color: #d6d3d1; --orbit-ring-color: rgba(168,162,158,0.3); }
+.orbit--reverse .orbit__ring { animation-direction: reverse; }

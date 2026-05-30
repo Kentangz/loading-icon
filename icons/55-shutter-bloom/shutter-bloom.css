@@ -1,0 +1,150 @@
+/**
+ * 55 · Shutter Bloom
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Iris shutter blades (6) with staggered open/close.
+ *             Each blade scales outward while fading, producing a
+ *             camera-shutter / aperture bloom effect. Pure CSS.
+ *
+ * Usage     : <div class="shutter-bloom" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.shutter-bloom {
+  /* === SIZE === */
+  --sb-size: 56px;
+  --sb-blade-w: calc(var(--sb-size) * 0.16);
+  --sb-blade-h: calc(var(--sb-size) * 0.46);
+  --sb-radius: calc(var(--sb-size) * 0.18);
+  --sb-round: calc(var(--sb-size) * 0.06);
+
+  /* === COLOR === */
+  --sb-color: #7f77dd;
+  --sb-glow: color-mix(in srgb, var(--sb-color) 30%, transparent);
+
+  /* === ANIMATION === */
+  --sb-speed: 1.15s;
+  --sb-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --sb-spin: calc(var(--sb-speed) * 2.2);
+
+  /* === MODIFIER HELPERS === */
+  --sb-opacity: 0.92;
+  --sb-direction: 1;
+
+  width: var(--sb-size);
+  height: var(--sb-size);
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+.shutter-bloom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, transparent 40%, color-mix(in srgb, var(--sb-color) 12%, transparent) 70%, transparent 100%);
+  opacity: 0.9;
+  pointer-events: none;
+  animation: sb-rotate var(--sb-spin) linear infinite;
+}
+
+.shutter-bloom span {
+  position: absolute;
+  width: var(--sb-blade-w);
+  height: var(--sb-blade-h);
+  border-radius: var(--sb-round);
+  background: var(--sb-color);
+  opacity: var(--sb-opacity);
+  filter: drop-shadow(0 0 calc(var(--sb-size) * 0.1) var(--sb-glow));
+  transform-origin: 50% calc(100% - var(--sb-round));
+  clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+  animation: sb-bloom var(--sb-speed) var(--sb-ease) infinite;
+}
+
+.shutter-bloom span:nth-child(1) { --a: 0deg; }
+.shutter-bloom span:nth-child(2) { --a: 60deg; }
+.shutter-bloom span:nth-child(3) { --a: 120deg; }
+.shutter-bloom span:nth-child(4) { --a: 180deg; }
+.shutter-bloom span:nth-child(5) { --a: 240deg; }
+.shutter-bloom span:nth-child(6) { --a: 300deg; }
+
+.shutter-bloom span {
+  transform:
+    rotate(var(--a))
+    translateY(calc(var(--sb-radius) * -1))
+    rotate(calc(-1 * var(--a)));
+}
+
+.shutter-bloom span:nth-child(1) { animation-delay: calc(var(--sb-speed) * -0 / 6); }
+.shutter-bloom span:nth-child(2) { animation-delay: calc(var(--sb-speed) * -1 / 6); }
+.shutter-bloom span:nth-child(3) { animation-delay: calc(var(--sb-speed) * -2 / 6); }
+.shutter-bloom span:nth-child(4) { animation-delay: calc(var(--sb-speed) * -3 / 6); }
+.shutter-bloom span:nth-child(5) { animation-delay: calc(var(--sb-speed) * -4 / 6); }
+.shutter-bloom span:nth-child(6) { animation-delay: calc(var(--sb-speed) * -5 / 6); }
+
+@keyframes sb-bloom {
+  0% {
+    opacity: 0.22;
+    transform:
+      rotate(var(--a))
+      translateY(calc(var(--sb-radius) * -1))
+      rotate(calc(-1 * var(--a)))
+      rotateZ(calc(0deg * var(--sb-direction)))
+      scaleY(0.72);
+  }
+  50% {
+    opacity: 1;
+    transform:
+      rotate(var(--a))
+      translateY(calc(var(--sb-radius) * -1))
+      rotate(calc(-1 * var(--a)))
+      rotateZ(calc(18deg * var(--sb-direction)))
+      scaleY(1);
+  }
+  100% {
+    opacity: 0.22;
+    transform:
+      rotate(var(--a))
+      translateY(calc(var(--sb-radius) * -1))
+      rotate(calc(-1 * var(--a)))
+      rotateZ(calc(36deg * var(--sb-direction)))
+      scaleY(0.72);
+  }
+}
+
+@keyframes sb-rotate {
+  to { transform: rotate(calc(360deg * var(--sb-direction))); }
+}
+
+/* ─── Size presets ─── */
+.shutter-bloom--sm { --sb-size: 40px; }
+.shutter-bloom--md { --sb-size: 56px; }
+.shutter-bloom--lg { --sb-size: 80px; }
+
+/* ─── Color presets ─── */
+.shutter-bloom--primary { --sb-color: #7f77dd; }
+.shutter-bloom--success { --sb-color: #1d9e75; }
+.shutter-bloom--warning { --sb-color: #ef9f27; }
+.shutter-bloom--danger  { --sb-color: #e24b4a; }
+.shutter-bloom--white   { --sb-color: #ffffff; }
+.shutter-bloom--dark    { --sb-color: #2c2c2a; }
+
+/* ─── Modifier presets ─── */
+.shutter-bloom--fast { --sb-speed: 0.82s; }
+.shutter-bloom--slow { --sb-speed: 1.9s; }
+.shutter-bloom--reverse { --sb-direction: -1; }
+.shutter-bloom--soft { --sb-opacity: 0.6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .shutter-bloom::before,
+  .shutter-bloom span {
+    animation: none;
+    opacity: 0.45;
+  }
+}
+

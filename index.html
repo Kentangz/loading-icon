@@ -1,1682 +1,1363 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LoadIcons — 50 Reusable CSS Loading Icons</title>
-  <meta name="description" content="50 lightweight, dependency-free CSS loading icons, each fully customizable via CSS Custom Properties." />
+  <title>LoadIcons — 55 Reusable CSS Loading Icons</title>
+  <meta name="description" content="55 lightweight, dependency-free CSS loading icons, each fully customizable via CSS Custom Properties." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  
   <style>
+    /* ════════════════ DESIGN SYSTEM TOKENS ════════════════ */
     :root {
-      --bg:      #f9f9f7;
+      /* Dark Theme (Default) - Monochrome / Neutral */
+      --bg: #09090b;
+      --surface: #121214;
+      --surface-hover: #1c1c21;
+      --border: #232326;
+      --border-hover: #353539;
+      --border-focus: #71717a;
+      --text-primary: #f4f4f5;
+      --text-muted: #8e8e93;
+      --accent: #f4f4f5;
+      --accent-hover: #ffffff;
+      --accent-dim: rgba(244, 244, 245, 0.12);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --font-sans: 'Outfit', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      /* Global Customizer Variables */
+      --loader-size: 32px;
+      --loader-speed-scale: 1; /* Multiplier for speed, 1 is normal, lower is faster, higher is slower in calc() */
+      --loader-cycles: infinite;
+      
+      /* Dynamic Color Presets mapped to neutral shades */
+      --color-primary: #f4f4f5;
+      --color-success: #e4e4e7;
+      --color-warning: #a1a1aa;
+      --color-danger: #d4d4d8;
+      --color-info: #e4e4e7;
+    }
+
+    [data-theme="light"] {
+      /* Light Theme - Monochrome / Neutral */
+      --bg: #f8f9fa;
       --surface: #ffffff;
-      --border:  #e8e8e5;
-      --text:    #1a1a1a;
-      --muted:   #888884;
-      --accent:  #534AB7;
-      --radius:  12px;
+      --surface-hover: #f3f4f6;
+      --border: #e4e4e7;
+      --border-hover: #d4d4d8;
+      --border-focus: #71717a;
+      --text-primary: #09090b;
+      --text-muted: #71717a;
+      --accent: #09090b;
+      --accent-hover: #18181b;
+      --accent-dim: rgba(9, 9, 11, 0.08);
+
+      /* Dynamic Color Presets mapped to neutral shades */
+      --color-primary: #09090b;
+      --color-success: #18181b;
+      --color-warning: #52525b;
+      --color-danger: #27272a;
+      --color-info: #18181b;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg:      #111110;
-        --surface: #1c1c1a;
-        --border:  #2e2e2b;
-        --text:    #f0f0ec;
-        --muted:   #666660;
-      }
+
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family:  system-ui, -apple-system, sans-serif;
-      background:   var(--bg);
-      color:        var(--text);
-      padding:      3rem 2rem;
-      max-width:    920px;
-      margin:       0 auto;
-      line-height:  1.6;
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      display: flex;
+      min-height: 100vh;
     }
 
-    /* ── Header ── */
-    header { margin-bottom: 3rem; }
-    .logo  { font-size: 1.75rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: .4rem; }
-    .logo span { color: var(--accent); }
-    .tagline { color: var(--muted); font-size: .9rem; max-width: 520px; }
-    .badges  { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem; }
-    .badge {
-      font-size: .7rem; font-weight: 500;
-      padding:   3px 10px; border-radius: 20px;
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: var(--radius-sm);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--border-hover);
+    }
+
+    /* ════════════════ LAYOUT ════════════════ */
+    
+    /* Sidebar */
+    aside {
+      width: 320px;
+      background-color: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 2.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      overflow-y: auto;
+    }
+
+    /* Main Content Area */
+    main {
+      flex: 1;
+      margin-left: 320px;
+      padding: 2.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      min-width: 0; /* Prevent flex blowouts */
+    }
+
+    /* ════════════════ SIDEBAR COMPONENTS ════════════════ */
+    
+    /* Brand logo & tagline */
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .logo {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .logo span {
+      color: var(--accent);
+    }
+    .tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Group styling */
+    .sidebar-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .sidebar-group-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    /* Sliders */
+    .control-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .control-label-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .control-value {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    /* Custom range sliders styling */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--border);
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    /* Color Swatches Grid */
+    .color-presets {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+    }
+    .color-swatch {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .color-swatch:hover {
+      transform: scale(1.15);
+    }
+    .color-swatch.active {
+      border-color: var(--text-primary);
+    }
+    .color-swatch::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: var(--swatch-color);
+    }
+
+    /* Navigation Pills */
+    .nav-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .nav-pill {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 0.85rem;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .nav-pill:hover {
+      background-color: var(--surface-hover);
+      color: var(--text-primary);
+    }
+    .nav-pill.active {
+      background-color: var(--accent-dim);
+      color: var(--accent);
+    }
+    .nav-pill-count {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--border);
+      padding: 2px 6px;
+      border-radius: 10px;
+      color: var(--text-muted);
+    }
+    .nav-pill.active .nav-pill-count {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* Sidebar Footer */
+    .sidebar-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .theme-toggle-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
       background: var(--surface);
-      border:     0.5px solid var(--border);
-      color:      var(--muted);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .theme-toggle-btn:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+    }
+    .theme-toggle-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      transition: transform 0.5s ease;
+    }
+    .theme-toggle-btn:hover svg {
+      transform: rotate(45deg);
+    }
+    .github-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.5rem;
+      border-radius: var(--radius-sm);
+      transition: color 0.15s;
+    }
+    .github-link:hover {
+      color: var(--text-primary);
     }
 
-    /* ── Icon grid ── */
+    /* ════════════════ MAIN REGION COMPONENTS ════════════════ */
+    
+    /* Header search and statistics */
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+    .search-bar-wrap {
+      position: relative;
+      flex: 1;
+    }
+    .search-input {
+      width: 100%;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.5rem 1.1rem 3.2rem;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      outline: none;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-dim);
+    }
+    .search-icon {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      stroke: var(--text-muted);
+      stroke-width: 2;
+      fill: none;
+    }
+    .search-input:focus + .search-icon {
+      stroke: var(--accent);
+    }
+    .search-keyboard-hint {
+      position: absolute;
+      right: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--border);
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: var(--text-muted);
+      pointer-events: none;
+      border: 1px solid var(--border-hover);
+    }
+
+    /* Active filters subheader */
+    .filter-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .active-pills {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .active-pill {
+      font-size: 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ════════════════ CARD GRID ════════════════ */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 10px;
-      margin-bottom: 3rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
     }
     .card {
-      background:      var(--surface);
-      border:          0.5px solid var(--border);
-      border-radius:   var(--radius);
-      padding:         1.75rem 1rem 1.25rem;
-      display:         flex;
-      flex-direction:  column;
-      align-items:     center;
-      gap:             .85rem;
-      text-decoration: none;
-      color:           inherit;
-      transition:      border-color .15s, transform .15s, box-shadow .15s;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color 0.2s ease, 
+                  box-shadow 0.2s ease;
     }
     .card:hover {
-      border-color: #aaa8f8;
-      transform:    translateY(-2px);
-      box-shadow:   0 4px 16px rgba(83,74,183,.08);
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
-    .card-num  { font-size: .65rem; color: var(--muted); align-self: flex-start; font-variant-numeric: tabular-nums; }
-    .card-name { font-size: .8rem;  font-weight: 500; text-align: center; }
-    .card-tech { font-size: .7rem;  color: var(--muted); text-align: center; }
-    .icon-wrap { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
-
-    /* ── Footer ── */
-    footer {
-      border-top: 0.5px solid var(--border);
-      padding-top: 1.5rem;
-      color: var(--muted);
-      font-size: .8rem;
-      display: flex; flex-wrap: wrap; gap: .5rem; justify-content: space-between;
+    .card.active-drawer {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
     }
-    footer a { color: var(--accent); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    /* ════════════════ ICON ANIMATIONS ════════════════ */
-
-    /* 01 · Classic Spinner */
-    .demo-spinner {
-      width: 32px; height: 32px;
-      border: 3px solid var(--border);
-      border-top-color: #7F77DD;
-      border-radius: 50%;
-      animation: spin .8s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* 02 · Dots Wave */
-    .demo-dots { display: flex; gap: 5px; align-items: center; }
-    .demo-dots span {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #1D9E75;
-      animation: wave 1.2s ease-in-out infinite;
-    }
-    .demo-dots span:nth-child(2) { animation-delay: .15s; }
-    .demo-dots span:nth-child(3) { animation-delay: .30s; }
-    @keyframes wave { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-10px)} }
-
-    /* 03 · Pulse Ring */
-    .demo-pulse {
-      position: relative; width: 32px; height: 32px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .demo-pulse::before {
-      content: ''; position: absolute; inset: 0; border-radius: 50%;
-      background: #D4537E; opacity: .3;
-      animation: pring 1.5s ease-out infinite;
-    }
-    .demo-pulse::after {
-      content: ''; width: 13px; height: 13px; border-radius: 50%;
-      background: #D4537E; animation: pdot 1.5s ease-in-out infinite;
-    }
-    @keyframes pring { 0%{transform:scale(.7);opacity:.3} 100%{transform:scale(1.8);opacity:0} }
-    @keyframes pdot  { 0%,100%{transform:scale(1)} 50%{transform:scale(.88)} }
-
-    /* 04 · Bar Loader */
-    .demo-bars { display: flex; gap: 3px; align-items: flex-end; height: 28px; }
-    .demo-bars span {
-      display: block; width: 4px; height: 22px;
-      border-radius: 2px; background: #378ADD;
-      transform-origin: bottom;
-      animation: bscale 1s ease-in-out infinite;
-    }
-    .demo-bars span:nth-child(2) { animation-delay: .1s; }
-    .demo-bars span:nth-child(3) { animation-delay: .2s; }
-    .demo-bars span:nth-child(4) { animation-delay: .3s; }
-    @keyframes bscale { 0%,100%{transform:scaleY(.35)} 50%{transform:scaleY(1)} }
-
-    /* 05 · Orbit */
-    .demo-orbit {
-      position: relative; width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .demo-orbit-ring {
-      position: absolute; inset: 0; border-radius: 50%;
-      border: 1.5px dashed rgba(186,117,23,.35);
-      animation: ospin 1.8s linear infinite;
-    }
-    .demo-orbit-dot {
-      position: absolute; width: 7px; height: 7px; border-radius: 50%;
-      background: #EF9F27; top: -3.5px; left: 50%; transform: translateX(-50%);
-    }
-    .demo-orbit-core { width: 9px; height: 9px; border-radius: 50%; background: #BA7517; }
-    @keyframes ospin { to { transform: rotate(360deg); } }
-
-    /* 06 · Shimmer Skeleton */
-    .demo-skeleton { width: 90px; display: flex; flex-direction: column; gap: 5px; }
-    .demo-skel-line {
-      height: 8px; border-radius: 3px;
-      background: linear-gradient(90deg, var(--border) 25%, #e8e8e5 50%, var(--border) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s ease-in-out infinite;
-    }
-    .demo-skel-line:nth-child(2) { width: 75%; }
-    .demo-skel-line:nth-child(3) { width: 50%; }
-    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-
-    /* 07 · Typing Indicator */
-    .demo-typing {
-      display: flex; gap: 4px; align-items: center;
-      background: var(--surface); border: 0.5px solid var(--border);
-      border-radius: 16px; border-bottom-left-radius: 3px;
-      padding: 8px 12px;
-    }
-    .demo-typing span {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: #888780;
-      animation: tbounce 1.3s ease-in-out infinite;
-    }
-    .demo-typing span:nth-child(2) { animation-delay: .2s; }
-    .demo-typing span:nth-child(3) { animation-delay: .4s; }
-    @keyframes tbounce { 0%,60%,100%{transform:translateY(0);opacity:.4} 30%{transform:translateY(-5px);opacity:1} }
-
-    /* 08 · Circular Progress */
-    .demo-circ svg {
-      animation: cspin 1.6s linear infinite;
-      transform-origin: center;
-    }
-    @keyframes cspin { from{transform:rotate(-90deg)} to{transform:rotate(270deg)} }
-
-    /* 09 · Morphing Shape */
-    .demo-morph {
-      width: 28px; height: 28px; background: #993C1D;
-      animation: mshape 2s ease-in-out infinite;
-    }
-    @keyframes mshape {
-      0%  { border-radius:4px; transform:rotate(  0deg) scale(1);    }
-      25% { border-radius:50%; transform:rotate( 90deg) scale(.82);  }
-      50% { border-radius:4px; transform:rotate(180deg) scale(1);    }
-      75% { border-radius:50%; transform:rotate(270deg) scale(.82);  }
-      100%{ border-radius:4px; transform:rotate(360deg) scale(1);    }
-    }
-
-    /* 10 · Split Ring */
-    .demo-split {
-      width: 32px; height: 32px; border-radius: 50%;
-      border: 3px solid transparent;
-      border-top-color: #0F6E56; border-bottom-color: #0F6E56;
-      animation: spin 1s linear infinite;
-    }
-
-    /* 11 · Comet  */
-    .demo-comet {
-      width: 34px; height: 34px;
-      border-radius: 50%;
-      background: conic-gradient(
-        from 0deg,
-        transparent  0%,
-        #7F77DD     75%
-      );
-      -webkit-mask: radial-gradient(
-        farthest-side,
-        transparent calc(100% - 3.5px - 0.5px),
-        #000        calc(100% - 3.5px)
-      );
-      mask: radial-gradient(
-        farthest-side,
-        transparent calc(100% - 3.5px - 0.5px),
-        #000        calc(100% - 3.5px)
-      );
-      animation: spin .8s linear infinite;
-    }
-
-    /* 12 · Folding Cube */
-    .demo-folding {
-      width: 28px; height: 28px;
-      position: relative;
-      transform: rotateZ(45deg);
-    }
-    .demo-folding span {
-      float: left; width: 50%; height: 50%;
-      position: relative; transform: scale(1.1);
-    }
-    .demo-folding span::before {
-      content: ''; position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: #7F77DD;
-      transform-origin: 100% 100%;
-      animation: dfold 2.4s infinite linear both;
-    }
-    .demo-folding span:nth-child(2) { transform: scale(1.1) rotateZ(90deg); }
-    .demo-folding span:nth-child(4) { transform: scale(1.1) rotateZ(180deg); }
-    .demo-folding span:nth-child(3) { transform: scale(1.1) rotateZ(270deg); }
-    .demo-folding span:nth-child(2)::before { animation-delay: .3s; }
-    .demo-folding span:nth-child(4)::before { animation-delay: .6s; }
-    .demo-folding span:nth-child(3)::before { animation-delay: .9s; }
-    @keyframes dfold {
-      0%, 10% { transform: perspective(140px) rotateX(-180deg); opacity: 0; }
-      25%, 75% { transform: perspective(140px) rotateX(0deg); opacity: 1; }
-      90%, 100% { transform: perspective(140px) rotateY(180deg); opacity: 0; }
-    }
-
-    /* 13 · Fluid Metaballs */
-    .demo-metaballs {
-      position: relative; width: 44px; height: 44px;
-      background: var(--surface);
-      filter: blur(3.5px) contrast(10);
-      overflow: visible;
-    }
-    .demo-metaballs span {
-      position: absolute; background: #1D9E75; border-radius: 50%;
-    }
-    .demo-metaballs span:nth-child(1) { top: 32.5%; left: 32.5%; width: 35%; height: 35%; }
-    .demo-metaballs span:nth-child(2) {
-      top: 35%; left: 35%; width: 30%; height: 30%;
-      animation: dmeta-a 2s ease-in-out infinite;
-    }
-    .demo-metaballs span:nth-child(3) {
-      top: 35%; left: 35%; width: 30%; height: 30%;
-      animation: dmeta-b 2s ease-in-out infinite;
-    }
-    @keyframes dmeta-a { 0%,100%{transform:translateX(-140%)} 50%{transform:translateX(140%)} }
-    @keyframes dmeta-b { 0%,100%{transform:translateX(140%)} 50%{transform:translateX(-140%)} }
-
-    /* 14 · DNA Helix */
-    .demo-dna {
-      position: relative; width: 44px; height: 22px;
-    }
-    .demo-dna span {
-      position: absolute; width: 6px; height: 6px;
-      background: #EF9F27; border-radius: 50%;
-    }
-    .demo-dna span:nth-child(1), .demo-dna span:nth-child(2) { left: 0%; }
-    .demo-dna span:nth-child(3), .demo-dna span:nth-child(4) { left: 25%; }
-    .demo-dna span:nth-child(5), .demo-dna span:nth-child(6) { left: 50%; }
-    .demo-dna span:nth-child(7), .demo-dna span:nth-child(8) { left: 75%; }
-    .demo-dna span:nth-child(9), .demo-dna span:nth-child(10) { left: 100%; transform: translateX(-100%); }
-    .demo-dna span:nth-child(odd) { top: 0; animation: ddna-t 1.6s ease-in-out infinite; }
-    .demo-dna span:nth-child(even) { top: 0; animation: ddna-b 1.6s ease-in-out infinite; }
-    .demo-dna span:nth-child(1), .demo-dna span:nth-child(2) { animation-delay: 0s; }
-    .demo-dna span:nth-child(3), .demo-dna span:nth-child(4) { animation-delay: -.24s; }
-    .demo-dna span:nth-child(5), .demo-dna span:nth-child(6) { animation-delay: -.48s; }
-    .demo-dna span:nth-child(7), .demo-dna span:nth-child(8) { animation-delay: -.72s; }
-    .demo-dna span:nth-child(9), .demo-dna span:nth-child(10) { animation-delay: -.96s; }
-    @keyframes ddna-t { 0%,100%{transform:translateY(0) scale(1);opacity:1} 50%{transform:translateY(16px) scale(0.6);opacity:0.4} }
-    @keyframes ddna-b { 0%,100%{transform:translateY(16px) scale(0.6);opacity:0.4} 50%{transform:translateY(0) scale(1);opacity:1} }
-
-    /* 15 · Atom Orbit */
-    .demo-aorbit {
-      position: relative; width: 32px; height: 32px;
-      display: inline-flex; align-items: center; justify-content: center;
-      perspective: 128px; transform-style: preserve-3d;
-    }
-    .demo-aorbit-nucleus {
-      width: 5.6px; height: 5.6px; background: #7F77DD; border-radius: 50%;
-      box-shadow: 0 0 4px #7F77DD; z-index: 10;
-    }
-    .demo-aorbit-ring {
-      position: absolute; inset: 0;
-      border: 1.1px solid rgba(127,119,221,0.45); border-radius: 50%;
-      transform-style: preserve-3d;
-    }
-    .demo-aorbit-ring:nth-child(2) { transform: rotateX(70deg) rotateY(15deg); }
-    .demo-aorbit-ring:nth-child(3) { transform: rotateX(70deg) rotateY(135deg); }
-    .demo-aorbit-ring:nth-child(4) { transform: rotateX(70deg) rotateY(255deg); }
-    .demo-aorbit-electron {
-      position: absolute; inset: 0; border-radius: 50%;
-      animation: daorbit-spin 1.2s linear infinite; transform-style: preserve-3d;
-    }
-    .demo-aorbit-electron::before {
-      content: ''; position: absolute; top: -1.6px; left: calc(50% - 1.6px);
-      width: 3.2px; height: 3.2px; background: #7F77DD; border-radius: 50%;
-      box-shadow: 0 0 2.5px #7F77DD;
-    }
-    .demo-aorbit-ring:nth-child(2) .demo-aorbit-electron { animation-delay: 0s; }
-    .demo-aorbit-ring:nth-child(3) .demo-aorbit-electron { animation-delay: -0.4s; }
-    .demo-aorbit-ring:nth-child(4) .demo-aorbit-electron { animation-delay: -0.8s; }
-    @keyframes daorbit-spin { 0% { transform: rotateZ(0deg); } 100% { transform: rotateZ(360deg); } }
-
-
-    /* 16 · Sonar Ripple */
-    .demo-sonar {
-      position: relative; width: 32px; height: 32px; overflow: visible;
-    }
-    .demo-sonar::before {
-      content: ''; position: absolute; top: 50%; left: 50%;
-      width: 25%; height: 25%; background: #378ADD; border-radius: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .demo-sonar span {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      border-radius: 50%; border: 1.5px solid #378ADD; opacity: 0;
-      animation: dsonar 1.6s linear infinite;
-    }
-    .demo-sonar span:nth-child(1) { animation-delay: 0s; }
-    .demo-sonar span:nth-child(2) { animation-delay: -.53s; }
-    .demo-sonar span:nth-child(3) { animation-delay: -1.06s; }
-    @keyframes dsonar { 0%{transform:scale(0.25);opacity:1} 100%{transform:scale(1.5);opacity:0} }
-
-    /* 17 · Honeycomb Pulse */
-    .demo-honeycomb {
-      position: relative; width: 38px; height: 38px; overflow: visible;
-      --dh-w: 10.6px; --dh-h: 12.1px; --dh-dy-l: 10.6px;
-      --dh-dy-s: 5.3px; --dh-dx: 9.1px;
-    }
-    .demo-honeycomb span {
-      position: absolute; width: var(--dh-w); height: var(--dh-h);
-      background: #EF9F27;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      animation: dhoney 1.5s ease-in-out infinite;
-    }
-    .demo-honeycomb span:nth-child(1) { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 0s; }
-    .demo-honeycomb span:nth-child(2) { top: calc(50% - var(--dh-dy-l)); left: 50%; transform: translate(-50%, -50%); animation-delay: -.5s; }
-    .demo-honeycomb span:nth-child(3) { top: calc(50% - var(--dh-dy-s)); left: calc(50% + var(--dh-dx)); transform: translate(-50%, -50%); animation-delay: -.5s; }
-    .demo-honeycomb span:nth-child(4) { top: calc(50% + var(--dh-dy-s)); left: calc(50% + var(--dh-dx)); transform: translate(-50%, -50%); animation-delay: -.5s; }
-    .demo-honeycomb span:nth-child(5) { top: calc(50% + var(--dh-dy-l)); left: 50%; transform: translate(-50%, -50%); animation-delay: -.5s; }
-    .demo-honeycomb span:nth-child(6) { top: calc(50% + var(--dh-dy-s)); left: calc(50% - var(--dh-dx)); transform: translate(-50%, -50%); animation-delay: -.5s; }
-    .demo-honeycomb span:nth-child(7) { top: calc(50% - var(--dh-dy-s)); left: calc(50% - var(--dh-dx)); transform: translate(-50%, -50%); animation-delay: -.5s; }
-    @keyframes dhoney { 0%,100%{transform:translate(-50%,-50%) scale(0.7);opacity:0.3} 50%{transform:translate(-50%,-50%) scale(1.05);opacity:1} }
-
-    /* 18 · Matrix Fade */
-    .demo-matrix {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr); gap: 3px;
-      width: 32px; height: 32px;
-    }
-    .demo-matrix span {
-      background: #7F77DD; border-radius: 50%;
-      animation: dmatrix 1.2s ease-in-out infinite;
-    }
-    .demo-matrix span:nth-child(1) { animation-delay: 0s; }
-    .demo-matrix span:nth-child(2), .demo-matrix span:nth-child(4) { animation-delay: -.18s; }
-    .demo-matrix span:nth-child(3), .demo-matrix span:nth-child(5), .demo-matrix span:nth-child(7) { animation-delay: -.36s; }
-    .demo-matrix span:nth-child(6), .demo-matrix span:nth-child(8) { animation-delay: -.54s; }
-    .demo-matrix span:nth-child(9) { animation-delay: -.72s; }
-    @keyframes dmatrix { 0%,100%{transform:scale(0.6);opacity:0.25} 50%{transform:scale(1);opacity:1} }
-
-    /* 19 · Wandering Cubes */
-    .demo-wandering {
-      position: relative; width: 32px; height: 32px; overflow: visible;
-      --dw-size: 9px;
-    }
-    .demo-wandering span {
-      position: absolute; top: 0; left: 0;
-      width: var(--dw-size); height: var(--dw-size);
-      background: #1D9E75;
-      animation: dwander 1.8s ease-in-out infinite;
-    }
-    .demo-wandering span:nth-child(2) { animation-delay: -.9s; }
-    @keyframes dwander {
-      0% { transform: translate(0,0) rotate(0deg); }
-      25% { transform: translate(23px,0) rotate(-90deg) scale(0.55); }
-      50% { transform: translate(23px,23px) rotate(-180deg); }
-      75% { transform: translate(0,23px) rotate(-270deg) scale(0.55); }
-      100% { transform: translate(0,0) rotate(-360deg); }
-    }
-
-    /* 20 · Chromatic Spinner */
-    .demo-chromatic {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: conic-gradient(#e11d48, #ea580c, #eab308, #16a34a, #2563eb, #9333ea, #e11d48);
-      -webkit-mask: radial-gradient(farthest-side, transparent 28px, #000 29px);
-      mask: radial-gradient(farthest-side, transparent calc(100% - 3.5px - 0.5px), #000 calc(100% - 3.5px));
-      animation: spin 1s linear infinite;
-    }
-
-    /* 21 · Mesh Gears */
-    .demo-gears {
-      position: relative; width: 50px; height: 36px; overflow: visible;
-    }
-    .demo-dgear {
-      position: absolute; background: transparent; border-radius: 50%;
-    }
-    .demo-dgear span {
-      position: absolute; background: #BA7517; width: 4px; height: 100%; top: 0; left: calc(50% - 2px);
-    }
-    .demo-dgear span:nth-child(1) { transform: rotate(0deg); }
-    .demo-dgear span:nth-child(2) { transform: rotate(45deg); }
-    .demo-dgear span:nth-child(3) { transform: rotate(90deg); }
-    .demo-dgear span:nth-child(4) { transform: rotate(135deg); }
     
-    .demo-dgear--large {
-      width: 32px; height: 32px; top: 0; left: 0;
-      animation: spin 3s linear infinite;
-    }
-    .demo-dgear--large::after {
-      content: ''; position: absolute; inset: 3px; background: var(--surface);
-      border: 3px solid #BA7517; border-radius: 50%;
-    }
-    .demo-dgear--small {
-      width: 22px; height: 22px; bottom: 0; right: 0;
-      animation: dgear-r calc(3s * 22 / 32) linear infinite;
-    }
-    .demo-dgear--small::after {
-      content: ''; position: absolute; inset: 2.2px; background: var(--surface);
-      border: 2.2px solid #BA7517; border-radius: 50%;
-    }
-    @keyframes dgear-r { from{transform:rotate(22deg)} to{transform:rotate(-338deg)} }
-
-    /* 22 · Particle Vortex */
-    .demo-vortex {
-      position: relative; width: 36px; height: 36px; overflow: visible;
-    }
-    .demo-vortex span {
-      position: absolute; top: 50%; left: 50%; width: 4px; height: 4px;
-      margin-top: -2px; margin-left: -2px; background: #E24B4A; border-radius: 50%;
-      opacity: 0; animation: dvortex 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-    }
-    .demo-vortex span:nth-child(1) { animation-delay: 0s; }
-    .demo-vortex span:nth-child(2) { animation-delay: -.33s; }
-    .demo-vortex span:nth-child(3) { animation-delay: -.66s; }
-    .demo-vortex span:nth-child(4) { animation-delay: -1s; }
-    .demo-vortex span:nth-child(5) { animation-delay: -1.33s; }
-    .demo-vortex span:nth-child(6) { animation-delay: -1.66s; }
-    @keyframes dvortex {
-      0% { transform: rotate(0deg) translate(0,0) scale(0.1); opacity:0; }
-      15% { transform: rotate(90deg) translate(16px,0) scale(1); opacity:1; }
-      80% { opacity: 0.8; }
-      100% { transform: rotate(540deg) translate(0,0) scale(0.1); opacity:0; }
-    }
-
-    /* 23 · Hourglass */
-    .demo-hourglass {
-      display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
-      width: 32px; height: 32px; position: relative;
-      animation: dhour-f 3s ease-in-out infinite; overflow: visible;
-      background: 
-        linear-gradient(90deg, #7F77DD 1.2px, transparent 1.2px) no-repeat 15% center / 1.2px 27px,
-        linear-gradient(270deg, #7F77DD 1.2px, transparent 1.2px) no-repeat 85% center / 1.2px 27px;
-    }
-    .demo-hourglass::before,
-    .demo-hourglass::after {
-      content: ''; position: absolute; left: 10%; width: 80%; height: 2.5px;
-      background: #7F77DD; border-radius: 1.2px; box-sizing: border-box;
-    }
-    .demo-hourglass::before { top: 0; }
-    .demo-hourglass::after { bottom: 0; }
-
-    .demo-hour-top, .demo-hour-bottom {
-      position: absolute; left: 22%; width: 56%; height: 12.2px;
-      border: 1.5px solid #7F77DD;
-      background: color-mix(in srgb, #7F77DD 6%, transparent);
-      overflow: hidden; box-sizing: border-box;
-    }
-    .demo-hour-top {
-      top: 2.5px; border-bottom: none;
-      border-bottom-left-radius: 50% 100%; border-bottom-right-radius: 50% 100%;
-    }
-    .demo-hour-top::before {
-      content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-      background: #7F77DD; transform-origin: bottom center; animation: dhour-d 3s ease-in-out infinite;
-    }
-    .demo-hour-top::after {
-      content: ''; position: absolute; top: 10%; left: 15%; width: 25%; height: 60%;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
-      border-radius: 50%; transform: rotate(-15deg); pointer-events: none;
-    }
-    .demo-hour-bottom {
-      bottom: 2.5px; border-top: none;
-      border-top-left-radius: 50% 100%; border-top-right-radius: 50% 100%;
-    }
-    .demo-hour-bottom::before {
-      content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-      background: #7F77DD; transform-origin: bottom center; animation: dhour-fill 3s ease-in-out infinite;
-    }
-    .demo-hour-bottom::after {
-      content: ''; position: absolute; top: 20%; left: 15%; width: 25%; height: 60%;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
-      border-radius: 50%; transform: rotate(-15deg); pointer-events: none;
-    }
-    .demo-hour-stream {
-      position: absolute; top: 11.2px; bottom: 11.2px;
-      left: calc(50% - 0.8px); width: 1.6px;
-      background: linear-gradient(to bottom, transparent, #7F77DD 20%, #7F77DD 80%, transparent);
-      animation: dhour-drip 3s linear infinite; box-sizing: border-box;
-    }
-    @keyframes dhour-f { 0%, 82% { transform: rotate(0deg); } 92%, 100% { transform: rotate(180deg); } }
-    @keyframes dhour-d { 0% { transform: scaleY(1); } 72%, 100% { transform: scaleY(0); } }
-    @keyframes dhour-fill { 0%, 8% { transform: scaleY(0); } 80%, 100% { transform: scaleY(1); } }
-    @keyframes dhour-drip {
-      0% { opacity: 0; transform: scaleY(0); transform-origin: top center; }
-      4%, 72% { opacity: 1; transform: scaleY(1); transform-origin: top center; }
-      75%, 100% { opacity: 0; transform: scaleY(0); transform-origin: bottom center; }
-    }
-
-    /* 24 · Page Flip */
-    .demo-pflip {
-      position: relative; width: 32px; height: 22px; perspective: 100px;
-    }
-    .demo-pflip::before {
-      content: ''; position: absolute; inset: 0; border: 1.5px solid #1D9E75; border-radius: 2px; opacity: 0.28;
-    }
-    .demo-pflip::after {
-      content: ''; position: absolute; top: 0; left: 50%; width: 1.5px; height: 100%; background: #1D9E75; transform: translateX(-50%);
-    }
-    .demo-pflip span {
-      position: absolute; top: 0; left: 50%; width: 50%; height: 100%;
-      background: #1D9E75; transform-origin: left center; opacity: 0;
-      animation: dpflip 1.8s ease-in-out infinite; border-top-right-radius: 2px; border-bottom-right-radius: 2px;
-    }
-    .demo-pflip span:nth-child(1) { animation-delay: 0s; }
-    .demo-pflip span:nth-child(2) { animation-delay: -.6s; }
-    .demo-pflip span:nth-child(3) { animation-delay: -1.2s; }
-    @keyframes dpflip { 0%{transform:rotateY(0deg);opacity:0} 10%{transform:rotateY(0deg);opacity:1} 80%{transform:rotateY(-180deg);opacity:1} 90%,100%{transform:rotateY(-180deg);opacity:0} }
-
-    /* 25 · Squishy Ball */
-    .demo-squish {
-      position: relative; width: 22px; height: 42px; overflow: visible;
-    }
-    .demo-squish-sphere {
-      position: absolute; top: 0; left: 0; width: 100%; height: 22px; background: #EF9F27; border-radius: 50%;
-      transform-origin: bottom center; animation: dsquish-b 1.1s infinite;
-    }
-    .demo-squish-shadow {
-      position: absolute; bottom: 0; left: 10%; width: 80%; height: 3px; background: #EF9F27; border-radius: 50%;
-      opacity: 0.15; animation: dsquish-s 1.1s infinite;
-    }
-    @keyframes dsquish-b {
-      0%,100%{transform:translateY(0) scale(1)}
-      44%{transform:translateY(20px) scaleX(0.88) scaleY(1.12)}
-      50%{transform:translateY(24px) scaleX(1.3) scaleY(0.68)}
-      56%{transform:translateY(20px) scaleX(0.88) scaleY(1.12)}
-      78%{transform:translateY(0) scale(1)}
-    }
-    @keyframes dsquish-s {
-      0%,100%{transform:scale(1.6);opacity:0.12}
-      44%{transform:scale(0.95);opacity:0.45}
-      50%{transform:scale(0.55);opacity:0.72}
-      56%{transform:scale(0.95);opacity:0.45}
-      78%{transform:scale(1.6);opacity:0.12}
-    }
-
-    /* 26 · Warp Field */
-    .demo-warp {
-      position: relative; width: 36px; height: 36px; overflow: visible;
-    }
-    .demo-warp span {
-      position: absolute; top: 50%; left: 50%; width: 3px; height: 3px;
-      margin-top: -1.5px; margin-left: -1.5px; background: #E24B4A; border-radius: 50%; opacity: 0;
-    }
-    .demo-warp span:nth-child(1) { transform: rotate(0deg); animation: dwarp-s0 1.4s infinite linear; }
-    .demo-warp span:nth-child(2) { transform: rotate(45deg); animation: dwarp-s45 1.4s infinite linear; animation-delay: -.35s; }
-    .demo-warp span:nth-child(3) { transform: rotate(90deg); animation: dwarp-s90 1.4s infinite linear; animation-delay: -.7s; }
-    .demo-warp span:nth-child(4) { transform: rotate(135deg); animation: dwarp-s135 1.4s infinite linear; animation-delay: -1.05s; }
-    .demo-warp span:nth-child(5) { transform: rotate(180deg); animation: dwarp-s180 1.4s infinite linear; animation-delay: -.175s; }
-    .demo-warp span:nth-child(6) { transform: rotate(225deg); animation: dwarp-s225 1.4s infinite linear; animation-delay: -.525s; }
-    .demo-warp span:nth-child(7) { transform: rotate(270deg); animation: dwarp-s270 1.4s infinite linear; animation-delay: -.875s; }
-    .demo-warp span:nth-child(8) { transform: rotate(315deg); animation: dwarp-s315 1.4s infinite linear; animation-delay: -1.225s; }
-    @keyframes dwarp-s0   { 0%{transform:rotate(0deg) translateY(0) scale(0.1);opacity:0} 12%{opacity:1} 100%{transform:rotate(0deg) translateY(-18px) scale(1.6);opacity:0} }
-    @keyframes dwarp-s45  { 0%{transform:rotate(45deg) translateY(0) scale(0.1);opacity:0} 12%{opacity:1} 100%{transform:rotate(45deg) translateY(-18px) scale(1.6);opacity:0} }
-    @keyframes dwarp-s90  { 0%{transform:rotate(90deg) translateY(0) scale(0.1);opacity:0} 12%{opacity:1} 100%{transform:rotate(90deg) translateY(-18px) scale(1.6);opacity:0} }
-    @keyframes dwarp-s135 { 0%{transform:rotate(135deg) translateY(0) scale(0.1);opacity:0} 12%{opacity:1} 100%{transform:rotate(135deg) translateY(-18px) scale(1.6);opacity:0} }
-    @keyframes dwarp-s180 { 0%{transform:rotate(180deg) translateY(0) scale(0.1);opacity:0} 12%{opacity:1} 100%{transform:rotate(180deg) translateY(-18px) scale(1.6);opacity:0} }
-    @keyframes dwarp-s225 { 0%{transform:rotate(225deg) translateY(0) scale(0.1);opacity:0} 12%{opacity:1} 100%{transform:rotate(225deg) translateY(-18px) scale(1.6);opacity:0} }
-    @keyframes dwarp-s270 { 0%{transform:rotate(270deg) translateY(0) scale(0.1);opacity:0} 12%{opacity:1} 100%{transform:rotate(270deg) translateY(-18px) scale(1.6);opacity:0} }
-    @keyframes dwarp-s315 { 0%{transform:rotate(315deg) translateY(0) scale(0.1);opacity:0} 12%{opacity:1} 100%{transform:rotate(315deg) translateY(-18px) scale(1.6);opacity:0} }
-
-    /* 27 · Radar Sweep */
-    .demo-radar {
-      position: relative; width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid #378ADD;
-      background: rgba(55,138,221,0.04); overflow: visible;
-    }
-    .demo-radar-line {
-      position: absolute; inset: 0; border-radius: 50%;
-      background: conic-gradient(from 0deg, #378ADD 0%, rgba(55,138,221,0.15) 30%, transparent 45%, transparent 100%);
-      animation: spin 2.2s linear infinite;
-    }
-    .demo-radar-blip {
-      position: absolute; width: 3.6px; height: 3.6px; background: #378ADD; border-radius: 50%; opacity: 0;
-    }
-    .demo-radar-blip--1 { top: 22%; left: 68%; animation: dradar-f1 2.2s linear infinite; }
-    .demo-radar-blip--2 { top: 68%; left: 22%; animation: dradar-f2 2.2s linear infinite; }
-    @keyframes dradar-f1 { 0%,8%{opacity:0;transform:scale(0.6)} 14%{opacity:1;transform:scale(1.4);filter:drop-shadow(0 0 2px #378ADD)} 30%{opacity:0.35;transform:scale(0.9)} 48%,100%{opacity:0;transform:scale(0.6)} }
-    @keyframes dradar-f2 { 0%,58%{opacity:0;transform:scale(0.6)} 64%{opacity:1;transform:scale(1.4);filter:drop-shadow(0 0 2px #378ADD)} 80%{opacity:0.35;transform:scale(0.9)} 96%,100%{opacity:0;transform:scale(0.6)} }
-
-    /* 28 · Matrix Rain */
-    .demo-mrain {
-      display: inline-flex; justify-content: space-between; width: 32px; height: 28px; overflow: hidden;
-    }
-    .demo-mrain span {
-      display: block; width: 3px; height: 100%; position: relative;
-    }
-    .demo-mrain span::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-      border-radius: 50%; background: #1D9E75; box-shadow: 0 0 4px #1D9E75; opacity: 0;
-    }
-    .demo-mrain span:nth-child(1)::before { animation: dmrain 1.2s linear infinite; }
-    .demo-mrain span:nth-child(2)::before { animation: dmrain .96s linear infinite; animation-delay: -.3s; }
-    .demo-mrain span:nth-child(3)::before { animation: dmrain 1.44s linear infinite; animation-delay: -.66s; }
-    .demo-mrain span:nth-child(4)::before { animation: dmrain 1.14s linear infinite; animation-delay: -1.02s; }
-    @keyframes dmrain { 0%{transform:translateY(-6px);opacity:0} 15%{opacity:1} 85%{opacity:1} 100%{transform:translateY(28px);opacity:0} }
-
-    /* 29 · Gyro Spheres */
-    .demo-dgyro {
-      position: relative; width: 36px; height: 36px; perspective: 150px; transform-style: preserve-3d;
-    }
-    .demo-dgyro-ring {
-      position: absolute; border-radius: 50%; border: 1.5px solid #EF9F27; transform-style: preserve-3d;
-    }
-    .demo-dgyro-ring--outer { inset: 0; animation: dgyro-o 2.4s linear infinite; }
-    .demo-dgyro-ring--middle { inset: 15%; animation: dgyro-m 2.4s linear infinite; }
-    .demo-dgyro-ring--inner { inset: 30%; animation: dgyro-i 2.4s linear infinite; }
-    .demo-dgyro-nucleus {
-      position: absolute; top: 50%; left: 50%; width: 14%; height: 14%; background: #EF9F27; border-radius: 50%; transform: translate(-50%, -50%);
-    }
-    @keyframes dgyro-o { 0%{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg)} 100%{transform:rotateX(360deg) rotateY(180deg) rotateZ(360deg)} }
-    @keyframes dgyro-m { 0%{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg)} 100%{transform:rotateX(180deg) rotateY(360deg) rotateZ(180deg)} }
-    @keyframes dgyro-i { 0%{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg)} 100%{transform:rotateX(360deg) rotateY(360deg) rotateZ(-360deg)} }
-
-    /* 30 · Heartbeat */
-    .demo-hbeat {
-      position: relative; width: 22px; height: 22px; background: #E24B4A; transform: rotate(-45deg);
-      animation: dhbeat 1.2s infinite;
-    }
-    .demo-hbeat::before, .demo-hbeat::after {
-      content: ''; position: absolute; width: 100%; height: 100%; background: inherit; border-radius: 50%;
-    }
-    .demo-hbeat::before { top: -50%; left: 0; }
-    .demo-hbeat::after { top: 0; left: -50%; }
-    @keyframes dhbeat {
-      0%, 48%, 100% { transform: rotate(-45deg) scale(0.95); }
-      12% { transform: rotate(-45deg) scale(1.26); }
-      22% { transform: rotate(-45deg) scale(1.08); }
-      32% { transform: rotate(-45deg) scale(1.38); }
-    }
-
-    /* 31 · Pendulum Wave */
-    .demo-pwave {
-      display: inline-flex; flex-direction: column; justify-content: space-between;
-      width: 32px; height: 32px;
-    }
-    .demo-pwave span {
-      display: block; width: 5px; height: 5px; border-radius: 50%; background: #7F77DD;
-    }
-    .demo-pwave span:nth-child(1) { animation: dpwave-s calc(1.5s * 0.8) ease-in-out infinite alternate; }
-    .demo-pwave span:nth-child(2) { animation: dpwave-s calc(1.5s * 0.9) ease-in-out infinite alternate; }
-    .demo-pwave span:nth-child(3) { animation: dpwave-s calc(1.5s * 1.0) ease-in-out infinite alternate; }
-    .demo-pwave span:nth-child(4) { animation: dpwave-s calc(1.5s * 1.1) ease-in-out infinite alternate; }
-    .demo-pwave span:nth-child(5) { animation: dpwave-s calc(1.5s * 1.2) ease-in-out infinite alternate; }
-    @keyframes dpwave-s { 0% { transform: translateX(0); } 100% { transform: translateX(27px); } }
-
-    /* 32 · Infinite Loop */
-    .demo-iloop {
-      width: 32px; height: 16px; position: relative;
-    }
-    .demo-iloop span {
-      position: absolute; top: calc(50% - 2.5px); left: calc(50% - 2.5px);
-      width: 5px; height: 5px; border-radius: 50%; background: #1D9E75;
-      animation: diloop-p 2s linear infinite;
-    }
-    .demo-iloop span:nth-child(1) { animation-delay: 0s; }
-    .demo-iloop span:nth-child(2) { animation-delay: -0.16s; opacity: 0.7; }
-    .demo-iloop span:nth-child(3) { animation-delay: -0.32s; opacity: 0.4; }
-    @keyframes diloop-p {
-      0% { transform: translate(0, 0); }
-      12.5% { transform: translate(9px, -6px); }
-      25% { transform: translate(13px, 0); }
-      37.5% { transform: translate(9px, 6px); }
-      50% { transform: translate(0, 0); }
-      62.5% { transform: translate(-9px, -6px); }
-      75% { transform: translate(-13px, 0); }
-      87.5% { transform: translate(-9px, 6px); }
-      100% { transform: translate(0, 0); }
-    }
-
-    /* 33 · Concentric Rings */
-    .demo-crings {
-      width: 32px; height: 32px; position: relative;
-      display: inline-flex; align-items: center; justify-content: center;
-    }
-    .demo-crings span {
-      position: absolute; border-radius: 50%;
-      border: 1.3px solid transparent;
-    }
-    .demo-crings span:nth-child(1) {
-      width: 100%; height: 100%; border-top-color: #EF9F27; border-bottom-color: #EF9F27;
-      animation: ospin 2s linear infinite;
-    }
-    .demo-crings span:nth-child(2) {
-      width: 68%; height: 68%; border-left-color: #EF9F27; border-right-color: #EF9F27;
-      animation: ospin-ccw 1.6s linear infinite;
-    }
-    .demo-crings span:nth-child(3) {
-      width: 36%; height: 36%; border-top-color: #EF9F27; border-bottom-color: #EF9F27;
-      animation: ospin 1.2s linear infinite;
-    }
-    @keyframes ospin-ccw { to { transform: rotate(-360deg); } }
-
-    /* 34 · Waveform Audio */
-    .demo-waudio {
-      display: inline-flex; align-items: center; justify-content: space-between;
-      width: 32px; height: 22px;
-    }
-    .demo-waudio span {
-      display: block; width: 4px; height: 100%; border-radius: 2px;
-      background: #378ADD; transform-origin: center center;
-      animation: dwaudio-p 1.2s ease-in-out infinite;
-    }
-    .demo-waudio span:nth-child(1) { animation-delay: -1.0s; }
-    .demo-waudio span:nth-child(2) { animation-delay: -0.8s; }
-    .demo-waudio span:nth-child(3) { animation-delay: -0.6s; }
-    .demo-waudio span:nth-child(4) { animation-delay: -0.8s; }
-    .demo-waudio span:nth-child(5) { animation-delay: -1.0s; }
-    @keyframes dwaudio-p { 0%,100%{transform:scaleY(0.25)} 50%{transform:scaleY(1.0)} }
-
-    /* 35 · Breathing Ring */
-    .demo-bring {
-      width: 32px; height: 32px; border-radius: 50%;
-      border: 2.5px solid #7F77DD; animation: dbring-p 2.2s ease-in-out infinite;
-    }
-    @keyframes dbring-p {
-      0%, 100% { transform: scale(0.85); box-shadow: 0 0 0 0 rgba(127,119,221,0.4); opacity: 0.8; }
-      50% { transform: scale(1.05); box-shadow: 0 0 12px 4px rgba(127,119,221,0); opacity: 1; }
-    }
-
-    /* 36 · Liquid Drop */
-    .demo-ldrop {
-      width: 32px; height: 38px; position: relative;
-    }
-    .demo-ldrop-spout {
-      position: absolute; top: 0; left: calc(50% - 4px); width: 8px; height: 4px;
-      background: #7F77DD; border-radius: 0 0 2px 2px; opacity: 0.85;
-    }
-    .demo-ldrop-drip {
-      position: absolute; top: 3px; left: calc(50% - 2.5px); width: 5px; height: 5px;
-      background: #7F77DD; border-radius: 50%; transform-origin: bottom center;
-      animation: ddrop-f 2s cubic-bezier(0.4, 0, 0.9, 0.4) infinite;
-    }
-    .demo-ldrop-ripple {
-      position: absolute; bottom: 0; left: calc(50% - 13px); width: 26px; height: 6px;
-      border: 1.3px solid #7F77DD; border-radius: 50%; transform: scale(0); opacity: 0;
-      animation: ddrop-r 2s linear infinite;
-    }
-    @keyframes ddrop-f {
-      0% { transform: translateY(0) scale(0); opacity: 0; }
-      15% { transform: translateY(0) scale(1); opacity: 1; }
-      35% { transform: translateY(0) scale(1) scaleX(0.85) scaleY(1.15); opacity: 1; }
-      58% { transform: translateY(26px) scaleX(0.8) scaleY(1.3); opacity: 1; }
-      60% { transform: translateY(30px) scaleX(1.6) scaleY(0.4); opacity: 1; }
-      64%, 100% { transform: translateY(30px) scale(0); opacity: 0; }
-    }
-    @keyframes ddrop-r {
-      0%, 59% { transform: scale(0); opacity: 0; }
-      60% { transform: scale(0.2); opacity: 1; }
-      85% { transform: scale(1.3); opacity: 0.35; }
-      96%, 100% { transform: scale(1.6); opacity: 0; }
-    }
-
-    /* 37 · Hexagon Orbit */
-    .demo-horbit {
-      width: 32px; height: 32px; position: relative;
-    }
-    .demo-horbit::before {
-      content: ''; position: absolute; inset: 0; border: 0.8px dashed rgba(239,159,39,0.15);
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      animation: ospin-ccw 9.6s linear infinite;
-    }
-    .demo-horbit span {
-      position: absolute; top: calc(50% - 2.5px); left: calc(50% - 2.5px);
-      width: 5px; height: 5px; border-radius: 50%; background: #EF9F27;
-      animation: dhorbit-p 2.4s linear infinite;
-    }
-    .demo-horbit span:nth-child(1) { animation-delay: 0s; }
-    .demo-horbit span:nth-child(2) { animation-delay: -0.288s; opacity: 0.7; }
-    .demo-horbit span:nth-child(3) { animation-delay: -0.576s; opacity: 0.4; }
-    @keyframes dhorbit-p {
-      0%, 100% { transform: translate(13px, 0); }
-      16.67% { transform: translate(6.5px, 11.2px); }
-      33.33% { transform: translate(-6.5px, 11.2px); }
-      50% { transform: translate(-13px, 0); }
-      66.67% { transform: translate(-6.5px, -11.2px); }
-      83.33% { transform: translate(6.5px, -11.2px); }
-    }
-
-    /* 38 · Sparkling Stars */
-    .demo-sstars {
-      width: 32px; height: 32px; position: relative;
-    }
-    .demo-sstars span {
-      position: absolute; background: #EF9F27;
-      clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .card-quick-actions {
+      display: flex;
+      gap: 0.25rem;
       opacity: 0;
+      transform: translateY(2px);
+      transition: opacity 0.15s, transform 0.15s;
     }
-    .demo-sstars span:nth-child(1) {
-      top: 10%; left: 10%; width: 45%; height: 45%;
-      animation: dstar-s 1.6s ease-in-out infinite;
+    .card:hover .card-quick-actions {
+      opacity: 1;
+      transform: translateY(0);
     }
-    .demo-sstars span:nth-child(2) {
-      bottom: 12%; right: 12%; width: 48%; height: 48%;
-      animation: dstar-s 1.6s ease-in-out infinite; animation-delay: -0.53s;
+    .quick-action-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 4px;
+      border-radius: 4px;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
     }
-    .demo-sstars span:nth-child(3) {
-      top: 20%; right: 15%; width: 32%; height: 32%;
-      animation: dstar-s 1.6s ease-in-out infinite; animation-delay: -1.06s;
+    .quick-action-btn:hover {
+      color: var(--accent);
+      background: var(--accent-dim);
+      border-color: var(--accent);
     }
-    @keyframes dstar-s {
-      0% { transform: scale(0) rotate(0deg); opacity: 0; }
-      50% { transform: scale(1) rotate(90deg); opacity: 1; }
-      100% { transform: scale(0) rotate(180deg); opacity: 0; }
-    }
-
-    /* 39 · Snake Chase */
-    .demo-schase {
-      width: 32px; height: 32px; position: relative;
-    }
-    .demo-schase::before {
-      content: ''; position: absolute; inset: 3px;
-      border: 0.8px dashed rgba(29,158,117,0.12); border-radius: 5px;
-    }
-    .demo-schase span {
-      position: absolute; top: 0; left: 0; width: 5px; height: 5px;
-      border-radius: 50%; background: #1D9E75;
-      animation: dschase-p 1.6s cubic-bezier(0.25, 1, 0.5, 1) infinite;
-    }
-    .demo-schase span:nth-child(1) { animation-delay: 0s; }
-    .demo-schase span:nth-child(2) { animation-delay: -0.096s; opacity: 0.75; }
-    .demo-schase span:nth-child(3) { animation-delay: -0.192s; opacity: 0.5; }
-    .demo-schase span:nth-child(4) { animation-delay: -0.288s; opacity: 0.25; }
-    @keyframes dschase-p {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(27px, 0); }
-      50% { transform: translate(27px, 27px); }
-      75% { transform: translate(0, 27px); }
+    .quick-action-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
     }
 
-    /* 40 · Solar Eclipse */
-    .demo-seclipse {
-      width: 32px; height: 32px; position: relative;
+    /* Icon Sandbox Container */
+    .icon-wrap {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 14px 14px;
+      background-position: center;
+      border-radius: var(--radius-sm);
+      background-color: rgba(0, 0, 0, 0.08);
+      border: 1px dashed transparent;
+      transition: border-color 0.2s;
     }
-    .demo-seclipse-corona {
-      position: absolute; inset: 0; border-radius: 50%;
-      background: conic-gradient(from 0deg, #EF9F27 0%, rgba(239,159,39,0.4) 25%, #EF9F27 50%, rgba(239,159,39,0.2) 75%, #EF9F27 100%);
-      filter: blur(3.8px); animation: ospin 2.5s linear infinite, declipse-f 2s ease-in-out infinite alternate;
-    }
-    .demo-seclipse-occluder {
-      position: absolute; inset: 3.8px; border-radius: 50%;
-      background: var(--surface); border: 0.8px solid rgba(239,159,39,0.25);
-      box-shadow: inset 0 0 5px rgba(0,0,0,0.4); animation: declipse-p 2.5s ease-in-out infinite alternate;
-    }
-
-    /* 41 · Pulsing Grid */
-    .demo-pgrid {
-      display: inline-grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);
-      gap: 3px; width: 32px; height: 32px;
-    }
-    .demo-pgrid span {
-      display: block; width: 100%; height: 100%; border-radius: 50%; background: #7F77DD;
-      animation: dpgrid-p 1.2s ease-in-out infinite;
-    }
-    .demo-pgrid span:nth-child(5) { animation-delay: 0s; }
-    .demo-pgrid span:nth-child(2), .demo-pgrid span:nth-child(4),
-    .demo-pgrid span:nth-child(6), .demo-pgrid span:nth-child(8) { animation-delay: -0.3s; }
-    .demo-pgrid span:nth-child(1), .demo-pgrid span:nth-child(3),
-    .demo-pgrid span:nth-child(7), .demo-pgrid span:nth-child(9) { animation-delay: -0.6s; }
-    @keyframes dpgrid-p { 0%,100%{transform:scale(0.45);opacity:0.35} 50%{transform:scale(1);opacity:1} }
-
-    /* 42 · Helix Tunnel */
-    .demo-htunnel {
-      width: 32px; height: 32px; position: relative;
-      display: inline-flex; align-items: center; justify-content: center;
-    }
-    .demo-htunnel span {
-      position: absolute; border-radius: 50%;
-      border: 1.3px solid transparent; border-top-color: #378ADD;
-      animation: ospin 1.8s ease-in-out infinite;
-    }
-    .demo-htunnel span:nth-child(1) { width: 100%; height: 100%; animation-delay: 0s; opacity: 1; }
-    .demo-htunnel span:nth-child(2) { width: 80%; height: 80%; animation-delay: -0.27s; opacity: 0.8; }
-    .demo-htunnel span:nth-child(3) { width: 60%; height: 60%; animation-delay: -0.54s; opacity: 0.6; }
-    .demo-htunnel span:nth-child(4) { width: 40%; height: 40%; animation-delay: -0.81s; opacity: 0.4; }
-    .demo-htunnel span:nth-child(5) { width: 20%; height: 20%; animation-delay: -1.08s; opacity: 0.2; }
-
-    /* 43 · Elastic Line */
-    .demo-eline {
-      width: 32px; height: 3px; position: relative;
-      background: rgba(226,75,74,0.12); border-radius: 1.5px; overflow: hidden;
-    }
-    .demo-eline::before {
-      content: ''; position: absolute; top: 0; height: 100%; background: #E24B4A;
-      border-radius: inherit; animation: delastic-s 1.4s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
-    }
-    @keyframes delastic-s {
-      0% { left: 0; width: 20%; }
-      40% { left: 0; width: 85%; }
-      50% { left: 80%; width: 20%; }
-      90% { left: 15%; width: 85%; }
-      100% { left: 0; width: 20%; }
+    .card:hover .icon-wrap {
+      border-color: var(--border);
     }
 
-    /* 44 · Jumping Dots */
-    .demo-jdots {
-      display: inline-flex; align-items: flex-end; justify-content: space-between;
-      width: 32px; height: 20px;
+    .card-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
     }
-    .demo-jdots span {
-      display: block; width: 7px; height: 7px; border-radius: 50%;
-      background: #7F77DD; transform-origin: bottom center;
-      animation: djump-b 1.1s ease-in-out infinite;
+    .card-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
     }
-    .demo-jdots span:nth-child(1) { animation-delay: 0s; }
-    .demo-jdots span:nth-child(2) { animation-delay: -0.73s; }
-    .demo-jdots span:nth-child(3) { animation-delay: -0.36s; }
-    @keyframes djump-b {
-      0%, 100% { transform: translateY(0) scaleX(1) scaleY(1); }
-      15% { transform: translateY(0) scaleX(1.3) scaleY(0.7); }
-      20% { transform: translateY(0) scaleX(0.8) scaleY(1.2); }
-      50% { transform: translateY(-13px) scaleX(0.85) scaleY(1.15); }
-      80% { transform: translateY(0) scaleX(1.3) scaleY(0.7); }
-      90% { transform: translateY(0) scaleX(0.9) scaleY(1.1); }
+    .card-tech {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    /* 45 · Newton Cradle 3D */
-    .demo-cradle3d {
-      display: inline-flex; justify-content: center; align-items: flex-start;
-      width: 32px; height: 32px; position: relative;
-      perspective: 160px; transform-style: preserve-3d;
-      transform: rotateX(20deg) rotateY(-20deg);
-    }
-    .demo-cradle3d::before {
-      content: ''; position: absolute; top: 0; left: 5%; width: 90%; height: 2.5px;
-      background: rgba(127,119,221,0.2); border-radius: 1.2px;
-    }
-    .demo-cradle3d span {
-      display: block; position: relative; width: 5.2px; height: 85%;
-      transform-origin: top center; transform-style: preserve-3d;
-      margin: 0 0.16px;
-    }
-    .demo-cradle3d span::before {
-      content: ''; position: absolute; top: 0; left: calc(50% - 0.5px); width: 1px; height: 80%;
-      background: linear-gradient(to bottom, #7F77DD, rgba(127,119,221,0.2));
-    }
-    .demo-cradle3d span::after {
-      content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 5.2px;
-      background: radial-gradient(circle at 35% 35%, #ffffff 0%, #7F77DD 45%, #473fa5 100%);
-      border-radius: 50%; box-shadow: 0 1.6px 2.4px rgba(0, 0, 0, 0.15);
-    }
-    .demo-cradle3d span:nth-child(1) { animation: dcradle-l 1.2s cubic-bezier(0.25, 0, 0.75, 1) infinite; }
-    .demo-cradle3d span:nth-child(2) { animation: dcradle-ml 1.2s ease-in-out infinite; }
-    .demo-cradle3d span:nth-child(3) { animation: dcradle-m 1.2s ease-in-out infinite; }
-    .demo-cradle3d span:nth-child(4) { animation: dcradle-mr 1.2s ease-in-out infinite; }
-    .demo-cradle3d span:nth-child(5) { animation: dcradle-r 1.2s cubic-bezier(0.25, 0, 0.75, 1) infinite; }
-    @keyframes dcradle-l { 0%, 100% { transform: rotateZ(0deg); } 25% { transform: rotateZ(35deg); } 50% { transform: rotateZ(0deg); } }
-    @keyframes dcradle-r { 0%, 50% { transform: rotateZ(0deg); } 75% { transform: rotateZ(-35deg); } 100% { transform: rotateZ(0deg); } }
-    @keyframes dcradle-ml { 0%,48%,52%,98%,100% { transform: rotateZ(0deg); } 50% { transform: rotateZ(1.5deg); } }
-    @keyframes dcradle-m { 0%,49%,51%,99%,100% { transform: rotateZ(0deg); } 50% { transform: rotateZ(1deg) translateY(-0.1px); } }
-    @keyframes dcradle-mr { 0%,98%,100% { transform: rotateZ(0deg); } 100% { transform: rotateZ(-1.5deg); } }
-
-    /* 46 · Signal Beacons */
-    .demo-sbeacons {
-      display: inline-flex; align-items: flex-end; justify-content: space-between;
-      width: 32px; height: 27px;
-    }
-    .demo-sbeacons span {
-      display: block; position: relative; width: 7.6px; height: 100%;
-    }
-    .demo-sbeacons span::before {
-      content: ''; position: absolute; bottom: 0; left: calc(50% - 1.3px);
-      width: 2.6px; height: 2.6px; border-radius: 50%; background: #378ADD;
-    }
-    .demo-sbeacons span::after {
-      content: ''; position: absolute; bottom: 1.3px; left: 0; width: 100%; height: 20px;
-      border: 1.3px solid #378ADD; border-bottom: none;
-      border-radius: 50% 50% 0 0 / 100% 100% 0 0; transform-origin: bottom center;
-      transform: scale(0.1); opacity: 0; animation: dsbeacons-w 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
-    }
-    .demo-sbeacons span:nth-child(1)::after { animation-delay: 0s; }
-    .demo-sbeacons span:nth-child(2)::after { animation-delay: -0.5s; }
-    .demo-sbeacons span:nth-child(3)::after { animation-delay: -1.0s; }
-    @keyframes dsbeacons-w { 0% { transform: scale(0.1); opacity: 0; } 15% { opacity: 1; } 100% { transform: scale(1.1); opacity: 0; } }
-
-    /* 47 · Ticking Clock */
-    .demo-tclock {
-      width: 32px; height: 32px; border: 2px solid #EF9F27; border-radius: 50%;
-      position: relative; display: inline-block;
-    }
-    .demo-tclock::before {
-      content: ''; position: absolute; top: calc(50% - 1.6px); left: calc(50% - 1.6px);
-      width: 3.2px; height: 3.2px; background: #EF9F27; border-radius: 50%; z-index: 10;
-    }
-    .demo-tclock-hour, .demo-tclock-minute {
-      position: absolute; bottom: 50%; left: calc(50% - 0.8px); width: 1.6px;
-      background: #EF9F27; border-radius: 0.8px 0.8px 0 0; transform-origin: bottom center;
-    }
-    .demo-tclock-hour { height: 28%; animation: clock-tick 6s steps(12) infinite; }
-    .demo-tclock-minute { height: 38%; width: 1.1px; left: calc(50% - 0.55px); animation: clock-tick 0.5s steps(60) infinite; }
-    @keyframes clock-tick {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* 48 · Bouncing Cube */
-    .demo-bcube {
-      width: 32px; height: 42px; position: relative; perspective: 128px; display: inline-block;
-    }
-    .demo-bcube::before {
-      content: ''; position: absolute; bottom: 0; left: 10%; width: 80%; height: 3.8px;
-      background: rgba(127,119,221,0.2); border-radius: 50%; animation: dbcube-s 1.2s ease-in-out infinite;
-    }
-    .demo-bcube-cube {
-      width: 16px; height: 16px; position: absolute; top: 25%; left: 25%;
-      transform-style: preserve-3d; transform-origin: bottom center;
-      animation: dbcube-b 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-    }
-    .demo-bcube-face {
-      position: absolute; width: 100%; height: 100%;
-      border: 1.3px solid #7F77DD; border-radius: 1px;
-    }
-    .demo-bcube-face--top { transform: rotateX(90deg) translateZ(8px); background: #968ff2; }
-    .demo-bcube-face--bottom { transform: rotateX(-90deg) translateZ(8px); background: #473fa5; }
-    .demo-bcube-face--front { transform: rotateY(0deg) translateZ(8px); background: #7F77DD; }
-    .demo-bcube-face--back { transform: rotateY(180deg) translateZ(8px); background: #685ebd; }
-    .demo-bcube-face--left { transform: rotateY(-90deg) translateZ(8px); background: #7369cf; }
-    .demo-bcube-face--side { transform: rotateY(90deg) translateZ(8px); background: #5c52b8; }
-    @keyframes dbcube-b {
-      0%, 100% { transform: translateY(0) scale3d(1.22, 0.62, 1.22) rotateX(-30deg) rotateY(45deg); }
-      12% { transform: translateY(0) scale3d(0.82, 1.28, 0.82) rotateX(-30deg) rotateY(45deg); }
-      50% { transform: translateY(-22px) scale3d(1, 1, 1) rotateX(-30deg) rotateY(135deg); }
-      78% { transform: translateY(0) scale3d(1.25, 0.55, 1.25) rotateX(-30deg) rotateY(225deg); }
-      90% { transform: translateY(0) scale3d(0.9, 1.1, 0.9) rotateX(-30deg) rotateY(225deg); }
-    }
-    @keyframes dbcube-s {
-      0%, 78%, 100% { transform: scale(1.25); opacity: 0.8; }
-      12% { transform: scale(0.9); opacity: 0.6; }
-      50% { transform: scale(0.5); opacity: 0.15; }
-      90% { transform: scale(1); opacity: 0.7; }
-    }
-
-    /* 49 · Digital Segment */
-    .demo-dsegment {
-      width: 18px; height: 32px; position: relative; display: inline-block;
-      transform: skewX(-10deg);
-      --thick: 2.8px;
-    }
-    .demo-dsegment span {
-      position: absolute; background: #1D9E75; box-sizing: border-box; opacity: 0.06;
-      filter: drop-shadow(0 0 0.8px rgba(29,158,117,0.4));
-    }
-    .demo-dsegment span:nth-child(1), .demo-dsegment span:nth-child(4), .demo-dsegment span:nth-child(7) {
-      height: var(--thick); width: calc(100% - var(--thick)); left: calc(var(--thick) * 0.5);
-      clip-path: polygon(calc(var(--thick) * 0.5) 0, calc(100% - var(--thick) * 0.5) 0, 100% 50%, calc(100% - var(--thick) * 0.5) 100%, calc(var(--thick) * 0.5) 100%, 0 50%);
-    }
-    .demo-dsegment span:nth-child(2), .demo-dsegment span:nth-child(3), .demo-dsegment span:nth-child(5), .demo-dsegment span:nth-child(6) {
-      width: var(--thick); height: calc(50% - calc(var(--thick) * 0.55));
-      clip-path: polygon(50% 0, 100% calc(var(--thick) * 0.5), 100% calc(100% - var(--thick) * 0.5), 50% 100%, 0 calc(100% - var(--thick) * 0.5), 0 calc(var(--thick) * 0.5));
-    }
-    .demo-dsegment span:nth-child(1) { top: 0; animation: seg-a 4s steps(1) infinite; }
-    .demo-dsegment span:nth-child(2) { top: calc(var(--thick) * 0.45); right: 0; animation: seg-b 4s steps(1) infinite; }
-    .demo-dsegment span:nth-child(3) { bottom: calc(var(--thick) * 0.45); right: 0; animation: seg-c 4s steps(1) infinite; }
-    .demo-dsegment span:nth-child(4) { bottom: 0; animation: seg-d 4s steps(1) infinite; }
-    .demo-dsegment span:nth-child(5) { bottom: calc(var(--thick) * 0.45); left: 0; animation: seg-e 4s steps(1) infinite; }
-    .demo-dsegment span:nth-child(6) { top: calc(var(--thick) * 0.45); left: 0; animation: seg-f 4s steps(1) infinite; }
-    .demo-dsegment span:nth-child(7) { top: calc(50% - calc(var(--thick) * 0.5)); animation: seg-g 4s steps(1) infinite; }
-
-    @keyframes seg-a {
-      0%, 10%, 20%, 40%, 50%, 60%, 70%, 80%, 90%, 100% { opacity: 1; }
-      10.01%, 20%, 40.01%, 50% { opacity: 0.06; }
-    }
-    @keyframes seg-b {
-      0%, 10%, 20%, 30%, 40%, 50%, 70%, 80%, 90%, 100% { opacity: 1; }
-      50.01%, 70% { opacity: 0.06; }
-    }
-    @keyframes seg-c {
-      0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% { opacity: 1; }
-      20.01%, 30% { opacity: 0.06; }
-    }
-    @keyframes seg-d {
-      0%, 10%, 20%, 40%, 50%, 60%, 70%, 80%, 90%, 100% { opacity: 1; }
-      10.01%, 20%, 40.01%, 50%, 70.01%, 80% { opacity: 0.06; }
-    }
-    @keyframes seg-e {
-      0%, 10%, 20%, 30%, 60%, 70%, 80%, 90% { opacity: 1; }
-      10.01%, 20%, 30.01%, 60%, 90.01%, 100% { opacity: 0.06; }
-    }
-    @keyframes seg-f {
-      0%, 10%, 40%, 50%, 60%, 70%, 80%, 90%, 100% { opacity: 1; }
-      10.01%, 40% { opacity: 0.06; }
-    }
-    @keyframes seg-g {
-      20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% { opacity: 1; }
-      0%, 20%, 70.01%, 80% { opacity: 0.06; }
-    }
-
-    /* 50 · Perspective Tunnel */
-    .demo-ptunnel {
-      width: 54px; height: 54px; position: relative;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .demo-ptunnel span {
-      position: absolute; border-radius: 50%;
-      border: 1.8px solid #7F77DD;
-      box-shadow: 0 0 5px #a09af0;
+    /* ════════════════ SLIDE-OUT DRAWER ════════════════ */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      z-index: 200;
       opacity: 0;
-      animation: dptunnel-zoom 1.4s linear infinite;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
-    .demo-ptunnel span:nth-child(1) { animation-delay: calc(1.4s * 0 / 6); }
-    .demo-ptunnel span:nth-child(2) { animation-delay: calc(1.4s * -1 / 6); }
-    .demo-ptunnel span:nth-child(3) { animation-delay: calc(1.4s * -2 / 6); }
-    .demo-ptunnel span:nth-child(4) { animation-delay: calc(1.4s * -3 / 6); }
-    .demo-ptunnel span:nth-child(5) { animation-delay: calc(1.4s * -4 / 6); }
-    .demo-ptunnel span:nth-child(6) { animation-delay: calc(1.4s * -5 / 6); }
+    .drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .drawer {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 520px;
+      max-width: 100vw;
+      background-color: var(--surface);
+      border-left: 1px solid var(--border);
+      z-index: 201;
+      box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .drawer.open {
+      transform: translateX(0);
+    }
 
-    @keyframes dptunnel-zoom {
-      0%   { width: 8%;   height: 8%;   opacity: 0; }
-      10%  { opacity: 0.9; }
-      80%  { opacity: 0.75; }
-      100% { width: 135%; height: 135%; opacity: 0; }
+    .drawer-header {
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+    .drawer-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .drawer-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+    .drawer-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+    .drawer-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .drawer-open-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .drawer-open-demo:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+    }
+    .drawer-open-demo svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+    .drawer-open-demo {
+      position: relative;
+    }
+    .drawer-open-demo::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      max-width: 260px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1.3;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(-4px);
+      pointer-events: none;
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+      z-index: 5;
+    }
+    .drawer-open-demo::before {
+      content: "";
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 18px;
+      width: 10px;
+      height: 10px;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      transform: rotate(45deg);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      z-index: 6;
+    }
+    .drawer-open-demo:hover::after,
+    .drawer-open-demo:hover::before {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .drawer-close {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.15s;
+    }
+    .drawer-close:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .drawer-playground {
+      height: 180px;
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 18px 18px;
+      background-color: rgba(0, 0, 0, 0.12);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Inspector Customizer (Local) */
+    .drawer-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+
+    /* Tabs Panel */
+    .code-panel {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .code-tabs {
+      display: flex;
+      background: rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid var(--border);
+    }
+    .code-tab {
+      padding: 0.85rem 1.5rem;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border-right: 1px solid var(--border);
+      transition: all 0.15s;
+    }
+    .code-tab:hover {
+      background: var(--surface-hover);
+      color: var(--text-primary);
+    }
+    .code-tab.active {
+      background: var(--surface);
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    .code-tab-copy-all {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0 1.25rem;
+      transition: color 0.15s;
+    }
+    .code-tab-copy-all:hover {
+      color: var(--text-primary);
+    }
+    .code-tab-copy-all svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .code-viewer-wrap {
+      position: relative;
+    }
+    .code-viewer {
+      padding: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      max-height: 320px;
+      background: #060608;
+      color: #9cdcfe;
+      display: none;
+    }
+    .code-viewer.active {
+      display: block;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translate(-50%, 100px);
+      background-color: #10b981;
+      color: #ffffff;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 300;
+      opacity: 0;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+      transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.35s ease;
+    }
+    .toast.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    /* Empty Grid State */
+    .empty-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 5rem 2rem;
+      color: var(--text-muted);
+      text-align: center;
+      border: 1.5px dashed var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .empty-state svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--text-muted);
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 960px) {
+      aside {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 2rem;
+      }
+      main {
+        margin-left: 0;
+        padding: 2rem;
+      }
+      body {
+        flex-direction: column;
+      }
+      .drawer {
+        width: 100%;
+      }
+    }
+
+    /* ════════════════ ICON KEYFRAMES & UTILS ════════════════ */
+    /* Dynamic scaling overrides */
+    .demo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(calc(var(--loader-size) / 32px));
+      transform-origin: center center;
+    }
+
+    /* ════════════════ DYNAMIC LOADER STYLE CONTAINER ════════════════ */
+    /* Component styles will be injected dynamically at runtime from loaders-data.js */
   </style>
+  <style id="dynamic-loader-styles"></style>
+  <script src="loaders-data.js"></script>
 </head>
 <body>
-  <header>
-    <p class="logo">Load<span>Icons</span></p>
-    <p class="tagline">50 lightweight, reusable CSS loading icons — fully customizable via CSS Custom Properties, zero dependencies.</p>
-    <div class="badges">
-      <span class="badge">Pure CSS</span>
-      <span class="badge">Zero Dependency</span>
-      <span class="badge">CSS Custom Properties</span>
-      <span class="badge">Dark Mode Ready</span>
-      <span class="badge">MIT License</span>
-    </div>
-  </header>
 
-  <div class="grid">
-    <a class="card" href="icons/01-classic-spinner/">
-      <span class="card-num">01</span>
-      <div class="icon-wrap"><div class="demo-spinner"></div></div>
-      <span class="card-name">Classic Spinner</span>
-      <span class="card-tech">border-trick · rotate</span>
-    </a>
-    <a class="card" href="icons/02-dots-wave/">
-      <span class="card-num">02</span>
-      <div class="icon-wrap"><div class="demo-dots"><span></span><span></span><span></span></div></div>
-      <span class="card-name">Dots Wave</span>
-      <span class="card-tech">translateY · stagger</span>
-    </a>
-    <a class="card" href="icons/03-pulse-ring/">
-      <span class="card-num">03</span>
-      <div class="icon-wrap"><div class="demo-pulse"></div></div>
-      <span class="card-name">Pulse Ring</span>
-      <span class="card-tech">scale · opacity</span>
-    </a>
-    <a class="card" href="icons/04-bar-loader/">
-      <span class="card-num">04</span>
-      <div class="icon-wrap"><div class="demo-bars"><span></span><span></span><span></span><span></span></div></div>
-      <span class="card-name">Bar Loader</span>
-      <span class="card-tech">scaleY · stagger</span>
-    </a>
-    <a class="card" href="icons/05-orbit/">
-      <span class="card-num">05</span>
-      <div class="icon-wrap">
-        <div class="demo-orbit">
-          <div class="demo-orbit-ring"><div class="demo-orbit-dot"></div></div>
-          <div class="demo-orbit-core"></div>
+  <!-- ════════════════ SIDEBAR PANEL (CONTROLLER HUD) ════════════════ -->
+  <aside>
+    <div class="brand">
+      <h1 class="logo">Load<span>Icons</span></h1>
+      <p class="tagline">Interactive design playground for 55 lightweight, pure-CSS, customizable loaders.</p>
+    </div>
+
+    <!-- Group: Global Adjustments -->
+    <div class="sidebar-group">
+      <h2 class="sidebar-group-title">Global Adjustments</h2>
+      
+      <!-- Loader Size Slider -->
+      <div class="control-item">
+        <div class="control-label-wrap">
+          <span>Loader Scale</span>
+          <span class="control-value" id="size-val">32px</span>
+        </div>
+        <input type="range" id="size-slider" min="16" max="64" value="32" />
+      </div>
+
+      <!-- Animation Speed Slider -->
+      <div class="control-item">
+        <div class="control-label-wrap">
+          <span>Animation Cycle</span>
+          <span class="control-value" id="speed-val">1.0s (Normal)</span>
+        </div>
+        <input type="range" id="speed-slider" min="5" max="30" value="10" />
+      </div>
+    </div>
+
+    <!-- Group: Categories Filtering -->
+    <div class="sidebar-group">
+      <h2 class="sidebar-group-title">Categories</h2>
+      <div class="nav-pills">
+        <div class="nav-pill active" data-category="all">
+          <span>All Loaders</span>
+          <span class="nav-pill-count" id="count-all">55</span>
+        </div>
+        <div class="nav-pill" data-category="spinners">
+          <span>Classic Spinners</span>
+          <span class="nav-pill-count" id="count-spinners">14</span>
+        </div>
+        <div class="nav-pill" data-category="waves">
+          <span>Dots, Waves & Bars</span>
+          <span class="nav-pill-count" id="count-waves">12</span>
+        </div>
+        <div class="nav-pill" data-category="3d">
+          <span>3D & Isometric</span>
+          <span class="nav-pill-count" id="count-3d">8</span>
+        </div>
+        <div class="nav-pill" data-category="special">
+          <span>Special Physics</span>
+          <span class="nav-pill-count" id="count-special">21</span>
         </div>
       </div>
-      <span class="card-name">Orbit</span>
-      <span class="card-tech">rotate · absolute pos</span>
-    </a>
-    <a class="card" href="icons/06-shimmer-skeleton/">
-      <span class="card-num">06</span>
-      <div class="icon-wrap"><div class="demo-skeleton"><div class="demo-skel-line"></div><div class="demo-skel-line"></div><div class="demo-skel-line"></div></div></div>
-      <span class="card-name">Shimmer Skeleton</span>
-      <span class="card-tech">bg-position · gradient</span>
-    </a>
-    <a class="card" href="icons/07-typing-indicator/">
-      <span class="card-num">07</span>
-      <div class="icon-wrap"><div class="demo-typing"><span></span><span></span><span></span></div></div>
-      <span class="card-name">Typing Indicator</span>
-      <span class="card-tech">bounce · fade · bubble</span>
-    </a>
-    <a class="card" href="icons/08-circular-progress/">
-      <span class="card-num">08</span>
-      <div class="icon-wrap">
-        <div class="demo-circ">
-          <svg width="38" height="38" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-            <circle fill="none" stroke="var(--border)" stroke-width="3" cx="22" cy="22" r="18"/>
-            <circle fill="none" stroke="#534AB7" stroke-width="3" stroke-linecap="round"
-              cx="22" cy="22" r="18" pathLength="100"
-              stroke-dasharray="60 100" stroke-dashoffset="25"/>
-          </svg>
+    </div>
+
+    <!-- Sidebar footer widgets -->
+    <div class="sidebar-footer">
+      <a href="https://github.com/Kentangz/loading-icon" class="github-link" target="_blank">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        <span>github.com/Kentangz/loading-icon</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ════════════════ MAIN REGION ════════════════ -->
+  <main>
+    <header>
+      <div class="header-top-row">
+        <div class="search-bar-wrap">
+          <input type="text" class="search-input" id="search-bar" placeholder="Search loaders by name or technique..." />
+          <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <span class="search-keyboard-hint">/</span>
+        </div>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+        </button>
+      </div>
+      <div class="filter-summary">
+        <span id="results-count">Showing 55 indicators</span>
+        <div class="active-pills" id="active-pills-container">
+          <!-- Dynamically populated tags -->
         </div>
       </div>
-      <span class="card-name">Circular Progress</span>
-      <span class="card-tech">SVG stroke-dasharray</span>
-    </a>
-    <a class="card" href="icons/09-morphing-shape/">
-      <span class="card-num">09</span>
-      <div class="icon-wrap"><div class="demo-morph"></div></div>
-      <span class="card-name">Morphing Shape</span>
-      <span class="card-tech">border-radius · rotate</span>
-    </a>
-    <a class="card" href="icons/10-split-ring/">
-      <span class="card-num">10</span>
-      <div class="icon-wrap"><div class="demo-split"></div></div>
-      <span class="card-name">Split Ring</span>
-      <span class="card-tech">dual-arc border</span>
-    </a>
-    <a class="card" href="icons/11-comet/">
-      <span class="card-num">11</span>
-      <div class="icon-wrap"><div class="demo-comet"></div></div>
-      <span class="card-name">Comet</span>
-      <span class="card-tech">conic-gradient · mask</span>
-    </a>
-    <a class="card" href="icons/12-folding-cube/">
-      <span class="card-num">12</span>
-      <div class="icon-wrap">
-        <div class="demo-folding">
-          <span></span><span></span><span></span><span></span>
+    </header>
+
+    <!-- Grid Container -->
+    <div class="grid" id="grid">
+      <!-- Cards will be dynamically injected/filtered by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="empty-state">
+      <svg viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      <h3>No loaders matched your search query</h3>
+      <p>Try searching for terms like "3D", "conic", "stagger", "bounce" or click another category.</p>
+    </div>
+  </main>
+
+  <!-- ════════════════ OVERLAY & DRAWER PANEL ════════════════ -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="drawer" id="drawer">
+    <div class="drawer-header">
+      <div class="drawer-title-wrap">
+        <span class="drawer-subtitle" id="drawer-subtitle">LOADING ICON #01</span>
+        <h2 class="drawer-title" id="drawer-title">Classic Spinner</h2>
+      </div>
+      <div class="drawer-actions">
+        <a class="drawer-open-demo" id="open-demo" href="#" target="_blank" rel="noopener noreferrer" data-tooltip="Warning: flashbang (white demo background).">
+          <svg viewBox="0 0 24 24"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/></svg>
+          <span>Open demo</span>
+        </a>
+        <button class="drawer-close" id="drawer-close">&times;</button>
+      </div>
+    </div>
+    
+    <div class="drawer-body">
+      <!-- Large Interactive Sandbox Playground -->
+      <div class="drawer-playground">
+        <div class="demo-item" id="drawer-sandbox-preview">
+          <!-- Injected dynamic HTML structure -->
         </div>
       </div>
-      <span class="card-name">Folding Cube</span>
-      <span class="card-tech">3D rotate · perspective</span>
-    </a>
-    <a class="card" href="icons/13-fluid-metaballs/">
-      <span class="card-num">13</span>
-      <div class="icon-wrap">
-        <div class="demo-metaballs">
-          <span></span><span></span><span></span>
+
+      <!-- Syntax Highlighting Tabs -->
+      <div class="code-panel">
+        <div class="code-tabs">
+          <button class="code-tab active" data-tab="html">HTML Markup</button>
+          <button class="code-tab" data-tab="css">CSS Structure</button>
+          <button class="code-tab-copy-all" id="copy-btn">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span>Copy Snippet</span>
+          </button>
+        </div>
+        <div class="code-viewer-wrap">
+          <pre class="code-viewer active" id="code-html"></pre>
+          <pre class="code-viewer" id="code-css"></pre>
         </div>
       </div>
-      <span class="card-name">Fluid Metaballs</span>
-      <span class="card-tech">gooey filter · contrast</span>
-    </a>
-    <a class="card" href="icons/14-dna-helix/">
-      <span class="card-num">14</span>
-      <div class="icon-wrap">
-        <div class="demo-dna">
-          <span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">DNA Helix</span>
-      <span class="card-tech">stagger · counter-phase</span>
-    </a>
-    <a class="card" href="icons/15-atom-orbit/">
-      <span class="card-num">15</span>
-      <div class="icon-wrap">
-        <div class="demo-aorbit">
-          <div class="demo-aorbit-nucleus"></div>
-          <div class="demo-aorbit-ring"><div class="demo-aorbit-electron"></div></div>
-          <div class="demo-aorbit-ring"><div class="demo-aorbit-electron"></div></div>
-          <div class="demo-aorbit-ring"><div class="demo-aorbit-electron"></div></div>
-        </div>
-      </div>
-      <span class="card-name">Atom Orbit</span>
-      <span class="card-tech">3D spatial orbits · physics</span>
-    </a>
-    <a class="card" href="icons/16-sonar-ripple/">
-      <span class="card-num">16</span>
-      <div class="icon-wrap">
-        <div class="demo-sonar">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Sonar Ripple</span>
-      <span class="card-tech">scale · concentric waves</span>
-    </a>
-    <a class="card" href="icons/17-honeycomb-pulse/">
-      <span class="card-num">17</span>
-      <div class="icon-wrap">
-        <div class="demo-honeycomb">
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Honeycomb Pulse</span>
-      <span class="card-tech">clip-path · grid lattice</span>
-    </a>
-    <a class="card" href="icons/18-matrix-fade/">
-      <span class="card-num">18</span>
-      <div class="icon-wrap">
-        <div class="demo-matrix">
-          <span></span><span></span><span></span>
-          <span></span><span></span><span></span>
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Matrix Fade</span>
-      <span class="card-tech">Manhattan delay grid</span>
-    </a>
-    <a class="card" href="icons/19-wandering-cubes/">
-      <span class="card-num">19</span>
-      <div class="icon-wrap">
-        <div class="demo-wandering">
-          <span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Wandering Cubes</span>
-      <span class="card-tech">2D offset track · rotation</span>
-    </a>
-    <a class="card" href="icons/20-chromatic-spinner/">
-      <span class="card-num">20</span>
-      <div class="icon-wrap"><div class="demo-chromatic"></div></div>
-      <span class="card-name">Chromatic Spinner</span>
-      <span class="card-tech">rainbow conic · mask</span>
-    </a>
-    <a class="card" href="icons/21-mesh-gears/">
-      <span class="card-num">21</span>
-      <div class="icon-wrap">
-        <div class="demo-gears">
-          <div class="demo-dgear demo-dgear--large"><span></span><span></span><span></span><span></span></div>
-          <div class="demo-dgear demo-dgear--small"><span></span><span></span><span></span><span></span></div>
-        </div>
-      </div>
-      <span class="card-name">Mesh Gears</span>
-      <span class="card-tech">mechanical teeth · gears</span>
-    </a>
-    <a class="card" href="icons/22-particle-vortex/">
-      <span class="card-num">22</span>
-      <div class="icon-wrap">
-        <div class="demo-vortex">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Particle Vortex</span>
-      <span class="card-tech">sinusoidal spiral sweep</span>
-    </a>
-    <a class="card" href="icons/23-hourglass/">
-      <span class="card-num">23</span>
-      <div class="icon-wrap">
-        <div class="demo-hourglass">
-          <div class="demo-hour-top"></div>
-          <div class="demo-hour-stream"></div>
-          <div class="demo-hour-bottom"></div>
-        </div>
-      </div>
-      <span class="card-name">Hourglass</span>
-      <span class="card-tech">drips sand · gravity flip</span>
-    </a>
-    <a class="card" href="icons/24-page-flip/">
-      <span class="card-num">24</span>
-      <div class="icon-wrap">
-        <div class="demo-pflip">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Page Flip</span>
-      <span class="card-tech">3D paper flip · perspective</span>
-    </a>
-    <a class="card" href="icons/25-squishy-ball/">
-      <span class="card-num">25</span>
-      <div class="icon-wrap">
-        <div class="demo-squish">
-          <div class="demo-squish-sphere"></div>
-          <div class="demo-squish-shadow"></div>
-        </div>
-      </div>
-      <span class="card-name">Squishy Ball</span>
-      <span class="card-tech">bounce squash · shadows</span>
-    </a>
-    <a class="card" href="icons/26-warp-field/">
-      <span class="card-num">26</span>
-      <div class="icon-wrap">
-        <div class="demo-warp">
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Warp Field</span>
-      <span class="card-tech">radial vector translation</span>
-    </a>
-    <a class="card" href="icons/27-radar-sweep/">
-      <span class="card-num">27</span>
-      <div class="icon-wrap">
-        <div class="demo-radar">
-          <div class="demo-radar-line"></div>
-          <div class="demo-radar-blip demo-radar-blip--1"></div>
-          <div class="demo-radar-blip demo-radar-blip--2"></div>
-        </div>
-      </div>
-      <span class="card-name">Radar Sweep</span>
-      <span class="card-tech">conic gradient · sync flash</span>
-    </a>
-    <a class="card" href="icons/28-matrix-rain/">
-      <span class="card-num">28</span>
-      <div class="icon-wrap">
-        <div class="demo-mrain">
-          <span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Matrix Rain</span>
-      <span class="card-tech">glowing waterfall fall</span>
-    </a>
-    <a class="card" href="icons/29-gyro-spheres/">
-      <span class="card-num">29</span>
-      <div class="icon-wrap">
-        <div class="demo-dgyro">
-          <div class="demo-dgyro-ring demo-dgyro-ring--outer"></div>
-          <div class="demo-dgyro-ring demo-dgyro-ring--middle"></div>
-          <div class="demo-dgyro-ring demo-dgyro-ring--inner"></div>
-          <div class="demo-dgyro-nucleus"></div>
-        </div>
-      </div>
-      <span class="card-name">Gyro Spheres</span>
-      <span class="card-tech">concentric 3D gyroscope</span>
-    </a>
-    <a class="card" href="icons/30-heartbeat/">
-      <span class="card-num">30</span>
-      <div class="icon-wrap"><div class="demo-hbeat"></div></div>
-      <span class="card-name">Heartbeat</span>
-      <span class="card-tech">EKG double pulse · vital</span>
-    </a>
-    <a class="card" href="icons/31-pendulum-wave/">
-      <span class="card-num">31</span>
-      <div class="icon-wrap">
-        <div class="demo-pwave">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Pendulum Wave</span>
-      <span class="card-tech">phase drift · horizontal</span>
-    </a>
-    <a class="card" href="icons/32-infinite-loop/">
-      <span class="card-num">32</span>
-      <div class="icon-wrap">
-        <div class="demo-iloop">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Infinite Loop</span>
-      <span class="card-tech">lemniscate path translation</span>
-    </a>
-    <a class="card" href="icons/33-concentric-rings/">
-      <span class="card-num">33</span>
-      <div class="icon-wrap">
-        <div class="demo-crings">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Concentric Rings</span>
-      <span class="card-tech">split-arc counter rotations</span>
-    </a>
-    <a class="card" href="icons/34-waveform-audio/">
-      <span class="card-num">34</span>
-      <div class="icon-wrap">
-        <div class="demo-waudio">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Waveform Audio</span>
-      <span class="card-tech">symmetrical sound vertical scale</span>
-    </a>
-    <a class="card" href="icons/35-breathing-ring/">
-      <span class="card-num">35</span>
-      <div class="icon-wrap"><div class="demo-bring"></div></div>
-      <span class="card-name">Breathing Ring</span>
-      <span class="card-tech">sinusoidal scale pulse glow</span>
-    </a>
-    <a class="card" href="icons/36-liquid-drop/">
-      <span class="card-num">36</span>
-      <div class="icon-wrap">
-        <div class="demo-ldrop">
-          <div class="demo-ldrop-spout"></div>
-          <div class="demo-ldrop-drip"></div>
-          <div class="demo-ldrop-ripple"></div>
-        </div>
-      </div>
-      <span class="card-name">Liquid Drop</span>
-      <span class="card-tech">gravity fall splash ripple</span>
-    </a>
-    <a class="card" href="icons/37-hexagon-orbit/">
-      <span class="card-num">37</span>
-      <div class="icon-wrap">
-        <div class="demo-horbit">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Hexagon Orbit</span>
-      <span class="card-tech">trig hexagonal vertex track</span>
-    </a>
-    <a class="card" href="icons/38-sparkling-stars/">
-      <span class="card-num">38</span>
-      <div class="icon-wrap">
-        <div class="demo-sstars">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Sparkling Stars</span>
-      <span class="card-tech">clip star space sparkle</span>
-    </a>
-    <a class="card" href="icons/39-snake-chase/">
-      <span class="card-num">39</span>
-      <div class="icon-wrap">
-        <div class="demo-schase">
-          <span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Snake Chase</span>
-      <span class="card-tech">square track trailing delay</span>
-    </a>
-    <a class="card" href="icons/40-solar-eclipse/">
-      <span class="card-num">40</span>
-      <div class="icon-wrap">
-        <div class="demo-seclipse">
-          <div class="demo-seclipse-corona"></div>
-          <div class="demo-seclipse-occluder"></div>
-        </div>
-      </div>
-      <span class="card-name">Solar Eclipse</span>
-      <span class="card-tech">conic corona masked ocllusion</span>
-    </a>
-    <a class="card" href="icons/41-pulsing-grid/">
-      <span class="card-num">41</span>
-      <div class="icon-wrap">
-        <div class="demo-pgrid">
-          <span></span><span></span><span></span>
-          <span></span><span></span><span></span>
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Pulsing Grid</span>
-      <span class="card-tech">grid center radial delay wave</span>
-    </a>
-    <a class="card" href="icons/42-helix-tunnel/">
-      <span class="card-num">42</span>
-      <div class="icon-wrap">
-        <div class="demo-htunnel">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Helix Tunnel</span>
-      <span class="card-tech">concentric depth rotation</span>
-    </a>
-    <a class="card" href="icons/43-elastic-line/">
-      <span class="card-num">43</span>
-      <div class="icon-wrap"><div class="demo-eline"></div></div>
-      <span class="card-name">Elastic Line</span>
-      <span class="card-tech">asymmetric morph sweep sweep</span>
-    </a>
-    <a class="card" href="icons/44-jumping-dots/">
-      <span class="card-num">44</span>
-      <div class="icon-wrap">
-        <div class="demo-jdots">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Jumping Dots</span>
-      <span class="card-tech">parabolic squash bounce physics</span>
-    </a>
-    <a class="card" href="icons/45-newton-cradle-3d/">
-      <span class="card-num">45</span>
-      <div class="icon-wrap">
-        <div class="demo-cradle3d">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Newton's Cradle 3D</span>
-      <span class="card-tech">isometric 3D kinetic swing</span>
-    </a>
-    <a class="card" href="icons/46-signal-beacons/">
-      <span class="card-num">46</span>
-      <div class="icon-wrap">
-        <div class="demo-sbeacons">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Signal Beacons</span>
-      <span class="card-tech">transmitter half-ring arcs</span>
-    </a>
-    <a class="card" href="icons/47-ticking-clock/">
-      <span class="card-num">47</span>
-      <div class="icon-wrap">
-        <div class="demo-tclock">
-          <div class="demo-tclock-hour"></div>
-          <div class="demo-tclock-minute"></div>
-        </div>
-      </div>
-      <span class="card-name">Ticking Clock</span>
-      <span class="card-tech">quartz stepped hand rotates</span>
-    </a>
-    <a class="card" href="icons/48-bouncing-cube/">
-      <span class="card-num">48</span>
-      <div class="icon-wrap">
-        <div class="demo-bcube">
-          <div class="demo-bcube-cube">
-            <div class="demo-bcube-face demo-bcube-face--top"></div>
-            <div class="demo-bcube-face demo-bcube-face--bottom"></div>
-            <div class="demo-bcube-face demo-bcube-face--front"></div>
-            <div class="demo-bcube-face demo-bcube-face--back"></div>
-            <div class="demo-bcube-face demo-bcube-face--left"></div>
-            <div class="demo-bcube-face demo-bcube-face--side"></div>
-          </div>
-        </div>
-      </div>
-      <span class="card-name">Bouncing Cube 3D</span>
-      <span class="card-tech">projection rotation bounce</span>
-    </a>
-    <a class="card" href="icons/49-digital-segment/">
-      <span class="card-num">49</span>
-      <div class="icon-wrap">
-        <div class="demo-dsegment">
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Digital Segment</span>
-      <span class="card-tech">7-segment LED stepped cycle</span>
-    </a>
-    <a class="card" href="icons/50-perspective-tunnel/">
-      <span class="card-num">50</span>
-      <div class="icon-wrap">
-        <div class="demo-ptunnel">
-          <span></span><span></span><span></span>
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="card-name">Perspective Tunnel</span>
-      <span class="card-tech">flythrough zoom concentric rings</span>
-    </a>
+    </div>
   </div>
 
-  <footer>
-    <span>LoadIcons · MIT License · <a href="https://github.com/Kentangz/loading-icon">github.com/Kentangz/loading-icon</a></span>
-    <span>All icons are customized via CSS Custom Properties — no JavaScript required.</span>
-  </footer>
+  <!-- Clipboard Copy Success Toast -->
+  <div class="toast" id="toast">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+    <span>Code copied to clipboard!</span>
+  </div>
+
+  <!-- ════════════════ INTERACTION JAVASCRIPT ════════════════ -->
+  <script>
+    // 1. DYNAMIC CSS STYLE INJECTION & INITIALIZATION
+    const dynamicStyleEl = document.getElementById("dynamic-loader-styles");
+    if (dynamicStyleEl && typeof loaders !== "undefined") {
+      dynamicStyleEl.textContent = loaders.map(l => l.css).join("\n\n");
+    }
+
+    // 2. STATE MANAGEMENT
+    let activeCategory = "all";
+    let searchQuery = "";
+    let selectedLoader = null;
+    let selectedTab = "html";
+
+    // DOM ELEMENTS SELECTORS
+    const sizeSlider = document.getElementById("size-slider");
+    const sizeVal = document.getElementById("size-val");
+    const speedSlider = document.getElementById("speed-slider");
+    const speedVal = document.getElementById("speed-val");
+    const searchBar = document.getElementById("search-bar");
+    const gridContainer = document.getElementById("grid");
+    const emptyState = document.getElementById("empty-state");
+    const resultsCount = document.getElementById("results-count");
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const activePillsContainer = document.getElementById("active-pills-container");
+
+    const drawer = document.getElementById("drawer");
+    const drawerOverlay = document.getElementById("drawer-overlay");
+    const drawerClose = document.getElementById("drawer-close");
+    const drawerTitle = document.getElementById("drawer-title");
+    const drawerSubtitle = document.getElementById("drawer-subtitle");
+    const drawerSandboxPreview = document.getElementById("drawer-sandbox-preview");
+    const openDemoBtn = document.getElementById("open-demo");
+    const codeHtml = document.getElementById("code-html");
+    const codeCss = document.getElementById("code-css");
+    const copyBtn = document.getElementById("copy-btn");
+    const toast = document.getElementById("toast");
+
+    // 3. CORE RENDERING ENGINE
+    function renderGrid() {
+      gridContainer.innerHTML = "";
+      
+      const filtered = loaders.filter(loader => {
+        const matchesCategory = activeCategory === "all" || loader.category === activeCategory;
+        const matchesSearch = loader.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              loader.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                              loader.id.includes(searchQuery);
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        emptyState.style.display = "flex";
+        resultsCount.textContent = "No loaders found";
+      } else {
+        emptyState.style.display = "none";
+        resultsCount.textContent = `Showing ${filtered.length} loader${filtered.length > 1 ? 's' : ''}`;
+      }
+
+      filtered.forEach(loader => {
+        const card = document.createElement("div");
+        card.className = "card";
+        if (selectedLoader && selectedLoader.id === loader.id) {
+          card.classList.add("active-drawer");
+        }
+        
+        card.innerHTML = `
+          <div class="card-top">
+            <span class="card-num">${loader.id}</span>
+            <div class="card-quick-actions">
+              <button class="quick-action-btn copy-html" title="Copy HTML">
+                <svg viewBox="0 0 24 24"><path d="M16 16v1a2 2 0 01-2 2H3a2 2 0 01-2-2V7a2 2 0 012-2h1m5.657-1.343a2 2 0 012.828 0l6.364 6.364a2 2 0 010 2.828l-6.364 6.364a2 2 0 01-2.828 0L3.343 12.657a2 2 0 010-2.828l6.364-6.364z"/></svg>
+              </button>
+              <button class="quick-action-btn copy-css" title="Copy CSS">
+                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="icon-wrap">
+            <div class="demo-item">
+              ${loader.html}
+            </div>
+          </div>
+          <div class="card-info">
+            <h3 class="card-name">${loader.name}</h3>
+            <span class="card-tech">${loader.tags.join(" · ")}</span>
+          </div>
+        `;
+
+        // Card action events
+        card.addEventListener("click", (e) => {
+          // If clicked copy button, copy and bypass drawer
+          if (e.target.closest(".copy-html")) {
+            e.stopPropagation();
+            copyToClipboard(loader.html);
+            return;
+          }
+          if (e.target.closest(".copy-css")) {
+            e.stopPropagation();
+            copyToClipboard(loader.css);
+            return;
+          }
+          openDrawer(loader);
+        });
+
+        gridContainer.appendChild(card);
+      });
+
+      // Update pill count lists
+      updateCategoryCounts();
+    }
+
+    function updateCategoryCounts() {
+      document.getElementById("count-all").textContent = loaders.length;
+      document.getElementById("count-spinners").textContent = loaders.filter(l => l.category === "spinners").length;
+      document.getElementById("count-waves").textContent = loaders.filter(l => l.category === "waves").length;
+      document.getElementById("count-3d").textContent = loaders.filter(l => l.category === "3d").length;
+      document.getElementById("count-special").textContent = loaders.filter(l => l.category === "special").length;
+    }
+
+    // 4. INTERACTION & UTILITIES
+    
+    // Sliders listeners
+    sizeSlider.addEventListener("input", (e) => {
+      const size = e.target.value;
+      sizeVal.textContent = `${size}px`;
+      document.documentElement.style.setProperty("--loader-size", `${size}px`);
+    });
+
+    speedSlider.addEventListener("input", (e) => {
+      const val = e.target.value;
+      const scale = (20 - val) / 10 + 1; // Translate scale where slider 10 is 1.0s, slider 20 is 0.5s, slider 5 is 2.5s
+      const cleanVal = (1 / scale).toFixed(2);
+      speedVal.textContent = `${cleanVal}s (x${scale.toFixed(1)})`;
+      document.documentElement.style.setProperty("--loader-speed-scale", scale);
+    });
+
+    // Theme Switcher (Dark / Light)
+    themeToggleBtn.addEventListener("click", () => {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      const nextTheme = isDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", nextTheme);
+      themeToggleBtn.querySelector("svg").style.transform = isDark ? "rotate(180deg)" : "rotate(0deg)";
+    });
+
+
+
+    // Search and search hotkey
+    searchBar.addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      renderGrid();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "/" && document.activeElement !== searchBar) {
+        e.preventDefault();
+        searchBar.focus();
+        searchBar.select();
+      }
+      if (e.key === "Escape") {
+        closeDrawer();
+      }
+    });
+
+    // Category Tabs pills listener
+    document.querySelectorAll(".nav-pill").forEach(pill => {
+      pill.addEventListener("click", () => {
+        document.querySelectorAll(".nav-pill").forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        activeCategory = pill.getAttribute("data-category");
+        renderGrid();
+      });
+    });
+
+    // 5. DRAWER FUNCTIONS
+    function getLoaderFileMeta(loader) {
+      let kebab = loader.name.toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+
+      let folderName = `${loader.id}-${kebab}`;
+      let cssFilename = `${kebab}.css`;
+
+      // Exception overrides
+      if (loader.id === "01") {
+        folderName = "01-classic-spinner";
+        cssFilename = "spinner.css";
+      } else if (loader.id === "29") {
+        folderName = "29-gyro-spheres";
+        cssFilename = "gyro-spheres.css";
+      } else if (loader.id === "32") {
+        folderName = "32-infinite-loop";
+        cssFilename = "infinite-loop.css";
+      } else if (loader.id === "45") {
+        folderName = "45-newton-cradle-3d";
+        cssFilename = "newton-cradle-3d.css";
+      } else if (loader.id === "48") {
+        folderName = "48-bouncing-cube";
+        cssFilename = "bouncing-cube.css";
+      }
+
+      return {
+        folder: folderName,
+        file: cssFilename,
+        path: `icons/${folderName}/${cssFilename}`
+      };
+    }
+
+    function openDrawer(loader) {
+      selectedLoader = loader;
+      
+      // Mark card active border
+      document.querySelectorAll(".card").forEach(c => c.classList.remove("active-drawer"));
+      renderGrid(); // re-draw to preserve dynamic active boundary
+      
+      // Fill drawer texts
+      drawerTitle.textContent = loader.name;
+      drawerSubtitle.textContent = `LOADING ICON #${loader.id}`;
+      
+      // Sandbox preview
+      drawerSandboxPreview.innerHTML = loader.html;
+      
+      // Pre-fill codes
+      codeHtml.textContent = loader.html;
+      
+      // Determine file paths and fetch source CSS gracefully
+      const meta = getLoaderFileMeta(loader);
+      codeCss.textContent = `/* Fetching clean standalone source CSS... */`;
+
+      // Direct link to per-icon demo index
+      if (openDemoBtn) {
+        openDemoBtn.href = `icons/${meta.folder}/index.html`;
+        openDemoBtn.setAttribute("aria-label", `Open demo page for ${loader.name}`);
+      }
+      
+      fetch(meta.path)
+        .then(response => {
+          if (!response.ok) throw new Error("File not found");
+          return response.text();
+        })
+        .then(text => {
+          codeCss.textContent = text;
+        })
+        .catch(err => {
+          // CORS fallback for local offline file:// viewing
+          codeCss.textContent = `/* ━━━━━━━━━━━━━━━━━ OFFLINE CORS FALLBACK ━━━━━━━━━━━━━━━━━ */\n` +
+            `/* Local filesystem CORS policy blocks dynamic loading of isolated files. */\n` +
+            `/* To integrate this standalone component in your project, copy it:        */\n\n` +
+            `@import "${meta.path}";\n\n` +
+            `/* ───────────────────────────────────────────────────────── */\n` +
+            `/* File Location: ./${meta.path}\n` +
+            `/* ───────────────────────────────────────────────────────── */\n\n\n` +
+            `/* ──────────── PREVIEW GALLERY STYLES (RUNNING NOW) ──────────── */\n` +
+            loader.css;
+        });
+      
+      // Show tab selection (reset to HTML)
+      document.querySelectorAll(".code-tab").forEach(t => {
+        t.classList.remove("active");
+        if(t.getAttribute("data-tab") === "html") t.classList.add("active");
+      });
+      codeHtml.classList.add("active");
+      codeCss.classList.remove("active");
+      selectedTab = "html";
+      
+      // Open panel transitions
+      drawer.classList.add("open");
+      drawerOverlay.classList.add("open");
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove("open");
+      drawerOverlay.classList.remove("open");
+      selectedLoader = null;
+      document.querySelectorAll(".card").forEach(c => c.classList.remove("active-drawer"));
+    }
+
+    drawerClose.addEventListener("click", closeDrawer);
+    drawerOverlay.addEventListener("click", closeDrawer);
+
+    // Code copy actions tabs
+    document.querySelectorAll(".code-tab").forEach(tab => {
+      if (tab.id === "copy-btn") return;
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".code-tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        
+        selectedTab = tab.getAttribute("data-tab");
+        if (selectedTab === "html") {
+          codeHtml.classList.add("active");
+          codeCss.classList.remove("active");
+        } else {
+          codeHtml.classList.remove("active");
+          codeCss.classList.add("active");
+        }
+      });
+    });
+
+    // Copy clip action
+    copyBtn.addEventListener("click", () => {
+      const code = selectedTab === "html" ? codeHtml.textContent : codeCss.textContent;
+      copyToClipboard(code);
+    });
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        // Success feedback triggers toast pop
+        toast.classList.add("show");
+        
+        // Dynamic feedback styling
+        copyBtn.querySelector("span").textContent = "Copied!";
+        copyBtn.style.color = "#10b981";
+        
+        setTimeout(() => {
+          toast.classList.remove("show");
+          copyBtn.querySelector("span").textContent = "Copy Snippet";
+          copyBtn.style.color = "";
+        }, 1800);
+      });
+    }
+
+    // Dynamic initial display
+    renderGrid();
+
+  </script>
 </body>
 </html>

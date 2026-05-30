@@ -85,3 +85,10 @@
   background-color: transparent;
   border: 2px solid var(--pulse-color);
 }
+
+/* ─── Modifier presets ─── */
+.pulse-ring--fast    { --pulse-speed: 0.9s; }
+.pulse-ring--slow    { --pulse-speed: 2.4s; }
+.pulse-ring--soft    { --pulse-color: #a8a29e; --pulse-ring-opacity: 0.2; }
+.pulse-ring--reverse::before,
+.pulse-ring--reverse::after { animation-direction: reverse; }

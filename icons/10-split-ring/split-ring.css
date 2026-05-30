@@ -71,3 +71,9 @@
   border-left-color: var(--ring-color);
   opacity: 0.85;
 }
+
+/* ─── Modifier presets ─── */
+.split-ring--fast    { --ring-speed: 0.55s; }
+.split-ring--slow    { --ring-speed: 1.8s; }
+.split-ring--soft    { --ring-color: #a8a29e; }
+.split-ring--reverse { animation-direction: reverse; }
