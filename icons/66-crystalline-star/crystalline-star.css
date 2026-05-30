@@ -1,0 +1,90 @@
+/**
+ * 66 · Crystalline Star — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Geometric 8-pointed circular shimmer pulsing.
+ * Usage     : <div class="crystalline-star" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span>
+ *               <span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.crystalline-star {
+  /* === SIZE === */
+  --cs-size: 50px;
+
+  /* === COLOR === */
+  --cs-color: #7f77dd;
+
+  /* === ANIMATION === */
+  --cs-speed: 1.2s;
+  --cs-opacity: 0.95;
+
+  /* ─── Do not edit below this line ─── */
+  width: var(--cs-size);
+  height: var(--cs-size);
+  position: relative;
+  display: inline-flex;
+}
+
+.crystalline-star * {
+  box-sizing: border-box;
+}
+
+.crystalline-star span {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  background: var(--cs-color);
+  opacity: var(--cs-opacity);
+  animation: crystalline-star-pulse var(--cs-speed) ease-in-out infinite;
+}
+
+/* 8-Node Clockwise Positions & Delays */
+.crystalline-star span:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); animation-delay: calc(var(--cs-speed) * -0.875); }
+.crystalline-star span:nth-child(2) { top: 14.6%; left: 85.4%; transform: translate(-50%, -50%); animation-delay: calc(var(--cs-speed) * -0.75); }
+.crystalline-star span:nth-child(3) { top: 50%; left: 100%; transform: translateY(-50%); animation-delay: calc(var(--cs-speed) * -0.625); }
+.crystalline-star span:nth-child(4) { top: 85.4%; left: 85.4%; transform: translate(-50%, -50%); animation-delay: calc(var(--cs-speed) * -0.5); }
+.crystalline-star span:nth-child(5) { top: 100%; left: 50%; transform: translateX(-50%); animation-delay: calc(var(--cs-speed) * -0.375); }
+.crystalline-star span:nth-child(6) { top: 85.4%; left: 14.6%; transform: translate(-50%, -50%); animation-delay: calc(var(--cs-speed) * -0.25); }
+.crystalline-star span:nth-child(7) { top: 50%; left: 0; transform: translateY(-50%); animation-delay: calc(var(--cs-speed) * -0.125); }
+.crystalline-star span:nth-child(8) { top: 14.6%; left: 14.6%; transform: translate(-50%, -50%); animation-delay: 0s; }
+
+@keyframes crystalline-star-pulse {
+  0%, 100% {
+    transform: scale(0.6);
+    opacity: 0.25;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+    filter: drop-shadow(0 0 4px var(--cs-color));
+  }
+}
+
+/* ─── Size presets ─── */
+.crystalline-star--sm { --cs-size: 32px; }
+.crystalline-star--md { --cs-size: 50px; }
+.crystalline-star--lg { --cs-size: 68px; }
+
+/* ─── Color presets ─── */
+.crystalline-star--primary { --cs-color: #7f77dd; }
+.crystalline-star--success { --cs-color: #1d9e75; }
+.crystalline-star--warning { --cs-color: #ef9f27; }
+.crystalline-star--danger  { --cs-color: #e24b4a; }
+.crystalline-star--white   { --cs-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.crystalline-star--fast { --cs-speed: 0.6s; }
+.crystalline-star--slow { --cs-speed: 2.0s; }
+.crystalline-star--soft { --cs-opacity: 0.4; }
+
+@media (prefers-reduced-motion: reduce) {
+  .crystalline-star span {
+    animation: none;
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+}

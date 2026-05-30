@@ -1,0 +1,67 @@
+/**
+ * 63 · Quantum Ripple — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Concentric fading ripples expanding from a central core.
+ * Usage     : <div class="quantum-ripple" role="status" aria-label="Loading">
+ *               <span class="quantum-ripple__core"></span>
+ *               <span class="quantum-ripple__ring"></span>
+ *               <span class="quantum-ripple__ring"></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+.quantum-ripple {
+  --qr-size: 48px;
+  --qr-color: #7f77dd;
+  --qr-speed: 1.4s;
+  --qr-opacity: 0.85;
+
+  width: var(--qr-size);
+  height: var(--qr-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.quantum-ripple__core {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--qr-color);
+  animation: quantum-ripple-pulse calc(var(--qr-speed) * 0.5) ease-in-out infinite;
+}
+.quantum-ripple__ring {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--qr-color);
+  border-radius: 50%;
+  opacity: 0;
+  animation: quantum-ripple-expand var(--qr-speed) cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+.quantum-ripple__ring:nth-child(2) { animation-delay: 0s; }
+.quantum-ripple__ring:nth-child(3) { animation-delay: calc(var(--qr-speed) * -0.5); }
+@keyframes quantum-ripple-pulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+@keyframes quantum-ripple-expand {
+  0% { transform: scale(0.1); opacity: var(--qr-opacity); }
+  100% { transform: scale(1.0); opacity: 0; }
+}
+.quantum-ripple--sm { --qr-size: 32px; }
+.quantum-ripple--md { --qr-size: 48px; }
+.quantum-ripple--lg { --qr-size: 64px; }
+.quantum-ripple--primary { --qr-color: #7f77dd; }
+.quantum-ripple--success { --qr-color: #1d9e75; }
+.quantum-ripple--warning { --qr-color: #ef9f27; }
+.quantum-ripple--danger  { --qr-color: #e24b4a; }
+.quantum-ripple--white   { --qr-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.quantum-ripple--fast { --qr-speed: 0.7s; }
+.quantum-ripple--slow { --qr-speed: 2.2s; }
+.quantum-ripple--soft { --qr-opacity: 0.45; }
+
+@media (prefers-reduced-motion: reduce) {
+  .quantum-ripple__ring { animation: none; opacity: 0.2; transform: scale(0.6); }
+  .quantum-ripple__core { animation: none; }
+}

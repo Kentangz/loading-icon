@@ -87,6 +87,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 59 | [Holographic Helix](icons/59-holographic-helix/) | double-helix + sinusoidal-glow | Premium automated loaders |
 | 60 | [Glow Quantum](icons/60-glow-quantum/) | pulsing-core + quantum-orbits | Premium automated loaders |
 | 61 | [Liquid Drip](icons/61-liquid-drip/) | viscous-drips + gooey-merging | Premium automated loaders |
+| 62 | [Folding Prism](icons/62-folding-prism/) | 3d-shapes + folding-planes | Premium automated loaders |
+| 63 | [Quantum Ripple](icons/63-quantum-ripple/) | quantum-wave + concentric-glow | Premium automated loaders |
+| 64 | [Glitch Orbit](icons/64-glitch-orbit/) | glitch-effect + electronic-glow | Premium automated loaders |
+| 65 | [Viscous Wave](icons/65-viscous-wave/) | liquid-blur + gooey-merging | Premium automated loaders |
+| 66 | [Crystalline Star](icons/66-crystalline-star/) | crystal-pulse + shimmering-nodes | Premium automated loaders |
 
 ---
 
@@ -443,6 +448,41 @@ Each icon has a minimal, documented HTML structure:
 <div class="liquid-drip" role="status" aria-label="Loading">
   <span></span><span></span><span></span>
 </div>
+
+<!-- 62 · Folding Prism -->
+<div class="folding-prism" role="status" aria-label="Loading">
+  <span class="folding-prism__face"></span>
+  <span class="folding-prism__face"></span>
+  <span class="folding-prism__face"></span>
+</div>
+
+<!-- 63 · Quantum Ripple -->
+<div class="quantum-ripple" role="status" aria-label="Loading">
+  <span class="quantum-ripple__core"></span>
+  <span class="quantum-ripple__ring"></span>
+  <span class="quantum-ripple__ring"></span>
+</div>
+
+<!-- 64 · Glitch Orbit -->
+<div class="glitch-orbit" role="status" aria-label="Loading">
+  <span class="glitch-orbit__dot"></span>
+  <span class="glitch-orbit__dot"></span>
+  <span class="glitch-orbit__dot"></span>
+</div>
+
+<!-- 65 · Viscous Wave -->
+<div class="viscous-wave" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- 66 · Crystalline Star -->
+<div class="crystalline-star" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
   <div class="glow-quantum__ring"><span></span></div>
 </div>
 ```
@@ -548,6 +588,11 @@ Every icon ships with ready-to-use modifier classes:
 | Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
 | Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
 | Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
+| Folding Prism | `--fp-size` `--fp-color` `--fp-speed` `--fp-opacity` |
+| Quantum Ripple | `--qr-size` `--qr-color` `--qr-speed` `--qr-opacity` |
+| Glitch Orbit | `--go-size` `--go-color` `--go-speed` `--go-opacity` |
+| Viscous Wave | `--vw-size` `--vw-color` `--vw-speed` `--vw-opacity` |
+| Crystalline Star | `--cs-size` `--cs-color` `--cs-speed` `--cs-opacity` |
 | Kinetic Vortex | `--kv-size` `--kv-color` `--kv-speed` |
 | Neon Matrix | `--nm-size` `--nm-color` `--nm-speed` |
 | Holographic Helix | `--hh-size` `--hh-gap` `--hh-color` `--hh-speed` |
@@ -753,6 +798,21 @@ loadicons/
     ├── 61-liquid-drip/
     │   ├── liquid-drip.css
     │   └── index.html
+    ├── 62-folding-prism/
+    │   ├── folding-prism.css
+    │   └── index.html
+    ├── 63-quantum-ripple/
+    │   ├── quantum-ripple.css
+    │   └── index.html
+    ├── 64-glitch-orbit/
+    │   ├── glitch-orbit.css
+    │   └── index.html
+    ├── 65-viscous-wave/
+    │   ├── viscous-wave.css
+    │   └── index.html
+    ├── 66-crystalline-star/
+    │   ├── crystalline-star.css
+    │   └── index.html
 ```
 
 ---
@@ -818,7 +878,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 

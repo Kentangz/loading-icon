@@ -1,0 +1,11 @@
+{
+  "name": "Crystalline Star",
+  "category": "special",
+  "tags": [
+    "crystal-pulse",
+    "shimmering-nodes",
+    "star-geometry"
+  ],
+  "html": "<div class=\"demo-cstar\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-cstar {\n  --cs-size: 50px;\n  --cs-color: var(--color-primary);\n  --cs-speed: calc(1.2s * var(--loader-speed-scale));\n  width: var(--cs-size); height: var(--cs-size); position: relative;\n}\n.demo-cstar span {\n  position: absolute; width: 20%; height: 20%; border-radius: 50%;\n  background: var(--cs-color); animation: d-cstar-pulse var(--cs-speed) ease-in-out var(--loader-cycles);\n}\n.demo-cstar span:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); animation-delay: calc(var(--cs-speed) * -0.875); }\n.demo-cstar span:nth-child(2) { top: 14.6%; left: 85.4%; transform: translate(-50%, -50%); animation-delay: calc(var(--cs-speed) * -0.75); }\n.demo-cstar span:nth-child(3) { top: 50%; left: 100%; transform: translateY(-50%); animation-delay: calc(var(--cs-speed) * -0.625); }\n.demo-cstar span:nth-child(4) { top: 85.4%; left: 85.4%; transform: translate(-50%, -50%); animation-delay: calc(var(--cs-speed) * -0.5); }\n.demo-cstar span:nth-child(5) { top: 100%; left: 50%; transform: translateX(-50%); animation-delay: calc(var(--cs-speed) * -0.375); }\n.demo-cstar span:nth-child(6) { top: 85.4%; left: 14.6%; transform: translate(-50%, -50%); animation-delay: calc(var(--cs-speed) * -0.25); }\n.demo-cstar span:nth-child(7) { top: 50%; left: 0; transform: translateY(-50%); animation-delay: calc(var(--cs-speed) * -0.125); }\n.demo-cstar span:nth-child(8) { top: 14.6%; left: 14.6%; transform: translate(-50%, -50%); animation-delay: 0s; }\n@keyframes d-cstar-pulse {\n  0%, 100% { transform: scale(0.6); opacity: 0.25; }\n  50% { transform: scale(1.2); opacity: 1; filter: drop-shadow(0 0 4px var(--cs-color)); }\n}"
+}

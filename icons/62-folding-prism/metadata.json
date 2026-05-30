@@ -1,0 +1,11 @@
+{
+  "name": "Folding Prism",
+  "category": "3d",
+  "tags": [
+    "3d-shapes",
+    "folding-planes",
+    "prism-twist"
+  ],
+  "html": "<div class=\"demo-fprism\"><span class=\"demo-fprism-face\"></span><span class=\"demo-fprism-face\"></span><span class=\"demo-fprism-face\"></span></div>",
+  "css": ".demo-fprism {\n  --fp-size: 52px;\n  --fp-color: var(--color-primary);\n  --fp-speed: calc(1.5s * var(--loader-speed-scale));\n  width: var(--fp-size); height: var(--fp-size); position: relative;\n  perspective: 200px; transform-style: preserve-3d;\n}\n.demo-fprism-face {\n  position: absolute; inset: 0; border: 2px solid transparent;\n  border-top-color: var(--fp-color); border-radius: 50%;\n  animation: d-fprism-spin var(--fp-speed) cubic-bezier(0.4, 0, 0.2, 1) var(--loader-cycles);\n}\n.demo-fprism-face:nth-child(1) { --r: 0deg; animation-delay: calc(var(--fp-speed) * -0.4); }\n.demo-fprism-face:nth-child(2) { --r: 120deg; animation-delay: calc(var(--fp-speed) * -0.2); }\n.demo-fprism-face:nth-child(3) { --r: 240deg; animation-delay: 0s; }\n@keyframes d-fprism-spin {\n  0% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(0deg); }\n  100% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(360deg); }\n}"
+}
