@@ -1,0 +1,71 @@
+/**
+ * 67 · Spiral Coil — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Dual concentric half-arcs counter-rotating at
+ *             different speeds (1 : 0.7 ratio) creating a
+ *             mesmerizing coiling interference pattern.
+ * Usage     : Apply `.spiral-coil` to a <div> with 2 <span>s.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.spiral-coil {
+  --sc-size: 48px;
+  --sc-color: #7f77dd;
+  --sc-speed: 1.2s;
+  --sc-opacity: 0.95;
+
+  width: var(--sc-size);
+  height: var(--sc-size);
+  position: relative;
+  display: inline-flex;
+}
+
+.spiral-coil * {
+  box-sizing: border-box;
+}
+
+.spiral-coil span {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  opacity: var(--sc-opacity);
+  animation: spiral-coil-spin var(--sc-speed) linear infinite;
+}
+
+.spiral-coil span:nth-child(1) {
+  border-top-color: var(--sc-color);
+  border-right-color: var(--sc-color);
+}
+
+.spiral-coil span:nth-child(2) {
+  border-bottom-color: var(--sc-color);
+  border-left-color: var(--sc-color);
+  animation-direction: reverse;
+  animation-duration: calc(var(--sc-speed) * 0.7);
+}
+
+@keyframes spiral-coil-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Size presets ─── */
+.spiral-coil--sm { --sc-size: 32px; }
+.spiral-coil--md { --sc-size: 48px; }
+.spiral-coil--lg { --sc-size: 64px; }
+
+/* ─── Color presets ─── */
+.spiral-coil--primary { --sc-color: #7f77dd; }
+.spiral-coil--success { --sc-color: #1d9e75; }
+.spiral-coil--warning { --sc-color: #ef9f27; }
+.spiral-coil--danger  { --sc-color: #e24b4a; }
+.spiral-coil--white   { --sc-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.spiral-coil--fast { --sc-speed: 0.65s; }
+.spiral-coil--slow { --sc-speed: 2.2s; }
+.spiral-coil--soft { --sc-opacity: 0.35; }
+
+@media (prefers-reduced-motion: reduce) {
+  .spiral-coil span { animation-play-state: paused; }
+}

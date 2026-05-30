@@ -1,0 +1,12 @@
+{
+  "name": "Orbit Chain",
+  "category": "spinners",
+  "tags": [
+    "css-motion-path",
+    "orbit",
+    "chain-dots",
+    "spinners"
+  ],
+  "html": "<div class=\"demo-ochain\"><span></span><span></span><span></span></div>",
+  "css": ".demo-ochain {\n  --oc-size: 50px;\n  --oc-color: var(--color-primary);\n  --oc-speed: calc(1.5s * var(--loader-speed-scale));\n  width: var(--oc-size); height: var(--oc-size); position: relative;\n}\n.demo-ochain span {\n  position: absolute;\n  width: 18%; height: 18%; border-radius: 50%;\n  background: var(--oc-color);\n  offset-path: circle(38% at 50% 50%);\n  offset-distance: 0%;\n  animation: d-ochain-orbit var(--oc-speed) linear var(--loader-cycles);\n}\n.demo-ochain span:nth-child(1) { animation-delay: 0s; }\n.demo-ochain span:nth-child(2) { animation-delay: calc(var(--oc-speed) / -3); opacity: 0.6; }\n.demo-ochain span:nth-child(3) { animation-delay: calc(var(--oc-speed) * -2 / 3); opacity: 0.3; }\n@keyframes d-ochain-orbit { to { offset-distance: 100%; } }"
+}

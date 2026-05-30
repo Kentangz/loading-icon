@@ -1,0 +1,65 @@
+/**
+ * 68 · Orbit Chain — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : 3 dots orbiting on a CSS Motion Path circle
+ *             (offset-path: circle()), equally spaced 120° apart
+ *             with fading opacity trail — a genuinely unique
+ *             browser-native API not used elsewhere in the set.
+ * Usage     : Apply `.orbit-chain` to a <div> with 3 <span>s.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.orbit-chain {
+  --oc-size: 50px;
+  --oc-color: #7f77dd;
+  --oc-speed: 1.5s;
+
+  width: var(--oc-size);
+  height: var(--oc-size);
+  position: relative;
+  display: inline-flex;
+}
+
+.orbit-chain * {
+  box-sizing: border-box;
+}
+
+.orbit-chain span {
+  position: absolute;
+  width: 18%;
+  height: 18%;
+  border-radius: 50%;
+  background: var(--oc-color);
+  offset-path: circle(38% at 50% 50%);
+  offset-distance: 0%;
+  animation: orbit-chain-orbit var(--oc-speed) linear infinite;
+}
+
+.orbit-chain span:nth-child(1) { animation-delay: 0s; }
+.orbit-chain span:nth-child(2) { animation-delay: calc(var(--oc-speed) / -3); opacity: 0.6; }
+.orbit-chain span:nth-child(3) { animation-delay: calc(var(--oc-speed) * -2 / 3); opacity: 0.3; }
+
+@keyframes orbit-chain-orbit {
+  to { offset-distance: 100%; }
+}
+
+/* ─── Size presets ─── */
+.orbit-chain--sm { --oc-size: 36px; }
+.orbit-chain--md { --oc-size: 50px; }
+.orbit-chain--lg { --oc-size: 66px; }
+
+/* ─── Color presets ─── */
+.orbit-chain--primary { --oc-color: #7f77dd; }
+.orbit-chain--success { --oc-color: #1d9e75; }
+.orbit-chain--warning { --oc-color: #ef9f27; }
+.orbit-chain--danger  { --oc-color: #e24b4a; }
+.orbit-chain--white   { --oc-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.orbit-chain--fast { --oc-speed: 0.8s; }
+.orbit-chain--slow { --oc-speed: 2.5s; }
+.orbit-chain--soft { opacity: 0.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-chain span { animation-play-state: paused; }
+}

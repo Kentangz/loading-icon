@@ -1,0 +1,12 @@
+{
+  "name": "Scanning Line",
+  "category": "special",
+  "tags": [
+    "scan",
+    "glow-line",
+    "security",
+    "special"
+  ],
+  "html": "<div class=\"demo-scanl\"><span></span></div>",
+  "css": ".demo-scanl {\n  --sl-size: 48px;\n  --sl-color: var(--color-primary);\n  --sl-speed: calc(1.4s * var(--loader-speed-scale));\n  width: var(--sl-size); height: var(--sl-size); position: relative;\n  overflow: hidden; border-radius: 6px;\n  border: 1.5px solid color-mix(in srgb, var(--sl-color) 25%, transparent);\n  background: color-mix(in srgb, var(--sl-color) 5%, transparent);\n}\n.demo-scanl span {\n  position: absolute; left: 0; right: 0; height: 2px;\n  background: linear-gradient(90deg, transparent 0%, var(--sl-color) 40%, #fff 50%, var(--sl-color) 60%, transparent 100%);\n  box-shadow: 0 0 6px var(--sl-color), 0 0 14px var(--sl-color);\n  animation: d-scanl-sweep var(--sl-speed) ease-in-out var(--loader-cycles);\n}\n@keyframes d-scanl-sweep {\n  0%, 100% { top: 0; opacity: 1; }\n  48% { top: calc(100% - 2px); opacity: 0.8; }\n  50% { top: calc(100% - 2px); opacity: 0.6; }\n}"
+}

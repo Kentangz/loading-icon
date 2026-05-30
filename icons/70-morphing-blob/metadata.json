@@ -1,0 +1,12 @@
+{
+  "name": "Morphing Blob",
+  "category": "special",
+  "tags": [
+    "blob",
+    "organic",
+    "border-radius-morph",
+    "special"
+  ],
+  "html": "<div class=\"demo-mblob\"></div>",
+  "css": ".demo-mblob {\n  --mb-size: 44px;\n  --mb-color: var(--color-primary);\n  --mb-speed: calc(2.4s * var(--loader-speed-scale));\n  width: var(--mb-size); height: var(--mb-size);\n  background: var(--mb-color);\n  filter: drop-shadow(0 0 7px var(--mb-color));\n  animation: d-mblob-morph var(--mb-speed) ease-in-out var(--loader-cycles);\n}\n@keyframes d-mblob-morph {\n  0%, 100% { border-radius: 50%; transform: rotate(0deg) scale(1); }\n  20% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(72deg) scale(1.05); }\n  40% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(144deg) scale(0.93); }\n  60% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(216deg) scale(1.08); }\n  80% { border-radius: 70% 30% 50% 50% / 30% 70% 70% 30%; transform: rotate(288deg) scale(0.96); }\n}"
+}

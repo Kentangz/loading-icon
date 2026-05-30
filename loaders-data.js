@@ -1736,4 +1736,145 @@ const loaders = [
   50% { transform: scale(1.2); opacity: 1; filter: drop-shadow(0 0 4px var(--cs-color)); }
 }`,
 	},
+	{
+		id: "67",
+		name: "Spiral Coil",
+		category: "spinners",
+		tags: ["dual-arc","counter-rotation","coil-twist","spinners"],
+		html: "<div class=\"demo-scoil\"><span></span><span></span></div>",
+		css: `.demo-scoil {
+  --sc-size: 48px;
+  --sc-color: var(--color-primary);
+  --sc-speed: calc(1.2s * var(--loader-speed-scale));
+  width: var(--sc-size); height: var(--sc-size); position: relative;
+  display: inline-flex;
+}
+.demo-scoil span {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 3px solid transparent;
+  animation: d-scoil-spin var(--sc-speed) linear var(--loader-cycles);
+}
+.demo-scoil span:nth-child(1) {
+  border-top-color: var(--sc-color);
+  border-right-color: var(--sc-color);
+}
+.demo-scoil span:nth-child(2) {
+  border-bottom-color: var(--sc-color);
+  border-left-color: var(--sc-color);
+  animation-direction: reverse;
+  animation-duration: calc(var(--sc-speed) * 0.7);
+}
+@keyframes d-scoil-spin { to { transform: rotate(360deg); } }`,
+	},
+	{
+		id: "68",
+		name: "Orbit Chain",
+		category: "spinners",
+		tags: ["css-motion-path","orbit","chain-dots","spinners"],
+		html: "<div class=\"demo-ochain\"><span></span><span></span><span></span></div>",
+		css: `.demo-ochain {
+  --oc-size: 50px;
+  --oc-color: var(--color-primary);
+  --oc-speed: calc(1.5s * var(--loader-speed-scale));
+  width: var(--oc-size); height: var(--oc-size); position: relative;
+}
+.demo-ochain span {
+  position: absolute;
+  width: 18%; height: 18%; border-radius: 50%;
+  background: var(--oc-color);
+  offset-path: circle(38% at 50% 50%);
+  offset-distance: 0%;
+  animation: d-ochain-orbit var(--oc-speed) linear var(--loader-cycles);
+}
+.demo-ochain span:nth-child(1) { animation-delay: 0s; }
+.demo-ochain span:nth-child(2) { animation-delay: calc(var(--oc-speed) / -3); opacity: 0.6; }
+.demo-ochain span:nth-child(3) { animation-delay: calc(var(--oc-speed) * -2 / 3); opacity: 0.3; }
+@keyframes d-ochain-orbit { to { offset-distance: 100%; } }`,
+	},
+	{
+		id: "69",
+		name: "Scanning Line",
+		category: "special",
+		tags: ["scan","glow-line","security","special"],
+		html: "<div class=\"demo-scanl\"><span></span></div>",
+		css: `.demo-scanl {
+  --sl-size: 48px;
+  --sl-color: var(--color-primary);
+  --sl-speed: calc(1.4s * var(--loader-speed-scale));
+  width: var(--sl-size); height: var(--sl-size); position: relative;
+  overflow: hidden; border-radius: 6px;
+  border: 1.5px solid color-mix(in srgb, var(--sl-color) 25%, transparent);
+  background: color-mix(in srgb, var(--sl-color) 5%, transparent);
+}
+.demo-scanl span {
+  position: absolute; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--sl-color) 40%, #fff 50%, var(--sl-color) 60%, transparent 100%);
+  box-shadow: 0 0 6px var(--sl-color), 0 0 14px var(--sl-color);
+  animation: d-scanl-sweep var(--sl-speed) ease-in-out var(--loader-cycles);
+}
+@keyframes d-scanl-sweep {
+  0%, 100% { top: 0; opacity: 1; }
+  48% { top: calc(100% - 2px); opacity: 0.8; }
+  50% { top: calc(100% - 2px); opacity: 0.6; }
+}`,
+	},
+	{
+		id: "70",
+		name: "Morphing Blob",
+		category: "special",
+		tags: ["blob","organic","border-radius-morph","special"],
+		html: "<div class=\"demo-mblob\"></div>",
+		css: `.demo-mblob {
+  --mb-size: 44px;
+  --mb-color: var(--color-primary);
+  --mb-speed: calc(2.4s * var(--loader-speed-scale));
+  width: var(--mb-size); height: var(--mb-size);
+  background: var(--mb-color);
+  filter: drop-shadow(0 0 7px var(--mb-color));
+  animation: d-mblob-morph var(--mb-speed) ease-in-out var(--loader-cycles);
+}
+@keyframes d-mblob-morph {
+  0%, 100% { border-radius: 50%; transform: rotate(0deg) scale(1); }
+  20% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(72deg) scale(1.05); }
+  40% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(144deg) scale(0.93); }
+  60% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(216deg) scale(1.08); }
+  80% { border-radius: 70% 30% 50% 50% / 30% 70% 70% 30%; transform: rotate(288deg) scale(0.96); }
+}`,
+	},
+	{
+		id: "71",
+		name: "Activity Spokes",
+		category: "spinners",
+		tags: ["spokes","sequential-fade","activity-indicator","ios-style"],
+		html: "<div class=\"demo-aspoke\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-aspoke {
+  --as-size: 48px;
+  --as-color: var(--color-primary);
+  --as-speed: calc(0.8s * var(--loader-speed-scale));
+  width: var(--as-size); height: var(--as-size); position: relative;
+  display: inline-flex;
+}
+.demo-aspoke span {
+  position: absolute;
+  width: 11%; height: 30%;
+  left: 44.5%; top: 14%;
+  border-radius: 9999px;
+  background: var(--as-color);
+  transform-origin: 50% 120%;
+  opacity: 0.15;
+  animation: d-aspoke-fade var(--as-speed) linear var(--loader-cycles);
+}
+.demo-aspoke span:nth-child(1) { transform: rotate(0deg);   animation-delay: calc(var(--as-speed) * -0.875); }
+.demo-aspoke span:nth-child(2) { transform: rotate(45deg);  animation-delay: calc(var(--as-speed) * -0.75);  }
+.demo-aspoke span:nth-child(3) { transform: rotate(90deg);  animation-delay: calc(var(--as-speed) * -0.625); }
+.demo-aspoke span:nth-child(4) { transform: rotate(135deg); animation-delay: calc(var(--as-speed) * -0.5);   }
+.demo-aspoke span:nth-child(5) { transform: rotate(180deg); animation-delay: calc(var(--as-speed) * -0.375); }
+.demo-aspoke span:nth-child(6) { transform: rotate(225deg); animation-delay: calc(var(--as-speed) * -0.25);  }
+.demo-aspoke span:nth-child(7) { transform: rotate(270deg); animation-delay: calc(var(--as-speed) * -0.125); }
+.demo-aspoke span:nth-child(8) { transform: rotate(315deg); animation-delay: 0s; }
+@keyframes d-aspoke-fade {
+  0%        { opacity: 1; }
+  75%, 100% { opacity: 0.12; }
+}`,
+	},
 ];

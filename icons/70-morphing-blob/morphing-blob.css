@@ -1,0 +1,69 @@
+/**
+ * 70 · Morphing Blob — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : A single element morphs continuously between
+ *             organic shapes using multi-value border-radius
+ *             animation (CSS Lava Lamp technique) combined
+ *             with subtle scale and rotation for extra life.
+ * Usage     : Apply `.morphing-blob` to an empty <div>.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+.morphing-blob {
+  --mb-size: 44px;
+  --mb-color: #7f77dd;
+  --mb-speed: 2.4s;
+  --mb-opacity: 1;
+
+  width: var(--mb-size);
+  height: var(--mb-size);
+  background: var(--mb-color);
+  opacity: var(--mb-opacity);
+  filter: drop-shadow(0 0 7px var(--mb-color));
+  display: inline-flex;
+  animation: morphing-blob-morph var(--mb-speed) ease-in-out infinite;
+}
+
+@keyframes morphing-blob-morph {
+  0%, 100% {
+    border-radius: 50%;
+    transform: rotate(0deg) scale(1);
+  }
+  20% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    transform: rotate(72deg) scale(1.05);
+  }
+  40% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(144deg) scale(0.93);
+  }
+  60% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(216deg) scale(1.08);
+  }
+  80% {
+    border-radius: 70% 30% 50% 50% / 30% 70% 70% 30%;
+    transform: rotate(288deg) scale(0.96);
+  }
+}
+
+/* ─── Size presets ─── */
+.morphing-blob--sm { --mb-size: 30px; }
+.morphing-blob--md { --mb-size: 44px; }
+.morphing-blob--lg { --mb-size: 60px; }
+
+/* ─── Color presets ─── */
+.morphing-blob--primary { --mb-color: #7f77dd; }
+.morphing-blob--success { --mb-color: #1d9e75; }
+.morphing-blob--warning { --mb-color: #ef9f27; }
+.morphing-blob--danger  { --mb-color: #e24b4a; }
+.morphing-blob--white   { --mb-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.morphing-blob--fast { --mb-speed: 1.1s; }
+.morphing-blob--slow { --mb-speed: 4.0s; }
+.morphing-blob--soft { --mb-opacity: 0.45; }
+
+@media (prefers-reduced-motion: reduce) {
+  .morphing-blob { animation-play-state: paused; }
+}

@@ -92,6 +92,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 64 | [Glitch Orbit](icons/64-glitch-orbit/) | glitch-effect + electronic-glow | Premium automated loaders |
 | 65 | [Viscous Wave](icons/65-viscous-wave/) | liquid-blur + gooey-merging | Premium automated loaders |
 | 66 | [Crystalline Star](icons/66-crystalline-star/) | crystal-pulse + shimmering-nodes | Premium automated loaders |
+| 67 | [Spiral Coil](icons/67-spiral-coil/) | dual-arc + counter-rotation | Premium automated loaders |
+| 68 | [Orbit Chain](icons/68-orbit-chain/) | css-motion-path + orbit | Premium automated loaders |
+| 69 | [Scanning Line](icons/69-scanning-line/) | scan + glow-line | Premium automated loaders |
+| 70 | [Morphing Blob](icons/70-morphing-blob/) | blob + organic | Premium automated loaders |
+| 71 | [Activity Spokes](icons/71-activity-spokes/) | sequential-fade + spokes | Premium automated loaders |
 
 ---
 
@@ -483,6 +488,30 @@ Each icon has a minimal, documented HTML structure:
   <span></span><span></span><span></span><span></span>
   <span></span><span></span><span></span><span></span>
 </div>
+
+<!-- 67 · Spiral Coil -->
+<div class="spiral-coil" role="status" aria-label="Loading">
+  <span></span><span></span>
+</div>
+
+<!-- 68 · Orbit Chain -->
+<div class="orbit-chain" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 69 · Scanning Line -->
+<div class="scanning-line" role="status" aria-label="Loading">
+  <span></span>
+</div>
+
+<!-- 70 · Morphing Blob -->
+<div class="morphing-blob" role="status" aria-label="Loading"></div>
+
+<!-- 71 · Activity Spokes -->
+<div class="activity-spokes" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
   <div class="glow-quantum__ring"><span></span></div>
 </div>
 ```
@@ -588,6 +617,11 @@ Every icon ships with ready-to-use modifier classes:
 | Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
 | Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
 | Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
+| Spiral Coil | `--sc-size` `--sc-color` `--sc-speed` `--sc-opacity` |
+| Orbit Chain | `--oc-size` `--oc-color` `--oc-speed` |
+| Scanning Line | `--sl-size` `--sl-color` `--sl-speed` |
+| Morphing Blob | `--mb-size` `--mb-color` `--mb-speed` `--mb-opacity` |
+| Activity Spokes | `--as-size` `--as-color` `--as-speed` |
 | Folding Prism | `--fp-size` `--fp-color` `--fp-speed` `--fp-opacity` |
 | Quantum Ripple | `--qr-size` `--qr-color` `--qr-speed` `--qr-opacity` |
 | Glitch Orbit | `--go-size` `--go-color` `--go-speed` `--go-opacity` |
@@ -813,6 +847,21 @@ loadicons/
     ├── 66-crystalline-star/
     │   ├── crystalline-star.css
     │   └── index.html
+    ├── 67-spiral-coil/
+    │   ├── spiral-coil.css
+    │   └── index.html
+    ├── 68-orbit-chain/
+    │   ├── orbit-chain.css
+    │   └── index.html
+    ├── 69-scanning-line/
+    │   ├── scanning-line.css
+    │   └── index.html
+    ├── 70-morphing-blob/
+    │   ├── morphing-blob.css
+    │   └── index.html
+    ├── 71-activity-spokes/
+    │   ├── activity-spokes.css
+    │   └── index.html
 ```
 
 ---
@@ -878,7 +927,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 
