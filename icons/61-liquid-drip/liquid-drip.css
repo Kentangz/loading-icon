@@ -63,6 +63,11 @@
 .liquid-drip--warning { --ld-color: #ef9f27; }
 .liquid-drip--danger  { --ld-color: #e24b4a; }
 .liquid-drip--white   { --ld-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.liquid-drip--fast { --ld-speed: 0.9s; }
+.liquid-drip--slow { --ld-speed: 2.5s; }
+
 @media (prefers-reduced-motion: reduce) {
   .liquid-drip span { animation: none; }
 }

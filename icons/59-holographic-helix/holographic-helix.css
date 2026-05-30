@@ -47,6 +47,12 @@
 .holographic-helix--warning { --hh-color: #ef9f27; }
 .holographic-helix--danger  { --hh-color: #e24b4a; }
 .holographic-helix--white   { --hh-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.holographic-helix--fast { --hh-speed: 0.8s; }
+.holographic-helix--slow { --hh-speed: 2.2s; }
+.holographic-helix--soft { --hh-opacity: 0.5; }
+
 @media (prefers-reduced-motion: reduce) {
   .holographic-helix span { animation: none; transform: scaleY(0.7); }
 }

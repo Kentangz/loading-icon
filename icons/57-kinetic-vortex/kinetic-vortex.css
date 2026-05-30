@@ -45,6 +45,12 @@
 .kinetic-vortex--warning { --kv-color: #ef9f27; }
 .kinetic-vortex--danger  { --kv-color: #e24b4a; }
 .kinetic-vortex--white   { --kv-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.kinetic-vortex--fast { --kv-speed: 0.7s; }
+.kinetic-vortex--slow { --kv-speed: 2.2s; }
+.kinetic-vortex--soft { --kv-opacity: 0.5; }
+
 @media (prefers-reduced-motion: reduce) {
   .kinetic-vortex span { animation: none; transform: rotateX(var(--r)) rotateY(var(--r)) scale(var(--scale)); }
 }

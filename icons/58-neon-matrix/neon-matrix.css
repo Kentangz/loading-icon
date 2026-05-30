@@ -41,6 +41,12 @@
 .neon-matrix--warning { --nm-color: #ef9f27; }
 .neon-matrix--danger  { --nm-color: #e24b4a; }
 .neon-matrix--white   { --nm-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.neon-matrix--fast { --nm-speed: 0.5s; }
+.neon-matrix--slow { --nm-speed: 1.6s; }
+.neon-matrix--soft { --nm-opacity: 0.5; }
+
 @media (prefers-reduced-motion: reduce) {
   .neon-matrix span { animation: none; opacity: 0.6; }
 }

@@ -60,6 +60,11 @@
 .glow-quantum--warning { --gq-color: #ef9f27; }
 .glow-quantum--danger  { --gq-color: #e24b4a; }
 .glow-quantum--white   { --gq-color: #ffffff; }
+
+/* ─── Modifier presets ─── */
+.glow-quantum--fast { --gq-speed: 0.9s; }
+.glow-quantum--slow { --gq-speed: 2.6s; }
+
 @media (prefers-reduced-motion: reduce) {
   .glow-quantum__ring { animation: none; }
   .glow-quantum__core { animation: none; }
