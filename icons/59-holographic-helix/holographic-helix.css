@@ -1,0 +1,52 @@
+/**
+ * 59 · Holographic Helix — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Vertical sinusoidal double-helix translations.
+ * Usage     : <div class="holographic-helix" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span><span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+.holographic-helix {
+  --hh-size: 52px;
+  --hh-gap: 4px;
+  --hh-color: #1d9e75;
+  --hh-speed: 1.4s;
+  --hh-opacity: 0.95;
+
+  width: var(--hh-size);
+  height: var(--hh-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--hh-gap);
+}
+.holographic-helix span {
+  flex: 1;
+  height: 35%;
+  border-radius: 4px;
+  background: var(--hh-color);
+  opacity: var(--hh-opacity);
+  animation: holographic-helix-wave var(--hh-speed) ease-in-out infinite;
+}
+.holographic-helix span:nth-child(1) { animation-delay: calc(var(--hh-speed) * -0.5); }
+.holographic-helix span:nth-child(2) { animation-delay: calc(var(--hh-speed) * -0.4); }
+.holographic-helix span:nth-child(3) { animation-delay: calc(var(--hh-speed) * -0.3); }
+.holographic-helix span:nth-child(4) { animation-delay: calc(var(--hh-speed) * -0.2); }
+.holographic-helix span:nth-child(5) { animation-delay: calc(var(--hh-speed) * -0.1); }
+.holographic-helix span:nth-child(6) { animation-delay: 0s; }
+@keyframes holographic-helix-wave {
+  0%, 100% { transform: translateY(-10px) scale(0.6); opacity: 0.3; }
+  50% { transform: translateY(10px) scale(1.1); opacity: 1; filter: drop-shadow(0 0 5px var(--hh-color)); }
+}
+.holographic-helix--sm { --hh-size: 36px; --hh-gap: 2.5px; }
+.holographic-helix--md { --hh-size: 52px; --hh-gap: 4px; }
+.holographic-helix--lg { --hh-size: 68px; --hh-gap: 5.5px; }
+.holographic-helix--primary { --hh-color: #7f77dd; }
+.holographic-helix--success { --hh-color: #1d9e75; }
+.holographic-helix--warning { --hh-color: #ef9f27; }
+.holographic-helix--danger  { --hh-color: #e24b4a; }
+.holographic-helix--white   { --hh-color: #ffffff; }
+@media (prefers-reduced-motion: reduce) {
+  .holographic-helix span { animation: none; transform: scaleY(0.7); }
+}

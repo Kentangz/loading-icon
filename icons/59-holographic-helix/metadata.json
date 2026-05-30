@@ -1,0 +1,11 @@
+{
+  "name": "Holographic Helix",
+  "category": "waves",
+  "tags": [
+    "double-helix",
+    "sinusoidal-glow",
+    "translating-orbits"
+  ],
+  "html": "<div class=\"demo-hhelix\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-hhelix {\n  --hh-size: 52px; --hh-gap: 4px;\n  --hh-color: var(--color-info);\n  --hh-speed: calc(1.4s * var(--loader-speed-scale));\n  width: var(--hh-size); height: var(--hh-size); display: flex;\n  align-items: center; justify-content: space-between; gap: var(--hh-gap);\n}\n.demo-hhelix span {\n  flex: 1; height: 35%; border-radius: 4px;\n  background: var(--hh-color); opacity: 0.85;\n  animation: dhhelix-wave var(--hh-speed) ease-in-out var(--loader-cycles);\n}\n.demo-hhelix span:nth-child(1) { animation-delay: calc(var(--hh-speed) * -0.5); }\n.demo-hhelix span:nth-child(2) { animation-delay: calc(var(--hh-speed) * -0.4); }\n.demo-hhelix span:nth-child(3) { animation-delay: calc(var(--hh-speed) * -0.3); }\n.demo-hhelix span:nth-child(4) { animation-delay: calc(var(--hh-speed) * -0.2); }\n.demo-hhelix span:nth-child(5) { animation-delay: calc(var(--hh-speed) * -0.1); }\n.demo-hhelix span:nth-child(6) { animation-delay: 0s; }\n@keyframes dhhelix-wave {\n  0%, 100% { transform: translateY(-10px) scale(0.6); opacity: 0.3; }\n  50% { transform: translateY(10px) scale(1.1); opacity: 1; filter: drop-shadow(0 0 5px var(--hh-color)); }\n}"
+}

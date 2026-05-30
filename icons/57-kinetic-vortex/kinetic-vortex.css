@@ -1,0 +1,50 @@
+/**
+ * 57 · Kinetic Vortex — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : 3D perspective concentric twisting circles.
+ * Usage     : <div class="kinetic-vortex" role="status" aria-label="Loading">
+ *               <span></span><span></span><span></span>
+ *             </div>
+ * ─────────────────────────────────────────────────────────────
+ */
+.kinetic-vortex {
+  --kv-size: 52px;
+  --kv-color: #7f77dd;
+  --kv-speed: 1.3s;
+  --kv-opacity: 0.95;
+
+  width: var(--kv-size);
+  height: var(--kv-size);
+  position: relative;
+  perspective: 200px;
+  transform-style: preserve-3d;
+  display: inline-flex;
+}
+.kinetic-vortex span {
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-top-color: var(--kv-color);
+  border-bottom-color: var(--kv-color);
+  border-radius: 50%;
+  opacity: var(--kv-opacity);
+  animation: kinetic-vortex-spin var(--kv-speed) cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+.kinetic-vortex span:nth-child(1) { --r: 0deg; --scale: 1; animation-delay: calc(var(--kv-speed) * -0.3); }
+.kinetic-vortex span:nth-child(2) { --r: 45deg; --scale: 0.75; animation-delay: calc(var(--kv-speed) * -0.15); }
+.kinetic-vortex span:nth-child(3) { --r: 90deg; --scale: 0.5; animation-delay: 0s; }
+@keyframes kinetic-vortex-spin {
+  0% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(0deg) scale(var(--scale)); }
+  100% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(360deg) scale(var(--scale)); }
+}
+.kinetic-vortex--sm { --kv-size: 36px; }
+.kinetic-vortex--md { --kv-size: 52px; }
+.kinetic-vortex--lg { --kv-size: 68px; }
+.kinetic-vortex--primary { --kv-color: #7f77dd; }
+.kinetic-vortex--success { --kv-color: #1d9e75; }
+.kinetic-vortex--warning { --kv-color: #ef9f27; }
+.kinetic-vortex--danger  { --kv-color: #e24b4a; }
+.kinetic-vortex--white   { --kv-color: #ffffff; }
+@media (prefers-reduced-motion: reduce) {
+  .kinetic-vortex span { animation: none; transform: rotateX(var(--r)) rotateY(var(--r)) scale(var(--scale)); }
+}

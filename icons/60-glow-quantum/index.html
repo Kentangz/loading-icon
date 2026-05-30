@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glow Quantum — LoadIcons</title>
+  <link rel="stylesheet" href="glow-quantum.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8f8f6; color: #1a1a1a; padding: 2rem; }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; }
+    .section-title { font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:#aaa; margin-bottom:1rem; }
+    .demo-row  { display:flex; align-items:center; gap:2.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .demo-block { display:flex; flex-direction:column; align-items:center; gap:.65rem; }
+    .demo-block span { font-size:.75rem; color:#888; }
+    .dark-bg { background:#1a1a1a; padding:1.25rem 1.75rem; border-radius:8px; }
+    pre { background:#f0f0ee; border-radius:8px; padding:1rem; font-size:.78rem; overflow-x:auto; color:#333; }
+  </style>
+</head>
+<body>
+  <h1>60 · Glow Quantum</h1>
+  <p class="sub">Pure CSS dynamic loading animation.</p>
+
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="glow-quantum glow-quantum--sm" role="status" aria-label="Loading"><div class="glow-quantum"><div class="glow-quantum-core"></div><div class="glow-quantum-ring"><span></span></div></div></div>
+      <span>sm</span>
+    </div>
+    <div class="demo-block">
+      <div class="glow-quantum glow-quantum--md" role="status" aria-label="Loading"><div class="glow-quantum"><div class="glow-quantum-core"></div><div class="glow-quantum-ring"><span></span></div></div></div>
+      <span>md (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="glow-quantum glow-quantum--lg" role="status" aria-label="Loading"><div class="glow-quantum"><div class="glow-quantum-core"></div><div class="glow-quantum-ring"><span></span></div></div></div>
+      <span>lg</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="glow-quantum glow-quantum--primary" role="status" aria-label="Loading"><div class="glow-quantum"><div class="glow-quantum-core"></div><div class="glow-quantum-ring"><span></span></div></div></div><span>primary</span></div>
+    <div class="demo-block"><div class="glow-quantum glow-quantum--success" role="status" aria-label="Loading"><div class="glow-quantum"><div class="glow-quantum-core"></div><div class="glow-quantum-ring"><span></span></div></div></div><span>success</span></div>
+    <div class="demo-block"><div class="glow-quantum glow-quantum--warning" role="status" aria-label="Loading"><div class="glow-quantum"><div class="glow-quantum-core"></div><div class="glow-quantum-ring"><span></span></div></div></div><span>warning</span></div>
+    <div class="demo-block"><div class="glow-quantum glow-quantum--danger" role="status" aria-label="Loading"><div class="glow-quantum"><div class="glow-quantum-core"></div><div class="glow-quantum-ring"><span></span></div></div></div><span>danger</span></div>
+    <div class="demo-block dark-bg">
+      <div class="glow-quantum glow-quantum--white" role="status" aria-label="Loading"><div class="glow-quantum"><div class="glow-quantum-core"></div><div class="glow-quantum-ring"><span></span></div></div></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;link rel="stylesheet" href="glow-quantum.css" /&gt;
+
+&lt;div class="glow-quantum" role="status" aria-label="Loading"&gt;
+  &lt;div class="glow-quantum"&gt;&lt;div class="glow-quantum-core"&gt;&lt;/div&gt;&lt;div class="glow-quantum-ring"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+</body>
+</html>

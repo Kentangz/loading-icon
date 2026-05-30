@@ -1,0 +1,11 @@
+{
+  "name": "Kinetic Vortex",
+  "category": "3d",
+  "tags": [
+    "orbital-twist",
+    "expanding-rings",
+    "3d-frames"
+  ],
+  "html": "<div class=\"demo-kvortex\"><span></span><span></span><span></span></div>",
+  "css": ".demo-kvortex {\n  --kv-size: 52px;\n  --kv-color: var(--color-primary);\n  --kv-speed: calc(1.3s * var(--loader-speed-scale));\n  width: var(--kv-size); height: var(--kv-size); position: relative;\n  perspective: 200px; transform-style: preserve-3d;\n}\n.demo-kvortex span {\n  position: absolute; inset: 0; border: 2px solid transparent;\n  border-top-color: var(--kv-color); border-bottom-color: var(--kv-color); border-radius: 50%;\n  animation: dkv-spin var(--kv-speed) cubic-bezier(0.5, 0, 0.5, 1) var(--loader-cycles);\n}\n.demo-kvortex span:nth-child(1) { --r: 0deg; --scale: 1; animation-delay: calc(var(--kv-speed) * -0.3); }\n.demo-kvortex span:nth-child(2) { --r: 45deg; --scale: 0.75; animation-delay: calc(var(--kv-speed) * -0.15); }\n.demo-kvortex span:nth-child(3) { --r: 90deg; --scale: 0.5; animation-delay: 0s; }\n@keyframes dkv-spin {\n  0% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(0deg) scale(var(--scale)); }\n  100% { transform: rotateX(var(--r)) rotateY(var(--r)) rotateZ(360deg) scale(var(--scale)); }\n}"
+}

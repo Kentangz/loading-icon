@@ -1,0 +1,11 @@
+{
+  "name": "Neon Matrix",
+  "category": "spinners",
+  "tags": [
+    "cyber-grid",
+    "stepped-bars",
+    "neon-sweep"
+  ],
+  "html": "<div class=\"demo-nmatrix\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-nmatrix {\n  --nm-size: 40px;\n  --nm-color: var(--color-danger);\n  --nm-speed: calc(0.9s * var(--loader-speed-scale));\n  width: var(--nm-size); height: var(--nm-size); display: grid;\n  grid-template-columns: repeat(2, 1fr); gap: 4px;\n}\n.demo-nmatrix span {\n  border-radius: 3px; background: var(--nm-color); opacity: 0.25;\n  animation: dnmatrix-pulse var(--nm-speed) ease-in-out var(--loader-cycles);\n}\n.demo-nmatrix span:nth-child(1) { animation-delay: 0s; }\n.demo-nmatrix span:nth-child(2) { animation-delay: calc(var(--nm-speed) * -0.675); }\n.demo-nmatrix span:nth-child(4) { animation-delay: calc(var(--nm-speed) * -0.45); }\n.demo-nmatrix span:nth-child(3) { animation-delay: calc(var(--nm-speed) * -0.225); }\n@keyframes dnmatrix-pulse {\n  0%, 100% { opacity: 0.25; transform: scale(0.9); }\n  50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 6px var(--nm-color)); }\n}"
+}
