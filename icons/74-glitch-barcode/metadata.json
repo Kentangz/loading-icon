@@ -1,0 +1,12 @@
+{
+  "name": "Glitch Barcode",
+  "category": "special",
+  "tags": [
+    "cyberpunk",
+    "flicker",
+    "minimal",
+    "glitch"
+  ],
+  "html": "<div class=\"demo-gbar\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-gbar {\n  display: flex; gap: 4px; align-items: center; height: 32px;\n}\n.demo-gbar span {\n  width: 3px; height: 24px; background: var(--color-danger);\n  animation: gbar-anim calc(1.0s * var(--loader-speed-scale)) steps(4) infinite;\n}\n.demo-gbar span:nth-child(1) { height: 18px; animation-delay: calc(-0.15s * var(--loader-speed-scale)); }\n.demo-gbar span:nth-child(2) { width: 5px; height: 28px; animation-delay: calc(-0.35s * var(--loader-speed-scale)); }\n.demo-gbar span:nth-child(3) { height: 14px; animation-delay: calc(-0.05s * var(--loader-speed-scale)); }\n.demo-gbar span:nth-child(4) { width: 2px; height: 22px; animation-delay: calc(-0.55s * var(--loader-speed-scale)); }\n.demo-gbar span:nth-child(5) { height: 26px; animation-delay: calc(-0.25s * var(--loader-speed-scale)); }\n@keyframes gbar-anim {\n  0%, 100% { transform: scaleY(1) translateX(0); opacity: 1; }\n  20% { transform: scaleY(0.6) translateX(1px); opacity: 0.85; }\n  40% { transform: scaleY(1.1) translateX(-1px); opacity: 0.95; }\n  60% { transform: scaleY(0.4) translateX(2px); opacity: 0.75; }\n  80% { transform: scaleY(1.2) translateX(-2px); opacity: 1; }\n}"
+}

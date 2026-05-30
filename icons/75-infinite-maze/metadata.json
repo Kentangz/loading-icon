@@ -1,0 +1,12 @@
+{
+  "name": "Infinite Maze",
+  "category": "special",
+  "tags": [
+    "translate",
+    "geometric",
+    "minimal",
+    "path"
+  ],
+  "html": "<div class=\"demo-imaze\"><span></span></div>",
+  "css": ".demo-imaze {\n  width: 32px; height: 32px; position: relative;\n  border: 2px solid rgba(127,119,221,0.15); border-radius: 4px;\n}\n.demo-imaze span {\n  position: absolute; width: 6px; height: 6px; border-radius: 50%;\n  background: var(--color-primary); box-shadow: 0 0 8px var(--color-primary);\n  animation: imaze-anim calc(2.4s * var(--loader-speed-scale)) linear infinite;\n}\n@keyframes imaze-anim {\n  0% { top: -4px; left: -4px; }\n  25% { top: -4px; left: calc(100% - 2px); }\n  50% { top: calc(100% - 2px); left: calc(100% - 2px); }\n  75% { top: calc(100% - 2px); left: -4px; }\n  100% { top: -4px; left: -4px; }\n}"
+}

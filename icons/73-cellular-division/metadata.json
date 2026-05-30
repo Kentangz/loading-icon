@@ -1,0 +1,12 @@
+{
+  "name": "Cellular Division",
+  "category": "special",
+  "tags": [
+    "gooey",
+    "organic",
+    "scale",
+    "physics"
+  ],
+  "html": "<div class=\"demo-cdiv\"><span></span><span></span></div>",
+  "css": ".demo-cdiv {\n  width: 48px; height: 48px; position: relative;\n  filter: blur(4px) contrast(12); display: inline-flex; background: transparent;\n}\n.demo-cdiv span {\n  position: absolute; top: 16px; left: 16px; width: 16px; height: 16px;\n  border-radius: 50%; background: var(--color-success);\n}\n.demo-cdiv span:nth-child(1) {\n  animation: cdiv-left calc(1.8s * var(--loader-speed-scale)) ease-in-out infinite;\n}\n.demo-cdiv span:nth-child(2) {\n  animation: cdiv-right calc(1.8s * var(--loader-speed-scale)) ease-in-out infinite;\n}\n@keyframes cdiv-left {\n  0%, 100% { transform: translateX(0) scale(1.0); }\n  30% { transform: translateX(-8px) scale(1.2); }\n  60% { transform: translateX(-14px) scale(0.85); opacity: 0.9; }\n  80% { transform: translateX(-4px) scale(0.95); }\n}\n@keyframes cdiv-right {\n  0%, 100% { transform: translateX(0) scale(1.0); }\n  30% { transform: translateX(8px) scale(1.2); }\n  60% { transform: translateX(14px) scale(0.85); opacity: 0.9; }\n  80% { transform: translateX(4px) scale(0.95); }\n}"
+}

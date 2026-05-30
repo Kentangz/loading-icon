@@ -1,0 +1,29 @@
+.kinetic-loom {
+  --kl-size: 36px;
+  --kl-color: #7F77DD;
+  --kl-speed: 1.6s;
+  box-sizing: border-box; display: inline-flex; position: relative;
+  width: var(--kl-size); height: var(--kl-size);
+}
+.kinetic-loom * { box-sizing: border-box; }
+.kinetic-loom span { position: absolute; background: var(--kl-color); }
+.kinetic-loom span:nth-child(1) { top: 0; left: 0; height: 2px; width: 0; animation: kinetic-loom-top var(--kl-speed) ease-in-out infinite; }
+.kinetic-loom span:nth-child(2) { top: 0; right: 0; width: 2px; height: 0; animation: kinetic-loom-right var(--kl-speed) ease-in-out infinite; animation-delay: calc(var(--kl-speed) * 0.25); }
+.kinetic-loom span:nth-child(3) { bottom: 0; right: 0; height: 2px; width: 0; animation: kinetic-loom-bottom var(--kl-speed) ease-in-out infinite; animation-delay: calc(var(--kl-speed) * 0.5); }
+.kinetic-loom span:nth-child(4) { bottom: 0; left: 0; width: 2px; height: 0; animation: kinetic-loom-left var(--kl-speed) ease-in-out infinite; animation-delay: calc(var(--kl-speed) * 0.75); }
+@keyframes kinetic-loom-top { 0% { width: 0; left: 0; } 25% { width: 100%; left: 0; } 50% { width: 0; left: 100%; } 100% { width: 0; left: 100%; } }
+@keyframes kinetic-loom-right { 0% { height: 0; top: 0; } 25% { height: 100%; top: 0; } 50% { height: 0; top: 100%; } 100% { height: 0; top: 100%; } }
+@keyframes kinetic-loom-bottom { 0% { width: 0; right: 0; } 25% { width: 100%; right: 0; } 50% { width: 0; right: 100%; } 100% { width: 0; right: 100%; } }
+@keyframes kinetic-loom-left { 0% { height: 0; bottom: 0; } 25% { height: 100%; bottom: 0; } 50% { height: 0; bottom: 100%; } 100% { height: 0; bottom: 100%; } }
+.kinetic-loom--sm { --kl-size: 24px; }
+.kinetic-loom--md { --kl-size: 36px; }
+.kinetic-loom--lg { --kl-size: 48px; }
+.kinetic-loom--primary { --kl-color: #7F77DD; }
+.kinetic-loom--success { --kl-color: #1D9E75; }
+.kinetic-loom--warning { --kl-color: #EF9F27; }
+.kinetic-loom--danger  { --kl-color: #E24B4A; }
+.kinetic-loom--white   { --kl-color: #ffffff; }
+.kinetic-loom--fast { --kl-speed: 1.0s; }
+.kinetic-loom--slow { --kl-speed: 2.5s; }
+.kinetic-loom--soft { --kl-speed: 1.6s; }
+@media (prefers-reduced-motion: reduce) { .kinetic-loom span { animation: none; width: 100%; height: 100%; border: 2px solid var(--kl-color); background: transparent; } }

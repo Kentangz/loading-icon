@@ -1,0 +1,12 @@
+{
+  "name": "Kinetic Loom",
+  "category": "spinners",
+  "tags": [
+    "geometric",
+    "minimal",
+    "slide",
+    "border"
+  ],
+  "html": "<div class=\"demo-kloom\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-kloom {\n  width: 32px; height: 32px; position: relative;\n}\n.demo-kloom span {\n  position: absolute; background: var(--color-primary);\n}\n.demo-kloom span:nth-child(1) { top: 0; left: 0; height: 2px; width: 0; animation: kloom-top calc(1.6s * var(--loader-speed-scale)) ease-in-out infinite; }\n.demo-kloom span:nth-child(2) { top: 0; right: 0; width: 2px; height: 0; animation: kloom-right calc(1.6s * var(--loader-speed-scale)) ease-in-out infinite; animation-delay: calc(0.4s * var(--loader-speed-scale)); }\n.demo-kloom span:nth-child(3) { bottom: 0; right: 0; height: 2px; width: 0; animation: kloom-bottom calc(1.6s * var(--loader-speed-scale)) ease-in-out infinite; animation-delay: calc(0.8s * var(--loader-speed-scale)); }\n.demo-kloom span:nth-child(4) { bottom: 0; left: 0; width: 2px; height: 0; animation: kloom-left calc(1.6s * var(--loader-speed-scale)) ease-in-out infinite; animation-delay: calc(1.2s * var(--loader-speed-scale)); }\n@keyframes kloom-top { 0% { width: 0; left: 0; } 25% { width: 100%; left: 0; } 50% { width: 0; left: 100%; } 100% { width: 0; left: 100%; } }\n@keyframes kloom-right { 0% { height: 0; top: 0; } 25% { height: 100%; top: 0; } 50% { height: 0; top: 100%; } 100% { height: 0; top: 100%; } }\n@keyframes kloom-bottom { 0% { width: 0; right: 0; } 25% { width: 100%; right: 0; } 50% { width: 0; right: 100%; } 100% { width: 0; right: 100%; } }\n@keyframes kloom-left { 0% { height: 0; bottom: 0; } 25% { height: 100%; bottom: 0; } 50% { height: 0; bottom: 100%; } 100% { height: 0; bottom: 100%; } }"
+}
