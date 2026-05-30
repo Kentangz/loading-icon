@@ -263,8 +263,15 @@ try {
   console.log(`Switching branch: ${err.message}`);
 }
 
-// Git add and commit locally
-execSync("git add .", { stdio: "inherit" });
+// Git add and commit locally (only stage files related to this specific loader)
+const filesToStage = [
+  path.relative(WORKSPACE, folderPath),
+  "README.md",
+  "loaders-data.js"
+].map(f => `"${f.replace(/\\/g, "/")}"`).join(" ");
+
+console.log(`Staging files: ${filesToStage}`);
+execSync(`git add ${filesToStage}`, { stdio: "inherit" });
 execSync(`git commit -m "feat: deploy and register loader #${nextId} (${concept.name})"`, { stdio: "inherit" });
 
 if (currentBatchSize >= 5) {
