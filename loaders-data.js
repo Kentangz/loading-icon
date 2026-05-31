@@ -2016,4 +2016,140 @@ const loaders = [
   60% { opacity: 0.4; transform: scale(1.0); }
 }`,
 	},
+	{
+		id: "77",
+		name: "Typewriter Cursor",
+		category: "special",
+		tags: ["blink","cursor","minimal","text"],
+		html: "<div class=\"demo-tcur\"><span></span></div>",
+		css: `.demo-tcur {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 12px; height: 28px;
+}
+.demo-tcur span {
+  width: 2.5px; height: 100%; border-radius: 2px;
+  background: var(--color-primary);
+  animation: tcur-blink calc(1.0s * var(--loader-speed-scale)) steps(2, start) var(--loader-cycles);
+}
+@keyframes tcur-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}`,
+	},
+	{
+		id: "78",
+		name: "Ripple Target",
+		category: "special",
+		tags: ["concentric","radar","pulse","crosshair"],
+		html: "<div class=\"demo-rtgt\"><span></span><span></span><span></span></div>",
+		css: `.demo-rtgt {
+  width: 36px; height: 36px; position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.demo-rtgt::before, .demo-rtgt::after {
+  content: ''; position: absolute; background: var(--color-primary);
+}
+.demo-rtgt::before { width: 100%; height: 1.5px; }
+.demo-rtgt::after { width: 1.5px; height: 100%; }
+.demo-rtgt span {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1.5px solid var(--color-primary); opacity: 0;
+  animation: rtgt-ripple calc(2.4s * var(--loader-speed-scale)) ease-out var(--loader-cycles);
+}
+.demo-rtgt span:nth-child(2) { animation-delay: calc(0.8s * var(--loader-speed-scale)); }
+.demo-rtgt span:nth-child(3) { animation-delay: calc(1.6s * var(--loader-speed-scale)); }
+@keyframes rtgt-ripple {
+  0% { transform: scale(0.2); opacity: 0.9; }
+  100% { transform: scale(1.0); opacity: 0; }
+}`,
+	},
+	{
+		id: "79",
+		name: "Domino Fall",
+		category: "waves",
+		tags: ["perspective","rotateX","stagger","3d"],
+		html: "<div class=\"demo-dfall\"><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-dfall {
+  display: flex; gap: 4px; align-items: flex-end; height: 32px;
+  perspective: 200px;
+}
+.demo-dfall span {
+  width: 5px; height: 24px; border-radius: 2px;
+  background: var(--color-warning);
+  transform-origin: bottom center;
+  animation: dfall-topple calc(1.5s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+.demo-dfall span:nth-child(2) { animation-delay: calc(0.12s * var(--loader-speed-scale)); }
+.demo-dfall span:nth-child(3) { animation-delay: calc(0.24s * var(--loader-speed-scale)); }
+.demo-dfall span:nth-child(4) { animation-delay: calc(0.36s * var(--loader-speed-scale)); }
+.demo-dfall span:nth-child(5) { animation-delay: calc(0.48s * var(--loader-speed-scale)); }
+@keyframes dfall-topple {
+  0%, 100% { transform: rotateX(0deg); }
+  35% { transform: rotateX(-70deg); }
+  65% { transform: rotateX(-70deg); }
+  85% { transform: rotateX(5deg); }
+}`,
+	},
+	{
+		id: "80",
+		name: "Traffic Signal",
+		category: "special",
+		tags: ["sequential-color","dots","progress","semaphore"],
+		html: "<div class=\"demo-tsig\"><span></span><span></span><span></span></div>",
+		css: `.demo-tsig {
+  display: flex; flex-direction: column; gap: 4px;
+  align-items: center; justify-content: center;
+  padding: 4px; border-radius: 10px;
+  background: rgba(0,0,0,0.08);
+}
+.demo-tsig span {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #555; opacity: 0.25;
+}
+.demo-tsig span:nth-child(1) {
+  animation: tsig-red calc(2.4s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+.demo-tsig span:nth-child(2) {
+  animation: tsig-yellow calc(2.4s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+.demo-tsig span:nth-child(3) {
+  animation: tsig-green calc(2.4s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+@keyframes tsig-red {
+  0%, 30% { background: #E24B4A; opacity: 1; box-shadow: 0 0 8px #E24B4A; }
+  35%, 100% { background: #555; opacity: 0.25; box-shadow: none; }
+}
+@keyframes tsig-yellow {
+  0%, 30% { background: #555; opacity: 0.25; box-shadow: none; }
+  35%, 65% { background: #EF9F27; opacity: 1; box-shadow: 0 0 8px #EF9F27; }
+  70%, 100% { background: #555; opacity: 0.25; box-shadow: none; }
+}
+@keyframes tsig-green {
+  0%, 65% { background: #555; opacity: 0.25; box-shadow: none; }
+  70%, 100% { background: #1D9E75; opacity: 1; box-shadow: 0 0 8px #1D9E75; }
+}`,
+	},
+	{
+		id: "81",
+		name: "Diamond Morph",
+		category: "spinners",
+		tags: ["rotate","border-radius","morph","geometric"],
+		html: "<div class=\"demo-dmorph\"><span></span></div>",
+		css: `.demo-dmorph {
+  width: 32px; height: 32px; display: inline-flex;
+  align-items: center; justify-content: center;
+}
+.demo-dmorph span {
+  width: 100%; height: 100%;
+  background: var(--color-primary);
+  animation: dmorph-spin calc(2.0s * var(--loader-speed-scale)) cubic-bezier(0.68, -0.55, 0.27, 1.55) var(--loader-cycles);
+}
+@keyframes dmorph-spin {
+  0% { border-radius: 50%; transform: rotate(0deg) scale(0.8); }
+  25% { border-radius: 10%; transform: rotate(90deg) scale(1.0); }
+  50% { border-radius: 50%; transform: rotate(180deg) scale(0.8); }
+  75% { border-radius: 10%; transform: rotate(270deg) scale(1.0); }
+  100% { border-radius: 50%; transform: rotate(360deg) scale(0.8); }
+}`,
+	},
 ];

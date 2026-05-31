@@ -1,0 +1,12 @@
+{
+  "name": "Typewriter Cursor",
+  "category": "special",
+  "tags": [
+    "blink",
+    "cursor",
+    "minimal",
+    "text"
+  ],
+  "html": "<div class=\"demo-tcur\"><span></span></div>",
+  "css": ".demo-tcur {\n  display: inline-flex; align-items: center; justify-content: center;\n  width: 12px; height: 28px;\n}\n.demo-tcur span {\n  width: 2.5px; height: 100%; border-radius: 2px;\n  background: var(--color-primary);\n  animation: tcur-blink calc(1.0s * var(--loader-speed-scale)) steps(2, start) var(--loader-cycles);\n}\n@keyframes tcur-blink {\n  0%, 100% { opacity: 1; }\n  50% { opacity: 0; }\n}"
+}

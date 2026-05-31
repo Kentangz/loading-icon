@@ -1,0 +1,33 @@
+.typewriter-cursor {
+  --tc-size: 28px;
+  --tc-color: #7F77DD;
+  --tc-speed: 1.0s;
+  box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
+  width: calc(var(--tc-size) * 0.43); height: var(--tc-size);
+}
+.typewriter-cursor * { box-sizing: border-box; }
+.typewriter-cursor span {
+  width: 2.5px; height: 100%; border-radius: 2px;
+  background: var(--tc-color);
+  animation: typewriter-cursor-blink var(--tc-speed) steps(2, start) infinite;
+}
+@keyframes typewriter-cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.typewriter-cursor--sm { --tc-size: 20px; }
+.typewriter-cursor--sm span { width: 2px; }
+.typewriter-cursor--md { --tc-size: 28px; }
+.typewriter-cursor--lg { --tc-size: 40px; }
+.typewriter-cursor--lg span { width: 3px; }
+.typewriter-cursor--primary { --tc-color: #7F77DD; }
+.typewriter-cursor--success { --tc-color: #1D9E75; }
+.typewriter-cursor--warning { --tc-color: #EF9F27; }
+.typewriter-cursor--danger  { --tc-color: #E24B4A; }
+.typewriter-cursor--white   { --tc-color: #ffffff; }
+.typewriter-cursor--fast { --tc-speed: 0.5s; }
+.typewriter-cursor--slow { --tc-speed: 1.8s; }
+.typewriter-cursor--soft { --tc-speed: 1.0s; }
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-cursor span { animation: none; opacity: 1; }
+}

@@ -1,0 +1,51 @@
+.traffic-signal {
+  --ts-size: 36px;
+  --ts-color: #7F77DD;
+  --ts-speed: 2.4s;
+  box-sizing: border-box; display: inline-flex; flex-direction: column;
+  gap: calc(var(--ts-size) * 0.11); align-items: center; justify-content: center;
+  padding: calc(var(--ts-size) * 0.11); border-radius: calc(var(--ts-size) * 0.28);
+  background: rgba(0,0,0,0.08); height: var(--ts-size);
+}
+.traffic-signal * { box-sizing: border-box; }
+.traffic-signal span {
+  width: calc(var(--ts-size) * 0.22); height: calc(var(--ts-size) * 0.22);
+  border-radius: 50%; background: #555; opacity: 0.25; flex-shrink: 0;
+}
+.traffic-signal span:nth-child(1) {
+  animation: traffic-signal-red var(--ts-speed) ease-in-out infinite;
+}
+.traffic-signal span:nth-child(2) {
+  animation: traffic-signal-yellow var(--ts-speed) ease-in-out infinite;
+}
+.traffic-signal span:nth-child(3) {
+  animation: traffic-signal-green var(--ts-speed) ease-in-out infinite;
+}
+@keyframes traffic-signal-red {
+  0%, 30% { background: #E24B4A; opacity: 1; box-shadow: 0 0 8px #E24B4A; }
+  35%, 100% { background: #555; opacity: 0.25; box-shadow: none; }
+}
+@keyframes traffic-signal-yellow {
+  0%, 30% { background: #555; opacity: 0.25; box-shadow: none; }
+  35%, 65% { background: #EF9F27; opacity: 1; box-shadow: 0 0 8px #EF9F27; }
+  70%, 100% { background: #555; opacity: 0.25; box-shadow: none; }
+}
+@keyframes traffic-signal-green {
+  0%, 65% { background: #555; opacity: 0.25; box-shadow: none; }
+  70%, 100% { background: #1D9E75; opacity: 1; box-shadow: 0 0 8px #1D9E75; }
+}
+.traffic-signal--sm { --ts-size: 24px; }
+.traffic-signal--md { --ts-size: 36px; }
+.traffic-signal--lg { --ts-size: 48px; }
+.traffic-signal--primary { --ts-color: #7F77DD; }
+.traffic-signal--success { --ts-color: #1D9E75; }
+.traffic-signal--warning { --ts-color: #EF9F27; }
+.traffic-signal--danger  { --ts-color: #E24B4A; }
+.traffic-signal--white   { --ts-color: #ffffff; }
+.traffic-signal--fast { --ts-speed: 1.4s; }
+.traffic-signal--slow { --ts-speed: 4.0s; }
+.traffic-signal--soft { --ts-speed: 2.4s; }
+@media (prefers-reduced-motion: reduce) {
+  .traffic-signal span { animation: none; }
+  .traffic-signal span:nth-child(3) { background: #1D9E75; opacity: 1; }
+}
