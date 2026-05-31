@@ -1,0 +1,10 @@
+{
+  "name": "Neon Glitch Bar",
+  "category": "glitch",
+  "tags": [
+    "glitch-cyber",
+    "neon-sweep"
+  ],
+  "html": "<div class=\"demo-neonglitch\"><span class=\"demo-neonglitch-bar\"></span><span class=\"demo-neonglitch-bar\"></span><span class=\"demo-neonglitch-bar\"></span></div>",
+  "css": ".demo-neonglitch { display: inline-flex; justify-content: space-between; align-items: flex-end; width: 36px; height: 36px; }\n.demo-neonglitch-bar { width: 8px; height: 100%; background: var(--color-primary); border-radius: 2px; box-shadow: 0 0 6px var(--color-primary); animation: dneonglitch calc(1.0s * var(--loader-speed-scale)) ease-in-out infinite var(--loader-cycles); }\n.demo-neonglitch-bar:nth-child(1) { animation-delay: 0s; }\n.demo-neonglitch-bar:nth-child(2) { animation-delay: calc(1.0s * -0.33 * var(--loader-speed-scale)); }\n.demo-neonglitch-bar:nth-child(3) { animation-delay: calc(1.0s * -0.66 * var(--loader-speed-scale)); }\n@keyframes dneonglitch { 0%, 100% { transform: scaleY(0.15); opacity: 0.7; } 50% { transform: scaleY(1); opacity: 1; } 45%, 55% { transform: scaleY(0.8) skewX(8deg); filter: hue-rotate(90deg); } }"
+}

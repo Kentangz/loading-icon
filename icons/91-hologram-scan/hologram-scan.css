@@ -1,0 +1,87 @@
+/**
+ * Hologram Scan — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Linear translation scan with skew distortions and flickering glow sweeps.
+ * Usage     : Apply `.hologram-scan` to the root element.
+ *             Requires 1 child span with class `.hologram-scan__line`.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+.hologram-scan {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.5s;
+  
+  /* === CUSTOM TOKENS === */
+  --hs-border-color: rgba(127, 119, 221, 0.2);
+  --hs-glow: 0 0 6px var(--loader-color);
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  border: 2px solid var(--hs-border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.hologram-scan * {
+  box-sizing: border-box;
+}
+.hologram-scan__line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--loader-color);
+  box-shadow: var(--hs-glow);
+  animation: hologram-scan-anim calc(var(--loader-speed) * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+@keyframes hologram-scan-anim {
+  0%, 100% {
+    top: 0%;
+    opacity: 0.3;
+    transform: scaleX(1);
+  }
+  50% {
+    top: calc(100% - 2px);
+    opacity: 1;
+    transform: scaleX(1.1);
+  }
+  25%, 75% {
+    opacity: 0.8;
+    transform: skewX(12deg);
+  }
+}
+/* ─── Size presets ─── */
+.hologram-scan--sm { --loader-size: 24px; }
+.hologram-scan--md { --loader-size: 36px; }
+.hologram-scan--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.hologram-scan--primary { --loader-color: #7F77DD; --hs-border-color: rgba(127, 119, 221, 0.2); }
+.hologram-scan--success { --loader-color: #1D9E75; --hs-border-color: rgba(29, 158, 117, 0.2); }
+.hologram-scan--warning { --loader-color: #EF9F27; --hs-border-color: rgba(239, 159, 39, 0.2); }
+.hologram-scan--danger  { --loader-color: #E24B4A; --hs-border-color: rgba(226, 75, 74, 0.2); }
+.hologram-scan--white   { --loader-color: #ffffff; --hs-border-color: rgba(255, 255, 255, 0.2); }
+
+/* ─── Speed modifiers ─── */
+.hologram-scan--fast { --loader-speed: 0.8s; }
+.hologram-scan--slow { --loader-speed: 3.0s; }
+.hologram-scan--soft { --loader-speed: 2.2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hologram-scan__line {
+    animation: none;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

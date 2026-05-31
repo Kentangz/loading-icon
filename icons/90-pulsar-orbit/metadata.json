@@ -1,0 +1,10 @@
+{
+  "name": "Pulsar Orbit",
+  "category": "cosmic",
+  "tags": [
+    "orbit-cosmic",
+    "quantum"
+  ],
+  "html": "<div class=\"demo-porbit\"><div class=\"demo-porbit-core\"></div><div class=\"demo-porbit-ring\"></div></div>",
+  "css": ".demo-porbit { position: relative; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; }\n.demo-porbit-core { width: 10px; height: 10px; background: var(--color-primary); border-radius: 50%; box-shadow: 0 0 6px var(--color-primary); animation: dporbit-core 1.2s ease-in-out infinite var(--loader-cycles); }\n.demo-porbit-ring { position: absolute; width: 32px; height: 32px; border: 2px solid transparent; border-top-color: var(--color-success); border-radius: 50%; animation: dporbit-ring 1.5s linear infinite var(--loader-cycles); }\n@keyframes dporbit-core { 0%, 100% { transform: scale(0.75); opacity: 0.6; } 50% { transform: scale(1.3); opacity: 1; } }\n@keyframes dporbit-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }"
+}

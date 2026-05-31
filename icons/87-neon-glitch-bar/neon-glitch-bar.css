@@ -1,0 +1,91 @@
+/**
+ * Neon Glitch Bar — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Cyberpunk scanning bars with vertical scale transitions and neon glow.
+ * Usage     : Apply `.neon-glitch-bar` to the root element.
+ *             Requires 3 child spans with class `.neon-glitch-bar__bar`.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+.neon-glitch-bar {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.0s;
+  
+  /* === CUSTOM TOKENS === */
+  --ngb-gap: 5px;
+  --ngb-glow: 0 0 6px var(--loader-color);
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+}
+.neon-glitch-bar * {
+  box-sizing: border-box;
+}
+.neon-glitch-bar__bar {
+  width: calc((var(--loader-size) - (var(--ngb-gap) * 2)) / 3);
+  height: 100%;
+  background: var(--loader-color);
+  box-shadow: var(--ngb-glow);
+  border-radius: 2px;
+  animation: neon-glitch-bar-anim calc(var(--loader-speed) * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+.neon-glitch-bar__bar:nth-child(1) {
+  animation-delay: 0s;
+}
+.neon-glitch-bar__bar:nth-child(2) {
+  animation-delay: calc(var(--loader-speed) * -0.33 * var(--loader-speed-scale));
+}
+.neon-glitch-bar__bar:nth-child(3) {
+  animation-delay: calc(var(--loader-speed) * -0.66 * var(--loader-speed-scale));
+}
+@keyframes neon-glitch-bar-anim {
+  0%, 100% {
+    transform: scaleY(0.15);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  45%, 55% {
+    transform: scaleY(0.8) skewX(8deg);
+    filter: hue-rotate(90deg);
+  }
+}
+/* ─── Size presets ─── */
+.neon-glitch-bar--sm { --loader-size: 24px; --ngb-gap: 3px; }
+.neon-glitch-bar--md { --loader-size: 36px; --ngb-gap: 5px; }
+.neon-glitch-bar--lg { --loader-size: 48px; --ngb-gap: 7px; }
+
+/* ─── Color presets ─── */
+.neon-glitch-bar--primary { --loader-color: #7F77DD; }
+.neon-glitch-bar--success { --loader-color: #1D9E75; }
+.neon-glitch-bar--warning { --loader-color: #EF9F27; }
+.neon-glitch-bar--danger  { --loader-color: #E24B4A; }
+.neon-glitch-bar--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.neon-glitch-bar--fast { --loader-speed: 0.5s; }
+.neon-glitch-bar--slow { --loader-speed: 2.0s; }
+.neon-glitch-bar--soft { --loader-speed: 1.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .neon-glitch-bar__bar {
+    animation: none;
+    transform: scaleY(0.6);
+  }
+}

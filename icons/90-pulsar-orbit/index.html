@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulsar Orbit — LoadIcons</title>
+  <link rel="stylesheet" href="pulsar-orbit.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; max-width: 70ch; line-height: 1.5; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>90 · Pulsar Orbit</h1>
+  <p class="sub">
+    Cosmic planetary orbiting ring revolving around a pulsing quantum core with high-contrast energy glow.
+  </p>
+
+  
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="pulsar-orbit pulsar-orbit--sm" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="pulsar-orbit pulsar-orbit--md" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div>
+      <span>md · 36px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="pulsar-orbit pulsar-orbit--lg" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div>
+      <span>lg · 48px</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="pulsar-orbit pulsar-orbit--primary" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div><span>primary</span></div>
+    <div class="demo-block"><div class="pulsar-orbit pulsar-orbit--success" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div><span>success</span></div>
+    <div class="demo-block"><div class="pulsar-orbit pulsar-orbit--warning" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div><span>warning</span></div>
+    <div class="demo-block"><div class="pulsar-orbit pulsar-orbit--danger" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div><span>danger</span></div>
+    <div class="demo-block dark-bg">
+      <div class="pulsar-orbit pulsar-orbit--white" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Modifier classes</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="pulsar-orbit pulsar-orbit--primary pulsar-orbit--fast" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div>
+      <span>fast · 0.7s</span>
+    </div>
+    <div class="demo-block">
+      <div class="pulsar-orbit pulsar-orbit--primary pulsar-orbit--slow" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div>
+      <span>slow · 2.2s</span>
+    </div>
+    <div class="demo-block">
+      <div class="pulsar-orbit pulsar-orbit--primary pulsar-orbit--soft" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div>
+      <span>soft · 1.6s</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="pulsar-orbit" style="--po-core-size: 16px; --po-ring-color: #EF9F27;" role="status" aria-label="Loading"><div class="pulsar-orbit__core"></div><div class="pulsar-orbit__ring"></div></div>
+      <span>heavy warning orbit</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import stylesheet --&gt;
+&lt;link rel="stylesheet" href="pulsar-orbit.css" /&gt;
+
+&lt;!-- 2. Structure --&gt;
+&lt;div class="pulsar-orbit" role="status" aria-label="Loading"&gt;&lt;div class="pulsar-orbit__core"&gt;&lt;/div&gt;&lt;div class="pulsar-orbit__ring"&gt;&lt;/div&gt;&lt;/div&gt;</pre>
+</body>
+</html>

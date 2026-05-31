@@ -1,0 +1,95 @@
+/**
+ * Pulsar Orbit — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Concentric planetary orbits featuring a central pulsing core and orbiting energy ring.
+ * Usage     : Apply `.pulsar-orbit` to the root element.
+ *             Requires `.pulsar-orbit__core` and `.pulsar-orbit__ring` children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+.pulsar-orbit {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.2s;
+  
+  /* === CUSTOM TOKENS === */
+  --po-core-size: 10px;
+  --po-ring-color: #1D9E75;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+}
+.pulsar-orbit * {
+  box-sizing: border-box;
+}
+.pulsar-orbit__core {
+  width: var(--po-core-size);
+  height: var(--po-core-size);
+  background: var(--loader-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--loader-color);
+  animation: pulsar-orbit-core-anim calc(var(--loader-speed) * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+.pulsar-orbit__ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-top-color: var(--po-ring-color);
+  border-radius: 50%;
+  animation: pulsar-orbit-ring-anim calc(var(--loader-speed) * 1.25 * var(--loader-speed-scale)) linear var(--loader-cycles);
+}
+@keyframes pulsar-orbit-core-anim {
+  0%, 100% {
+    transform: scale(0.75);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+@keyframes pulsar-orbit-ring-anim {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* ─── Size presets ─── */
+.pulsar-orbit--sm { --loader-size: 24px; --po-core-size: 6px; }
+.pulsar-orbit--md { --loader-size: 36px; --po-core-size: 10px; }
+.pulsar-orbit--lg { --loader-size: 48px; --po-core-size: 14px; }
+
+/* ─── Color presets ─── */
+.pulsar-orbit--primary { --loader-color: #7F77DD; --po-ring-color: #1D9E75; }
+.pulsar-orbit--success { --loader-color: #1D9E75; --po-ring-color: #EF9F27; }
+.pulsar-orbit--warning { --loader-color: #EF9F27; --po-ring-color: #E24B4A; }
+.pulsar-orbit--danger  { --loader-color: #E24B4A; --po-ring-color: #7F77DD; }
+.pulsar-orbit--white   { --loader-color: #ffffff; --po-ring-color: rgba(255,255,255,0.4); }
+
+/* ─── Speed modifiers ─── */
+.pulsar-orbit--fast { --loader-speed: 0.7s; }
+.pulsar-orbit--slow { --loader-speed: 2.2s; }
+.pulsar-orbit--soft { --loader-speed: 1.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pulsar-orbit__core {
+    animation: none;
+  }
+  .pulsar-orbit__ring {
+    animation: none;
+    border-top-color: var(--po-ring-color);
+    border-right-color: var(--po-ring-color);
+  }
+}

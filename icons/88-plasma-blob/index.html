@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plasma Blob — LoadIcons</title>
+  <link rel="stylesheet" href="plasma-blob.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; max-width: 70ch; line-height: 1.5; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>88 · Plasma Blob</h1>
+  <p class="sub">
+    Fluid, organic morphing blob displaying dynamic border-radius deformations for liquid flow aesthetics.
+  </p>
+
+  
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="plasma-blob plasma-blob--sm" role="status" aria-label="Loading"></div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="plasma-blob plasma-blob--md" role="status" aria-label="Loading"></div>
+      <span>md · 36px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="plasma-blob plasma-blob--lg" role="status" aria-label="Loading"></div>
+      <span>lg · 48px</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="plasma-blob plasma-blob--primary" role="status" aria-label="Loading"></div><span>primary</span></div>
+    <div class="demo-block"><div class="plasma-blob plasma-blob--success" role="status" aria-label="Loading"></div><span>success</span></div>
+    <div class="demo-block"><div class="plasma-blob plasma-blob--warning" role="status" aria-label="Loading"></div><span>warning</span></div>
+    <div class="demo-block"><div class="plasma-blob plasma-blob--danger" role="status" aria-label="Loading"></div><span>danger</span></div>
+    <div class="demo-block dark-bg">
+      <div class="plasma-blob plasma-blob--white" role="status" aria-label="Loading"></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Modifier classes</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="plasma-blob plasma-blob--primary plasma-blob--fast" role="status" aria-label="Loading"></div>
+      <span>fast · 1.5s</span>
+    </div>
+    <div class="demo-block">
+      <div class="plasma-blob plasma-blob--primary plasma-blob--slow" role="status" aria-label="Loading"></div>
+      <span>slow · 5.0s</span>
+    </div>
+    <div class="demo-block">
+      <div class="plasma-blob plasma-blob--primary plasma-blob--soft" role="status" aria-label="Loading"></div>
+      <span>soft · 4.0s</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="plasma-blob" style="--pb-gradient: linear-gradient(135deg, #ff00ff, #00ffff);" role="status" aria-label="Loading"></div>
+      <span>cyberpunk neon gradient</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import stylesheet --&gt;
+&lt;link rel="stylesheet" href="plasma-blob.css" /&gt;
+
+&lt;!-- 2. Structure --&gt;
+&lt;div class="plasma-blob" role="status" aria-label="Loading"&gt;&lt;/div&gt;</pre>
+</body>
+</html>

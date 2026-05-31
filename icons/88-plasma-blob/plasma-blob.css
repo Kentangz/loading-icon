@@ -1,0 +1,74 @@
+/**
+ * Plasma Blob — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Morphing border-radius and rotational mapping to emulate fluid flow.
+ * Usage     : Apply `.plasma-blob` to the root element.
+ *             Requires no child elements.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+.plasma-blob {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 3.0s;
+  
+  /* === CUSTOM TOKENS === */
+  --pb-gradient: linear-gradient(135deg, var(--loader-color), #1D9E75);
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  background: var(--pb-gradient);
+  animation: plasma-blob-anim calc(var(--loader-speed) * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.plasma-blob * {
+  box-sizing: border-box;
+}
+@keyframes plasma-blob-anim {
+  0%, 100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: rotate(0deg);
+  }
+  33% {
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+    transform: rotate(120deg);
+  }
+  66% {
+    border-radius: 50% 50% 30% 70% / 40% 60% 30% 70%;
+    transform: rotate(240deg);
+  }
+}
+/* ─── Size presets ─── */
+.plasma-blob--sm { --loader-size: 24px; }
+.plasma-blob--md { --loader-size: 36px; }
+.plasma-blob--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.plasma-blob--primary { --loader-color: #7F77DD; --pb-gradient: linear-gradient(135deg, #7F77DD, #9B87F5); }
+.plasma-blob--success { --loader-color: #1D9E75; --pb-gradient: linear-gradient(135deg, #1D9E75, #26D07C); }
+.plasma-blob--warning { --loader-color: #EF9F27; --pb-gradient: linear-gradient(135deg, #EF9F27, #FFC107); }
+.plasma-blob--danger  { --loader-color: #E24B4A; --pb-gradient: linear-gradient(135deg, #E24B4A, #FF6B6B); }
+.plasma-blob--white   { --loader-color: #ffffff; --pb-gradient: linear-gradient(135deg, #ffffff, #e0e0e0); }
+
+/* ─── Speed modifiers ─── */
+.plasma-blob--fast { --loader-speed: 1.5s; }
+.plasma-blob--slow { --loader-speed: 5.0s; }
+.plasma-blob--soft { --loader-speed: 4.0s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .plasma-blob {
+    animation: none;
+    border-radius: 50%;
+  }
+}

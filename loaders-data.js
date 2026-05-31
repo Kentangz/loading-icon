@@ -2278,4 +2278,58 @@ const loaders = [
   100% { transform: rotate(-360deg) scale(1.1); }
 }`,
 	},
+	{
+		id: "87",
+		name: "Neon Glitch Bar",
+		category: "glitch",
+		tags: ["glitch-cyber","neon-sweep"],
+		html: "<div class=\"demo-neonglitch\"><span class=\"demo-neonglitch-bar\"></span><span class=\"demo-neonglitch-bar\"></span><span class=\"demo-neonglitch-bar\"></span></div>",
+		css: `.demo-neonglitch { display: inline-flex; justify-content: space-between; align-items: flex-end; width: 36px; height: 36px; }
+.demo-neonglitch-bar { width: 8px; height: 100%; background: var(--color-primary); border-radius: 2px; box-shadow: 0 0 6px var(--color-primary); animation: dneonglitch calc(1.0s * var(--loader-speed-scale)) ease-in-out infinite var(--loader-cycles); }
+.demo-neonglitch-bar:nth-child(1) { animation-delay: 0s; }
+.demo-neonglitch-bar:nth-child(2) { animation-delay: calc(1.0s * -0.33 * var(--loader-speed-scale)); }
+.demo-neonglitch-bar:nth-child(3) { animation-delay: calc(1.0s * -0.66 * var(--loader-speed-scale)); }
+@keyframes dneonglitch { 0%, 100% { transform: scaleY(0.15); opacity: 0.7; } 50% { transform: scaleY(1); opacity: 1; } 45%, 55% { transform: scaleY(0.8) skewX(8deg); filter: hue-rotate(90deg); } }`,
+	},
+	{
+		id: "88",
+		name: "Plasma Blob",
+		category: "fluid",
+		tags: ["organic-fluid","morphing"],
+		html: "<div class=\"demo-pblob\"></div>",
+		css: `.demo-pblob { width: 32px; height: 32px; background: linear-gradient(135deg, var(--color-primary), var(--color-success)); animation: dpblob 3.0s ease-in-out infinite var(--loader-cycles); filter: drop-shadow(0 2px 5px rgba(0,0,0,0.15)); }
+@keyframes dpblob { 0%, 100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; transform: rotate(0deg); } 33% { border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%; transform: rotate(120deg); } 66% { border-radius: 50% 50% 30% 70% / 40% 60% 30% 70%; transform: rotate(240deg); } }`,
+	},
+	{
+		id: "89",
+		name: "Infinite Progress",
+		category: "progress",
+		tags: ["progress-bar","loop"],
+		html: "<div class=\"demo-infprog\"></div>",
+		css: `.demo-infprog { position: relative; width: 32px; height: 32px; border: 3px solid rgba(127, 119, 221, 0.15); border-radius: 50%; }
+.demo-infprog::after { content: ''; position: absolute; top: -3px; left: -3px; width: 32px; height: 32px; border: 3px solid transparent; border-top-color: var(--color-primary); border-radius: 50%; animation: dinfprog 1.0s cubic-bezier(0.5, 0, 0.5, 1) infinite var(--loader-cycles); }
+@keyframes dinfprog { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`,
+	},
+	{
+		id: "90",
+		name: "Pulsar Orbit",
+		category: "cosmic",
+		tags: ["orbit-cosmic","quantum"],
+		html: "<div class=\"demo-porbit\"><div class=\"demo-porbit-core\"></div><div class=\"demo-porbit-ring\"></div></div>",
+		css: `.demo-porbit { position: relative; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+.demo-porbit-core { width: 10px; height: 10px; background: var(--color-primary); border-radius: 50%; box-shadow: 0 0 6px var(--color-primary); animation: dporbit-core 1.2s ease-in-out infinite var(--loader-cycles); }
+.demo-porbit-ring { position: absolute; width: 32px; height: 32px; border: 2px solid transparent; border-top-color: var(--color-success); border-radius: 50%; animation: dporbit-ring 1.5s linear infinite var(--loader-cycles); }
+@keyframes dporbit-core { 0%, 100% { transform: scale(0.75); opacity: 0.6; } 50% { transform: scale(1.3); opacity: 1; } }
+@keyframes dporbit-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`,
+	},
+	{
+		id: "91",
+		name: "Hologram Scan",
+		category: "glitch",
+		tags: ["holographic","cyber-grid"],
+		html: "<div class=\"demo-hscan\"><span></span></div>",
+		css: `.demo-hscan { position: relative; width: 32px; height: 32px; border: 2px solid rgba(127, 119, 221, 0.2); border-radius: 4px; overflow: hidden; display: inline-flex; }
+.demo-hscan span { position: absolute; left: 0; width: 100%; height: 2px; background: var(--color-primary); box-shadow: 0 0 6px var(--color-primary); animation: dhscan 1.5s ease-in-out infinite var(--loader-cycles); }
+@keyframes dhscan { 0%, 100% { top: 0%; opacity: 0.3; transform: scaleX(1); } 50% { top: calc(100% - 2px); opacity: 1; transform: scaleX(1.1); } 25%, 75% { opacity: 0.8; transform: skewX(12deg); } }`,
+	},
 ];

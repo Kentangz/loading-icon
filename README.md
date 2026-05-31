@@ -112,6 +112,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 84 | [Neon Ring](icons/84-neon-ring/) | glow + border | Premium automated loaders |
 | 85 | [Zigzag March](icons/85-zigzag-march/) | zigzag + path | Premium automated loaders |
 | 86 | [Rotating Squares](icons/86-rotating-squares/) | dual + counter-rotate | Premium automated loaders |
+| 87 | [Neon Glitch Bar](icons/87-neon-glitch-bar/) | glitch-cyber + neon-sweep | Premium automated loaders |
+| 88 | [Plasma Blob](icons/88-plasma-blob/) | organic-fluid + morphing | Premium automated loaders |
+| 89 | [Infinite Progress](icons/89-infinite-progress/) | progress-bar + loop | Premium automated loaders |
+| 90 | [Pulsar Orbit](icons/90-pulsar-orbit/) | orbit-cosmic + quantum | Premium automated loaders |
+| 91 | [Hologram Scan](icons/91-hologram-scan/) | holographic + cyber-grid | Premium automated loaders |
 
 ---
 
@@ -600,6 +605,30 @@ Each icon has a minimal, documented HTML structure:
 <div class="rotating-squares" role="status" aria-label="Loading">
   <span></span><span></span>
 </div>
+
+<!-- 87 · Neon Glitch Bar (parent + 3 spans) -->
+<div class="neon-glitch-bar" role="status" aria-label="Loading">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- 88 · Plasma Blob (parent only) -->
+<div class="plasma-blob" role="status" aria-label="Loading">
+</div>
+
+<!-- 89 · Infinite Progress (parent only) -->
+<div class="infinite-progress" role="status" aria-label="Loading">
+</div>
+
+<!-- 90 · Pulsar Orbit (parent + core + ring) -->
+<div class="pulsar-orbit" role="status" aria-label="Loading">
+  <div class="pulsar-orbit__core"></div>
+
+<!-- 91 · Hologram Scan (parent + 1 span) -->
+<div class="hologram-scan" role="status" aria-label="Loading">
+  <span class="hologram-scan__line"></span>
+</div>
+  <div class="pulsar-orbit__ring"></div>
+</div>
   <div class="glow-quantum__ring"><span></span></div>
 </div>
 ```
@@ -705,6 +734,11 @@ Every icon ships with ready-to-use modifier classes:
 | Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
 | Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
 | Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
+| Neon Glitch Bar | `--ngb-gap` `--ngb-glow` |
+| Plasma Blob | `--pb-gradient` |
+| Infinite Progress | `--ip-track-color` `--ip-thickness` |
+| Pulsar Orbit | `--po-core-size` `--po-ring-color` |
+| Hologram Scan | `--hs-border-color` `--hs-glow` |
 | Pinwheel Spin | `--pw-size` `--pw-color` `--pw-speed` |
 | Staircase Climb | `--sc-size` `--sc-color` `--sc-speed` |
 | Neon Ring | `--nr-size` `--nr-color` `--nr-speed` |
@@ -1010,6 +1044,21 @@ loadicons/
     ├── 86-rotating-squares/
     │   ├── rotating-squares.css
     │   └── index.html
+    ├── 87-neon-glitch-bar/
+    │   ├── neon-glitch-bar.css
+    │   └── index.html
+    ├── 88-plasma-blob/
+    │   ├── plasma-blob.css
+    │   └── index.html
+    ├── 89-infinite-progress/
+    │   ├── infinite-progress.css
+    │   └── index.html
+    ├── 90-pulsar-orbit/
+    │   ├── pulsar-orbit.css
+    │   └── index.html
+    ├── 91-hologram-scan/
+    │   ├── hologram-scan.css
+    │   └── index.html
 ```
 
 ---
@@ -1075,7 +1124,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .hologram-scan span, .pulsar-orbit span, .infinite-progress span, .plasma-blob span, .neon-glitch-bar span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 
