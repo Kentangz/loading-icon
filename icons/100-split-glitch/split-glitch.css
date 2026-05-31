@@ -1,0 +1,108 @@
+/**
+ * Split Glitch — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Three overlapping layers shifting offset with steps animation to simulate RGB splitting distortion.
+ * Usage     : Apply `.split-glitch` to the root element.
+ *             Requires 3 <span> children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.split-glitch {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.0s;
+  
+  /* === CUSTOM TOKENS === */
+  --sg-border-width: 4px;
+  --sg-radius: 4px;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+}
+
+.split-glitch * {
+  box-sizing: border-box;
+}
+
+.split-glitch span {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: var(--sg-border-width) solid var(--loader-color);
+  border-radius: var(--sg-radius);
+}
+
+.split-glitch span:nth-child(1) {
+  border-color: #ff0055;
+  animation: split-glitch-shift1 var(--loader-speed) steps(2, end) infinite;
+}
+
+.split-glitch span:nth-child(2) {
+  border-color: #00ffcc;
+  animation: split-glitch-shift2 var(--loader-speed) steps(2, end) infinite;
+}
+
+.split-glitch span:nth-child(3) {
+  border-color: var(--loader-color);
+  animation: split-glitch-main var(--loader-speed) steps(4, end) infinite;
+}
+
+@keyframes split-glitch-shift1 {
+  0%, 100% { transform: translate(-2px, 1px); opacity: 0.8; }
+  50% { transform: translate(1px, -2px); opacity: 0.5; }
+}
+
+@keyframes split-glitch-shift2 {
+  0%, 100% { transform: translate(2px, -1px); opacity: 0.8; }
+  50% { transform: translate(-1px, 2px); opacity: 0.5; }
+}
+
+@keyframes split-glitch-main {
+  0%, 100% { transform: translate(0); opacity: 1; }
+  25% { transform: translate(-1px, -1px); }
+  50% { transform: translate(1px, 1px); }
+  75% { transform: translate(-2px, 2px); }
+}
+
+/* ─── Size presets ─── */
+.split-glitch--sm {
+  --loader-size: 24px;
+  --sg-border-width: 3px;
+}
+.split-glitch--md {
+  --loader-size: 36px;
+  --sg-border-width: 4px;
+}
+.split-glitch--lg {
+  --loader-size: 48px;
+  --sg-border-width: 5px;
+}
+
+/* ─── Color presets ─── */
+.split-glitch--primary { --loader-color: #7F77DD; }
+.split-glitch--success { --loader-color: #1D9E75; }
+.split-glitch--warning { --loader-color: #EF9F27; }
+.split-glitch--danger  { --loader-color: #E24B4A; }
+.split-glitch--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.split-glitch--fast { --loader-speed: 0.6s; }
+.split-glitch--slow { --loader-speed: 2.0s; }
+.split-glitch--soft { --loader-speed: 1.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .split-glitch span {
+    animation: none;
+  }
+}

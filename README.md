@@ -122,6 +122,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 94 | [Helix Wave](icons/94-helix-wave/) | helix-wave + double-helix | Premium automated loaders |
 | 95 | [Gooey Ring](icons/95-gooey-ring/) | gooey-ring + metaball-spin | Premium automated loaders |
 | 96 | [Glitch Grid](icons/96-glitch-grid/) | glitch-grid + digital-flicker | Premium automated loaders |
+| 97 | [Aura Ring](icons/97-aura-ring/) | glow-spinner + aurora | Premium automated loaders |
+| 98 | [Seismic Wave](icons/98-seismic-wave/) | oscillating-bars + frequency | Premium automated loaders |
+| 99 | [Orbital Ring 3D](icons/99-orbital-ring-3d/) | 3d-gyro + spinning-rings | Premium automated loaders |
+| 100 | [Split Glitch](icons/100-split-glitch/) | split-glitch + rgb-shift | Premium automated loaders |
+| 101 | [Black Hole](icons/101-black-hole/) | blackhole + gravity-spiral | Premium automated loaders |
 
 ---
 
@@ -667,6 +672,41 @@ Each icon has a minimal, documented HTML structure:
   <span></span>
   <span></span>
 </div>
+
+<!-- 97 · Aura Ring (parent + 1 span) -->
+<div class="aura-ring" role="status" aria-label="Loading">
+  <span></span>
+</div>
+
+<!-- 98 · Seismic Wave (parent + 5 spans) -->
+<div class="seismic-wave" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- 99 · Orbital Ring 3D (parent + inner + outer) -->
+<div class="orbital-ring-3d" role="status" aria-label="Loading">
+  <div class="orbital-ring-3d__inner"></div>
+
+<!-- 100 · Split Glitch (parent + 3 spans) -->
+<div class="split-glitch" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- 101 · Black Hole (parent + core + 3 spans) -->
+<div class="black-hole" role="status" aria-label="Loading">
+  <div class="black-hole__core"></div>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+  <div class="orbital-ring-3d__outer"></div>
+</div>
   <div class="tesseract-rotate__outer"></div>
 </div>
   <div class="pulsar-orbit__ring"></div>
@@ -776,6 +816,11 @@ Every icon ships with ready-to-use modifier classes:
 | Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
 | Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
 | Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
+| Aura Ring | --loader-size --loader-color --loader-speed --ar-border-width |
+| Seismic Wave | --loader-size --loader-color --loader-speed --sw-bar-width --sw-min-height |
+| Orbital Ring 3D | --loader-size --loader-color --loader-speed --or-perspective |
+| Split Glitch | --loader-size --loader-color --loader-speed --sg-border-width --sg-radius |
+| Black Hole | --loader-size --loader-color --loader-speed --bh-core-bg |
 | Nebula Swarm | --loader-size --loader-color --loader-speed --ns-perspective --ns-dot-size |
 | Tesseract Rotate | --loader-size --loader-color --loader-speed --tr-perspective |
 | Helix Wave | --loader-size --loader-color --loader-speed --hw-bar-height --hw-gap |
@@ -1121,6 +1166,21 @@ loadicons/
     ├── 96-glitch-grid/
     │   ├── glitch-grid.css
     │   └── index.html
+    ├── 97-aura-ring/
+    │   ├── aura-ring.css
+    │   └── index.html
+    ├── 98-seismic-wave/
+    │   ├── seismic-wave.css
+    │   └── index.html
+    ├── 99-orbital-ring-3d/
+    │   ├── orbital-ring-3d.css
+    │   └── index.html
+    ├── 100-split-glitch/
+    │   ├── split-glitch.css
+    │   └── index.html
+    ├── 101-black-hole/
+    │   ├── black-hole.css
+    │   └── index.html
 ```
 
 ---
@@ -1186,7 +1246,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .glitch-grid span, .gooey-ring span, .helix-wave span, .tesseract-rotate span, .nebula-swarm span, .hologram-scan span, .pulsar-orbit span, .infinite-progress span, .plasma-blob span, .neon-glitch-bar span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .black-hole span, .split-glitch span, .orbital-ring-3d span, .seismic-wave span, .aura-ring span, .glitch-grid span, .gooey-ring span, .helix-wave span, .tesseract-rotate span, .nebula-swarm span, .hologram-scan span, .pulsar-orbit span, .infinite-progress span, .plasma-blob span, .neon-glitch-bar span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 

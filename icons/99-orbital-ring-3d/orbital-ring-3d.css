@@ -1,0 +1,94 @@
+/**
+ * Orbital Ring 3D — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Inner solid ring and outer dashed ring rotating on tilted 3D perspective axes in opposite directions.
+ * Usage     : Apply `.orbital-ring-3d` to the root element.
+ *             Requires `.orbital-ring-3d__inner` and `.orbital-ring-3d__outer` children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.orbital-ring-3d {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.8s;
+  
+  /* === CUSTOM TOKENS === */
+  --or-perspective: 200px;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  perspective: var(--or-perspective);
+  transform-style: preserve-3d;
+}
+
+.orbital-ring-3d * {
+  box-sizing: border-box;
+}
+
+.orbital-ring-3d__inner {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  border: 2px solid var(--loader-color);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: orbital-ring-3d-inner-anim var(--loader-speed) linear infinite;
+}
+
+.orbital-ring-3d__outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed var(--loader-color);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: orbital-ring-3d-outer-anim var(--loader-speed) linear infinite;
+}
+
+@keyframes orbital-ring-3d-inner-anim {
+  0% { transform: rotateX(70deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(70deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+@keyframes orbital-ring-3d-outer-anim {
+  0% { transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(40deg) rotateY(-360deg) rotateZ(-360deg); }
+}
+
+/* ─── Size presets ─── */
+.orbital-ring-3d--sm { --loader-size: 24px; }
+.orbital-ring-3d--md { --loader-size: 36px; }
+.orbital-ring-3d--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.orbital-ring-3d--primary { --loader-color: #7F77DD; }
+.orbital-ring-3d--success { --loader-color: #1D9E75; }
+.orbital-ring-3d--warning { --loader-color: #EF9F27; }
+.orbital-ring-3d--danger  { --loader-color: #E24B4A; }
+.orbital-ring-3d--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.orbital-ring-3d--fast { --loader-speed: 1.0s; }
+.orbital-ring-3d--slow { --loader-speed: 3.0s; }
+.orbital-ring-3d--soft { --loader-speed: 2.2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .orbital-ring-3d__inner,
+  .orbital-ring-3d__outer {
+    animation: none;
+  }
+}

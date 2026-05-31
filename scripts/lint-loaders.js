@@ -91,7 +91,7 @@ const folders = fs.readdirSync(ICONS_DIR).filter((f) => {
   return fs.statSync(path.join(ICONS_DIR, f)).isDirectory();
 });
 
-const folderPattern = /^(\d{2})-([a-z0-9-]+)$/;
+const folderPattern = /^(\d{2,3})-([a-z0-9-]+)$/;
 const validatedIcons = []; // array of { id, folder, kebab, cssFile, htmlFile, isHistorical }
 
 folders.forEach((folder) => {
@@ -325,7 +325,7 @@ validatedIcons.forEach((icon) => {
     reportError(icon.htmlPath, icon.isHistorical, "Missing <title> tag in head");
   }
 
-  const h1Regex = /<h1>\s*(\d{2})\s*·\s*([^<]+)<\/h1>/i;
+  const h1Regex = /<h1>\s*(\d{2,3})\s*·\s*([^<]+)<\/h1>/i;
   const h1Match = html.match(h1Regex);
   if (!h1Match) {
     reportWarning(
@@ -546,6 +546,7 @@ validatedIcons.forEach((icon) => {
   else if (icon.id === "09") targetName = "Morphing Shape";
   else if (icon.id === "45") targetName = "Newton's Cradle 3D";
   else if (icon.id === "48") targetName = "Bouncing Cube 3D";
+  else if (icon.id === "99") targetName = "Orbital Ring 3D";
   
   const tokenRegex = new RegExp(`\\|\\s*${targetName.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1")}\\s*\\|`);
   if (!tokenRegex.test(readme)) {

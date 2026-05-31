@@ -1,0 +1,11 @@
+{
+  "name": "Seismic Wave",
+  "category": "waves",
+  "tags": [
+    "oscillating-bars",
+    "frequency",
+    "waves"
+  ],
+  "html": "<div class=\"demo-seiwave\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-seiwave {\n  --sw-size: 36px;\n  --sw-color: var(--color-primary);\n  --sw-speed: calc(1.0s * var(--loader-speed-scale));\n  width: var(--sw-size);\n  height: var(--sw-size);\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.demo-seiwave span {\n  width: 15%;\n  height: 20%;\n  background: var(--sw-color);\n  border-radius: 2px;\n  animation: dseiwave-bounce var(--sw-speed) ease-in-out var(--loader-cycles);\n}\n.demo-seiwave span:nth-child(1) { animation-delay: 0s; }\n.demo-seiwave span:nth-child(2) { animation-delay: calc(var(--sw-speed) * -0.15); }\n.demo-seiwave span:nth-child(3) { animation-delay: calc(var(--sw-speed) * -0.3); }\n.demo-seiwave span:nth-child(4) { animation-delay: calc(var(--sw-speed) * -0.15); }\n.demo-seiwave span:nth-child(5) { animation-delay: 0s; }\n@keyframes dseiwave-bounce {\n  0%, 100% { height: 20%; opacity: 0.4; }\n  50% { height: 100%; opacity: 1; }\n}"
+}

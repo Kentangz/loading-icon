@@ -1,0 +1,11 @@
+{
+  "name": "Aura Ring",
+  "category": "spinners",
+  "tags": [
+    "glow-spinner",
+    "aurora",
+    "spinners"
+  ],
+  "html": "<div class=\"demo-auraring\"><span></span></div>",
+  "css": ".demo-auraring {\n  --ar-size: 36px;\n  --ar-color: var(--color-primary);\n  --ar-speed: calc(1.2s * var(--loader-speed-scale));\n  width: var(--ar-size);\n  height: var(--ar-size);\n  position: relative;\n  display: inline-flex;\n  border-radius: 50%;\n  border: 3px solid rgba(255, 255, 255, 0.1);\n  box-sizing: border-box;\n}\n.demo-auraring span {\n  position: absolute;\n  top: -3px; left: -3px; right: -3px; bottom: -3px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-top-color: var(--ar-color);\n  box-shadow: 0 0 8px var(--ar-color);\n  animation: dauraring-spin var(--ar-speed) linear var(--loader-cycles);\n  box-sizing: border-box;\n}\n@keyframes dauraring-spin {\n  0% { transform: rotate(0deg); }\n  100% { transform: rotate(360deg); }\n}"
+}

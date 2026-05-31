@@ -1,0 +1,103 @@
+/**
+ * Black Hole — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : A dark central singularity that pulls orbiting light dots into its core using spiral translations.
+ * Usage     : Apply `.black-hole` to the root element.
+ *             Requires `.black-hole__core` and 3 <span> children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.black-hole {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 2.0s;
+  
+  /* === CUSTOM TOKENS === */
+  --bh-core-bg: #111111;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+}
+
+.black-hole * {
+  box-sizing: border-box;
+}
+
+.black-hole__core {
+  width: 30%;
+  height: 30%;
+  background: var(--bh-core-bg);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--loader-color);
+  position: absolute;
+  z-index: 2;
+}
+
+.black-hole span {
+  position: absolute;
+  width: 22%;
+  height: 22%;
+  border-radius: 50%;
+  background: var(--loader-color);
+  box-shadow: 0 0 6px var(--loader-color);
+  z-index: 1;
+  animation: black-hole-spiral var(--loader-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.black-hole span:nth-child(2) { animation-delay: 0s; }
+.black-hole span:nth-child(3) { animation-delay: calc(var(--loader-speed) * -0.33); }
+.black-hole span:nth-child(4) { animation-delay: calc(var(--loader-speed) * -0.66); }
+
+@keyframes black-hole-spiral {
+  0% {
+    transform: rotate(0deg) translate(calc(var(--loader-size) * 0.5)) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(720deg) translate(0) scale(0.1);
+    opacity: 0;
+  }
+}
+
+/* ─── Size presets ─── */
+.black-hole--sm { --loader-size: 24px; }
+.black-hole--md { --loader-size: 36px; }
+.black-hole--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.black-hole--primary { --loader-color: #7F77DD; }
+.black-hole--success { --loader-color: #1D9E75; }
+.black-hole--warning { --loader-color: #EF9F27; }
+.black-hole--danger  { --loader-color: #E24B4A; }
+.black-hole--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.black-hole--fast { --loader-speed: 1.2s; }
+.black-hole--slow { --loader-speed: 3.5s; }
+.black-hole--soft { --loader-speed: 2.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .black-hole span {
+    animation: none;
+  }
+}

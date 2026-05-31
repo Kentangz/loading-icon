@@ -39,7 +39,7 @@ const folders = fs.readdirSync(ICONS_DIR).filter((f) => {
   return fs.statSync(path.join(ICONS_DIR, f)).isDirectory();
 });
 
-const folderPattern = /^(\d{2})-([a-z0-9-]+)$/;
+const folderPattern = /^(\d{2,3})-([a-z0-9-]+)$/;
 const loadersList = [];
 
 folders.forEach((folder) => {

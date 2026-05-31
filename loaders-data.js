@@ -2478,4 +2478,221 @@ const loaders = [
   66% { transform: translate(-1px, 2px) skew(-8deg); opacity: 1; }
 }`,
 	},
+	{
+		id: "97",
+		name: "Aura Ring",
+		category: "spinners",
+		tags: ["glow-spinner","aurora","spinners"],
+		html: "<div class=\"demo-auraring\"><span></span></div>",
+		css: `.demo-auraring {
+  --ar-size: 36px;
+  --ar-color: var(--color-primary);
+  --ar-speed: calc(1.2s * var(--loader-speed-scale));
+  width: var(--ar-size);
+  height: var(--ar-size);
+  position: relative;
+  display: inline-flex;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+}
+.demo-auraring span {
+  position: absolute;
+  top: -3px; left: -3px; right: -3px; bottom: -3px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--ar-color);
+  box-shadow: 0 0 8px var(--ar-color);
+  animation: dauraring-spin var(--ar-speed) linear var(--loader-cycles);
+  box-sizing: border-box;
+}
+@keyframes dauraring-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}`,
+	},
+	{
+		id: "98",
+		name: "Seismic Wave",
+		category: "waves",
+		tags: ["oscillating-bars","frequency","waves"],
+		html: "<div class=\"demo-seiwave\"><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-seiwave {
+  --sw-size: 36px;
+  --sw-color: var(--color-primary);
+  --sw-speed: calc(1.0s * var(--loader-speed-scale));
+  width: var(--sw-size);
+  height: var(--sw-size);
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.demo-seiwave span {
+  width: 15%;
+  height: 20%;
+  background: var(--sw-color);
+  border-radius: 2px;
+  animation: dseiwave-bounce var(--sw-speed) ease-in-out var(--loader-cycles);
+}
+.demo-seiwave span:nth-child(1) { animation-delay: 0s; }
+.demo-seiwave span:nth-child(2) { animation-delay: calc(var(--sw-speed) * -0.15); }
+.demo-seiwave span:nth-child(3) { animation-delay: calc(var(--sw-speed) * -0.3); }
+.demo-seiwave span:nth-child(4) { animation-delay: calc(var(--sw-speed) * -0.15); }
+.demo-seiwave span:nth-child(5) { animation-delay: 0s; }
+@keyframes dseiwave-bounce {
+  0%, 100% { height: 20%; opacity: 0.4; }
+  50% { height: 100%; opacity: 1; }
+}`,
+	},
+	{
+		id: "99",
+		name: "Orbital Ring 3D",
+		category: "3d",
+		tags: ["3d-gyro","spinning-rings","3d"],
+		html: "<div class=\"demo-orbring3d\"><div class=\"demo-orbring3d-inner\"></div><div class=\"demo-orbring3d-outer\"></div></div>",
+		css: `.demo-orbring3d {
+  --or-size: 36px;
+  --or-color: var(--color-primary);
+  --or-speed: calc(1.8s * var(--loader-speed-scale));
+  width: var(--or-size);
+  height: var(--or-size);
+  position: relative;
+  perspective: 200px;
+  transform-style: preserve-3d;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-orbring3d-inner {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  border: 2px solid var(--or-color);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: dorbring3d-inner var(--or-speed) linear var(--loader-cycles);
+}
+.demo-orbring3d-outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed var(--or-color);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: dorbring3d-outer var(--or-speed) linear var(--loader-cycles);
+}
+@keyframes dorbring3d-inner {
+  0% { transform: rotateX(70deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(70deg) rotateY(360deg) rotateZ(360deg); }
+}
+@keyframes dorbring3d-outer {
+  0% { transform: rotateX(40deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(40deg) rotateY(-360deg) rotateZ(-360deg); }
+}`,
+	},
+	{
+		id: "100",
+		name: "Split Glitch",
+		category: "glitch",
+		tags: ["split-glitch","rgb-shift","glitch"],
+		html: "<div class=\"demo-splitglitch\"><span></span><span></span><span></span></div>",
+		css: `.demo-splitglitch {
+  --sg-size: 36px;
+  --sg-color: var(--color-primary);
+  --sg-speed: calc(1.0s * var(--loader-speed-scale));
+  width: var(--sg-size);
+  height: var(--sg-size);
+  position: relative;
+  display: inline-flex;
+}
+.demo-splitglitch span {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 4px solid var(--sg-color);
+  border-radius: 4px;
+}
+.demo-splitglitch span:nth-child(1) {
+  border-color: #ff0055;
+  animation: dsplitglitch-shift1 var(--sg-speed) steps(2, end) var(--loader-cycles);
+}
+.demo-splitglitch span:nth-child(2) {
+  border-color: #00ffcc;
+  animation: dsplitglitch-shift2 var(--sg-speed) steps(2, end) var(--loader-cycles);
+}
+.demo-splitglitch span:nth-child(3) {
+  border-color: var(--sg-color);
+  animation: dsplitglitch-main var(--sg-speed) steps(4, end) var(--loader-cycles);
+}
+@keyframes dsplitglitch-shift1 {
+  0%, 100% { transform: translate(-2px, 1px); opacity: 0.8; }
+  50% { transform: translate(1px, -2px); opacity: 0.5; }
+}
+@keyframes dsplitglitch-shift2 {
+  0%, 100% { transform: translate(2px, -1px); opacity: 0.8; }
+  50% { transform: translate(-1px, 2px); opacity: 0.5; }
+}
+@keyframes dsplitglitch-main {
+  0%, 100% { transform: translate(0); opacity: 1; }
+  25% { transform: translate(-1px, -1px); }
+  50% { transform: translate(1px, 1px); }
+  75% { transform: translate(-2px, 2px); }
+}`,
+	},
+	{
+		id: "101",
+		name: "Black Hole",
+		category: "cosmic",
+		tags: ["blackhole","gravity-spiral","cosmic"],
+		html: "<div class=\"demo-blackhole\"><div class=\"demo-blackhole-core\"></div><span></span><span></span><span></span></div>",
+		css: `.demo-blackhole {
+  --bh-size: 36px;
+  --bh-color: var(--color-primary);
+  --bh-speed: calc(2.0s * var(--loader-speed-scale));
+  width: var(--bh-size);
+  height: var(--bh-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-blackhole-core {
+  width: 30%;
+  height: 30%;
+  background: #111;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--bh-color);
+  position: absolute;
+  z-index: 2;
+}
+.demo-blackhole span {
+  position: absolute;
+  width: 22%;
+  height: 22%;
+  border-radius: 50%;
+  background: var(--bh-color);
+  box-shadow: 0 0 6px var(--bh-color);
+  z-index: 1;
+  animation: dblackhole-spiral var(--bh-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  animation-iteration-count: var(--loader-cycles);
+}
+.demo-blackhole span:nth-child(2) { animation-delay: 0s; }
+.demo-blackhole span:nth-child(3) { animation-delay: calc(var(--bh-speed) * -0.33); }
+.demo-blackhole span:nth-child(4) { animation-delay: calc(var(--bh-speed) * -0.66); }
+@keyframes dblackhole-spiral {
+  0% {
+    transform: rotate(0deg) translate(18px) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(720deg) translate(0) scale(0.1);
+    opacity: 0;
+  }
+}`,
+	},
 ];

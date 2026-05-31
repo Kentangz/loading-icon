@@ -1,0 +1,87 @@
+/**
+ * Seismic Wave — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Five vertical bars that scale in height using staggered delays to create a symmetric seismic wave shape.
+ * Usage     : Apply `.seismic-wave` to the root element.
+ *             Requires 5 <span> children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.seismic-wave {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.0s;
+  
+  /* === CUSTOM TOKENS === */
+  --sw-bar-width: 15%;
+  --sw-min-height: 20%;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+}
+
+.seismic-wave * {
+  box-sizing: border-box;
+}
+
+.seismic-wave span {
+  width: var(--sw-bar-width);
+  height: var(--sw-min-height);
+  background: var(--loader-color);
+  border-radius: 2px;
+  animation: seismic-wave-bounce var(--loader-speed) ease-in-out infinite;
+}
+
+.seismic-wave span:nth-child(1) { animation-delay: 0s; }
+.seismic-wave span:nth-child(2) { animation-delay: calc(var(--loader-speed) * -0.15); }
+.seismic-wave span:nth-child(3) { animation-delay: calc(var(--loader-speed) * -0.3); }
+.seismic-wave span:nth-child(4) { animation-delay: calc(var(--loader-speed) * -0.15); }
+.seismic-wave span:nth-child(5) { animation-delay: 0s; }
+
+@keyframes seismic-wave-bounce {
+  0%, 100% {
+    height: var(--sw-min-height);
+    opacity: 0.4;
+  }
+  50% {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+/* ─── Size presets ─── */
+.seismic-wave--sm { --loader-size: 24px; }
+.seismic-wave--md { --loader-size: 36px; }
+.seismic-wave--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.seismic-wave--primary { --loader-color: #7F77DD; }
+.seismic-wave--success { --loader-color: #1D9E75; }
+.seismic-wave--warning { --loader-color: #EF9F27; }
+.seismic-wave--danger  { --loader-color: #E24B4A; }
+.seismic-wave--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.seismic-wave--fast { --loader-speed: 0.6s; }
+.seismic-wave--slow { --loader-speed: 1.8s; }
+.seismic-wave--soft { --loader-speed: 1.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .seismic-wave span {
+    animation: none;
+  }
+}
