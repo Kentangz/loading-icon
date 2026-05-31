@@ -1,0 +1,92 @@
+/**
+ * Hypercube 3d — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Nested cubes rotating along multiple axes in 3D perspective space.
+ * Usage     : Apply `.hypercube-3d` to the root element.
+ *             Requires two inner div elements (`.hypercube-3d__inner`, `.hypercube-3d__outer`).
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.hypercube-3d {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --loader-speed: 2.0s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  perspective: 120px;
+  transform-style: preserve-3d;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hypercube-3d * {
+  box-sizing: border-box;
+}
+
+.hypercube-3d__inner, .hypercube-3d__outer {
+  position: absolute;
+  border: 2px solid var(--loader-color);
+  transform-style: preserve-3d;
+}
+
+.hypercube-3d__inner {
+  width: 50%;
+  height: 50%;
+  animation: hypercube-3d-rot1 var(--loader-speed) linear infinite;
+  opacity: 0.8;
+}
+
+.hypercube-3d__outer {
+  width: 90%;
+  height: 90%;
+  border-style: dashed;
+  animation: hypercube-3d-rot2 var(--loader-speed) linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes hypercube-3d-rot1 {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg); }
+}
+
+@keyframes hypercube-3d-rot2 {
+  0% { transform: rotateX(360deg) rotateY(0deg) rotateZ(360deg); }
+  100% { transform: rotateX(0deg) rotateY(-360deg) rotateZ(0deg); }
+}
+
+/* ─── Size presets ─── */
+.hypercube-3d--sm { --loader-size: 24px; }
+.hypercube-3d--md { --loader-size: 36px; }
+.hypercube-3d--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.hypercube-3d--primary { --loader-color: #7F77DD; }
+.hypercube-3d--success { --loader-color: #1D9E75; }
+.hypercube-3d--warning { --loader-color: #EF9F27; }
+.hypercube-3d--danger  { --loader-color: #E24B4A; }
+.hypercube-3d--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.hypercube-3d--fast { --loader-speed: 1.0s; }
+.hypercube-3d--slow { --loader-speed: 3.5s; }
+.hypercube-3d--soft { --loader-speed: 2.5s; }
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .hypercube-3d__inner, .hypercube-3d__outer {
+    animation: none !important;
+  }
+}

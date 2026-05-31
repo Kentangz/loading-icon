@@ -1,0 +1,96 @@
+/**
+ * Mercury Drops — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Blur and contrast filters combined with translate transitions to simulate liquid metal merging.
+ * Usage     : Apply `.mercury-drops` to the root element.
+ *             Requires three nested span elements.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.mercury-drops {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --loader-speed: 1.8s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  filter: blur(4px) contrast(10);
+  flex-shrink: 0;
+}
+
+.mercury-drops * {
+  box-sizing: border-box;
+}
+
+.mercury-drops span {
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  background: var(--loader-color);
+  border-radius: 50%;
+}
+
+.mercury-drops span:nth-child(1) {
+  animation: mercury-drops-orbit1 var(--loader-speed) ease-in-out infinite;
+}
+
+.mercury-drops span:nth-child(2) {
+  animation: mercury-drops-orbit2 var(--loader-speed) ease-in-out infinite;
+}
+
+.mercury-drops span:nth-child(3) {
+  animation: mercury-drops-orbit3 var(--loader-speed) ease-in-out infinite;
+}
+
+@keyframes mercury-drops-orbit1 {
+  0%, 100% { transform: translate(0, 0) scale(1.2); }
+  50% { transform: translate(-10px, -6px) scale(0.8); }
+}
+
+@keyframes mercury-drops-orbit2 {
+  0%, 100% { transform: translate(0, 0) scale(1.2); }
+  50% { transform: translate(10px, -6px) scale(0.8); }
+}
+
+@keyframes mercury-drops-orbit3 {
+  0%, 100% { transform: translate(0, 0) scale(1.2); }
+  50% { transform: translate(0, 11px) scale(0.8); }
+}
+
+/* ─── Size presets ─── */
+.mercury-drops--sm { --loader-size: 24px; }
+.mercury-drops--md { --loader-size: 36px; }
+.mercury-drops--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.mercury-drops--primary { --loader-color: #7F77DD; }
+.mercury-drops--success { --loader-color: #1D9E75; }
+.mercury-drops--warning { --loader-color: #EF9F27; }
+.mercury-drops--danger  { --loader-color: #E24B4A; }
+.mercury-drops--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.mercury-drops--fast { --loader-speed: 1.0s; }
+.mercury-drops--slow { --loader-speed: 3.0s; }
+.mercury-drops--soft { --loader-speed: 2.2s; }
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .mercury-drops span {
+    animation: none !important;
+  }
+}

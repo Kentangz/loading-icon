@@ -1,0 +1,11 @@
+{
+  "name": "Cosmic Nebula",
+  "category": "cosmic",
+  "tags": [
+    "vortex-conic",
+    "nested-rotation",
+    "glow-blend"
+  ],
+  "html": "<div class=\"demo-cosmicnebula\"><span></span><span></span></div>",
+  "css": ".demo-cosmicnebula {\n  --cn-size: 36px;\n  --cn-color: var(--color-primary);\n  --cn-speed: calc(2.5s * var(--loader-speed-scale));\n  width: var(--cn-size);\n  height: var(--cn-size);\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n}\n.demo-cosmicnebula span {\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background: conic-gradient(from 0deg, transparent, var(--cn-color), #00ffff, transparent);\n  filter: blur(1px);\n  box-sizing: border-box;\n}\n.demo-cosmicnebula span:nth-child(1) {\n  animation: dcosmicnebula-rot1 var(--cn-speed) linear infinite;\n  animation-iteration-count: var(--loader-cycles);\n  opacity: 0.8;\n}\n.demo-cosmicnebula span:nth-child(2) {\n  background: conic-gradient(from 180deg, transparent, #ff00ff, var(--cn-color), transparent);\n  animation: dcosmicnebula-rot2 calc(var(--cn-speed) * 0.8) linear infinite;\n  animation-iteration-count: var(--loader-cycles);\n  opacity: 0.6;\n}\n@keyframes dcosmicnebula-rot1 {\n  0% { transform: rotate(0deg) scale(1); }\n  50% { transform: rotate(180deg) scale(1.1); }\n  100% { transform: rotate(360deg) scale(1); }\n}\n@keyframes dcosmicnebula-rot2 {\n  0% { transform: rotate(360deg) scale(1); }\n  50% { transform: rotate(180deg) scale(0.9); }\n  100% { transform: rotate(0deg) scale(1); }\n}"
+}

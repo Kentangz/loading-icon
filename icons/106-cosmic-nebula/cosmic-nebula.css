@@ -1,0 +1,90 @@
+/**
+ * Cosmic Nebula — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Multi-layered conic gradients rotating in opposite directions with subtle scaling to simulate a vortex nebula.
+ * Usage     : Apply `.cosmic-nebula` to the root element.
+ *             Requires two nested span elements.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.cosmic-nebula {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --loader-speed: 2.5s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cosmic-nebula * {
+  box-sizing: border-box;
+}
+
+.cosmic-nebula span {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent, var(--loader-color), #00ffff, transparent);
+  filter: blur(1px);
+}
+
+.cosmic-nebula span:nth-child(1) {
+  animation: cosmic-nebula-rot1 var(--loader-speed) linear infinite;
+  opacity: 0.8;
+}
+
+.cosmic-nebula span:nth-child(2) {
+  background: conic-gradient(from 180deg, transparent, #ff00ff, var(--loader-color), transparent);
+  animation: cosmic-nebula-rot2 calc(var(--loader-speed) * 0.8) linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes cosmic-nebula-rot1 {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes cosmic-nebula-rot2 {
+  0% { transform: rotate(360deg) scale(1); }
+  50% { transform: rotate(180deg) scale(0.9); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+/* ─── Size presets ─── */
+.cosmic-nebula--sm { --loader-size: 24px; }
+.cosmic-nebula--md { --loader-size: 36px; }
+.cosmic-nebula--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.cosmic-nebula--primary { --loader-color: #7F77DD; }
+.cosmic-nebula--success { --loader-color: #1D9E75; }
+.cosmic-nebula--warning { --loader-color: #EF9F27; }
+.cosmic-nebula--danger  { --loader-color: #E24B4A; }
+.cosmic-nebula--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.cosmic-nebula--fast { --loader-speed: 1.5s; }
+.cosmic-nebula--slow { --loader-speed: 4.0s; }
+.cosmic-nebula--soft { --loader-speed: 3.0s; }
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .cosmic-nebula span {
+    animation: none !important;
+  }
+}

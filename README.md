@@ -127,6 +127,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 99 | [Orbital Ring 3D](icons/99-orbital-ring-3d/) | 3d-gyro + spinning-rings | Premium automated loaders |
 | 100 | [Split Glitch](icons/100-split-glitch/) | split-glitch + rgb-shift | Premium automated loaders |
 | 101 | [Black Hole](icons/101-black-hole/) | blackhole + gravity-spiral | Premium automated loaders |
+| 102 | [Cyber Shield](icons/102-cyber-shield/) | organic-morph + layered-rotations | Premium automated loaders |
+| 103 | [Vapor Wave](icons/103-vapor-wave/) | perspective-scaling + neon-gradient | Premium automated loaders |
+| 104 | [Hypercube 3d](icons/104-hypercube-3d/) | perspective-3d + concentric-rotation | Premium automated loaders |
+| 105 | [Mercury Drops](icons/105-mercury-drops/) | liquid-gooey + split-merge | Premium automated loaders |
+| 106 | [Cosmic Nebula](icons/106-cosmic-nebula/) | vortex-conic + nested-rotation | Premium automated loaders |
 
 ---
 
@@ -701,6 +706,41 @@ Each icon has a minimal, documented HTML structure:
 <!-- 101 · Black Hole (parent + core + 3 spans) -->
 <div class="black-hole" role="status" aria-label="Loading">
   <div class="black-hole__core"></div>
+
+<!-- 102 · Cyber Shield -->
+<div class="cyber-shield" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- 103 · Vapor Wave -->
+<div class="vapor-wave" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- 104 · Hypercube 3d -->
+<div class="hypercube-3d" role="status" aria-label="Loading">
+  <div class="hypercube-3d__inner"></div>
+
+<!-- 105 · Mercury Drops -->
+<div class="mercury-drops" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- 106 · Cosmic Nebula -->
+<div class="cosmic-nebula" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+</div>
+  <div class="hypercube-3d__outer"></div>
+</div>
   <span></span>
   <span></span>
   <span></span>
@@ -816,6 +856,11 @@ Every icon ships with ready-to-use modifier classes:
 | Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
 | Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
 | Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
+| Cyber Shield | `--loader-size` `--loader-color` `--loader-speed` |
+| Vapor Wave | `--loader-size` `--loader-color` `--loader-speed` |
+| Hypercube 3d | `--loader-size` `--loader-color` `--loader-speed` |
+| Mercury Drops | `--loader-size` `--loader-color` `--loader-speed` |
+| Cosmic Nebula | `--loader-size` `--loader-color` `--loader-speed` |
 | Aura Ring | --loader-size --loader-color --loader-speed --ar-border-width |
 | Seismic Wave | --loader-size --loader-color --loader-speed --sw-bar-width --sw-min-height |
 | Orbital Ring 3D | --loader-size --loader-color --loader-speed --or-perspective |
@@ -1181,6 +1226,21 @@ loadicons/
     ├── 101-black-hole/
     │   ├── black-hole.css
     │   └── index.html
+    ├── 102-cyber-shield/
+    │   ├── cyber-shield.css
+    │   └── index.html
+    ├── 103-vapor-wave/
+    │   ├── vapor-wave.css
+    │   └── index.html
+    ├── 104-hypercube-3d/
+    │   ├── hypercube-3d.css
+    │   └── index.html
+    ├── 105-mercury-drops/
+    │   ├── mercury-drops.css
+    │   └── index.html
+    ├── 106-cosmic-nebula/
+    │   ├── cosmic-nebula.css
+    │   └── index.html
 ```
 
 ---
@@ -1246,7 +1306,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .black-hole span, .split-glitch span, .orbital-ring-3d span, .seismic-wave span, .aura-ring span, .glitch-grid span, .gooey-ring span, .helix-wave span, .tesseract-rotate span, .nebula-swarm span, .hologram-scan span, .pulsar-orbit span, .infinite-progress span, .plasma-blob span, .neon-glitch-bar span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .cosmic-nebula span, .mercury-drops span, .hypercube-3d span, .vapor-wave span, .cyber-shield span, .black-hole span, .split-glitch span, .orbital-ring-3d span, .seismic-wave span, .aura-ring span, .glitch-grid span, .gooey-ring span, .helix-wave span, .tesseract-rotate span, .nebula-swarm span, .hologram-scan span, .pulsar-orbit span, .infinite-progress span, .plasma-blob span, .neon-glitch-bar span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 

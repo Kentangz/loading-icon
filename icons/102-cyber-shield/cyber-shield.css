@@ -1,0 +1,98 @@
+/**
+ * Cyber Shield — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Multi-layered organic shape morphing and rotation.
+ * Usage     : Apply `.cyber-shield` to the root element.
+ *             Requires three nested span elements.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.cyber-shield {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --loader-speed: 1.5s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cyber-shield * {
+  box-sizing: border-box;
+}
+
+.cyber-shield span {
+  position: absolute;
+  border: 2px solid var(--loader-color);
+  border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%;
+}
+
+.cyber-shield span:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  animation: cyber-shield-morph1 var(--loader-speed) linear infinite;
+  opacity: 0.8;
+}
+
+.cyber-shield span:nth-child(2) {
+  width: 70%;
+  height: 70%;
+  animation: cyber-shield-morph2 var(--loader-speed) linear infinite;
+  opacity: 0.6;
+}
+
+.cyber-shield span:nth-child(3) {
+  width: 40%;
+  height: 40%;
+  animation: cyber-shield-morph1 calc(var(--loader-speed) * 0.7) linear infinite reverse;
+  opacity: 0.9;
+}
+
+@keyframes cyber-shield-morph1 {
+  0% { transform: rotate(0deg); border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%; }
+  50% { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+  100% { transform: rotate(360deg); border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%; }
+}
+
+@keyframes cyber-shield-morph2 {
+  0% { transform: rotate(180deg); border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+  50% { border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%; }
+  100% { transform: rotate(-180deg); border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+}
+
+/* ─── Size presets ─── */
+.cyber-shield--sm { --loader-size: 24px; }
+.cyber-shield--md { --loader-size: 36px; }
+.cyber-shield--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.cyber-shield--primary { --loader-color: #7F77DD; }
+.cyber-shield--success { --loader-color: #1D9E75; }
+.cyber-shield--warning { --loader-color: #EF9F27; }
+.cyber-shield--danger  { --loader-color: #E24B4A; }
+.cyber-shield--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.cyber-shield--fast { --loader-speed: 0.8s; }
+.cyber-shield--slow { --loader-speed: 2.5s; }
+.cyber-shield--soft { --loader-speed: 1.8s; }
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .cyber-shield span {
+    animation: none !important;
+  }
+}

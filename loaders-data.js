@@ -2695,4 +2695,244 @@ const loaders = [
   }
 }`,
 	},
+	{
+		id: "102",
+		name: "Cyber Shield",
+		category: "special",
+		tags: ["organic-morph","layered-rotations","cyberpunk"],
+		html: "<div class=\"demo-cybershield\"><span></span><span></span><span></span></div>",
+		css: `.demo-cybershield {
+  --cs-size: 36px;
+  --cs-color: var(--color-primary);
+  --cs-speed: calc(1.5s * var(--loader-speed-scale));
+  width: var(--cs-size);
+  height: var(--cs-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-cybershield span {
+  position: absolute;
+  border: 2px solid var(--cs-color);
+  border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%;
+  box-sizing: border-box;
+}
+.demo-cybershield span:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  animation: dcybershield-morph1 var(--cs-speed) linear infinite;
+  animation-iteration-count: var(--loader-cycles);
+  border-color: var(--cs-color);
+  opacity: 0.8;
+}
+.demo-cybershield span:nth-child(2) {
+  width: 70%;
+  height: 70%;
+  animation: dcybershield-morph2 var(--cs-speed) linear infinite;
+  animation-iteration-count: var(--loader-cycles);
+  border-color: var(--color-success);
+  opacity: 0.6;
+}
+.demo-cybershield span:nth-child(3) {
+  width: 40%;
+  height: 40%;
+  animation: dcybershield-morph1 calc(var(--cs-speed) * 0.7) linear infinite reverse;
+  animation-iteration-count: var(--loader-cycles);
+  border-color: var(--color-danger);
+  opacity: 0.9;
+}
+@keyframes dcybershield-morph1 {
+  0% { transform: rotate(0deg); border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%; }
+  50% { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+  100% { transform: rotate(360deg); border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%; }
+}
+@keyframes dcybershield-morph2 {
+  0% { transform: rotate(180deg); border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+  50% { border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%; }
+  100% { transform: rotate(-180deg); border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+}`,
+	},
+	{
+		id: "103",
+		name: "Vapor Wave",
+		category: "waves",
+		tags: ["perspective-scaling","neon-gradient","undulating-bars"],
+		html: "<div class=\"demo-vaporwave\"><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-vaporwave {
+  --vw-size: 36px;
+  --vw-color: var(--color-primary);
+  --vw-speed: calc(1.2s * var(--loader-speed-scale));
+  width: var(--vw-size);
+  height: var(--vw-size);
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.demo-vaporwave span {
+  width: 15%;
+  height: 20%;
+  background: linear-gradient(to top, var(--vw-color), color-mix(in srgb, var(--vw-color) 40%, #fff));
+  border-radius: 1px;
+  animation: dvaporwave-slide var(--vw-speed) ease-in-out infinite alternate;
+  animation-iteration-count: var(--loader-cycles);
+}
+.demo-vaporwave span:nth-child(1) { animation-delay: 0s; }
+.demo-vaporwave span:nth-child(2) { animation-delay: calc(var(--vw-speed) * -0.2); }
+.demo-vaporwave span:nth-child(3) { animation-delay: calc(var(--vw-speed) * -0.4); }
+.demo-vaporwave span:nth-child(4) { animation-delay: calc(var(--vw-speed) * -0.6); }
+.demo-vaporwave span:nth-child(5) { animation-delay: calc(var(--vw-speed) * -0.8); }
+@keyframes dvaporwave-slide {
+  0% { height: 20%; transform: scaleY(1); opacity: 0.5; }
+  100% { height: 100%; transform: scaleY(1.2); opacity: 1; }
+}`,
+	},
+	{
+		id: "104",
+		name: "Hypercube 3d",
+		category: "3d",
+		tags: ["perspective-3d","concentric-rotation","dashed-border"],
+		html: "<div class=\"demo-hypercube\"><div class=\"demo-hypercube-inner\"></div><div class=\"demo-hypercube-outer\"></div></div>",
+		css: `.demo-hypercube {
+  --hc-size: 36px;
+  --hc-color: var(--color-primary);
+  --hc-speed: calc(2.0s * var(--loader-speed-scale));
+  width: var(--hc-size);
+  height: var(--hc-size);
+  position: relative;
+  perspective: 120px;
+  transform-style: preserve-3d;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-hypercube-inner, .demo-hypercube-outer {
+  position: absolute;
+  border: 2px solid var(--hc-color);
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+}
+.demo-hypercube-inner {
+  width: 50%;
+  height: 50%;
+  animation: dhypercube-rot1 var(--hc-speed) linear infinite;
+  animation-iteration-count: var(--loader-cycles);
+  opacity: 0.8;
+}
+.demo-hypercube-outer {
+  width: 90%;
+  height: 90%;
+  border-style: dashed;
+  animation: dhypercube-rot2 var(--hc-speed) linear infinite;
+  animation-iteration-count: var(--loader-cycles);
+  opacity: 0.5;
+}
+@keyframes dhypercube-rot1 {
+  0% { transform: rotateX(0deg); rotateY(0deg); rotateZ(0deg); }
+  100% { transform: rotateX(360deg); rotateY(360deg); rotateZ(0deg); }
+}
+@keyframes dhypercube-rot2 {
+  0% { transform: rotateX(360deg); rotateY(0deg); rotateZ(360deg); }
+  100% { transform: rotateX(0deg); rotateY(-360deg); rotateZ(0deg); }
+}`,
+	},
+	{
+		id: "105",
+		name: "Mercury Drops",
+		category: "fluid",
+		tags: ["liquid-gooey","split-merge","mercury-effect"],
+		html: "<div class=\"demo-mercurydrops\"><span></span><span></span><span></span></div>",
+		css: `.demo-mercurydrops {
+  --md-size: 36px;
+  --md-color: var(--color-primary);
+  --md-speed: calc(1.8s * var(--loader-speed-scale));
+  width: var(--md-size);
+  height: var(--md-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  filter: blur(4px) contrast(10);
+}
+.demo-mercurydrops span {
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  background: var(--md-color);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.demo-mercurydrops span:nth-child(1) {
+  animation: dmercurydrops-orbit1 var(--md-speed) ease-in-out infinite;
+  animation-iteration-count: var(--loader-cycles);
+}
+.demo-mercurydrops span:nth-child(2) {
+  animation: dmercurydrops-orbit2 var(--md-speed) ease-in-out infinite;
+  animation-iteration-count: var(--loader-cycles);
+}
+.demo-mercurydrops span:nth-child(3) {
+  animation: dmercurydrops-orbit3 var(--md-speed) ease-in-out infinite;
+  animation-iteration-count: var(--loader-cycles);
+}
+@keyframes dmercurydrops-orbit1 {
+  0%, 100% { transform: translate(0, 0) scale(1.2); }
+  50% { transform: translate(-10px, -6px) scale(0.8); }
+}
+@keyframes dmercurydrops-orbit2 {
+  0%, 100% { transform: translate(0, 0) scale(1.2); }
+  50% { transform: translate(10px, -6px) scale(0.8); }
+}
+@keyframes dmercurydrops-orbit3 {
+  0%, 100% { transform: translate(0, 0) scale(1.2); }
+  50% { transform: translate(0, 11px) scale(0.8); }
+}`,
+	},
+	{
+		id: "106",
+		name: "Cosmic Nebula",
+		category: "cosmic",
+		tags: ["vortex-conic","nested-rotation","glow-blend"],
+		html: "<div class=\"demo-cosmicnebula\"><span></span><span></span></div>",
+		css: `.demo-cosmicnebula {
+  --cn-size: 36px;
+  --cn-color: var(--color-primary);
+  --cn-speed: calc(2.5s * var(--loader-speed-scale));
+  width: var(--cn-size);
+  height: var(--cn-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-cosmicnebula span {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent, var(--cn-color), #00ffff, transparent);
+  filter: blur(1px);
+  box-sizing: border-box;
+}
+.demo-cosmicnebula span:nth-child(1) {
+  animation: dcosmicnebula-rot1 var(--cn-speed) linear infinite;
+  animation-iteration-count: var(--loader-cycles);
+  opacity: 0.8;
+}
+.demo-cosmicnebula span:nth-child(2) {
+  background: conic-gradient(from 180deg, transparent, #ff00ff, var(--cn-color), transparent);
+  animation: dcosmicnebula-rot2 calc(var(--cn-speed) * 0.8) linear infinite;
+  animation-iteration-count: var(--loader-cycles);
+  opacity: 0.6;
+}
+@keyframes dcosmicnebula-rot1 {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@keyframes dcosmicnebula-rot2 {
+  0% { transform: rotate(360deg) scale(1); }
+  50% { transform: rotate(180deg) scale(0.9); }
+  100% { transform: rotate(0deg) scale(1); }
+}`,
+	},
 ];

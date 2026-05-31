@@ -1,0 +1,11 @@
+{
+  "name": "Cyber Shield",
+  "category": "special",
+  "tags": [
+    "organic-morph",
+    "layered-rotations",
+    "cyberpunk"
+  ],
+  "html": "<div class=\"demo-cybershield\"><span></span><span></span><span></span></div>",
+  "css": ".demo-cybershield {\n  --cs-size: 36px;\n  --cs-color: var(--color-primary);\n  --cs-speed: calc(1.5s * var(--loader-speed-scale));\n  width: var(--cs-size);\n  height: var(--cs-size);\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n}\n.demo-cybershield span {\n  position: absolute;\n  border: 2px solid var(--cs-color);\n  border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%;\n  box-sizing: border-box;\n}\n.demo-cybershield span:nth-child(1) {\n  width: 100%;\n  height: 100%;\n  animation: dcybershield-morph1 var(--cs-speed) linear infinite;\n  animation-iteration-count: var(--loader-cycles);\n  border-color: var(--cs-color);\n  opacity: 0.8;\n}\n.demo-cybershield span:nth-child(2) {\n  width: 70%;\n  height: 70%;\n  animation: dcybershield-morph2 var(--cs-speed) linear infinite;\n  animation-iteration-count: var(--loader-cycles);\n  border-color: var(--color-success);\n  opacity: 0.6;\n}\n.demo-cybershield span:nth-child(3) {\n  width: 40%;\n  height: 40%;\n  animation: dcybershield-morph1 calc(var(--cs-speed) * 0.7) linear infinite reverse;\n  animation-iteration-count: var(--loader-cycles);\n  border-color: var(--color-danger);\n  opacity: 0.9;\n}\n@keyframes dcybershield-morph1 {\n  0% { transform: rotate(0deg); border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%; }\n  50% { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }\n  100% { transform: rotate(360deg); border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%; }\n}\n@keyframes dcybershield-morph2 {\n  0% { transform: rotate(180deg); border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }\n  50% { border-radius: 35% 65% 70% 30% / 30% 30% 70% 70%; }\n  100% { transform: rotate(-180deg); border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }\n}"
+}
