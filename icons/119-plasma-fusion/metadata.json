@@ -1,0 +1,11 @@
+{
+  "name": "Plasma Fusion",
+  "category": "fluid",
+  "tags": [
+    "plasma-fusion",
+    "fluid-coalesce",
+    "gooey-orbit"
+  ],
+  "html": "<div class=\"demo-plasmafusion\"><span></span><span></span><span></span></div>",
+  "css": ".demo-plasmafusion {\n  --pf-size: var(--loader-size);\n  --pf-color: var(--color-success);\n  --pf-speed: calc(1.6s * var(--loader-speed-scale));\n  display: inline-flex; position: relative;\n  width: var(--pf-size); height: var(--pf-size);\n  filter: blur(3px) contrast(10); background: transparent;\n}\n.demo-plasmafusion span:nth-child(1) {\n  position: absolute; width: 32%; height: 32%; top: 34%; left: 34%; border-radius: 50%;\n  background: var(--pf-color);\n  animation: dplasmafusion-pulse calc(var(--pf-speed) * 0.5) ease-in-out var(--loader-cycles) alternate;\n}\n.demo-plasmafusion span:nth-child(2) {\n  position: absolute; width: 24%; height: 24%; top: 38%; left: 38%; border-radius: 50%;\n  background: var(--pf-color); transform-origin: 50% 200%;\n  animation: dplasmafusion-orbit var(--pf-speed) linear var(--loader-cycles);\n}\n.demo-plasmafusion span:nth-child(3) {\n  position: absolute; width: 24%; height: 24%; bottom: 38%; left: 38%; border-radius: 50%;\n  background: var(--pf-color); transform-origin: 50% -100%;\n  animation: dplasmafusion-orbit calc(var(--pf-speed) * 1.2) linear var(--loader-cycles) reverse;\n}\n@keyframes dplasmafusion-orbit { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }\n@keyframes dplasmafusion-pulse { 0% { transform: scale(0.85); } 100% { transform: scale(1.15); } }"
+}

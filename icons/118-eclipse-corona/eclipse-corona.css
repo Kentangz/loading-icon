@@ -1,0 +1,115 @@
+/**
+ * Eclipse Corona — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Solar eclipse with dynamic coronal glow flares
+ *             pulsating and rotating around a dark lunar core.
+ * Usage     : Apply `.eclipse-corona` to the root element.
+ *             Requires 4 `<span>` children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.eclipse-corona {
+  /* === SIZE === */
+  --loader-size: 36px;
+
+  /* === COLOR === */
+  --loader-color: #EF9F27;
+
+  /* === ANIMATION === */
+  --loader-speed: 2.2s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.eclipse-corona * {
+  box-sizing: border-box;
+}
+
+/* Central Lunar Disk Mask */
+.eclipse-corona::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background: #1a1a1a;
+  border-radius: 50%;
+  z-index: 5;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Coronal Flares */
+.eclipse-corona span {
+  position: absolute;
+  inset: -12%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--loader-color) 0%, transparent 68%);
+  mix-blend-mode: screen;
+  filter: blur(2px);
+}
+
+.eclipse-corona span:nth-child(1) {
+  animation: eclipse-corona-spin var(--loader-speed) linear infinite,
+             eclipse-corona-pulse calc(var(--loader-speed) * 0.45) ease-in-out infinite alternate;
+}
+
+.eclipse-corona span:nth-child(2) {
+  animation: eclipse-corona-spin calc(var(--loader-speed) * 1.35) linear infinite reverse,
+             eclipse-corona-pulse calc(var(--loader-speed) * 0.55) ease-in-out infinite alternate;
+  animation-delay: -0.4s;
+}
+
+.eclipse-corona span:nth-child(3) {
+  animation: eclipse-corona-spin calc(var(--loader-speed) * 0.8) linear infinite,
+             eclipse-corona-pulse calc(var(--loader-speed) * 0.35) ease-in-out infinite alternate;
+  animation-delay: -0.8s;
+}
+
+.eclipse-corona span:nth-child(4) {
+  animation: eclipse-corona-spin calc(var(--loader-speed) * 1.7) linear infinite reverse,
+             eclipse-corona-pulse calc(var(--loader-speed) * 0.65) ease-in-out infinite alternate;
+  animation-delay: -1.2s;
+}
+
+@keyframes eclipse-corona-spin {
+  0% { transform: rotate(0deg) scale(0.92); }
+  100% { transform: rotate(360deg) scale(1.08); }
+}
+
+@keyframes eclipse-corona-pulse {
+  0% { opacity: 0.38; }
+  100% { opacity: 0.92; }
+}
+
+/* ─── Size presets ─── */
+.eclipse-corona--sm { --loader-size: 24px; }
+.eclipse-corona--md { --loader-size: 36px; }
+.eclipse-corona--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.eclipse-corona--primary { --loader-color: #7F77DD; }
+.eclipse-corona--success { --loader-color: #1D9E75; }
+.eclipse-corona--warning { --loader-color: #EF9F27; }
+.eclipse-corona--danger  { --loader-color: #E24B4A; }
+.eclipse-corona--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.eclipse-corona--fast { --loader-speed: 1.2s; }
+.eclipse-corona--slow { --loader-speed: 3.5s; }
+.eclipse-corona--soft { --loader-speed: 2.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .eclipse-corona span {
+    animation: eclipse-corona-pulse 3s ease-in-out infinite alternate;
+  }
+}

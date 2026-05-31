@@ -1,0 +1,112 @@
+/**
+ * Plasma Fusion — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Gooey metaball filters merging two orbital masses
+ *             smoothly into a single central plasma nucleus.
+ * Usage     : Apply `.plasma-fusion` to the root element.
+ *             Requires 3 `<span>` children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.plasma-fusion {
+  /* === SIZE === */
+  --loader-size: 36px;
+
+  /* === COLOR === */
+  --loader-color: #1D9E75;
+
+  /* === ANIMATION === */
+  --loader-speed: 1.6s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  filter: blur(3px) contrast(10);
+  background: transparent;
+}
+
+.plasma-fusion * {
+  box-sizing: border-box;
+}
+
+/* Central Nucleus */
+.plasma-fusion span:nth-child(1) {
+  position: absolute;
+  width: 32%;
+  height: 32%;
+  top: 34%;
+  left: 34%;
+  border-radius: 50%;
+  background: var(--loader-color);
+  animation: plasma-fusion-pulse calc(var(--loader-speed) * 0.5) ease-in-out infinite alternate;
+}
+
+/* Orbiting Mass 1 */
+.plasma-fusion span:nth-child(2) {
+  position: absolute;
+  width: 24%;
+  height: 24%;
+  top: 38%;
+  left: 38%;
+  border-radius: 50%;
+  background: var(--loader-color);
+  transform-origin: 50% 200%;
+  animation: plasma-fusion-orbit var(--loader-speed) linear infinite;
+}
+
+/* Orbiting Mass 2 */
+.plasma-fusion span:nth-child(3) {
+  position: absolute;
+  width: 24%;
+  height: 24%;
+  bottom: 38%;
+  left: 38%;
+  border-radius: 50%;
+  background: var(--loader-color);
+  transform-origin: 50% -100%;
+  animation: plasma-fusion-orbit calc(var(--loader-speed) * 1.2) linear infinite reverse;
+}
+
+@keyframes plasma-fusion-orbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes plasma-fusion-pulse {
+  0% { transform: scale(0.85); }
+  100% { transform: scale(1.15); }
+}
+
+/* ─── Size presets ─── */
+.plasma-fusion--sm { --loader-size: 24px; }
+.plasma-fusion--md { --loader-size: 36px; }
+.plasma-fusion--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.plasma-fusion--primary { --loader-color: #7F77DD; }
+.plasma-fusion--success { --loader-color: #1D9E75; }
+.plasma-fusion--warning { --loader-color: #EF9F27; }
+.plasma-fusion--danger  { --loader-color: #E24B4A; }
+.plasma-fusion--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.plasma-fusion--fast { --loader-speed: 0.9s; }
+.plasma-fusion--slow { --loader-speed: 2.8s; }
+.plasma-fusion--soft { --loader-speed: 2.0s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .plasma-fusion {
+    filter: none;
+  }
+  .plasma-fusion span:nth-child(2),
+  .plasma-fusion span:nth-child(3) {
+    animation: none;
+    opacity: 0.7;
+  }
+}

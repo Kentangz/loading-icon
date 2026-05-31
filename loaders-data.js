@@ -3363,4 +3363,190 @@ const loaders = [
   100% { transform: rotateZ(480deg) rotateX(360deg); }
 }`,
 	},
+	{
+		id: "117",
+		name: "Voxel Wave 3D",
+		category: "3d",
+		tags: ["3d-isometric","sinusoidal-grid","voxel-rise"],
+		html: "<div class=\"demo-vxwave\"><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span></div>",
+		css: `.demo-vxwave {
+  --vx-size: var(--loader-size);
+  --vx-color: var(--color-primary);
+  --vx-speed: calc(1.5s * var(--loader-speed-scale));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8%;
+  width: var(--vx-size);
+  height: var(--vx-size);
+  transform: rotateX(55deg) rotateZ(45deg);
+  transform-style: preserve-3d;
+}
+.demo-vxwave span {
+  position: relative;
+  background: var(--vx-color);
+  transform-style: preserve-3d;
+  animation: dvxwave-rise var(--vx-speed) ease-in-out var(--loader-cycles);
+}
+.demo-vxwave span::before {
+  content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 100%;
+  background: color-mix(in srgb, var(--vx-color) 75%, #000000);
+  transform-origin: top center; transform: rotateX(-90deg);
+}
+.demo-vxwave span::after {
+  content: ''; position: absolute; top: 0; left: 100%; width: 100%; height: 100%;
+  background: color-mix(in srgb, var(--vx-color) 60%, #000000);
+  transform-origin: left center; transform: rotateY(90deg);
+}
+.demo-vxwave span:nth-child(1) { animation-delay: calc(var(--vx-speed) * -0.8); }
+.demo-vxwave span:nth-child(2), .demo-vxwave span:nth-child(4) { animation-delay: calc(var(--vx-speed) * -0.6); }
+.demo-vxwave span:nth-child(3), .demo-vxwave span:nth-child(5), .demo-vxwave span:nth-child(7) { animation-delay: calc(var(--vx-speed) * -0.4); }
+.demo-vxwave span:nth-child(6), .demo-vxwave span:nth-child(8) { animation-delay: calc(var(--vx-speed) * -0.2); }
+.demo-vxwave span:nth-child(9) { animation-delay: 0s; }
+@keyframes dvxwave-rise {
+  0%, 100% { transform: translateZ(0); opacity: 0.8; }
+  50% { transform: translateZ(calc(var(--vx-size) * 0.4)); opacity: 1; }
+}`,
+	},
+	{
+		id: "118",
+		name: "Eclipse Corona",
+		category: "cosmic",
+		tags: ["eclipse-glow","solar-corona","flare-rotation"],
+		html: "<div class=\"demo-decorona\"><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-decorona {
+  --ec-size: var(--loader-size);
+  --ec-color: var(--color-warning);
+  --ec-speed: calc(2.2s * var(--loader-speed-scale));
+  display: inline-flex; position: relative;
+  width: var(--ec-size); height: var(--ec-size);
+  align-items: center; justify-content: center;
+  background: transparent;
+}
+.demo-decorona::after {
+  content: ''; position: absolute; width: 60%; height: 60%;
+  background: var(--surface, #121214); border-radius: 50%; z-index: 5;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+.demo-decorona span {
+  position: absolute; inset: -12%; border-radius: 50%;
+  background: radial-gradient(circle at center, var(--ec-color) 0%, transparent 68%);
+  mix-blend-mode: screen; filter: blur(2px);
+}
+.demo-decorona span:nth-child(1) {
+  animation: ddecorona-spin var(--ec-speed) linear var(--loader-cycles),
+             ddecorona-pulse calc(var(--ec-speed) * 0.45) ease-in-out var(--loader-cycles) alternate;
+}
+.demo-decorona span:nth-child(2) {
+  animation: ddecorona-spin calc(var(--ec-speed) * 1.35) linear var(--loader-cycles) reverse,
+             ddecorona-pulse calc(var(--ec-speed) * 0.55) ease-in-out var(--loader-cycles) alternate;
+  animation-delay: calc(var(--ec-speed) * -0.18);
+}
+.demo-decorona span:nth-child(3) {
+  animation: ddecorona-spin calc(var(--ec-speed) * 0.8) linear var(--loader-cycles),
+             ddecorona-pulse calc(var(--ec-speed) * 0.35) ease-in-out var(--loader-cycles) alternate;
+  animation-delay: calc(var(--ec-speed) * -0.36);
+}
+.demo-decorona span:nth-child(4) {
+  animation: ddecorona-spin calc(var(--ec-speed) * 1.7) linear var(--loader-cycles) reverse,
+             ddecorona-pulse calc(var(--ec-speed) * 0.65) ease-in-out var(--loader-cycles) alternate;
+  animation-delay: calc(var(--ec-speed) * -0.54);
+}
+@keyframes ddecorona-spin { 0% { transform: rotate(0deg) scale(0.92); } 100% { transform: rotate(360deg) scale(1.08); } }
+@keyframes ddecorona-pulse { 0% { opacity: 0.38; } 100% { opacity: 0.92; } }`,
+	},
+	{
+		id: "119",
+		name: "Plasma Fusion",
+		category: "fluid",
+		tags: ["plasma-fusion","fluid-coalesce","gooey-orbit"],
+		html: "<div class=\"demo-plasmafusion\"><span></span><span></span><span></span></div>",
+		css: `.demo-plasmafusion {
+  --pf-size: var(--loader-size);
+  --pf-color: var(--color-success);
+  --pf-speed: calc(1.6s * var(--loader-speed-scale));
+  display: inline-flex; position: relative;
+  width: var(--pf-size); height: var(--pf-size);
+  filter: blur(3px) contrast(10); background: transparent;
+}
+.demo-plasmafusion span:nth-child(1) {
+  position: absolute; width: 32%; height: 32%; top: 34%; left: 34%; border-radius: 50%;
+  background: var(--pf-color);
+  animation: dplasmafusion-pulse calc(var(--pf-speed) * 0.5) ease-in-out var(--loader-cycles) alternate;
+}
+.demo-plasmafusion span:nth-child(2) {
+  position: absolute; width: 24%; height: 24%; top: 38%; left: 38%; border-radius: 50%;
+  background: var(--pf-color); transform-origin: 50% 200%;
+  animation: dplasmafusion-orbit var(--pf-speed) linear var(--loader-cycles);
+}
+.demo-plasmafusion span:nth-child(3) {
+  position: absolute; width: 24%; height: 24%; bottom: 38%; left: 38%; border-radius: 50%;
+  background: var(--pf-color); transform-origin: 50% -100%;
+  animation: dplasmafusion-orbit calc(var(--pf-speed) * 1.2) linear var(--loader-cycles) reverse;
+}
+@keyframes dplasmafusion-orbit { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes dplasmafusion-pulse { 0% { transform: scale(0.85); } 100% { transform: scale(1.15); } }`,
+	},
+	{
+		id: "120",
+		name: "Signal Matrix",
+		category: "glitch",
+		tags: ["digital-matrix","signal-flicker","glitch-bars"],
+		html: "<div class=\"demo-sigmatrix\"><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-sigmatrix {
+  --sm-size: var(--loader-size);
+  --sm-color: var(--color-danger);
+  --sm-speed: calc(1.1s * var(--loader-speed-scale));
+  display: flex; position: relative;
+  width: var(--sm-size); height: var(--sm-size);
+  align-items: flex-end; justify-content: space-between;
+}
+.demo-sigmatrix span {
+  width: 15%; height: 100%; background: var(--sm-color); border-radius: 1px;
+  transform-origin: bottom center;
+  animation: dsigmatrix-flicker var(--sm-speed) steps(5) var(--loader-cycles);
+}
+.demo-sigmatrix span:nth-child(1) { animation-delay: calc(var(--sm-speed) * -0.82); }
+.demo-sigmatrix span:nth-child(2) { animation-delay: calc(var(--sm-speed) * -0.45); }
+.demo-sigmatrix span:nth-child(3) { animation-delay: calc(var(--sm-speed) * -0.18); }
+.demo-sigmatrix span:nth-child(4) { animation-delay: calc(var(--sm-speed) * -0.64); }
+.demo-sigmatrix span:nth-child(5) { animation-delay: 0s; }
+@keyframes dsigmatrix-flicker {
+  0%, 100% { transform: scaleY(0.25); filter: hue-rotate(0deg); }
+  20% { transform: scaleY(0.8) skewX(4deg); filter: drop-shadow(-1px 0 #00ffff) drop-shadow(1px 0 #ff00ff); }
+  40% { transform: scaleY(0.4); }
+  60% { transform: scaleY(0.95) skewX(-4deg); filter: drop-shadow(-1.5px 0 #ff00ff) drop-shadow(1.5px 0 #00ffff); }
+  80% { transform: scaleY(0.15); }
+}`,
+	},
+	{
+		id: "121",
+		name: "Segment Progress",
+		category: "progress",
+		tags: ["radial-segments","progress-chase","stepped-fade"],
+		html: "<div class=\"demo-segprog\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-segprog {
+  --sp-size: var(--loader-size);
+  --sp-color: var(--color-primary);
+  --sp-speed: calc(0.9s * var(--loader-speed-scale));
+  display: inline-flex; position: relative;
+  width: var(--sp-size); height: var(--sp-size);
+}
+.demo-segprog span {
+  position: absolute; top: 0; left: calc(50% - (var(--sp-size) * 0.055));
+  width: calc(var(--sp-size) * 0.11); height: calc(var(--sp-size) * 0.33);
+  background: var(--sp-color); border-radius: calc(var(--sp-size) * 0.055);
+  transform-origin: 50% calc(var(--sp-size) * 0.5);
+  animation: dsegprog-fade var(--sp-speed) linear var(--loader-cycles);
+}
+.demo-segprog span:nth-child(1) { transform: rotate(0deg);   animation-delay: calc(var(--sp-speed) * -7 / 8); }
+.demo-segprog span:nth-child(2) { transform: rotate(45deg);  animation-delay: calc(var(--sp-speed) * -6 / 8); }
+.demo-segprog span:nth-child(3) { transform: rotate(90deg);  animation-delay: calc(var(--sp-speed) * -5 / 8); }
+.demo-segprog span:nth-child(4) { transform: rotate(135deg); animation-delay: calc(var(--sp-speed) * -4 / 8); }
+.demo-segprog span:nth-child(5) { transform: rotate(180deg); animation-delay: calc(var(--sp-speed) * -3 / 8); }
+.demo-segprog span:nth-child(6) { transform: rotate(225deg); animation-delay: calc(var(--sp-speed) * -2 / 8); }
+.demo-segprog span:nth-child(7) { transform: rotate(270deg); animation-delay: calc(var(--sp-speed) * -1 / 8); }
+.demo-segprog span:nth-child(8) { transform: rotate(315deg); animation-delay: 0s; }
+@keyframes dsegprog-fade { 0% { opacity: 1; } 100% { opacity: 0.15; } }`,
+	},
 ];

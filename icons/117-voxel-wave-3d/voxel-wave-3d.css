@@ -1,0 +1,110 @@
+/**
+ * Voxel Wave 3D — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : A 3x3 grid of isometric 3D voxels that raise and
+ *             fall in a beautiful sinusoidal wave pattern.
+ * Usage     : Apply `.voxel-wave-3d` to the root element.
+ *             Requires 9 `<span class="voxel-wave-3d__voxel">` children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.voxel-wave-3d {
+  /* === SIZE === */
+  --loader-size: 36px;
+
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --loader-speed: 1.5s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8%;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  transform: rotateX(55deg) rotateZ(45deg);
+  transform-style: preserve-3d;
+}
+
+.voxel-wave-3d * {
+  box-sizing: border-box;
+}
+
+.voxel-wave-3d__voxel {
+  position: relative;
+  background: var(--loader-color);
+  transform-style: preserve-3d;
+  animation: voxel-wave-3d-rise var(--loader-speed) ease-in-out infinite;
+}
+
+/* 3D Faces */
+.voxel-wave-3d__voxel::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: color-mix(in srgb, var(--loader-color) 75%, #000000);
+  transform-origin: top center;
+  transform: rotateX(-90deg);
+}
+
+.voxel-wave-3d__voxel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background: color-mix(in srgb, var(--loader-color) 60%, #000000);
+  transform-origin: left center;
+  transform: rotateY(90deg);
+}
+
+/* Staggered Delay for Sinusoidal Grid Wave */
+.voxel-wave-3d__voxel:nth-child(1) { animation-delay: calc(var(--loader-speed) * -0.8); }
+.voxel-wave-3d__voxel:nth-child(2),
+.voxel-wave-3d__voxel:nth-child(4) { animation-delay: calc(var(--loader-speed) * -0.6); }
+.voxel-wave-3d__voxel:nth-child(3),
+.voxel-wave-3d__voxel:nth-child(5),
+.voxel-wave-3d__voxel:nth-child(7) { animation-delay: calc(var(--loader-speed) * -0.4); }
+.voxel-wave-3d__voxel:nth-child(6),
+.voxel-wave-3d__voxel:nth-child(8) { animation-delay: calc(var(--loader-speed) * -0.2); }
+.voxel-wave-3d__voxel:nth-child(9) { animation-delay: 0s; }
+
+@keyframes voxel-wave-3d-rise {
+  0%, 100% { transform: translateZ(0); opacity: 0.8; }
+  50% { transform: translateZ(calc(var(--loader-size) * 0.4)); opacity: 1; }
+}
+
+/* ─── Size presets ─── */
+.voxel-wave-3d--sm { --loader-size: 24px; }
+.voxel-wave-3d--md { --loader-size: 36px; }
+.voxel-wave-3d--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.voxel-wave-3d--primary { --loader-color: #7F77DD; }
+.voxel-wave-3d--success { --loader-color: #1D9E75; }
+.voxel-wave-3d--warning { --loader-color: #EF9F27; }
+.voxel-wave-3d--danger  { --loader-color: #E24B4A; }
+.voxel-wave-3d--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.voxel-wave-3d--fast { --loader-speed: 0.8s; }
+.voxel-wave-3d--slow { --loader-speed: 2.5s; }
+.voxel-wave-3d--soft { --loader-speed: 1.8s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .voxel-wave-3d__voxel {
+    animation: none;
+  }
+}

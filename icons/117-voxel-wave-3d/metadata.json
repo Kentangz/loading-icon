@@ -1,0 +1,11 @@
+{
+  "name": "Voxel Wave 3D",
+  "category": "3d",
+  "tags": [
+    "3d-isometric",
+    "sinusoidal-grid",
+    "voxel-rise"
+  ],
+  "html": "<div class=\"demo-vxwave\"><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span><span class=\"demo-vxwave-voxel\"></span></div>",
+  "css": ".demo-vxwave {\n  --vx-size: var(--loader-size);\n  --vx-color: var(--color-primary);\n  --vx-speed: calc(1.5s * var(--loader-speed-scale));\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  gap: 8%;\n  width: var(--vx-size);\n  height: var(--vx-size);\n  transform: rotateX(55deg) rotateZ(45deg);\n  transform-style: preserve-3d;\n}\n.demo-vxwave span {\n  position: relative;\n  background: var(--vx-color);\n  transform-style: preserve-3d;\n  animation: dvxwave-rise var(--vx-speed) ease-in-out var(--loader-cycles);\n}\n.demo-vxwave span::before {\n  content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 100%;\n  background: color-mix(in srgb, var(--vx-color) 75%, #000000);\n  transform-origin: top center; transform: rotateX(-90deg);\n}\n.demo-vxwave span::after {\n  content: ''; position: absolute; top: 0; left: 100%; width: 100%; height: 100%;\n  background: color-mix(in srgb, var(--vx-color) 60%, #000000);\n  transform-origin: left center; transform: rotateY(90deg);\n}\n.demo-vxwave span:nth-child(1) { animation-delay: calc(var(--vx-speed) * -0.8); }\n.demo-vxwave span:nth-child(2), .demo-vxwave span:nth-child(4) { animation-delay: calc(var(--vx-speed) * -0.6); }\n.demo-vxwave span:nth-child(3), .demo-vxwave span:nth-child(5), .demo-vxwave span:nth-child(7) { animation-delay: calc(var(--vx-speed) * -0.4); }\n.demo-vxwave span:nth-child(6), .demo-vxwave span:nth-child(8) { animation-delay: calc(var(--vx-speed) * -0.2); }\n.demo-vxwave span:nth-child(9) { animation-delay: 0s; }\n@keyframes dvxwave-rise {\n  0%, 100% { transform: translateZ(0); opacity: 0.8; }\n  50% { transform: translateZ(calc(var(--vx-size) * 0.4)); opacity: 1; }\n}"
+}

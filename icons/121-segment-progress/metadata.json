@@ -1,0 +1,11 @@
+{
+  "name": "Segment Progress",
+  "category": "progress",
+  "tags": [
+    "radial-segments",
+    "progress-chase",
+    "stepped-fade"
+  ],
+  "html": "<div class=\"demo-segprog\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-segprog {\n  --sp-size: var(--loader-size);\n  --sp-color: var(--color-primary);\n  --sp-speed: calc(0.9s * var(--loader-speed-scale));\n  display: inline-flex; position: relative;\n  width: var(--sp-size); height: var(--sp-size);\n}\n.demo-segprog span {\n  position: absolute; top: 0; left: calc(50% - (var(--sp-size) * 0.055));\n  width: calc(var(--sp-size) * 0.11); height: calc(var(--sp-size) * 0.33);\n  background: var(--sp-color); border-radius: calc(var(--sp-size) * 0.055);\n  transform-origin: 50% calc(var(--sp-size) * 0.5);\n  animation: dsegprog-fade var(--sp-speed) linear var(--loader-cycles);\n}\n.demo-segprog span:nth-child(1) { transform: rotate(0deg);   animation-delay: calc(var(--sp-speed) * -7 / 8); }\n.demo-segprog span:nth-child(2) { transform: rotate(45deg);  animation-delay: calc(var(--sp-speed) * -6 / 8); }\n.demo-segprog span:nth-child(3) { transform: rotate(90deg);  animation-delay: calc(var(--sp-speed) * -5 / 8); }\n.demo-segprog span:nth-child(4) { transform: rotate(135deg); animation-delay: calc(var(--sp-speed) * -4 / 8); }\n.demo-segprog span:nth-child(5) { transform: rotate(180deg); animation-delay: calc(var(--sp-speed) * -3 / 8); }\n.demo-segprog span:nth-child(6) { transform: rotate(225deg); animation-delay: calc(var(--sp-speed) * -2 / 8); }\n.demo-segprog span:nth-child(7) { transform: rotate(270deg); animation-delay: calc(var(--sp-speed) * -1 / 8); }\n.demo-segprog span:nth-child(8) { transform: rotate(315deg); animation-delay: 0s; }\n@keyframes dsegprog-fade { 0% { opacity: 1; } 100% { opacity: 0.15; } }"
+}

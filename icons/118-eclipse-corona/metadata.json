@@ -1,0 +1,11 @@
+{
+  "name": "Eclipse Corona",
+  "category": "cosmic",
+  "tags": [
+    "eclipse-glow",
+    "solar-corona",
+    "flare-rotation"
+  ],
+  "html": "<div class=\"demo-decorona\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-decorona {\n  --ec-size: var(--loader-size);\n  --ec-color: var(--color-warning);\n  --ec-speed: calc(2.2s * var(--loader-speed-scale));\n  display: inline-flex; position: relative;\n  width: var(--ec-size); height: var(--ec-size);\n  align-items: center; justify-content: center;\n  background: transparent;\n}\n.demo-decorona::after {\n  content: ''; position: absolute; width: 60%; height: 60%;\n  background: var(--surface, #121214); border-radius: 50%; z-index: 5;\n  box-shadow: 0 0 6px rgba(0,0,0,0.5);\n}\n.demo-decorona span {\n  position: absolute; inset: -12%; border-radius: 50%;\n  background: radial-gradient(circle at center, var(--ec-color) 0%, transparent 68%);\n  mix-blend-mode: screen; filter: blur(2px);\n}\n.demo-decorona span:nth-child(1) {\n  animation: ddecorona-spin var(--ec-speed) linear var(--loader-cycles),\n             ddecorona-pulse calc(var(--ec-speed) * 0.45) ease-in-out var(--loader-cycles) alternate;\n}\n.demo-decorona span:nth-child(2) {\n  animation: ddecorona-spin calc(var(--ec-speed) * 1.35) linear var(--loader-cycles) reverse,\n             ddecorona-pulse calc(var(--ec-speed) * 0.55) ease-in-out var(--loader-cycles) alternate;\n  animation-delay: calc(var(--ec-speed) * -0.18);\n}\n.demo-decorona span:nth-child(3) {\n  animation: ddecorona-spin calc(var(--ec-speed) * 0.8) linear var(--loader-cycles),\n             ddecorona-pulse calc(var(--ec-speed) * 0.35) ease-in-out var(--loader-cycles) alternate;\n  animation-delay: calc(var(--ec-speed) * -0.36);\n}\n.demo-decorona span:nth-child(4) {\n  animation: ddecorona-spin calc(var(--ec-speed) * 1.7) linear var(--loader-cycles) reverse,\n             ddecorona-pulse calc(var(--ec-speed) * 0.65) ease-in-out var(--loader-cycles) alternate;\n  animation-delay: calc(var(--ec-speed) * -0.54);\n}\n@keyframes ddecorona-spin { 0% { transform: rotate(0deg) scale(0.92); } 100% { transform: rotate(360deg) scale(1.08); } }\n@keyframes ddecorona-pulse { 0% { opacity: 0.38; } 100% { opacity: 0.92; } }"
+}
