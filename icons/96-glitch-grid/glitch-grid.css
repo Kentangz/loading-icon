@@ -1,0 +1,95 @@
+/**
+ * Glitch Grid — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : A grid of 4 small squares shifting in position, flickering in opacity, and skewing to mimic a digital matrix glitch.
+ * Usage     : Apply `.glitch-grid` to the root element.
+ *             Requires 4 <span> children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.glitch-grid {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.2s;
+  
+  /* === CUSTOM TOKENS === */
+  --gg-gap: 4px;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gg-gap);
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+}
+
+.glitch-grid * {
+  box-sizing: border-box;
+}
+
+.glitch-grid span {
+  width: 100%;
+  height: 100%;
+  background: var(--loader-color);
+  border-radius: 2px;
+  animation: glitch-grid-flicker var(--loader-speed) steps(3, end) infinite;
+}
+
+.glitch-grid span:nth-child(1) { animation-delay: 0s; }
+.glitch-grid span:nth-child(2) { animation-delay: calc(var(--loader-speed) * -0.25); animation-name: glitch-grid-flicker-skew; }
+.glitch-grid span:nth-child(3) { animation-delay: calc(var(--loader-speed) * -0.5); animation-name: glitch-grid-flicker-skew; }
+.glitch-grid span:nth-child(4) { animation-delay: calc(var(--loader-speed) * -0.75); }
+
+@keyframes glitch-grid-flicker {
+  0%, 100% { transform: translate(0) skew(0deg); opacity: 1; }
+  33% { transform: translate(-2px, 1px) skew(-5deg); opacity: 0.7; }
+  66% { transform: translate(1px, -1px) skew(5deg); opacity: 0.9; }
+}
+
+@keyframes glitch-grid-flicker-skew {
+  0%, 100% { transform: translate(0) skew(0deg); opacity: 0.9; }
+  33% { transform: translate(2px, -2px) skew(8deg); opacity: 0.6; }
+  66% { transform: translate(-1px, 2px) skew(-8deg); opacity: 1; }
+}
+
+/* ─── Size presets ─── */
+.glitch-grid--sm {
+  --loader-size: 24px;
+  --gg-gap: 3px;
+}
+.glitch-grid--md {
+  --loader-size: 36px;
+  --gg-gap: 4px;
+}
+.glitch-grid--lg {
+  --loader-size: 48px;
+  --gg-gap: 6px;
+}
+
+/* ─── Color presets ─── */
+.glitch-grid--primary { --loader-color: #7F77DD; }
+.glitch-grid--success { --loader-color: #1D9E75; }
+.glitch-grid--warning { --loader-color: #EF9F27; }
+.glitch-grid--danger  { --loader-color: #E24B4A; }
+.glitch-grid--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.glitch-grid--fast { --loader-speed: 0.6s; }
+.glitch-grid--slow { --loader-speed: 2.0s; }
+.glitch-grid--soft { --loader-speed: 1.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch-grid span {
+    animation: none;
+  }
+}

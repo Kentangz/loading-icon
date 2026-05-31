@@ -2332,4 +2332,150 @@ const loaders = [
 .demo-hscan span { position: absolute; left: 0; width: 100%; height: 2px; background: var(--color-primary); box-shadow: 0 0 6px var(--color-primary); animation: dhscan 1.5s ease-in-out var(--loader-cycles); }
 @keyframes dhscan { 0%, 100% { top: 0%; opacity: 0.3; transform: scaleX(1); } 50% { top: calc(100% - 2px); opacity: 1; transform: scaleX(1.1); } 25%, 75% { opacity: 0.8; transform: skewX(12deg); } }`,
 	},
+	{
+		id: "92",
+		name: "Nebula Swarm",
+		category: "cosmic",
+		tags: ["3d-orbit","cosmic-gravity","cosmic"],
+		html: "<div class=\"demo-nebswarm\"><span></span><span></span><span></span></div>",
+		css: `.demo-nebswarm {
+  --ns-size: 36px;
+  --ns-color: var(--color-primary);
+  --ns-speed: calc(1.5s * var(--loader-speed-scale));
+  width: var(--ns-size); height: var(--ns-size); position: relative;
+  perspective: 120px; display: inline-flex;
+}
+.demo-nebswarm span {
+  position: absolute; top: calc(50% - 3px); left: calc(50% - 3px);
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ns-color); box-shadow: 0 0 8px var(--ns-color);
+  transform-style: preserve-3d;
+  animation: dnebswarm-orbit var(--ns-speed) cubic-bezier(0.4, 0, 0.2, 1) var(--loader-cycles);
+}
+.demo-nebswarm span:nth-child(1) { animation-delay: 0s; }
+.demo-nebswarm span:nth-child(2) { animation-delay: calc(var(--ns-speed) * -0.33); }
+.demo-nebswarm span:nth-child(3) { animation-delay: calc(var(--ns-speed) * -0.66); }
+@keyframes dnebswarm-orbit {
+  0% { transform: rotateY(0deg) translateZ(15px) rotateY(0deg) scale(1); opacity: 1; }
+  50% { transform: rotateY(180deg) translateZ(15px) rotateY(-180deg) scale(0.5); opacity: 0.3; }
+  100% { transform: rotateY(360deg) translateZ(15px) rotateY(-360deg) scale(1); opacity: 1; }
+}`,
+	},
+	{
+		id: "93",
+		name: "Tesseract Rotate",
+		category: "3d",
+		tags: ["tesseract","3d-cube","perspective-rotation","3d"],
+		html: "<div class=\"demo-tessrot\"><div class=\"demo-tessrot-inner\"></div><div class=\"demo-tessrot-outer\"></div></div>",
+		css: `.demo-tessrot {
+  --tr-size: 36px;
+  --tr-color: var(--color-primary);
+  --tr-speed: calc(2.0s * var(--loader-speed-scale));
+  width: var(--tr-size); height: var(--tr-size); position: relative;
+  perspective: 150px; display: inline-flex; align-items: center; justify-content: center;
+}
+.demo-tessrot-inner {
+  position: absolute; width: 50%; height: 50%; border: 2px solid var(--tr-color); opacity: 0.8;
+  transform-style: preserve-3d; animation: dtessrot-inner var(--tr-speed) linear var(--loader-cycles);
+}
+.demo-tessrot-outer {
+  position: absolute; width: 90%; height: 90%; border: 2px dashed var(--tr-color); opacity: 0.5;
+  transform-style: preserve-3d; animation: dtessrot-outer var(--tr-speed) linear var(--loader-cycles);
+}
+@keyframes dtessrot-inner {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateY(-360deg) rotateZ(180deg); }
+}
+@keyframes dtessrot-outer {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(-360deg) rotateY(360deg) rotateZ(-180deg); }
+}`,
+	},
+	{
+		id: "94",
+		name: "Helix Wave",
+		category: "waves",
+		tags: ["helix-wave","double-helix","3d-perspective","waves"],
+		html: "<div class=\"demo-hwave\"><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-hwave {
+  --hw-size: 36px;
+  --hw-color: var(--color-primary);
+  --hw-speed: calc(1.4s * var(--loader-speed-scale));
+  width: var(--hw-size); height: var(--hw-size); position: relative;
+  display: inline-flex; flex-direction: column; justify-content: space-between; align-items: center;
+  perspective: 100px;
+}
+.demo-hwave span {
+  width: 100%; height: 4px; background: var(--hw-color); border-radius: 4px;
+  transform-style: preserve-3d; animation: dhwave-slide var(--hw-speed) ease-in-out var(--loader-cycles);
+}
+.demo-hwave span:nth-child(1) { animation-delay: 0s; }
+.demo-hwave span:nth-child(2) { animation-delay: calc(var(--hw-speed) * -0.15); }
+.demo-hwave span:nth-child(3) { animation-delay: calc(var(--hw-speed) * -0.3); }
+.demo-hwave span:nth-child(4) { animation-delay: calc(var(--hw-speed) * -0.45); }
+.demo-hwave span:nth-child(5) { animation-delay: calc(var(--hw-speed) * -0.6); }
+@keyframes dhwave-slide {
+  0%, 100% { transform: rotateY(0deg) scaleX(0.5); opacity: 0.3; }
+  50% { transform: rotateY(180deg) scaleX(1); opacity: 1; }
+}`,
+	},
+	{
+		id: "95",
+		name: "Gooey Ring",
+		category: "fluid",
+		tags: ["gooey-ring","metaball-spin","molten-fluid","fluid"],
+		html: "<div class=\"demo-gring\"><span></span><span></span><span></span></div>",
+		css: `.demo-gring {
+  --gr-size: 36px;
+  --gr-color: var(--color-primary);
+  --gr-speed: calc(1.6s * var(--loader-speed-scale));
+  width: var(--gr-size); height: var(--gr-size); position: relative;
+  display: inline-flex; filter: blur(3px) contrast(10); background: transparent;
+}
+.demo-gring span {
+  position: absolute; top: 15%; left: 15%; width: 30%; height: 30%; border-radius: 50%;
+  background: var(--gr-color); transform-origin: 115% 115%;
+  animation: dgring-spin var(--gr-speed) ease-in-out var(--loader-cycles);
+}
+.demo-gring span:nth-child(1) { animation-delay: 0s; }
+.demo-gring span:nth-child(2) { animation-delay: calc(var(--gr-speed) * -0.33); }
+.demo-gring span:nth-child(3) { animation-delay: calc(var(--gr-speed) * -0.66); }
+@keyframes dgring-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.3); }
+  100% { transform: rotate(360deg) scale(1); }
+}`,
+	},
+	{
+		id: "96",
+		name: "Glitch Grid",
+		category: "glitch",
+		tags: ["glitch-grid","digital-flicker","cyber-shift","glitch"],
+		html: "<div class=\"demo-glitchgrid\"><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-glitchgrid {
+  --gg-size: 36px;
+  --gg-color: var(--color-primary);
+  --gg-speed: calc(1.2s * var(--loader-speed-scale));
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px;
+  width: var(--gg-size); height: var(--gg-size);
+}
+.demo-glitchgrid span {
+  width: 100%; height: 100%; background: var(--gg-color); border-radius: 2px;
+  animation: dglitch-grid-flicker var(--gg-speed) steps(3, end) var(--loader-cycles);
+}
+.demo-glitchgrid span:nth-child(1) { animation-delay: 0s; }
+.demo-glitchgrid span:nth-child(2) { animation-delay: calc(var(--gg-speed) * -0.25); animation-name: dglitch-grid-flicker-skew; }
+.demo-glitchgrid span:nth-child(3) { animation-delay: calc(var(--gg-speed) * -0.5); animation-name: dglitch-grid-flicker-skew; }
+.demo-glitchgrid span:nth-child(4) { animation-delay: calc(var(--gg-speed) * -0.75); }
+@keyframes dglitch-grid-flicker {
+  0%, 100% { transform: translate(0) skew(0deg); opacity: 1; }
+  33% { transform: translate(-2px, 1px) skew(-5deg); opacity: 0.7; }
+  66% { transform: translate(1px, -1px) skew(5deg); opacity: 0.9; }
+}
+@keyframes dglitch-grid-flicker-skew {
+  0%, 100% { transform: translate(0) skew(0deg); opacity: 0.9; }
+  33% { transform: translate(2px, -2px) skew(8deg); opacity: 0.6; }
+  66% { transform: translate(-1px, 2px) skew(-8deg); opacity: 1; }
+}`,
+	},
 ];

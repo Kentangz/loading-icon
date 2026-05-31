@@ -1,0 +1,12 @@
+{
+  "name": "Glitch Grid",
+  "category": "glitch",
+  "tags": [
+    "glitch-grid",
+    "digital-flicker",
+    "cyber-shift",
+    "glitch"
+  ],
+  "html": "<div class=\"demo-glitchgrid\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-glitchgrid {\n  --gg-size: 36px;\n  --gg-color: var(--color-primary);\n  --gg-speed: calc(1.2s * var(--loader-speed-scale));\n  display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px;\n  width: var(--gg-size); height: var(--gg-size);\n}\n.demo-glitchgrid span {\n  width: 100%; height: 100%; background: var(--gg-color); border-radius: 2px;\n  animation: dglitch-grid-flicker var(--gg-speed) steps(3, end) var(--loader-cycles);\n}\n.demo-glitchgrid span:nth-child(1) { animation-delay: 0s; }\n.demo-glitchgrid span:nth-child(2) { animation-delay: calc(var(--gg-speed) * -0.25); animation-name: dglitch-grid-flicker-skew; }\n.demo-glitchgrid span:nth-child(3) { animation-delay: calc(var(--gg-speed) * -0.5); animation-name: dglitch-grid-flicker-skew; }\n.demo-glitchgrid span:nth-child(4) { animation-delay: calc(var(--gg-speed) * -0.75); }\n@keyframes dglitch-grid-flicker {\n  0%, 100% { transform: translate(0) skew(0deg); opacity: 1; }\n  33% { transform: translate(-2px, 1px) skew(-5deg); opacity: 0.7; }\n  66% { transform: translate(1px, -1px) skew(5deg); opacity: 0.9; }\n}\n@keyframes dglitch-grid-flicker-skew {\n  0%, 100% { transform: translate(0) skew(0deg); opacity: 0.9; }\n  33% { transform: translate(2px, -2px) skew(8deg); opacity: 0.6; }\n  66% { transform: translate(-1px, 2px) skew(-8deg); opacity: 1; }\n}"
+}

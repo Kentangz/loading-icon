@@ -117,6 +117,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 89 | [Infinite Progress](icons/89-infinite-progress/) | progress-bar + loop | Premium automated loaders |
 | 90 | [Pulsar Orbit](icons/90-pulsar-orbit/) | orbit-cosmic + quantum | Premium automated loaders |
 | 91 | [Hologram Scan](icons/91-hologram-scan/) | holographic + cyber-grid | Premium automated loaders |
+| 92 | [Nebula Swarm](icons/92-nebula-swarm/) | 3d-orbit + cosmic-gravity | Premium automated loaders |
+| 93 | [Tesseract Rotate](icons/93-tesseract-rotate/) | tesseract + 3d-cube | Premium automated loaders |
+| 94 | [Helix Wave](icons/94-helix-wave/) | helix-wave + double-helix | Premium automated loaders |
+| 95 | [Gooey Ring](icons/95-gooey-ring/) | gooey-ring + metaball-spin | Premium automated loaders |
+| 96 | [Glitch Grid](icons/96-glitch-grid/) | glitch-grid + digital-flicker | Premium automated loaders |
 
 ---
 
@@ -627,6 +632,43 @@ Each icon has a minimal, documented HTML structure:
 <div class="hologram-scan" role="status" aria-label="Loading">
   <span class="hologram-scan__line"></span>
 </div>
+
+<!-- 92 · Nebula Swarm (parent + 3 spans) -->
+<div class="nebula-swarm" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- 93 · Tesseract Rotate (parent + inner + outer) -->
+<div class="tesseract-rotate" role="status" aria-label="Loading">
+  <div class="tesseract-rotate__inner"></div>
+
+<!-- 94 · Helix Wave (parent + 5 spans) -->
+<div class="helix-wave" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- 95 · Gooey Ring (parent + 3 spans) -->
+<div class="gooey-ring" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- 96 · Glitch Grid (parent + 4 spans) -->
+<div class="glitch-grid" role="status" aria-label="Loading">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+  <div class="tesseract-rotate__outer"></div>
+</div>
   <div class="pulsar-orbit__ring"></div>
 </div>
   <div class="glow-quantum__ring"><span></span></div>
@@ -734,6 +776,11 @@ Every icon ships with ready-to-use modifier classes:
 | Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
 | Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
 | Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
+| Nebula Swarm | --loader-size --loader-color --loader-speed --ns-perspective --ns-dot-size |
+| Tesseract Rotate | --loader-size --loader-color --loader-speed --tr-perspective |
+| Helix Wave | --loader-size --loader-color --loader-speed --hw-bar-height --hw-gap |
+| Gooey Ring | --loader-size --loader-color --loader-speed --gr-blur --gr-contrast |
+| Glitch Grid | --loader-size --loader-color --loader-speed --gg-gap |
 | Neon Glitch Bar | `--ngb-gap` `--ngb-glow` |
 | Plasma Blob | `--pb-gradient` |
 | Infinite Progress | `--ip-track-color` `--ip-thickness` |
@@ -1059,6 +1106,21 @@ loadicons/
     ├── 91-hologram-scan/
     │   ├── hologram-scan.css
     │   └── index.html
+    ├── 92-nebula-swarm/
+    │   ├── nebula-swarm.css
+    │   └── index.html
+    ├── 93-tesseract-rotate/
+    │   ├── tesseract-rotate.css
+    │   └── index.html
+    ├── 94-helix-wave/
+    │   ├── helix-wave.css
+    │   └── index.html
+    ├── 95-gooey-ring/
+    │   ├── gooey-ring.css
+    │   └── index.html
+    ├── 96-glitch-grid/
+    │   ├── glitch-grid.css
+    │   └── index.html
 ```
 
 ---
@@ -1124,7 +1186,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .hologram-scan span, .pulsar-orbit span, .infinite-progress span, .plasma-blob span, .neon-glitch-bar span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .glitch-grid span, .gooey-ring span, .helix-wave span, .tesseract-rotate span, .nebula-swarm span, .hologram-scan span, .pulsar-orbit span, .infinite-progress span, .plasma-blob span, .neon-glitch-bar span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 

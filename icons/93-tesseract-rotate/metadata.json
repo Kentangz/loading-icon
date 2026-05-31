@@ -1,0 +1,12 @@
+{
+  "name": "Tesseract Rotate",
+  "category": "3d",
+  "tags": [
+    "tesseract",
+    "3d-cube",
+    "perspective-rotation",
+    "3d"
+  ],
+  "html": "<div class=\"demo-tessrot\"><div class=\"demo-tessrot-inner\"></div><div class=\"demo-tessrot-outer\"></div></div>",
+  "css": ".demo-tessrot {\n  --tr-size: 36px;\n  --tr-color: var(--color-primary);\n  --tr-speed: calc(2.0s * var(--loader-speed-scale));\n  width: var(--tr-size); height: var(--tr-size); position: relative;\n  perspective: 150px; display: inline-flex; align-items: center; justify-content: center;\n}\n.demo-tessrot-inner {\n  position: absolute; width: 50%; height: 50%; border: 2px solid var(--tr-color); opacity: 0.8;\n  transform-style: preserve-3d; animation: dtessrot-inner var(--tr-speed) linear var(--loader-cycles);\n}\n.demo-tessrot-outer {\n  position: absolute; width: 90%; height: 90%; border: 2px dashed var(--tr-color); opacity: 0.5;\n  transform-style: preserve-3d; animation: dtessrot-outer var(--tr-speed) linear var(--loader-cycles);\n}\n@keyframes dtessrot-inner {\n  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }\n  100% { transform: rotateX(360deg) rotateY(-360deg) rotateZ(180deg); }\n}\n@keyframes dtessrot-outer {\n  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }\n  100% { transform: rotateX(-360deg) rotateY(360deg) rotateZ(-180deg); }\n}"
+}

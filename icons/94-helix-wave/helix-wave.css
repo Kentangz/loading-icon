@@ -1,0 +1,99 @@
+/**
+ * Helix Wave — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Five horizontal bars with staggered delay, forming a double-helix wave in 3D.
+ * Usage     : Apply `.helix-wave` to the root element.
+ *             Requires 5 <span> children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.helix-wave {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.4s;
+  
+  /* === CUSTOM TOKENS === */
+  --hw-bar-height: 4px;
+  --hw-gap: 4px;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  perspective: 100px;
+}
+
+.helix-wave * {
+  box-sizing: border-box;
+}
+
+.helix-wave span {
+  width: 100%;
+  height: var(--hw-bar-height);
+  background: var(--loader-color);
+  border-radius: var(--hw-bar-height);
+  transform-style: preserve-3d;
+  animation: helix-wave-slide var(--loader-speed) ease-in-out infinite;
+}
+
+.helix-wave span:nth-child(1) { animation-delay: 0s; }
+.helix-wave span:nth-child(2) { animation-delay: calc(var(--loader-speed) * -0.15); }
+.helix-wave span:nth-child(3) { animation-delay: calc(var(--loader-speed) * -0.3); }
+.helix-wave span:nth-child(4) { animation-delay: calc(var(--loader-speed) * -0.45); }
+.helix-wave span:nth-child(5) { animation-delay: calc(var(--loader-speed) * -0.6); }
+
+@keyframes helix-wave-slide {
+  0%, 100% {
+    transform: rotateY(0deg) scaleX(0.5);
+    opacity: 0.3;
+  }
+  50% {
+    transform: rotateY(180deg) scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* ─── Size presets ─── */
+.helix-wave--sm {
+  --loader-size: 24px;
+  --hw-bar-height: 3px;
+}
+.helix-wave--md {
+  --loader-size: 36px;
+  --hw-bar-height: 4px;
+}
+.helix-wave--lg {
+  --loader-size: 48px;
+  --hw-bar-height: 5px;
+}
+
+/* ─── Color presets ─── */
+.helix-wave--primary { --loader-color: #7F77DD; }
+.helix-wave--success { --loader-color: #1D9E75; }
+.helix-wave--warning { --loader-color: #EF9F27; }
+.helix-wave--danger  { --loader-color: #E24B4A; }
+.helix-wave--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.helix-wave--fast { --loader-speed: 0.8s; }
+.helix-wave--slow { --loader-speed: 2.2s; }
+.helix-wave--soft { --loader-speed: 1.8s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .helix-wave span {
+    animation: none;
+  }
+}

@@ -1,0 +1,93 @@
+/**
+ * Gooey Ring — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Three orbiting dots that merge fluidly using CSS blur and contrast filters.
+ * Usage     : Apply `.gooey-ring` to the root element.
+ *             Requires 3 <span> children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.gooey-ring {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.6s;
+  
+  /* === CUSTOM TOKENS === */
+  --gr-blur: 3px;
+  --gr-contrast: 10;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  filter: blur(var(--gr-blur)) contrast(var(--gr-contrast));
+  background: transparent;
+}
+
+.gooey-ring * {
+  box-sizing: border-box;
+}
+
+.gooey-ring span {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background: var(--loader-color);
+  transform-origin: 115% 115%;
+  animation: gooey-ring-spin var(--loader-speed) ease-in-out infinite;
+}
+
+.gooey-ring span:nth-child(1) { animation-delay: 0s; }
+.gooey-ring span:nth-child(2) { animation-delay: calc(var(--loader-speed) * -0.33); }
+.gooey-ring span:nth-child(3) { animation-delay: calc(var(--loader-speed) * -0.66); }
+
+@keyframes gooey-ring-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.3); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* ─── Size presets ─── */
+.gooey-ring--sm {
+  --loader-size: 24px;
+  --gr-blur: 2px;
+}
+.gooey-ring--md {
+  --loader-size: 36px;
+  --gr-blur: 3px;
+}
+.gooey-ring--lg {
+  --loader-size: 48px;
+  --gr-blur: 4px;
+}
+
+/* ─── Color presets ─── */
+.gooey-ring--primary { --loader-color: #7F77DD; }
+.gooey-ring--success { --loader-color: #1D9E75; }
+.gooey-ring--warning { --loader-color: #EF9F27; }
+.gooey-ring--danger  { --loader-color: #E24B4A; }
+.gooey-ring--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.gooey-ring--fast { --loader-speed: 1.0s; }
+.gooey-ring--slow { --loader-speed: 2.5s; }
+.gooey-ring--soft { --loader-speed: 1.8s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gooey-ring span {
+    animation: none;
+  }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nebula Swarm — LoadIcons</title>
+  <link rel="stylesheet" href="nebula-swarm.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; max-width: 70ch; line-height: 1.5; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>92 · Nebula Swarm</h1>
+  <p class="sub">
+    Three cosmic energy points orbiting a central gravity core in a highly stylized 3D space with perspective.
+  </p>
+
+  
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="nebula-swarm nebula-swarm--sm" role="status" aria-label="Loading"><span></span><span></span><span></span></div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="nebula-swarm nebula-swarm--md" role="status" aria-label="Loading"><span></span><span></span><span></span></div>
+      <span>md · 36px (default) (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="nebula-swarm nebula-swarm--lg" role="status" aria-label="Loading"><span></span><span></span><span></span></div>
+      <span>lg · 48px</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="nebula-swarm nebula-swarm--primary" role="status" aria-label="Loading"><span></span><span></span><span></span></div><span>primary</span></div>
+    <div class="demo-block"><div class="nebula-swarm nebula-swarm--success" role="status" aria-label="Loading"><span></span><span></span><span></span></div><span>success</span></div>
+    <div class="demo-block"><div class="nebula-swarm nebula-swarm--warning" role="status" aria-label="Loading"><span></span><span></span><span></span></div><span>warning</span></div>
+    <div class="demo-block"><div class="nebula-swarm nebula-swarm--danger" role="status" aria-label="Loading"><span></span><span></span><span></span></div><span>danger</span></div>
+    <div class="demo-block dark-bg">
+      <div class="nebula-swarm nebula-swarm--white" role="status" aria-label="Loading"><span></span><span></span><span></span></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Modifier classes</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="nebula-swarm nebula-swarm--primary nebula-swarm--fast" role="status" aria-label="Loading"><span></span><span></span><span></span></div>
+      <span>fast · 0.8s</span>
+    </div>
+    <div class="demo-block">
+      <div class="nebula-swarm nebula-swarm--primary nebula-swarm--slow" role="status" aria-label="Loading"><span></span><span></span><span></span></div>
+      <span>slow · 2.5s</span>
+    </div>
+    <div class="demo-block">
+      <div class="nebula-swarm nebula-swarm--primary nebula-swarm--soft" role="status" aria-label="Loading"><span></span><span></span><span></span></div>
+      <span>soft · 1.8s</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="nebula-swarm" style="--loader-color:#e05c97;" role="status" aria-label="Loading"><span></span><span></span><span></span></div>
+      <span>custom color</span>
+    </div>
+    <div class="demo-block">
+      <div class="nebula-swarm" style="--loader-size:30px;--loader-speed:2s;" role="status" aria-label="Loading"><span></span><span></span><span></span></div>
+      <span>custom size & speed</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import stylesheet --&gt;
+&lt;link rel="stylesheet" href="nebula-swarm.css" /&gt;
+
+&lt;!-- 2. Structure --&gt;
+&lt;div class="nebula-swarm" role="status" aria-label="Loading"&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;</pre>
+</body>
+</html>

@@ -1,0 +1,93 @@
+/**
+ * Tesseract Rotate — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Concentric 3D wireframe cubes rotating on opposite axes with depth perspective to simulate high-dimensional geometry.
+ * Usage     : Apply `.tesseract-rotate` to the root element.
+ *             Requires `.tesseract-rotate__inner` and `.tesseract-rotate__outer` children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.tesseract-rotate {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 2.0s;
+  
+  /* === CUSTOM TOKENS === */
+  --tr-perspective: 150px;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  perspective: var(--tr-perspective);
+}
+
+.tesseract-rotate * {
+  box-sizing: border-box;
+}
+
+.tesseract-rotate__inner {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  border: 2px solid var(--loader-color);
+  opacity: 0.8;
+  transform-style: preserve-3d;
+  animation: tesseract-rotate-inner-anim var(--loader-speed) linear infinite;
+}
+
+.tesseract-rotate__outer {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  border: 2px dashed var(--loader-color);
+  opacity: 0.5;
+  transform-style: preserve-3d;
+  animation: tesseract-rotate-outer-anim var(--loader-speed) linear infinite;
+}
+
+@keyframes tesseract-rotate-inner-anim {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateY(-360deg) rotateZ(180deg); }
+}
+
+@keyframes tesseract-rotate-outer-anim {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(-360deg) rotateY(360deg) rotateZ(-180deg); }
+}
+
+/* ─── Size presets ─── */
+.tesseract-rotate--sm { --loader-size: 24px; }
+.tesseract-rotate--md { --loader-size: 36px; }
+.tesseract-rotate--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.tesseract-rotate--primary { --loader-color: #7F77DD; }
+.tesseract-rotate--success { --loader-color: #1D9E75; }
+.tesseract-rotate--warning { --loader-color: #EF9F27; }
+.tesseract-rotate--danger  { --loader-color: #E24B4A; }
+.tesseract-rotate--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.tesseract-rotate--fast { --loader-speed: 1.0s; }
+.tesseract-rotate--slow { --loader-speed: 3.5s; }
+.tesseract-rotate--soft { --loader-speed: 2.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tesseract-rotate__inner,
+  .tesseract-rotate__outer {
+    animation: none;
+  }
+}
