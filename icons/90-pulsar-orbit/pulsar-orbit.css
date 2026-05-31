@@ -41,7 +41,7 @@
   background: var(--loader-color);
   border-radius: 50%;
   box-shadow: 0 0 6px var(--loader-color);
-  animation: pulsar-orbit-core-anim calc(var(--loader-speed) * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+  animation: pulsar-orbit-core-anim var(--loader-speed) ease-in-out infinite;
 }
 .pulsar-orbit__ring {
   position: absolute;
@@ -50,7 +50,7 @@
   border: 2px solid transparent;
   border-top-color: var(--po-ring-color);
   border-radius: 50%;
-  animation: pulsar-orbit-ring-anim calc(var(--loader-speed) * 1.25 * var(--loader-speed-scale)) linear var(--loader-cycles);
+  animation: pulsar-orbit-ring-anim calc(var(--loader-speed) * 1.25) linear infinite;
 }
 @keyframes pulsar-orbit-core-anim {
   0%, 100% {

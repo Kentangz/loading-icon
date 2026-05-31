@@ -29,7 +29,7 @@
   height: var(--loader-size);
   flex-shrink: 0;
   background: var(--pb-gradient);
-  animation: plasma-blob-anim calc(var(--loader-speed) * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+  animation: plasma-blob-anim var(--loader-speed) ease-in-out infinite;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 .plasma-blob * {

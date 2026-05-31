@@ -45,7 +45,7 @@
   border: var(--ip-thickness) solid transparent;
   border-top-color: var(--loader-color);
   border-radius: 50%;
-  animation: infinite-progress-anim calc(var(--loader-speed) * var(--loader-speed-scale)) cubic-bezier(0.5, 0, 0.5, 1) var(--loader-cycles);
+  animation: infinite-progress-anim var(--loader-speed) cubic-bezier(0.5, 0, 0.5, 1) infinite;
 }
 @keyframes infinite-progress-anim {
   0% { transform: rotate(0deg); }
