@@ -60,7 +60,7 @@ const loaders = [
 	{
 		id: "04",
 		name: "Bar Loader",
-		category: "waves",
+		category: "progress",
 		tags: ["scaleY","stagger"],
 		html: "<div class=\"demo-bars\"><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-bars { display: flex; gap: 3px; align-items: flex-end; height: 28px; }
@@ -138,7 +138,7 @@ const loaders = [
 	{
 		id: "08",
 		name: "Circular Progress",
-		category: "spinners",
+		category: "progress",
 		tags: ["SVG","stroke-dasharray"],
 		html: "<div class=\"demo-circ\"><svg width=\"38\" height=\"38\" viewBox=\"0 0 44 44\" xmlns=\"http://www.w3.org/2000/svg\"><circle fill=\"none\" stroke=\"var(--border)\" stroke-width=\"3\" cx=\"22\" cy=\"22\" r=\"18\"/><circle fill=\"none\" stroke=\"#534AB7\" stroke-width=\"3\" stroke-linecap=\"round\" cx=\"22\" cy=\"22\" r=\"18\" pathLength=\"100\" stroke-dasharray=\"60 100\" stroke-dashoffset=\"25\"/></svg></div>",
 		css: `.demo-circ svg {
@@ -181,7 +181,7 @@ const loaders = [
 	{
 		id: "11",
 		name: "Comet",
-		category: "spinners",
+		category: "cosmic",
 		tags: ["conic-gradient","mask"],
 		html: "<div class=\"demo-comet\"></div>",
 		css: `.demo-comet {
@@ -226,7 +226,7 @@ const loaders = [
 	{
 		id: "13",
 		name: "Fluid Metaballs",
-		category: "special",
+		category: "fluid",
 		tags: ["gooey-filter","contrast"],
 		html: "<div class=\"demo-metaballs\"><span></span><span></span><span></span></div>",
 		css: `.demo-metaballs {
@@ -306,7 +306,7 @@ const loaders = [
 	{
 		id: "15",
 		name: "Atom Orbit",
-		category: "spinners",
+		category: "cosmic",
 		tags: ["3D-spatial","physics"],
 		html: "<div class=\"demo-aorbit\"><div class=\"demo-aorbit__nucleus\"></div><div class=\"demo-aorbit__ring demo-aorbit__ring--1\"><div class=\"demo-aorbit__electron\"></div></div><div class=\"demo-aorbit__ring demo-aorbit__ring--2\"><div class=\"demo-aorbit__electron\"></div></div><div class=\"demo-aorbit__ring demo-aorbit__ring--3\"><div class=\"demo-aorbit__electron\"></div></div></div>",
 		css: `.demo-aorbit {
@@ -404,7 +404,7 @@ const loaders = [
 	{
 		id: "18",
 		name: "Matrix Fade",
-		category: "special",
+		category: "glitch",
 		tags: ["delay-grid","opacity"],
 		html: "<div class=\"demo-matrix\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; width: 32px; height: 32px; }
@@ -469,7 +469,7 @@ const loaders = [
 	{
 		id: "22",
 		name: "Particle Vortex",
-		category: "special",
+		category: "cosmic",
 		tags: ["sinusoidal","spiral-sweep"],
 		html: "<div class=\"demo-vortex\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-vortex { position: relative; width: 36px; height: 36px; }
@@ -537,7 +537,7 @@ const loaders = [
 	{
 		id: "25",
 		name: "Squishy Ball",
-		category: "special",
+		category: "fluid",
 		tags: ["bounce-squash","shadows"],
 		html: "<div class=\"demo-squish\"><div class=\"demo-squish-sphere\"></div><div class=\"demo-squish-shadow\"></div></div>",
 		css: `.demo-squish { position: relative; width: 22px; height: 42px; }
@@ -561,7 +561,7 @@ const loaders = [
 	{
 		id: "26",
 		name: "Warp Field",
-		category: "special",
+		category: "cosmic",
 		tags: ["radial-vector","translation"],
 		html: "<div class=\"demo-warp\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-warp { position: relative; width: 36px; height: 36px; }
@@ -586,7 +586,7 @@ const loaders = [
 	{
 		id: "27",
 		name: "Radar Sweep",
-		category: "special",
+		category: "cosmic",
 		tags: ["conic-gradient","sync-flash"],
 		html: "<div class=\"demo-radar\"><div class=\"demo-radar-line\"></div><div class=\"demo-radar-blip demo-radar-blip--1\"></div><div class=\"demo-radar-blip demo-radar-blip--2\"></div></div>",
 		css: `.demo-radar {
@@ -607,7 +607,7 @@ const loaders = [
 	{
 		id: "28",
 		name: "Matrix Rain",
-		category: "waves",
+		category: "glitch",
 		tags: ["waterfall","glowing-fall"],
 		html: "<div class=\"demo-mrain\"><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-mrain { display: inline-flex; justify-content: space-between; width: 32px; height: 28px; }
@@ -759,7 +759,7 @@ const loaders = [
 	{
 		id: "36",
 		name: "Liquid Drop",
-		category: "special",
+		category: "fluid",
 		tags: ["gravity-fall","ripple"],
 		html: "<div class=\"demo-ldrop\"><div class=\"demo-ldrop-spout\"></div><div class=\"demo-ldrop-drip\"></div><div class=\"demo-ldrop-ripple\"></div></div>",
 		css: `.demo-ldrop { width: 32px; height: 38px; position: relative; }
@@ -881,7 +881,7 @@ const loaders = [
 	{
 		id: "40",
 		name: "Solar Eclipse",
-		category: "special",
+		category: "cosmic",
 		tags: ["corona-gradient","mask"],
 		html: "<div class=\"demo-seclipse\"><div class=\"demo-seclipse-corona\"></div><div class=\"demo-seclipse-occluder\"></div></div>",
 		css: `.demo-seclipse { width: 32px; height: 32px; position: relative; }
@@ -943,7 +943,7 @@ const loaders = [
 	{
 		id: "43",
 		name: "Elastic Line",
-		category: "waves",
+		category: "progress",
 		tags: ["asymmetric-morph","sweep"],
 		html: "<div class=\"demo-eline\"></div>",
 		css: `.demo-eline {
@@ -1059,7 +1059,7 @@ const loaders = [
 	{
 		id: "47",
 		name: "Ticking Clock",
-		category: "special",
+		category: "progress",
 		tags: ["quartz-stepped","rotates"],
 		html: "<div class=\"demo-tclock\"><div class=\"demo-tclock-hour\"></div><div class=\"demo-tclock-minute\"></div></div>",
 		css: `.demo-tclock {
@@ -1123,7 +1123,7 @@ const loaders = [
 	{
 		id: "49",
 		name: "Digital Segment",
-		category: "special",
+		category: "glitch",
 		tags: ["7-segment-LED","cycle"],
 		html: "<div class=\"demo-dsegment\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-dsegment {
@@ -1160,7 +1160,7 @@ const loaders = [
 	{
 		id: "50",
 		name: "Perspective Tunnel",
-		category: "spinners",
+		category: "cosmic",
 		tags: ["flythrough-zoom","concentric"],
 		html: "<div class=\"demo-ptunnel\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-ptunnel {
@@ -1219,7 +1219,7 @@ const loaders = [
 	{
 		id: "52",
 		name: "Barcode Sweep",
-		category: "waves",
+		category: "progress",
 		tags: ["scanline","stagger-bars"],
 		html: "<div class=\"demo-bcodesweep\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-bcodesweep {
@@ -1482,7 +1482,7 @@ const loaders = [
 	{
 		id: "58",
 		name: "Neon Matrix",
-		category: "spinners",
+		category: "glitch",
 		tags: ["cyber-grid","stepped-bars","neon-sweep"],
 		html: "<div class=\"demo-nmatrix\"><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-nmatrix {
@@ -1537,7 +1537,7 @@ const loaders = [
 	{
 		id: "60",
 		name: "Glow Quantum",
-		category: "special",
+		category: "cosmic",
 		tags: ["pulsing-core","quantum-orbits","concentric-electrons"],
 		html: "<div class=\"demo-gquantum\"><div class=\"demo-gquantum-core\"></div><div class=\"demo-gquantum-ring\"><span></span></div></div>",
 		css: `.demo-gquantum {
@@ -1566,7 +1566,7 @@ const loaders = [
 	{
 		id: "61",
 		name: "Liquid Drip",
-		category: "special",
+		category: "fluid",
 		tags: ["viscous-drips","gooey-merging","fluid-fall"],
 		html: "<div class=\"demo-ldrip\"><span></span><span></span><span></span></div>",
 		css: `.demo-ldrip {
@@ -1658,7 +1658,7 @@ const loaders = [
 	{
 		id: "64",
 		name: "Glitch Orbit",
-		category: "special",
+		category: "glitch",
 		tags: ["glitch-effect","electronic-glow","orbiting-tracks"],
 		html: "<div class=\"demo-gorbit\"><span class=\"demo-gorbit-dot\"></span><span class=\"demo-gorbit-dot\"></span><span class=\"demo-gorbit-dot\"></span></div>",
 		css: `.demo-gorbit {
@@ -1683,7 +1683,7 @@ const loaders = [
 	{
 		id: "65",
 		name: "Viscous Wave",
-		category: "waves",
+		category: "fluid",
 		tags: ["liquid-blur","gooey-merging","fluid-waves"],
 		html: "<div class=\"demo-vwave\"><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-vwave {
@@ -1794,7 +1794,7 @@ const loaders = [
 	{
 		id: "69",
 		name: "Scanning Line",
-		category: "special",
+		category: "glitch",
 		tags: ["scan","glow-line","security","special"],
 		html: "<div class=\"demo-scanl\"><span></span></div>",
 		css: `.demo-scanl {
@@ -1821,7 +1821,7 @@ const loaders = [
 	{
 		id: "70",
 		name: "Morphing Blob",
-		category: "special",
+		category: "fluid",
 		tags: ["blob","organic","border-radius-morph","special"],
 		html: "<div class=\"demo-mblob\"></div>",
 		css: `.demo-mblob {
@@ -1901,7 +1901,7 @@ const loaders = [
 	{
 		id: "73",
 		name: "Cellular Division",
-		category: "special",
+		category: "fluid",
 		tags: ["gooey","organic","scale","physics"],
 		html: "<div class=\"demo-cdiv\"><span></span><span></span></div>",
 		css: `.demo-cdiv {
@@ -1934,7 +1934,7 @@ const loaders = [
 	{
 		id: "74",
 		name: "Glitch Barcode",
-		category: "special",
+		category: "glitch",
 		tags: ["cyberpunk","flicker","minimal","glitch"],
 		html: "<div class=\"demo-gbar\"><span></span><span></span><span></span><span></span><span></span></div>",
 		css: `.demo-gbar {
@@ -2093,7 +2093,7 @@ const loaders = [
 	{
 		id: "80",
 		name: "Traffic Signal",
-		category: "special",
+		category: "progress",
 		tags: ["sequential-color","dots","progress","semaphore"],
 		html: "<div class=\"demo-tsig\"><span></span><span></span><span></span></div>",
 		css: `.demo-tsig {

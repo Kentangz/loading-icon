@@ -1,6 +1,6 @@
 {
   "name": "Ticking Clock",
-  "category": "special",
+  "category": "progress",
   "tags": [
     "quartz-stepped",
     "rotates"

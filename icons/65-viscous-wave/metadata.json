@@ -1,6 +1,6 @@
 {
   "name": "Viscous Wave",
-  "category": "waves",
+  "category": "fluid",
   "tags": [
     "liquid-blur",
     "gooey-merging",

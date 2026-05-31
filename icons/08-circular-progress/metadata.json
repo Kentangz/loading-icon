@@ -1,6 +1,6 @@
 {
   "name": "Circular Progress",
-  "category": "spinners",
+  "category": "progress",
   "tags": [
     "SVG",
     "stroke-dasharray"

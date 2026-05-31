@@ -926,11 +926,11 @@
         </div>
         <div class="nav-pill" data-category="spinners">
           <span>Classic Spinners</span>
-          <span class="nav-pill-count" id="count-spinners">14</span>
+          <span class="nav-pill-count" id="count-spinners">18</span>
         </div>
         <div class="nav-pill" data-category="waves">
           <span>Dots, Waves & Bars</span>
-          <span class="nav-pill-count" id="count-waves">12</span>
+          <span class="nav-pill-count" id="count-waves">14</span>
         </div>
         <div class="nav-pill" data-category="3d">
           <span>3D & Isometric</span>
@@ -938,7 +938,23 @@
         </div>
         <div class="nav-pill" data-category="special">
           <span>Special Physics</span>
-          <span class="nav-pill-count" id="count-special">21</span>
+          <span class="nav-pill-count" id="count-special">18</span>
+        </div>
+        <div class="nav-pill" data-category="glitch">
+          <span>Glitch & Cyber</span>
+          <span class="nav-pill-count" id="count-glitch">7</span>
+        </div>
+        <div class="nav-pill" data-category="fluid">
+          <span>Fluid & Organic</span>
+          <span class="nav-pill-count" id="count-fluid">7</span>
+        </div>
+        <div class="nav-pill" data-category="progress">
+          <span>Progress & Status</span>
+          <span class="nav-pill-count" id="count-progress">6</span>
+        </div>
+        <div class="nav-pill" data-category="cosmic">
+          <span>Cosmic & Sci-Fi</span>
+          <span class="nav-pill-count" id="count-cosmic">8</span>
         </div>
       </div>
     </div>
@@ -1152,6 +1168,10 @@
       document.getElementById("count-waves").textContent = loaders.filter(l => l.category === "waves").length;
       document.getElementById("count-3d").textContent = loaders.filter(l => l.category === "3d").length;
       document.getElementById("count-special").textContent = loaders.filter(l => l.category === "special").length;
+      document.getElementById("count-glitch").textContent    = loaders.filter(l => l.category === "glitch").length;
+      document.getElementById("count-fluid").textContent     = loaders.filter(l => l.category === "fluid").length;
+      document.getElementById("count-progress").textContent  = loaders.filter(l => l.category === "progress").length;
+      document.getElementById("count-cosmic").textContent    = loaders.filter(l => l.category === "cosmic").length;
     }
 
     // 4. INTERACTION & UTILITIES

@@ -457,7 +457,7 @@ validatedIcons.forEach((icon) => {
   });
 
   // Category bounds
-  const validCategories = ["spinners", "waves", "3d", "special"];
+  const validCategories = ["spinners", "waves", "3d", "special", "glitch", "fluid", "progress", "cosmic"];
   if (reg.category && !validCategories.includes(reg.category)) {
     reportError(
       REGISTRY_PATH,
