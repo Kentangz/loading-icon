@@ -95,7 +95,7 @@ To make the new icon show up in the main interactive dashboard, you must registe
 {
   id: "NN", // Sequential 2-digit string, e.g., "56"
   name: "Your Icon Name",
-  category: "spinners", // One of: "spinners", "waves", "3d", "special"
+  category: "spinners", // One of: "spinners", "waves", "3d", "special", "glitch", "fluid", "progress", "cosmic"
   tags: ["tag1", "tag2"], // Relevant techniques or visual features
   html: `<div class="demo-your-icon"><span></span></div>`, // Simplified preview HTML
   css: `.demo-your-icon { ... }` // Interactive preview CSS (must use global customizer variables)
