@@ -107,6 +107,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 79 | [Domino Fall](icons/79-domino-fall/) | perspective + rotateX | Premium automated loaders |
 | 80 | [Traffic Signal](icons/80-traffic-signal/) | sequential-color + dots | Premium automated loaders |
 | 81 | [Diamond Morph](icons/81-diamond-morph/) | rotate + border-radius | Premium automated loaders |
+| 82 | [Pinwheel Spin](icons/82-pinwheel-spin/) | rotate + triangle | Premium automated loaders |
+| 83 | [Staircase Climb](icons/83-staircase-climb/) | step + translateY | Premium automated loaders |
+| 84 | [Neon Ring](icons/84-neon-ring/) | glow + border | Premium automated loaders |
+| 85 | [Zigzag March](icons/85-zigzag-march/) | zigzag + path | Premium automated loaders |
+| 86 | [Rotating Squares](icons/86-rotating-squares/) | dual + counter-rotate | Premium automated loaders |
 
 ---
 
@@ -572,6 +577,29 @@ Each icon has a minimal, documented HTML structure:
 <div class="diamond-morph" role="status" aria-label="Loading">
   <span></span>
 </div>
+
+<!-- 82 · Pinwheel Spin -->
+<div class="pinwheel-spin" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 83 · Staircase Climb -->
+<div class="staircase-climb" role="status" aria-label="Loading">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- 84 · Neon Ring -->
+<div class="neon-ring" role="status" aria-label="Loading"></div>
+
+<!-- 85 · Zigzag March -->
+<div class="zigzag-march" role="status" aria-label="Loading">
+  <span></span>
+</div>
+
+<!-- 86 · Rotating Squares -->
+<div class="rotating-squares" role="status" aria-label="Loading">
+  <span></span><span></span>
+</div>
   <div class="glow-quantum__ring"><span></span></div>
 </div>
 ```
@@ -677,6 +705,11 @@ Every icon ships with ready-to-use modifier classes:
 | Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
 | Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
 | Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
+| Pinwheel Spin | `--pw-size` `--pw-color` `--pw-speed` |
+| Staircase Climb | `--sc-size` `--sc-color` `--sc-speed` |
+| Neon Ring | `--nr-size` `--nr-color` `--nr-speed` |
+| Zigzag March | `--zm-size` `--zm-color` `--zm-speed` |
+| Rotating Squares | `--rs-size` `--rs-color` `--rs-speed` |
 | Typewriter Cursor | `--tc-size` `--tc-color` `--tc-speed` |
 | Ripple Target | `--rt-size` `--rt-color` `--rt-speed` |
 | Domino Fall | `--df-size` `--df-color` `--df-speed` |
@@ -962,6 +995,21 @@ loadicons/
     ├── 81-diamond-morph/
     │   ├── diamond-morph.css
     │   └── index.html
+    ├── 82-pinwheel-spin/
+    │   ├── pinwheel-spin.css
+    │   └── index.html
+    ├── 83-staircase-climb/
+    │   ├── staircase-climb.css
+    │   └── index.html
+    ├── 84-neon-ring/
+    │   ├── neon-ring.css
+    │   └── index.html
+    ├── 85-zigzag-march/
+    │   ├── zigzag-march.css
+    │   └── index.html
+    ├── 86-rotating-squares/
+    │   ├── rotating-squares.css
+    │   └── index.html
 ```
 
 ---
@@ -1027,7 +1075,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 

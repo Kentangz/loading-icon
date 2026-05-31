@@ -1,0 +1,54 @@
+.pinwheel-spin {
+  --pw-size: 36px;
+  --pw-color: #7F77DD;
+  --pw-speed: 1.2s;
+  box-sizing: border-box; display: inline-flex; position: relative;
+  width: var(--pw-size); height: var(--pw-size);
+  animation: pinwheel-spin-rotate var(--pw-speed) linear infinite;
+}
+.pinwheel-spin * { box-sizing: border-box; }
+.pinwheel-spin span {
+  position: absolute; width: 0; height: 0;
+}
+.pinwheel-spin span:nth-child(1) {
+  top: 0; left: calc(50% - calc(var(--pw-size) * 0.17));
+  border-left: calc(var(--pw-size) * 0.17) solid transparent;
+  border-right: calc(var(--pw-size) * 0.17) solid transparent;
+  border-bottom: calc(var(--pw-size) * 0.44) solid var(--pw-color);
+}
+.pinwheel-spin span:nth-child(2) {
+  top: calc(50% - calc(var(--pw-size) * 0.17)); right: 0;
+  border-top: calc(var(--pw-size) * 0.17) solid transparent;
+  border-bottom: calc(var(--pw-size) * 0.17) solid transparent;
+  border-left: calc(var(--pw-size) * 0.44) solid var(--pw-color);
+}
+.pinwheel-spin span:nth-child(3) {
+  bottom: 0; left: calc(50% - calc(var(--pw-size) * 0.17));
+  border-left: calc(var(--pw-size) * 0.17) solid transparent;
+  border-right: calc(var(--pw-size) * 0.17) solid transparent;
+  border-top: calc(var(--pw-size) * 0.44) solid var(--pw-color);
+}
+.pinwheel-spin span:nth-child(4) {
+  top: calc(50% - calc(var(--pw-size) * 0.17)); left: 0;
+  border-top: calc(var(--pw-size) * 0.17) solid transparent;
+  border-bottom: calc(var(--pw-size) * 0.17) solid transparent;
+  border-right: calc(var(--pw-size) * 0.44) solid var(--pw-color);
+}
+@keyframes pinwheel-spin-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.pinwheel-spin--sm { --pw-size: 24px; }
+.pinwheel-spin--md { --pw-size: 36px; }
+.pinwheel-spin--lg { --pw-size: 48px; }
+.pinwheel-spin--primary { --pw-color: #7F77DD; }
+.pinwheel-spin--success { --pw-color: #1D9E75; }
+.pinwheel-spin--warning { --pw-color: #EF9F27; }
+.pinwheel-spin--danger  { --pw-color: #E24B4A; }
+.pinwheel-spin--white   { --pw-color: #ffffff; }
+.pinwheel-spin--fast { --pw-speed: 0.7s; }
+.pinwheel-spin--slow { --pw-speed: 2.0s; }
+.pinwheel-spin--soft { --pw-speed: 1.2s; }
+@media (prefers-reduced-motion: reduce) {
+  .pinwheel-spin { animation: none; }
+}

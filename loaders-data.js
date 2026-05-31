@@ -2152,4 +2152,130 @@ const loaders = [
   100% { border-radius: 50%; transform: rotate(360deg) scale(0.8); }
 }`,
 	},
+	{
+		id: "82",
+		name: "Pinwheel Spin",
+		category: "spinners",
+		tags: ["rotate","triangle","wind","fan"],
+		html: "<div class=\"demo-pwheel\"><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-pwheel {
+  width: 32px; height: 32px; position: relative;
+  animation: pwheel-rotate calc(1.2s * var(--loader-speed-scale)) linear var(--loader-cycles);
+}
+.demo-pwheel span {
+  position: absolute; width: 0; height: 0;
+  border-left: 6px solid transparent; border-right: 6px solid transparent;
+}
+.demo-pwheel span:nth-child(1) { top: 0; left: 10px; border-bottom: 14px solid var(--color-primary); }
+.demo-pwheel span:nth-child(2) { top: 10px; right: 0; border-left: 14px solid var(--color-primary); border-right: none; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+.demo-pwheel span:nth-child(3) { bottom: 0; left: 10px; border-top: 14px solid var(--color-primary); border-bottom: none; }
+.demo-pwheel span:nth-child(4) { top: 10px; left: 0; border-right: 14px solid var(--color-primary); border-left: none; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+@keyframes pwheel-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}`,
+	},
+	{
+		id: "83",
+		name: "Staircase Climb",
+		category: "waves",
+		tags: ["step","translateY","stagger","ascend"],
+		html: "<div class=\"demo-stclimb\"><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-stclimb {
+  display: flex; gap: 3px; align-items: flex-end; height: 32px;
+}
+.demo-stclimb span {
+  width: 5px; height: 5px; border-radius: 1px;
+  background: var(--color-success);
+  animation: stclimb-rise calc(1.5s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+.demo-stclimb span:nth-child(1) { animation-delay: calc(0.0s * var(--loader-speed-scale)); }
+.demo-stclimb span:nth-child(2) { animation-delay: calc(0.1s * var(--loader-speed-scale)); }
+.demo-stclimb span:nth-child(3) { animation-delay: calc(0.2s * var(--loader-speed-scale)); }
+.demo-stclimb span:nth-child(4) { animation-delay: calc(0.3s * var(--loader-speed-scale)); }
+.demo-stclimb span:nth-child(5) { animation-delay: calc(0.4s * var(--loader-speed-scale)); }
+@keyframes stclimb-rise {
+  0%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-6px); }
+  40% { transform: translateY(-12px); }
+  60% { transform: translateY(-18px); }
+  80% { transform: translateY(-24px); }
+}`,
+	},
+	{
+		id: "84",
+		name: "Neon Ring",
+		category: "spinners",
+		tags: ["glow","border","neon","shadow"],
+		html: "<div class=\"demo-nring\"></div>",
+		css: `.demo-nring {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 2.5px solid rgba(127,119,221,0.15);
+  border-top-color: var(--color-primary);
+  box-shadow: 0 0 12px rgba(127,119,221,0.4), inset 0 0 12px rgba(127,119,221,0.1);
+  animation: nring-spin calc(1.0s * var(--loader-speed-scale)) linear var(--loader-cycles);
+}
+@keyframes nring-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}`,
+	},
+	{
+		id: "85",
+		name: "Zigzag March",
+		category: "waves",
+		tags: ["zigzag","path","translate","sequential"],
+		html: "<div class=\"demo-zzmarch\"><span></span></div>",
+		css: `.demo-zzmarch {
+  width: 40px; height: 20px; position: relative;
+  display: inline-flex;
+}
+.demo-zzmarch span {
+  position: absolute; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--color-warning);
+  animation: zzmarch-path calc(1.6s * var(--loader-speed-scale)) linear var(--loader-cycles);
+}
+@keyframes zzmarch-path {
+  0% { left: 0; top: 0; }
+  12.5% { left: 20%; top: 100%; }
+  25% { left: 40%; top: 0; }
+  37.5% { left: 60%; top: 100%; }
+  50% { left: 80%; top: 0; }
+  62.5% { left: 60%; top: 100%; }
+  75% { left: 40%; top: 0; }
+  87.5% { left: 20%; top: 100%; }
+  100% { left: 0; top: 0; }
+}`,
+	},
+	{
+		id: "86",
+		name: "Rotating Squares",
+		category: "spinners",
+		tags: ["dual","counter-rotate","overlap","geometric"],
+		html: "<div class=\"demo-rsquares\"><span></span><span></span></div>",
+		css: `.demo-rsquares {
+  width: 32px; height: 32px; position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.demo-rsquares span {
+  position: absolute; width: 60%; height: 60%;
+  border: 2.5px solid var(--color-danger); border-radius: 3px;
+}
+.demo-rsquares span:nth-child(1) {
+  animation: rsquares-cw calc(2.0s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+.demo-rsquares span:nth-child(2) {
+  animation: rsquares-ccw calc(2.0s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+@keyframes rsquares-cw {
+  0% { transform: rotate(0deg) scale(0.8); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(0.8); }
+}
+@keyframes rsquares-ccw {
+  0% { transform: rotate(0deg) scale(1.1); }
+  50% { transform: rotate(-180deg) scale(0.8); }
+  100% { transform: rotate(-360deg) scale(1.1); }
+}`,
+	},
 ];

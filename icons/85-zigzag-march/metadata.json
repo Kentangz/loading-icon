@@ -1,0 +1,12 @@
+{
+  "name": "Zigzag March",
+  "category": "waves",
+  "tags": [
+    "zigzag",
+    "path",
+    "translate",
+    "sequential"
+  ],
+  "html": "<div class=\"demo-zzmarch\"><span></span></div>",
+  "css": ".demo-zzmarch {\n  width: 40px; height: 20px; position: relative;\n  display: inline-flex;\n}\n.demo-zzmarch span {\n  position: absolute; width: 6px; height: 6px; border-radius: 50%;\n  background: var(--color-warning);\n  animation: zzmarch-path calc(1.6s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n@keyframes zzmarch-path {\n  0% { left: 0; top: 0; }\n  12.5% { left: 20%; top: 100%; }\n  25% { left: 40%; top: 0; }\n  37.5% { left: 60%; top: 100%; }\n  50% { left: 80%; top: 0; }\n  62.5% { left: 60%; top: 100%; }\n  75% { left: 40%; top: 0; }\n  87.5% { left: 20%; top: 100%; }\n  100% { left: 0; top: 0; }\n}"
+}

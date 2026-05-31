@@ -1,0 +1,12 @@
+{
+  "name": "Rotating Squares",
+  "category": "spinners",
+  "tags": [
+    "dual",
+    "counter-rotate",
+    "overlap",
+    "geometric"
+  ],
+  "html": "<div class=\"demo-rsquares\"><span></span><span></span></div>",
+  "css": ".demo-rsquares {\n  width: 32px; height: 32px; position: relative;\n  display: inline-flex; align-items: center; justify-content: center;\n}\n.demo-rsquares span {\n  position: absolute; width: 60%; height: 60%;\n  border: 2.5px solid var(--color-danger); border-radius: 3px;\n}\n.demo-rsquares span:nth-child(1) {\n  animation: rsquares-cw calc(2.0s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-rsquares span:nth-child(2) {\n  animation: rsquares-ccw calc(2.0s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n@keyframes rsquares-cw {\n  0% { transform: rotate(0deg) scale(0.8); }\n  50% { transform: rotate(180deg) scale(1.1); }\n  100% { transform: rotate(360deg) scale(0.8); }\n}\n@keyframes rsquares-ccw {\n  0% { transform: rotate(0deg) scale(1.1); }\n  50% { transform: rotate(-180deg) scale(0.8); }\n  100% { transform: rotate(-360deg) scale(1.1); }\n}"
+}

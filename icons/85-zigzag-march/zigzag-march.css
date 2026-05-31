@@ -1,0 +1,39 @@
+.zigzag-march {
+  --zm-size: 36px;
+  --zm-color: #EF9F27;
+  --zm-speed: 1.6s;
+  box-sizing: border-box; display: inline-flex; position: relative;
+  width: var(--zm-size); height: calc(var(--zm-size) * 0.5);
+}
+.zigzag-march * { box-sizing: border-box; }
+.zigzag-march span {
+  position: absolute; width: calc(var(--zm-size) * 0.16); height: calc(var(--zm-size) * 0.16);
+  border-radius: 50%; background: var(--zm-color);
+  box-shadow: 0 0 6px var(--zm-color);
+  animation: zigzag-march-path var(--zm-speed) linear infinite;
+}
+@keyframes zigzag-march-path {
+  0% { left: 0; top: 0; }
+  12.5% { left: 20%; top: calc(100% - calc(var(--zm-size) * 0.16)); }
+  25% { left: 40%; top: 0; }
+  37.5% { left: 60%; top: calc(100% - calc(var(--zm-size) * 0.16)); }
+  50% { left: 80%; top: 0; }
+  62.5% { left: 60%; top: calc(100% - calc(var(--zm-size) * 0.16)); }
+  75% { left: 40%; top: 0; }
+  87.5% { left: 20%; top: calc(100% - calc(var(--zm-size) * 0.16)); }
+  100% { left: 0; top: 0; }
+}
+.zigzag-march--sm { --zm-size: 24px; }
+.zigzag-march--md { --zm-size: 36px; }
+.zigzag-march--lg { --zm-size: 48px; }
+.zigzag-march--primary { --zm-color: #7F77DD; }
+.zigzag-march--success { --zm-color: #1D9E75; }
+.zigzag-march--warning { --zm-color: #EF9F27; }
+.zigzag-march--danger  { --zm-color: #E24B4A; }
+.zigzag-march--white   { --zm-color: #ffffff; }
+.zigzag-march--fast { --zm-speed: 1.0s; }
+.zigzag-march--slow { --zm-speed: 2.8s; }
+.zigzag-march--soft { --zm-speed: 1.6s; }
+@media (prefers-reduced-motion: reduce) {
+  .zigzag-march span { animation: none; left: 40%; top: 0; }
+}

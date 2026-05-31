@@ -1,0 +1,12 @@
+{
+  "name": "Neon Ring",
+  "category": "spinners",
+  "tags": [
+    "glow",
+    "border",
+    "neon",
+    "shadow"
+  ],
+  "html": "<div class=\"demo-nring\"></div>",
+  "css": ".demo-nring {\n  width: 32px; height: 32px; border-radius: 50%;\n  border: 2.5px solid rgba(127,119,221,0.15);\n  border-top-color: var(--color-primary);\n  box-shadow: 0 0 12px rgba(127,119,221,0.4), inset 0 0 12px rgba(127,119,221,0.1);\n  animation: nring-spin calc(1.0s * var(--loader-speed-scale)) linear var(--loader-cycles);\n}\n@keyframes nring-spin {\n  0% { transform: rotate(0deg); }\n  100% { transform: rotate(360deg); }\n}"
+}

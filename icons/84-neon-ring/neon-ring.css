@@ -1,0 +1,30 @@
+.neon-ring {
+  --nr-size: 36px;
+  --nr-color: #7F77DD;
+  --nr-speed: 1.0s;
+  box-sizing: border-box; display: inline-flex; position: relative;
+  width: var(--nr-size); height: var(--nr-size); border-radius: 50%;
+  border: calc(var(--nr-size) * 0.07) solid rgba(127,119,221,0.15);
+  border-top-color: var(--nr-color);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--nr-color) 40%, transparent), inset 0 0 12px color-mix(in srgb, var(--nr-color) 10%, transparent);
+  animation: neon-ring-spin var(--nr-speed) linear infinite;
+}
+.neon-ring * { box-sizing: border-box; }
+@keyframes neon-ring-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.neon-ring--sm { --nr-size: 24px; }
+.neon-ring--md { --nr-size: 36px; }
+.neon-ring--lg { --nr-size: 48px; }
+.neon-ring--primary { --nr-color: #7F77DD; border-color: rgba(127,119,221,0.15); border-top-color: var(--nr-color); }
+.neon-ring--success { --nr-color: #1D9E75; border-color: rgba(29,158,117,0.15); border-top-color: var(--nr-color); }
+.neon-ring--warning { --nr-color: #EF9F27; border-color: rgba(239,159,39,0.15); border-top-color: var(--nr-color); }
+.neon-ring--danger  { --nr-color: #E24B4A; border-color: rgba(226,75,74,0.15); border-top-color: var(--nr-color); }
+.neon-ring--white   { --nr-color: #ffffff; border-color: rgba(255,255,255,0.15); border-top-color: var(--nr-color); }
+.neon-ring--fast { --nr-speed: 0.6s; }
+.neon-ring--slow { --nr-speed: 1.8s; }
+.neon-ring--soft { --nr-speed: 1.0s; }
+@media (prefers-reduced-motion: reduce) {
+  .neon-ring { animation: none; border-top-color: var(--nr-color); }
+}
