@@ -6,7 +6,8 @@
   "scripts": {
     "build:registry": "node scripts/build-registry.js",
     "lint": "node scripts/lint-loaders.js",
-    "test": "node scripts/lint-loaders.js"
+    "test": "node scripts/lint-loaders.js",
+    "auto-generate": "node scripts/auto-generate.js --concept"
   },
   "keywords": [
     "css",
