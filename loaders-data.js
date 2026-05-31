@@ -2935,4 +2935,214 @@ const loaders = [
   100% { transform: rotate(0deg) scale(1); }
 }`,
 	},
+	{
+		id: "107",
+		name: "Glitch Scanline",
+		category: "glitch",
+		tags: ["clip-path","skew","neon-flicker"],
+		html: "<div class=\"demo-glitchscanline\"><span class=\"demo-glitchscanline-bar\"></span><span class=\"demo-glitchscanline-line\"></span></div>",
+		css: `.demo-glitchscanline {
+  width: var(--loader-size);
+  height: var(--loader-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+}
+.demo-glitchscanline-bar {
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary);
+  animation: dglitch-scanline-bar-anim calc(1.2s * var(--loader-speed-scale)) steps(1) var(--loader-cycles);
+}
+.demo-glitchscanline-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  box-shadow: 0 0 8px #00fff0, 0 0 2px #ff00c1;
+  animation: dglitch-scanline-line-anim calc(1.2s * var(--loader-speed-scale)) linear var(--loader-cycles);
+}
+@keyframes dglitch-scanline-bar-anim {
+  0%, 100% { transform: translate(0, 0) skew(0deg); clip-path: inset(0 0 0 0); opacity: 1; }
+  10% { transform: translate(-2px, 1px) skew(-5deg); clip-path: inset(10% 0 85% 0); opacity: 0.95; }
+  20% { transform: translate(2px, -1px) skew(5deg); clip-path: inset(80% 0 5% 0); opacity: 0.8; }
+  30% { transform: translate(0, 0); clip-path: inset(40% 0 40% 0); }
+  40% { transform: translate(-1px, -1px); clip-path: inset(60% 0 10% 0); }
+  50% { transform: translate(1px, 2px) skew(-2deg); clip-path: inset(5% 0 70% 0); }
+  60% { transform: translate(0, 0); clip-path: inset(0 0 0 0); }
+}
+@keyframes dglitch-scanline-line-anim {
+  0% { top: -4px; opacity: 0; }
+  10%, 90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}`,
+	},
+	{
+		id: "108",
+		name: "Origami Fold 3d",
+		category: "3d",
+		tags: ["3d-folding","perspective","triangles"],
+		html: "<div class=\"demo-origamifold\"><span class=\"demo-origamifold-panel\"></span><span class=\"demo-origamifold-panel\"></span><span class=\"demo-origamifold-panel\"></span></div>",
+		css: `.demo-origamifold {
+  width: var(--loader-size);
+  height: var(--loader-size);
+  position: relative;
+  display: inline-flex;
+  perspective: 150px;
+  transform-style: preserve-3d;
+}
+.demo-origamifold-panel {
+  position: absolute;
+  inset: 15%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0.6;
+  transform-origin: 50% 100%;
+}
+.demo-origamifold-panel:nth-child(1) {
+  background: color-mix(in srgb, var(--color-primary) 85%, #000);
+  animation: dorigami-fold-3d-anim-1 calc(2.0s * var(--loader-speed-scale)) cubic-bezier(0.4, 0, 0.2, 1) var(--loader-cycles);
+}
+.demo-origamifold-panel:nth-child(2) {
+  background: var(--color-primary);
+  animation: dorigami-fold-3d-anim-2 calc(2.0s * var(--loader-speed-scale)) cubic-bezier(0.4, 0, 0.2, 1) var(--loader-cycles);
+}
+.demo-origamifold-panel:nth-child(3) {
+  background: color-mix(in srgb, var(--color-primary) 85%, #fff);
+  animation: dorigami-fold-3d-anim-3 calc(2.0s * var(--loader-speed-scale)) cubic-bezier(0.4, 0, 0.2, 1) var(--loader-cycles);
+}
+@keyframes dorigami-fold-3d-anim-1 {
+  0%, 100% { transform: rotateY(0deg) rotateX(0deg); opacity: 0.8; }
+  33% { transform: rotateY(90deg) rotateX(0deg); opacity: 0.4; }
+  66% { transform: rotateY(0deg) rotateX(90deg); opacity: 0.6; }
+}
+@keyframes dorigami-fold-3d-anim-2 {
+  0%, 100% { transform: rotateY(120deg) rotateX(0deg); opacity: 0.6; }
+  33% { transform: rotateY(0deg) rotateX(90deg); opacity: 0.8; }
+  66% { transform: rotateY(-120deg) rotateX(0deg); opacity: 0.4; }
+}
+@keyframes dorigami-fold-3d-anim-3 {
+  0%, 100% { transform: rotateY(-120deg) rotateX(0deg); opacity: 0.4; }
+  33% { transform: rotateY(-120deg) rotateX(90deg); opacity: 0.6; }
+  66% { transform: rotateY(0deg) rotateX(0deg); opacity: 0.8; }
+}`,
+	},
+	{
+		id: "109",
+		name: "Viscous Helix",
+		category: "fluid",
+		tags: ["liquid-helix","gooey","metaball"],
+		html: "<div class=\"demo-viscoushelix\"><span class=\"demo-viscoushelix-node\"></span><span class=\"demo-viscoushelix-node\"></span></div>",
+		css: `.demo-viscoushelix {
+  width: var(--loader-size);
+  height: var(--loader-size);
+  position: relative;
+  display: inline-flex;
+  background: transparent;
+  filter: blur(3px) contrast(8);
+}
+.demo-viscoushelix-node {
+  position: absolute;
+  width: 35%;
+  height: 35%;
+  background: var(--color-primary);
+  border-radius: 50%;
+  top: 32.5%;
+  left: 32.5%;
+}
+.demo-viscoushelix-node:nth-child(1) {
+  animation: dviscous-helix-node-1 calc(1.5s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+.demo-viscoushelix-node:nth-child(2) {
+  animation: dviscous-helix-node-2 calc(1.5s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+@keyframes dviscous-helix-node-1 {
+  0%, 100% { transform: translate(-80%, -80%) scale(1.1); }
+  50% { transform: translate(80%, 80%) scale(0.8); }
+}
+@keyframes dviscous-helix-node-2 {
+  0%, 100% { transform: translate(80%, 80%) scale(0.8); }
+  50% { transform: translate(-80%, -80%) scale(1.1); }
+}`,
+	},
+	{
+		id: "110",
+		name: "Step Progress",
+		category: "progress",
+		tags: ["stepped","linear-cascade","sequential"],
+		html: "<div class=\"demo-stepprogress\"><span class=\"demo-stepprogress-dot\"></span><span class=\"demo-stepprogress-dot\"></span><span class=\"demo-stepprogress-dot\"></span><span class=\"demo-stepprogress-dot\"></span></div>",
+		css: `.demo-stepprogress {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(var(--loader-size) * 1.5);
+  height: var(--loader-size);
+}
+.demo-stepprogress-dot {
+  width: 16%;
+  height: 16%;
+  background: var(--color-primary);
+  border-radius: 50%;
+  animation: dstep-progress-anim calc(1.4s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+.demo-stepprogress-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.demo-stepprogress-dot:nth-child(2) {
+  animation-delay: calc(1.4s * var(--loader-speed-scale) * -0.25);
+}
+.demo-stepprogress-dot:nth-child(3) {
+  animation-delay: calc(1.4s * var(--loader-speed-scale) * -0.5);
+}
+.demo-stepprogress-dot:nth-child(4) {
+  animation-delay: calc(1.4s * var(--loader-speed-scale) * -0.75);
+}
+@keyframes dstep-progress-anim {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.8); opacity: 1; }
+}`,
+	},
+	{
+		id: "111",
+		name: "Astro Pulse",
+		category: "cosmic",
+		tags: ["pulse-radial","cosmic","conic-expansion"],
+		html: "<div class=\"demo-astropulse\"><div class=\"demo-astropulse-core\"></div><div class=\"demo-astropulse-ring\"></div></div>",
+		css: `.demo-astropulse {
+  width: var(--loader-size);
+  height: var(--loader-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-astropulse-core {
+  width: 30%;
+  height: 30%;
+  background: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-primary);
+  animation: dastro-pulse-core-anim calc(1.8s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+}
+.demo-astropulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  opacity: 0;
+  animation: dastro-pulse-ring-anim calc(1.8s * var(--loader-speed-scale)) cubic-bezier(0.1, 0.8, 0.3, 1) var(--loader-cycles);
+}
+@keyframes dastro-pulse-core-anim {
+  0%, 100% { transform: scale(0.85); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+@keyframes dastro-pulse-ring-anim {
+  0% { transform: scale(0.3); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}`,
+	},
 ];

@@ -132,6 +132,11 @@ LoadIcons is an open-source collection of production-ready CSS loading animation
 | 104 | [Hypercube 3d](icons/104-hypercube-3d/) | perspective-3d + concentric-rotation | Premium automated loaders |
 | 105 | [Mercury Drops](icons/105-mercury-drops/) | liquid-gooey + split-merge | Premium automated loaders |
 | 106 | [Cosmic Nebula](icons/106-cosmic-nebula/) | vortex-conic + nested-rotation | Premium automated loaders |
+| 107 | [Glitch Scanline](icons/107-glitch-scanline/) | clip-path + skew | Premium automated loaders |
+| 108 | [Origami Fold 3d](icons/108-origami-fold-3d/) | 3d-folding + perspective | Premium automated loaders |
+| 109 | [Viscous Helix](icons/109-viscous-helix/) | liquid-helix + gooey | Premium automated loaders |
+| 110 | [Step Progress](icons/110-step-progress/) | stepped + linear-cascade | Premium automated loaders |
+| 111 | [Astro Pulse](icons/111-astro-pulse/) | pulse-radial + cosmic | Premium automated loaders |
 
 ---
 
@@ -739,6 +744,39 @@ Each icon has a minimal, documented HTML structure:
   <span></span>
   <span></span>
 </div>
+
+<!-- 107 · Glitch Scanline -->
+<div class="glitch-scanline" role="status" aria-label="Loading">
+  <span class="glitch-scanline__bar"></span>
+  <span class="glitch-scanline__line"></span>
+</div>
+
+<!-- 108 · Origami Fold 3d -->
+<div class="origami-fold-3d" role="status" aria-label="Loading">
+  <span class="origami-fold-3d__panel"></span>
+  <span class="origami-fold-3d__panel"></span>
+  <span class="origami-fold-3d__panel"></span>
+</div>
+
+<!-- 109 · Viscous Helix -->
+<div class="viscous-helix" role="status" aria-label="Loading">
+  <span class="viscous-helix__node"></span>
+  <span class="viscous-helix__node"></span>
+</div>
+
+<!-- 110 · Step Progress -->
+<div class="step-progress" role="status" aria-label="Loading">
+  <span class="step-progress__dot"></span>
+  <span class="step-progress__dot"></span>
+  <span class="step-progress__dot"></span>
+  <span class="step-progress__dot"></span>
+</div>
+
+<!-- 111 · Astro Pulse -->
+<div class="astro-pulse" role="status" aria-label="Loading">
+  <div class="astro-pulse__core"></div>
+  <div class="astro-pulse__ring"></div>
+</div>
   <div class="hypercube-3d__outer"></div>
 </div>
   <span></span>
@@ -856,6 +894,11 @@ Every icon ships with ready-to-use modifier classes:
 | Shard Flip | `--sf-size` `--sf-w` `--sf-h` `--sf-radius` `--sf-round` `--sf-color` `--sf-speed` |
 | Shutter Bloom | `--sb-size` `--sb-blade-w` `--sb-blade-h` `--sb-radius` `--sb-round` `--sb-color` `--sb-speed` |
 | Pulse Helix | `--ph-size` `--ph-gap` `--ph-color` `--ph-speed` |
+| Glitch Scanline | `--loader-size` `--loader-color` `--loader-speed` `--glitch-shadow-1` `--glitch-shadow-2` |
+| Origami Fold 3d | `--loader-size` `--loader-color` `--loader-speed` |
+| Viscous Helix | `--loader-size` `--loader-color` `--loader-speed` |
+| Step Progress | `--loader-size` `--loader-color` `--loader-speed` |
+| Astro Pulse | `--loader-size` `--loader-color` `--loader-speed` |
 | Cyber Shield | `--loader-size` `--loader-color` `--loader-speed` |
 | Vapor Wave | `--loader-size` `--loader-color` `--loader-speed` |
 | Hypercube 3d | `--loader-size` `--loader-color` `--loader-speed` |
@@ -1241,6 +1284,21 @@ loadicons/
     ├── 106-cosmic-nebula/
     │   ├── cosmic-nebula.css
     │   └── index.html
+    ├── 107-glitch-scanline/
+    │   ├── glitch-scanline.css
+    │   └── index.html
+    ├── 108-origami-fold-3d/
+    │   ├── origami-fold-3d.css
+    │   └── index.html
+    ├── 109-viscous-helix/
+    │   ├── viscous-helix.css
+    │   └── index.html
+    ├── 110-step-progress/
+    │   ├── step-progress.css
+    │   └── index.html
+    ├── 111-astro-pulse/
+    │   ├── astro-pulse.css
+    │   └── index.html
 ```
 
 ---
@@ -1306,7 +1364,7 @@ All icons use CSS animations. To honor the user's system preference:
   .digital-segment span, .perspective-tunnel span,
   .prism-orbit span, .barcode-sweep span, .barcode-sweep::after,
   .corner-chase span, .shard-flip span, .shutter-bloom::before,
-  .shutter-bloom span, .pulse-helix span, .cosmic-nebula span, .mercury-drops span, .hypercube-3d span, .vapor-wave span, .cyber-shield span, .black-hole span, .split-glitch span, .orbital-ring-3d span, .seismic-wave span, .aura-ring span, .glitch-grid span, .gooey-ring span, .helix-wave span, .tesseract-rotate span, .nebula-swarm span, .hologram-scan span, .pulsar-orbit span, .infinite-progress span, .plasma-blob span, .neon-glitch-bar span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
+  .shutter-bloom span, .pulse-helix span, .astro-pulse span, .step-progress span, .viscous-helix span, .origami-fold-3d span, .glitch-scanline span, .cosmic-nebula span, .mercury-drops span, .hypercube-3d span, .vapor-wave span, .cyber-shield span, .black-hole span, .split-glitch span, .orbital-ring-3d span, .seismic-wave span, .aura-ring span, .glitch-grid span, .gooey-ring span, .helix-wave span, .tesseract-rotate span, .nebula-swarm span, .hologram-scan span, .pulsar-orbit span, .infinite-progress span, .plasma-blob span, .neon-glitch-bar span, .rotating-squares span, .zigzag-march span, .neon-ring span, .staircase-climb span, .pinwheel-spin span, .diamond-morph span, .traffic-signal span, .domino-fall span, .ripple-target span, .typewriter-cursor span, .concentric-chevrons span, .infinite-maze span, .glitch-barcode span, .cellular-division span, .kinetic-loom span, .activity-spokes span, .morphing-blob span, .scanning-line span, .orbit-chain span, .spiral-coil span, .crystalline-star span, .viscous-wave span, .glitch-orbit span, .quantum-ripple span, .folding-prism span, .liquid-drip span, .glow-quantum span, .holographic-helix span, .neon-matrix span, .kinetic-vortex span {
     animation-play-state: paused;
   }
 

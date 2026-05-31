@@ -1,0 +1,11 @@
+{
+  "name": "Origami Fold 3d",
+  "category": "3d",
+  "tags": [
+    "3d-folding",
+    "perspective",
+    "triangles"
+  ],
+  "html": "<div class=\"demo-origamifold\"><span class=\"demo-origamifold-panel\"></span><span class=\"demo-origamifold-panel\"></span><span class=\"demo-origamifold-panel\"></span></div>",
+  "css": ".demo-origamifold {\n  width: var(--loader-size);\n  height: var(--loader-size);\n  position: relative;\n  display: inline-flex;\n  perspective: 150px;\n  transform-style: preserve-3d;\n}\n.demo-origamifold-panel {\n  position: absolute;\n  inset: 15%;\n  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);\n  opacity: 0.6;\n  transform-origin: 50% 100%;\n}\n.demo-origamifold-panel:nth-child(1) {\n  background: color-mix(in srgb, var(--color-primary) 85%, #000);\n  animation: dorigami-fold-3d-anim-1 calc(2.0s * var(--loader-speed-scale)) cubic-bezier(0.4, 0, 0.2, 1) var(--loader-cycles);\n}\n.demo-origamifold-panel:nth-child(2) {\n  background: var(--color-primary);\n  animation: dorigami-fold-3d-anim-2 calc(2.0s * var(--loader-speed-scale)) cubic-bezier(0.4, 0, 0.2, 1) var(--loader-cycles);\n}\n.demo-origamifold-panel:nth-child(3) {\n  background: color-mix(in srgb, var(--color-primary) 85%, #fff);\n  animation: dorigami-fold-3d-anim-3 calc(2.0s * var(--loader-speed-scale)) cubic-bezier(0.4, 0, 0.2, 1) var(--loader-cycles);\n}\n@keyframes dorigami-fold-3d-anim-1 {\n  0%, 100% { transform: rotateY(0deg) rotateX(0deg); opacity: 0.8; }\n  33% { transform: rotateY(90deg) rotateX(0deg); opacity: 0.4; }\n  66% { transform: rotateY(0deg) rotateX(90deg); opacity: 0.6; }\n}\n@keyframes dorigami-fold-3d-anim-2 {\n  0%, 100% { transform: rotateY(120deg) rotateX(0deg); opacity: 0.6; }\n  33% { transform: rotateY(0deg) rotateX(90deg); opacity: 0.8; }\n  66% { transform: rotateY(-120deg) rotateX(0deg); opacity: 0.4; }\n}\n@keyframes dorigami-fold-3d-anim-3 {\n  0%, 100% { transform: rotateY(-120deg) rotateX(0deg); opacity: 0.4; }\n  33% { transform: rotateY(-120deg) rotateX(90deg); opacity: 0.6; }\n  66% { transform: rotateY(0deg) rotateX(0deg); opacity: 0.8; }\n}"
+}

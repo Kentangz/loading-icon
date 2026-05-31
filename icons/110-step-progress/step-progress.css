@@ -1,0 +1,72 @@
+/**
+ * Step Progress — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Horizontal sequential progress steps with elastic scale transitions.
+ * Usage     : Apply `.step-progress` to the root element.
+ *             Requires 4 child elements.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.step-progress {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.4s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(var(--loader-size) * 1.5);
+  height: var(--loader-size);
+  flex-shrink: 0;
+}
+
+.step-progress * {
+  box-sizing: border-box;
+}
+
+.step-progress__dot {
+  width: 16%;
+  height: 16%;
+  background: var(--loader-color);
+  border-radius: 50%;
+  animation: step-progress-anim var(--loader-speed) ease-in-out infinite;
+}
+
+.step-progress__dot:nth-child(1) { animation-delay: 0s; }
+.step-progress__dot:nth-child(2) { animation-delay: calc(var(--loader-speed) * -0.25); }
+.step-progress__dot:nth-child(3) { animation-delay: calc(var(--loader-speed) * -0.5); }
+.step-progress__dot:nth-child(4) { animation-delay: calc(var(--loader-speed) * -0.75); }
+
+@keyframes step-progress-anim {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.8); opacity: 1; }
+}
+
+/* ─── Size presets ─── */
+.step-progress--sm { --loader-size: 24px; }
+.step-progress--md { --loader-size: 36px; } /* default */
+.step-progress--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.step-progress--primary { --loader-color: #7F77DD; }
+.step-progress--success { --loader-color: #1D9E75; }
+.step-progress--warning { --loader-color: #EF9F27; }
+.step-progress--danger  { --loader-color: #E24B4A; }
+.step-progress--white   { --loader-color: #ffffff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .step-progress__dot {
+    animation: none;
+    opacity: 0.8;
+    transform: none;
+  }
+}

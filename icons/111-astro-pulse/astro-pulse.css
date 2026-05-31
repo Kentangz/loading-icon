@@ -1,0 +1,89 @@
+/**
+ * Astro Pulse — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Conic radial pulsar expansion with pulsating inner cores.
+ * Usage     : Apply `.astro-pulse` to the root element.
+ *             Requires child elements.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.astro-pulse {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.8s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.astro-pulse * {
+  box-sizing: border-box;
+}
+
+.astro-pulse__core {
+  width: 30%;
+  height: 30%;
+  background: var(--loader-color);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--loader-color);
+  animation: astro-pulse-core-anim var(--loader-speed) ease-in-out infinite;
+}
+
+.astro-pulse__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--loader-color);
+  opacity: 0;
+  animation: astro-pulse-ring-anim var(--loader-speed) cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+}
+
+@keyframes astro-pulse-core-anim {
+  0%, 100% { transform: scale(0.85); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes astro-pulse-ring-anim {
+  0% { transform: scale(0.3); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ─── Size presets ─── */
+.astro-pulse--sm { --loader-size: 24px; }
+.astro-pulse--md { --loader-size: 36px; } /* default */
+.astro-pulse--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.astro-pulse--primary { --loader-color: #7F77DD; }
+.astro-pulse--success { --loader-color: #1D9E75; }
+.astro-pulse--warning { --loader-color: #EF9F27; }
+.astro-pulse--danger  { --loader-color: #E24B4A; }
+.astro-pulse--white   { --loader-color: #ffffff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .astro-pulse__core {
+    animation: none;
+    transform: none;
+    opacity: 0.9;
+  }
+  .astro-pulse__ring {
+    animation: none;
+    border-style: dashed;
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}

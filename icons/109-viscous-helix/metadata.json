@@ -1,0 +1,11 @@
+{
+  "name": "Viscous Helix",
+  "category": "fluid",
+  "tags": [
+    "liquid-helix",
+    "gooey",
+    "metaball"
+  ],
+  "html": "<div class=\"demo-viscoushelix\"><span class=\"demo-viscoushelix-node\"></span><span class=\"demo-viscoushelix-node\"></span></div>",
+  "css": ".demo-viscoushelix {\n  width: var(--loader-size);\n  height: var(--loader-size);\n  position: relative;\n  display: inline-flex;\n  background: transparent;\n  filter: blur(3px) contrast(8);\n}\n.demo-viscoushelix-node {\n  position: absolute;\n  width: 35%;\n  height: 35%;\n  background: var(--color-primary);\n  border-radius: 50%;\n  top: 32.5%;\n  left: 32.5%;\n}\n.demo-viscoushelix-node:nth-child(1) {\n  animation: dviscous-helix-node-1 calc(1.5s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-viscoushelix-node:nth-child(2) {\n  animation: dviscous-helix-node-2 calc(1.5s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n@keyframes dviscous-helix-node-1 {\n  0%, 100% { transform: translate(-80%, -80%) scale(1.1); }\n  50% { transform: translate(80%, 80%) scale(0.8); }\n}\n@keyframes dviscous-helix-node-2 {\n  0%, 100% { transform: translate(80%, 80%) scale(0.8); }\n  50% { transform: translate(-80%, -80%) scale(1.1); }\n}"
+}

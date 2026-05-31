@@ -1,0 +1,90 @@
+/**
+ * Viscous Helix — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Blur-contrast gooey double-helix orbiting liquid nodes.
+ * Usage     : Apply `.viscous-helix` to the root element.
+ *             Requires 2 child elements.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.viscous-helix {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 1.5s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  background: transparent;
+  filter: blur(3px) contrast(8);
+}
+
+.viscous-helix * {
+  box-sizing: border-box;
+}
+
+.viscous-helix__node {
+  position: absolute;
+  width: 35%;
+  height: 35%;
+  background: var(--loader-color);
+  border-radius: 50%;
+  top: 32.5%;
+  left: 32.5%;
+}
+
+.viscous-helix__node:nth-child(1) {
+  animation: viscous-helix-node-1 var(--loader-speed) ease-in-out infinite;
+}
+
+.viscous-helix__node:nth-child(2) {
+  animation: viscous-helix-node-2 var(--loader-speed) ease-in-out infinite;
+}
+
+@keyframes viscous-helix-node-1 {
+  0%, 100% { transform: translate(-80%, -80%) scale(1.1); }
+  50% { transform: translate(80%, 80%) scale(0.8); }
+}
+
+@keyframes viscous-helix-node-2 {
+  0%, 100% { transform: translate(80%, 80%) scale(0.8); }
+  50% { transform: translate(-80%, -80%) scale(1.1); }
+}
+
+/* ─── Size presets ─── */
+.viscous-helix--sm { --loader-size: 24px; }
+.viscous-helix--md { --loader-size: 36px; } /* default */
+.viscous-helix--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.viscous-helix--primary { --loader-color: #7F77DD; }
+.viscous-helix--success { --loader-color: #1D9E75; }
+.viscous-helix--warning { --loader-color: #EF9F27; }
+.viscous-helix--danger  { --loader-color: #E24B4A; }
+.viscous-helix--white   { --loader-color: #ffffff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .viscous-helix {
+    filter: none;
+  }
+  .viscous-helix__node {
+    animation: none;
+    transform: none;
+    width: 45%;
+    height: 45%;
+    position: relative;
+    float: left;
+    margin: 2%;
+  }
+}

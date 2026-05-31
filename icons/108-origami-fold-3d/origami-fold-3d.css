@@ -1,0 +1,97 @@
+/**
+ * Origami Fold 3D — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : 3D perspective fold-in/fold-out triangular panel pyramids.
+ * Usage     : Apply `.origami-fold-3d` to the root element.
+ *             Requires 3 child elements.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.origami-fold-3d {
+  /* === SIZE === */
+  --loader-size: 36px;
+  
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+  
+  /* === ANIMATION === */
+  --loader-speed: 2.0s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  perspective: 150px;
+  transform-style: preserve-3d;
+}
+
+.origami-fold-3d * {
+  box-sizing: border-box;
+}
+
+.origami-fold-3d__panel {
+  position: absolute;
+  inset: 15%;
+  background: var(--loader-color);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0.6;
+  transform-origin: 50% 100%;
+}
+
+.origami-fold-3d__panel:nth-child(1) {
+  animation: origami-fold-3d-anim-1 var(--loader-speed) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background: color-mix(in srgb, var(--loader-color) 85%, #000);
+}
+
+.origami-fold-3d__panel:nth-child(2) {
+  animation: origami-fold-3d-anim-2 var(--loader-speed) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background: var(--loader-color);
+}
+
+.origami-fold-3d__panel:nth-child(3) {
+  animation: origami-fold-3d-anim-3 var(--loader-speed) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background: color-mix(in srgb, var(--loader-color) 85%, #fff);
+}
+
+@keyframes origami-fold-3d-anim-1 {
+  0%, 100% { transform: rotateY(0deg) rotateX(0deg); opacity: 0.8; }
+  33% { transform: rotateY(90deg) rotateX(0deg); opacity: 0.4; }
+  66% { transform: rotateY(0deg) rotateX(90deg); opacity: 0.6; }
+}
+
+@keyframes origami-fold-3d-anim-2 {
+  0%, 100% { transform: rotateY(120deg) rotateX(0deg); opacity: 0.6; }
+  33% { transform: rotateY(0deg) rotateX(90deg); opacity: 0.8; }
+  66% { transform: rotateY(-120deg) rotateX(0deg); opacity: 0.4; }
+}
+
+@keyframes origami-fold-3d-anim-3 {
+  0%, 100% { transform: rotateY(-120deg) rotateX(0deg); opacity: 0.4; }
+  33% { transform: rotateY(-120deg) rotateX(90deg); opacity: 0.6; }
+  66% { transform: rotateY(0deg) rotateX(0deg); opacity: 0.8; }
+}
+
+/* ─── Size presets ─── */
+.origami-fold-3d--sm { --loader-size: 24px; }
+.origami-fold-3d--md { --loader-size: 36px; } /* default */
+.origami-fold-3d--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.origami-fold-3d--primary { --loader-color: #7F77DD; }
+.origami-fold-3d--success { --loader-color: #1D9E75; }
+.origami-fold-3d--warning { --loader-color: #EF9F27; }
+.origami-fold-3d--danger  { --loader-color: #E24B4A; }
+.origami-fold-3d--white   { --loader-color: #ffffff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .origami-fold-3d__panel {
+    animation: none;
+    transform: none;
+    opacity: 0.7;
+  }
+}

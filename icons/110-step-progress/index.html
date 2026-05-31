@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Step Progress — LoadIcons</title>
+  <link rel="stylesheet" href="step-progress.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f8f6; color: #1a1a1a;
+      padding: 2rem; min-height: 100vh;
+    }
+    h1   { font-size: 1.25rem; font-weight: 600; margin-bottom: .2rem; }
+    .sub { font-size: .85rem; color: #666; margin-bottom: 2rem; max-width: 70ch; line-height: 1.5; }
+    .section-title {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .08em; color: #aaa; margin-bottom: 1rem;
+    }
+    .demo-row {
+      display: flex; align-items: center; gap: 3rem;
+      flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .demo-block { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
+    .demo-block span { font-size: .75rem; color: #888; }
+    .dark-bg {
+      background: #1a1a1a; padding: 1.5rem 2rem;
+      border-radius: 8px;
+    }
+    pre {
+      background: #f0f0ee; border-radius: 8px;
+      padding: 1rem; font-size: .78rem;
+      overflow-x: auto; color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>110 · Step Progress</h1>
+  <p class="sub">
+    A clean, horizontal progress indicator where segmented circular nodes scale and glow in a linear, sequential pattern.
+  </p>
+
+  
+  <h2 class="section-title">Size variants</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="step-progress step-progress--sm" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div>
+      <span>sm · 24px</span>
+    </div>
+    <div class="demo-block">
+      <div class="step-progress step-progress--md" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div>
+      <span>md · 36px (default)</span>
+    </div>
+    <div class="demo-block">
+      <div class="step-progress step-progress--lg" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div>
+      <span>lg · 48px</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Color presets</h2>
+  <div class="demo-row">
+    <div class="demo-block"><div class="step-progress step-progress--primary" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div><span>primary</span></div>
+    <div class="demo-block"><div class="step-progress step-progress--success" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div><span>success</span></div>
+    <div class="demo-block"><div class="step-progress step-progress--warning" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div><span>warning</span></div>
+    <div class="demo-block"><div class="step-progress step-progress--danger" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div><span>danger</span></div>
+    <div class="demo-block dark-bg">
+      <div class="step-progress step-progress--white" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div>
+      <span style="color:#555">white</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Modifier classes</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="step-progress step-progress--primary step-progress--fast" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div>
+      <span>fast - 0.8s</span>
+    </div>
+    <div class="demo-block">
+      <div class="step-progress step-progress--primary step-progress--slow" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div>
+      <span>slow - 2.5s</span>
+    </div>
+  </div>
+
+  
+  <h2 class="section-title">Custom overrides</h2>
+  <div class="demo-row">
+    <div class="demo-block">
+      <div class="step-progress" style="--loader-color: #ff9800;" role="status" aria-label="Loading"><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span><span class="step-progress__dot"></span></div>
+      <span>Amber Glow Override</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">Quick usage</h2>
+  <pre>&lt;!-- 1. Import stylesheet --&gt;
+&lt;link rel="stylesheet" href="step-progress.css" /&gt;
+
+&lt;!-- 2. Structure --&gt;
+&lt;div class="step-progress" role="status" aria-label="Loading"&gt;&lt;span class="step-progress__dot"&gt;&lt;/span&gt;&lt;span class="step-progress__dot"&gt;&lt;/span&gt;&lt;span class="step-progress__dot"&gt;&lt;/span&gt;&lt;span class="step-progress__dot"&gt;&lt;/span&gt;&lt;/div&gt;</pre>
+</body>
+</html>

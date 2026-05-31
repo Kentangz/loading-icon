@@ -1,0 +1,11 @@
+{
+  "name": "Step Progress",
+  "category": "progress",
+  "tags": [
+    "stepped",
+    "linear-cascade",
+    "sequential"
+  ],
+  "html": "<div class=\"demo-stepprogress\"><span class=\"demo-stepprogress-dot\"></span><span class=\"demo-stepprogress-dot\"></span><span class=\"demo-stepprogress-dot\"></span><span class=\"demo-stepprogress-dot\"></span></div>",
+  "css": ".demo-stepprogress {\n  display: inline-flex;\n  align-items: center;\n  justify-content: space-between;\n  width: calc(var(--loader-size) * 1.5);\n  height: var(--loader-size);\n}\n.demo-stepprogress-dot {\n  width: 16%;\n  height: 16%;\n  background: var(--color-primary);\n  border-radius: 50%;\n  animation: dstep-progress-anim calc(1.4s * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);\n}\n.demo-stepprogress-dot:nth-child(1) {\n  animation-delay: 0s;\n}\n.demo-stepprogress-dot:nth-child(2) {\n  animation-delay: calc(1.4s * var(--loader-speed-scale) * -0.25);\n}\n.demo-stepprogress-dot:nth-child(3) {\n  animation-delay: calc(1.4s * var(--loader-speed-scale) * -0.5);\n}\n.demo-stepprogress-dot:nth-child(4) {\n  animation-delay: calc(1.4s * var(--loader-speed-scale) * -0.75);\n}\n@keyframes dstep-progress-anim {\n  0%, 100% { transform: scale(1); opacity: 0.3; }\n  50% { transform: scale(1.8); opacity: 1; }\n}"
+}
