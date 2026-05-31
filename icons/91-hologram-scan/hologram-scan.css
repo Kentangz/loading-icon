@@ -43,7 +43,7 @@
   height: 2px;
   background: var(--loader-color);
   box-shadow: var(--hs-glow);
-  animation: hologram-scan-anim calc(var(--loader-speed) * var(--loader-speed-scale)) ease-in-out var(--loader-cycles);
+  animation: hologram-scan-anim var(--loader-speed) ease-in-out infinite;
 }
 @keyframes hologram-scan-anim {
   0%, 100% {
