@@ -1,0 +1,11 @@
+{
+  "name": "Photon Burst",
+  "category": "cosmic",
+  "tags": [
+    "radial-burst",
+    "particle-explosion",
+    "cosmic"
+  ],
+  "html": "<div class=\"demo-photburst\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-photburst {\n  --pb-size: 36px;\n  --pb-color: var(--color-primary);\n  --pb-speed: calc(1.4s * var(--loader-speed-scale));\n  width: var(--pb-size);\n  height: var(--pb-size);\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n}\n.demo-photburst span {\n  position: absolute;\n  width: 18%;\n  height: 18%;\n  background: var(--pb-color);\n  border-radius: 50%;\n  animation: dphotburst-expand var(--pb-speed) ease-in-out var(--loader-cycles);\n}\n.demo-photburst span:nth-child(1) { --pb-angle: 0deg; }\n.demo-photburst span:nth-child(2) { --pb-angle: 60deg; }\n.demo-photburst span:nth-child(3) { --pb-angle: 120deg; }\n.demo-photburst span:nth-child(4) { --pb-angle: 180deg; }\n.demo-photburst span:nth-child(5) { --pb-angle: 240deg; }\n.demo-photburst span:nth-child(6) { --pb-angle: 300deg; }\n@keyframes dphotburst-expand {\n  0%, 100% { transform: rotate(var(--pb-angle)) translateX(0) scale(0.6); opacity: 0.4; }\n  50% { transform: rotate(var(--pb-angle)) translateX(130%) scale(1); opacity: 1; }\n}"
+}

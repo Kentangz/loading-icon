@@ -3145,4 +3145,222 @@ const loaders = [
   100% { transform: scale(1.6); opacity: 0; }
 }`,
 	},
+	{
+		id: "112",
+		name: "Cascade Tiles",
+		category: "special",
+		tags: ["cascade-tiles","staggered-flip","special"],
+		html: "<div class=\"demo-casctiles\"><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-casctiles {
+  --ct-size: 36px;
+  --ct-color: var(--color-primary);
+  --ct-speed: calc(1.6s * var(--loader-speed-scale));
+  width: var(--ct-size);
+  height: var(--ct-size);
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8%;
+  perspective: 200px;
+}
+.demo-casctiles span {
+  background: var(--ct-color);
+  border-radius: 2px;
+  animation: dcasctiles-flip var(--ct-speed) ease-in-out var(--loader-cycles);
+}
+.demo-casctiles span:nth-child(1) { animation-delay: 0s; }
+.demo-casctiles span:nth-child(2) { animation-delay: calc(var(--ct-speed) * 0.15); }
+.demo-casctiles span:nth-child(3) { animation-delay: calc(var(--ct-speed) * 0.3); }
+.demo-casctiles span:nth-child(4) { animation-delay: calc(var(--ct-speed) * 0.45); }
+@keyframes dcasctiles-flip {
+  0%, 100% { transform: rotateY(0deg); opacity: 1; }
+  50% { transform: rotateY(180deg); opacity: 0.3; }
+}`,
+	},
+	{
+		id: "113",
+		name: "Photon Burst",
+		category: "cosmic",
+		tags: ["radial-burst","particle-explosion","cosmic"],
+		html: "<div class=\"demo-photburst\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+		css: `.demo-photburst {
+  --pb-size: 36px;
+  --pb-color: var(--color-primary);
+  --pb-speed: calc(1.4s * var(--loader-speed-scale));
+  width: var(--pb-size);
+  height: var(--pb-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-photburst span {
+  position: absolute;
+  width: 18%;
+  height: 18%;
+  background: var(--pb-color);
+  border-radius: 50%;
+  animation: dphotburst-expand var(--pb-speed) ease-in-out var(--loader-cycles);
+}
+.demo-photburst span:nth-child(1) { --pb-angle: 0deg; }
+.demo-photburst span:nth-child(2) { --pb-angle: 60deg; }
+.demo-photburst span:nth-child(3) { --pb-angle: 120deg; }
+.demo-photburst span:nth-child(4) { --pb-angle: 180deg; }
+.demo-photburst span:nth-child(5) { --pb-angle: 240deg; }
+.demo-photburst span:nth-child(6) { --pb-angle: 300deg; }
+@keyframes dphotburst-expand {
+  0%, 100% { transform: rotate(var(--pb-angle)) translateX(0) scale(0.6); opacity: 0.4; }
+  50% { transform: rotate(var(--pb-angle)) translateX(130%) scale(1); opacity: 1; }
+}`,
+	},
+	{
+		id: "114",
+		name: "Pendulum Clock",
+		category: "special",
+		tags: ["pendulum-swing","gravity-arc","special"],
+		html: "<div class=\"demo-pendclk\"><span></span><span></span></div>",
+		css: `.demo-pendclk {
+  --pc-size: 36px;
+  --pc-color: var(--color-primary);
+  --pc-speed: calc(1.2s * var(--loader-speed-scale));
+  width: var(--pc-size);
+  height: var(--pc-size);
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.demo-pendclk span:first-child {
+  width: 2px;
+  height: 70%;
+  background: var(--pc-color);
+  transform-origin: top center;
+  animation: dpendclk-swing var(--pc-speed) ease-in-out var(--loader-cycles);
+  position: relative;
+}
+.demo-pendclk span:first-child::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--pc-size) * 0.22);
+  height: calc(var(--pc-size) * 0.22);
+  background: var(--pc-color);
+  border-radius: 50%;
+}
+.demo-pendclk span:last-child {
+  position: absolute;
+  bottom: 8%;
+  width: 30%;
+  height: 3px;
+  background: var(--pc-color);
+  opacity: 0.2;
+  border-radius: 50%;
+  animation: dpendclk-shadow var(--pc-speed) ease-in-out var(--loader-cycles);
+}
+@keyframes dpendclk-swing {
+  0% { transform: rotate(35deg); }
+  50% { transform: rotate(-35deg); }
+  100% { transform: rotate(35deg); }
+}
+@keyframes dpendclk-shadow {
+  0% { transform: translateX(40%) scaleX(0.7); }
+  50% { transform: translateX(-40%) scaleX(0.7); }
+  100% { transform: translateX(40%) scaleX(0.7); }
+}`,
+	},
+	{
+		id: "115",
+		name: "Flicker Gate",
+		category: "glitch",
+		tags: ["flicker-gate","clip-path-wipe","glitch"],
+		html: "<div class=\"demo-flickgate\"><span></span></div>",
+		css: `.demo-flickgate {
+  --fg-size: 36px;
+  --fg-color: var(--color-primary);
+  --fg-speed: calc(1.5s * var(--loader-speed-scale));
+  width: var(--fg-size);
+  height: var(--fg-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo-flickgate span {
+  position: absolute;
+  width: 60%;
+  height: 80%;
+  border: 2px solid var(--fg-color);
+  border-radius: 2px;
+  animation: dflickgate-wipe var(--fg-speed) steps(1, end) var(--loader-cycles);
+}
+.demo-flickgate::before {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 80%;
+  background: var(--fg-color);
+  opacity: 0.15;
+  border-radius: 2px;
+  animation: dflickgate-fill var(--fg-speed) ease-in-out var(--loader-cycles);
+}
+@keyframes dflickgate-wipe {
+  0%, 49.9% { clip-path: inset(0 0 0 0); }
+  50%, 100% { clip-path: inset(0 0 0 0); opacity: 0.6; }
+}
+@keyframes dflickgate-fill {
+  0% { clip-path: inset(0 100% 0 0); }
+  50% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 100%); }
+}`,
+	},
+	{
+		id: "116",
+		name: "Prism Refract",
+		category: "3d",
+		tags: ["prism-refract","3d-rotation","3d"],
+		html: "<div class=\"demo-prismref\"><span></span><span></span><span></span></div>",
+		css: `.demo-prismref {
+  --pr-size: 36px;
+  --pr-color: var(--color-primary);
+  --pr-speed: calc(2.0s * var(--loader-speed-scale));
+  width: var(--pr-size);
+  height: var(--pr-size);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 250px;
+}
+.demo-prismref span {
+  position: absolute;
+  width: 70%;
+  height: 14%;
+  background: var(--pr-color);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+.demo-prismref span:nth-child(1) {
+  animation: dprismref-a var(--pr-speed) linear var(--loader-cycles);
+}
+.demo-prismref span:nth-child(2) {
+  animation: dprismref-b var(--pr-speed) linear var(--loader-cycles);
+}
+.demo-prismref span:nth-child(3) {
+  animation: dprismref-c var(--pr-speed) linear var(--loader-cycles);
+}
+@keyframes dprismref-a {
+  0% { transform: rotateX(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateZ(120deg); }
+}
+@keyframes dprismref-b {
+  0% { transform: rotateY(0deg) rotateZ(60deg); }
+  100% { transform: rotateY(360deg) rotateZ(180deg); }
+}
+@keyframes dprismref-c {
+  0% { transform: rotateZ(120deg) rotateX(0deg); }
+  100% { transform: rotateZ(480deg) rotateX(360deg); }
+}`,
+	},
 ];

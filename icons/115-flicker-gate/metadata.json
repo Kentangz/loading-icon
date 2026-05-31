@@ -1,0 +1,11 @@
+{
+  "name": "Flicker Gate",
+  "category": "glitch",
+  "tags": [
+    "flicker-gate",
+    "clip-path-wipe",
+    "glitch"
+  ],
+  "html": "<div class=\"demo-flickgate\"><span></span></div>",
+  "css": ".demo-flickgate {\n  --fg-size: 36px;\n  --fg-color: var(--color-primary);\n  --fg-speed: calc(1.5s * var(--loader-speed-scale));\n  width: var(--fg-size);\n  height: var(--fg-size);\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n}\n.demo-flickgate span {\n  position: absolute;\n  width: 60%;\n  height: 80%;\n  border: 2px solid var(--fg-color);\n  border-radius: 2px;\n  animation: dflickgate-wipe var(--fg-speed) steps(1, end) var(--loader-cycles);\n}\n.demo-flickgate::before {\n  content: '';\n  position: absolute;\n  width: 60%;\n  height: 80%;\n  background: var(--fg-color);\n  opacity: 0.15;\n  border-radius: 2px;\n  animation: dflickgate-fill var(--fg-speed) ease-in-out var(--loader-cycles);\n}\n@keyframes dflickgate-wipe {\n  0%, 49.9% { clip-path: inset(0 0 0 0); }\n  50%, 100% { clip-path: inset(0 0 0 0); opacity: 0.6; }\n}\n@keyframes dflickgate-fill {\n  0% { clip-path: inset(0 100% 0 0); }\n  50% { clip-path: inset(0 0 0 0); }\n  100% { clip-path: inset(0 0 0 100%); }\n}"
+}

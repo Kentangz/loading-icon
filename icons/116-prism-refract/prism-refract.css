@@ -1,0 +1,99 @@
+/**
+ * Prism Refract — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Three thin rectangular prisms rotate in 3D space at
+ *             different axes, overlapping to create kaleidoscopic refraction.
+ * Usage     : Apply `.prism-refract` to the root element.
+ *             Requires 3 `<span>` children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.prism-refract {
+  /* === SIZE === */
+  --loader-size: 36px;
+
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --loader-speed: 2.0s;
+
+  /* === CUSTOM TOKENS === */
+  --pr-perspective: 250px;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+  perspective: var(--pr-perspective);
+}
+
+.prism-refract * {
+  box-sizing: border-box;
+}
+
+.prism-refract span {
+  position: absolute;
+  width: 70%;
+  height: 14%;
+  background: var(--loader-color);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.prism-refract span:nth-child(1) {
+  animation: prism-refract-a var(--loader-speed) linear infinite;
+}
+
+.prism-refract span:nth-child(2) {
+  animation: prism-refract-b var(--loader-speed) linear infinite;
+}
+
+.prism-refract span:nth-child(3) {
+  animation: prism-refract-c var(--loader-speed) linear infinite;
+}
+
+@keyframes prism-refract-a {
+  0% { transform: rotateX(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateZ(120deg); }
+}
+
+@keyframes prism-refract-b {
+  0% { transform: rotateY(0deg) rotateZ(60deg); }
+  100% { transform: rotateY(360deg) rotateZ(180deg); }
+}
+
+@keyframes prism-refract-c {
+  0% { transform: rotateZ(120deg) rotateX(0deg); }
+  100% { transform: rotateZ(480deg) rotateX(360deg); }
+}
+
+/* ─── Size presets ─── */
+.prism-refract--sm { --loader-size: 24px; }
+.prism-refract--md { --loader-size: 36px; }
+.prism-refract--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.prism-refract--primary { --loader-color: #7F77DD; }
+.prism-refract--success { --loader-color: #1D9E75; }
+.prism-refract--warning { --loader-color: #EF9F27; }
+.prism-refract--danger  { --loader-color: #E24B4A; }
+.prism-refract--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.prism-refract--fast { --loader-speed: 1.0s; }
+.prism-refract--slow { --loader-speed: 3.5s; }
+.prism-refract--soft { --loader-speed: 2.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .prism-refract span {
+    animation: none;
+  }
+}

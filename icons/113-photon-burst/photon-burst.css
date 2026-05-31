@@ -1,0 +1,80 @@
+/**
+ * Photon Burst — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Six particles burst outward from center and converge back,
+ *             simulating a photon explosion with radial expansion.
+ * Usage     : Apply `.photon-burst` to the root element.
+ *             Requires 6 `<span>` children.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.photon-burst {
+  /* === SIZE === */
+  --loader-size: 36px;
+
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --loader-speed: 1.4s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+}
+
+.photon-burst * {
+  box-sizing: border-box;
+}
+
+.photon-burst span {
+  position: absolute;
+  width: 18%;
+  height: 18%;
+  background: var(--loader-color);
+  border-radius: 50%;
+  animation: photon-burst-expand var(--loader-speed) ease-in-out infinite;
+}
+
+.photon-burst span:nth-child(1) { --pb-angle: 0deg; }
+.photon-burst span:nth-child(2) { --pb-angle: 60deg; }
+.photon-burst span:nth-child(3) { --pb-angle: 120deg; }
+.photon-burst span:nth-child(4) { --pb-angle: 180deg; }
+.photon-burst span:nth-child(5) { --pb-angle: 240deg; }
+.photon-burst span:nth-child(6) { --pb-angle: 300deg; }
+
+@keyframes photon-burst-expand {
+  0%, 100% { transform: rotate(var(--pb-angle)) translateX(0) scale(0.6); opacity: 0.4; }
+  50% { transform: rotate(var(--pb-angle)) translateX(130%) scale(1); opacity: 1; }
+}
+
+/* ─── Size presets ─── */
+.photon-burst--sm { --loader-size: 24px; }
+.photon-burst--md { --loader-size: 36px; }
+.photon-burst--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.photon-burst--primary { --loader-color: #7F77DD; }
+.photon-burst--success { --loader-color: #1D9E75; }
+.photon-burst--warning { --loader-color: #EF9F27; }
+.photon-burst--danger  { --loader-color: #E24B4A; }
+.photon-burst--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.photon-burst--fast { --loader-speed: 0.7s; }
+.photon-burst--slow { --loader-speed: 2.5s; }
+.photon-burst--soft { --loader-speed: 1.8s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .photon-burst span {
+    animation: none;
+  }
+}

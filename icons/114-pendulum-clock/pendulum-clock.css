@@ -1,0 +1,104 @@
+/**
+ * Pendulum Clock — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Single weighted pendulum swinging in a smooth arc
+ *             with gravity-driven deceleration and trailing shadow.
+ * Usage     : Apply `.pendulum-clock` to the root element.
+ *             Requires 2 `<span>` children (arm + shadow).
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.pendulum-clock {
+  /* === SIZE === */
+  --loader-size: 36px;
+
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --loader-speed: 1.2s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+}
+
+.pendulum-clock * {
+  box-sizing: border-box;
+}
+
+.pendulum-clock span:first-child {
+  width: 2px;
+  height: 70%;
+  background: var(--loader-color);
+  transform-origin: top center;
+  animation: pendulum-clock-swing var(--loader-speed) ease-in-out infinite;
+  position: relative;
+}
+
+.pendulum-clock span:first-child::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--loader-size) * 0.22);
+  height: calc(var(--loader-size) * 0.22);
+  background: var(--loader-color);
+  border-radius: 50%;
+}
+
+.pendulum-clock span:last-child {
+  position: absolute;
+  bottom: 8%;
+  width: 30%;
+  height: 3px;
+  background: var(--loader-color);
+  opacity: 0.2;
+  border-radius: 50%;
+  animation: pendulum-clock-shadow var(--loader-speed) ease-in-out infinite;
+}
+
+@keyframes pendulum-clock-swing {
+  0% { transform: rotate(35deg); }
+  50% { transform: rotate(-35deg); }
+  100% { transform: rotate(35deg); }
+}
+
+@keyframes pendulum-clock-shadow {
+  0% { transform: translateX(40%) scaleX(0.7); }
+  50% { transform: translateX(-40%) scaleX(0.7); }
+  100% { transform: translateX(40%) scaleX(0.7); }
+}
+
+/* ─── Size presets ─── */
+.pendulum-clock--sm { --loader-size: 24px; }
+.pendulum-clock--md { --loader-size: 36px; }
+.pendulum-clock--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.pendulum-clock--primary { --loader-color: #7F77DD; }
+.pendulum-clock--success { --loader-color: #1D9E75; }
+.pendulum-clock--warning { --loader-color: #EF9F27; }
+.pendulum-clock--danger  { --loader-color: #E24B4A; }
+.pendulum-clock--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.pendulum-clock--fast { --loader-speed: 0.6s; }
+.pendulum-clock--slow { --loader-speed: 2.2s; }
+.pendulum-clock--soft { --loader-speed: 1.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pendulum-clock span:first-child,
+  .pendulum-clock span:last-child {
+    animation: none;
+  }
+}

@@ -1,0 +1,94 @@
+/**
+ * Flicker Gate — LoadIcons
+ * ─────────────────────────────────────────────────────────────
+ * Technique : Rectangular gate flickers and reveals via animated
+ *             clip-path wipes, creating a cyberpunk portal effect.
+ * Usage     : Apply `.flicker-gate` to the root element.
+ *             Requires 1 `<span>` child.
+ * ─────────────────────────────────────────────────────────────
+ *
+ * CONFIGURATION — edit the values below to suit your project.
+ */
+
+.flicker-gate {
+  /* === SIZE === */
+  --loader-size: 36px;
+
+  /* === COLOR === */
+  --loader-color: #7F77DD;
+
+  /* === ANIMATION === */
+  --loader-speed: 1.5s;
+
+  /* ─── Do not edit below this line ─── */
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  flex-shrink: 0;
+}
+
+.flicker-gate * {
+  box-sizing: border-box;
+}
+
+.flicker-gate span {
+  position: absolute;
+  width: 60%;
+  height: 80%;
+  border: 2px solid var(--loader-color);
+  border-radius: 2px;
+  animation: flicker-gate-blink var(--loader-speed) steps(1, end) infinite;
+}
+
+.flicker-gate::before {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 80%;
+  background: var(--loader-color);
+  opacity: 0.15;
+  border-radius: 2px;
+  animation: flicker-gate-fill var(--loader-speed) ease-in-out infinite;
+}
+
+@keyframes flicker-gate-blink {
+  0%, 24% { opacity: 1; }
+  25%, 26% { opacity: 0.3; }
+  27%, 49% { opacity: 1; }
+  50%, 51% { opacity: 0.2; }
+  52%, 100% { opacity: 1; }
+}
+
+@keyframes flicker-gate-fill {
+  0% { clip-path: inset(0 100% 0 0); }
+  50% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 100%); }
+}
+
+/* ─── Size presets ─── */
+.flicker-gate--sm { --loader-size: 24px; }
+.flicker-gate--md { --loader-size: 36px; }
+.flicker-gate--lg { --loader-size: 48px; }
+
+/* ─── Color presets ─── */
+.flicker-gate--primary { --loader-color: #7F77DD; }
+.flicker-gate--success { --loader-color: #1D9E75; }
+.flicker-gate--warning { --loader-color: #EF9F27; }
+.flicker-gate--danger  { --loader-color: #E24B4A; }
+.flicker-gate--white   { --loader-color: #ffffff; }
+
+/* ─── Speed modifiers ─── */
+.flicker-gate--fast { --loader-speed: 0.8s; }
+.flicker-gate--slow { --loader-speed: 2.8s; }
+.flicker-gate--soft { --loader-speed: 2.0s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .flicker-gate span,
+  .flicker-gate::before {
+    animation: none;
+  }
+}

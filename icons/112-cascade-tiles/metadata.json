@@ -1,0 +1,11 @@
+{
+  "name": "Cascade Tiles",
+  "category": "special",
+  "tags": [
+    "cascade-tiles",
+    "staggered-flip",
+    "special"
+  ],
+  "html": "<div class=\"demo-casctiles\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".demo-casctiles {\n  --ct-size: 36px;\n  --ct-color: var(--color-primary);\n  --ct-speed: calc(1.6s * var(--loader-speed-scale));\n  width: var(--ct-size);\n  height: var(--ct-size);\n  display: inline-grid;\n  grid-template-columns: 1fr 1fr;\n  grid-template-rows: 1fr 1fr;\n  gap: 8%;\n  perspective: 200px;\n}\n.demo-casctiles span {\n  background: var(--ct-color);\n  border-radius: 2px;\n  animation: dcasctiles-flip var(--ct-speed) ease-in-out var(--loader-cycles);\n}\n.demo-casctiles span:nth-child(1) { animation-delay: 0s; }\n.demo-casctiles span:nth-child(2) { animation-delay: calc(var(--ct-speed) * 0.15); }\n.demo-casctiles span:nth-child(3) { animation-delay: calc(var(--ct-speed) * 0.3); }\n.demo-casctiles span:nth-child(4) { animation-delay: calc(var(--ct-speed) * 0.45); }\n@keyframes dcasctiles-flip {\n  0%, 100% { transform: rotateY(0deg); opacity: 1; }\n  50% { transform: rotateY(180deg); opacity: 0.3; }\n}"
+}

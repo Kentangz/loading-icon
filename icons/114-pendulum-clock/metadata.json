@@ -1,0 +1,11 @@
+{
+  "name": "Pendulum Clock",
+  "category": "special",
+  "tags": [
+    "pendulum-swing",
+    "gravity-arc",
+    "special"
+  ],
+  "html": "<div class=\"demo-pendclk\"><span></span><span></span></div>",
+  "css": ".demo-pendclk {\n  --pc-size: 36px;\n  --pc-color: var(--color-primary);\n  --pc-speed: calc(1.2s * var(--loader-speed-scale));\n  width: var(--pc-size);\n  height: var(--pc-size);\n  position: relative;\n  display: inline-flex;\n  align-items: flex-start;\n  justify-content: center;\n}\n.demo-pendclk span:first-child {\n  width: 2px;\n  height: 70%;\n  background: var(--pc-color);\n  transform-origin: top center;\n  animation: dpendclk-swing var(--pc-speed) ease-in-out var(--loader-cycles);\n  position: relative;\n}\n.demo-pendclk span:first-child::after {\n  content: '';\n  position: absolute;\n  bottom: -4px;\n  left: 50%;\n  transform: translateX(-50%);\n  width: calc(var(--pc-size) * 0.22);\n  height: calc(var(--pc-size) * 0.22);\n  background: var(--pc-color);\n  border-radius: 50%;\n}\n.demo-pendclk span:last-child {\n  position: absolute;\n  bottom: 8%;\n  width: 30%;\n  height: 3px;\n  background: var(--pc-color);\n  opacity: 0.2;\n  border-radius: 50%;\n  animation: dpendclk-shadow var(--pc-speed) ease-in-out var(--loader-cycles);\n}\n@keyframes dpendclk-swing {\n  0% { transform: rotate(35deg); }\n  50% { transform: rotate(-35deg); }\n  100% { transform: rotate(35deg); }\n}\n@keyframes dpendclk-shadow {\n  0% { transform: translateX(40%) scaleX(0.7); }\n  50% { transform: translateX(-40%) scaleX(0.7); }\n  100% { transform: translateX(40%) scaleX(0.7); }\n}"
+}
